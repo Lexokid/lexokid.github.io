@@ -1246,6 +1246,7 @@ pre .javascript .function {
   border-bottom: none;
   line-height: 1.2;
   vertical-align: top;
+  font-weight: 400;
 }
 .posts-expand .post-title-link::before {
   content: "";
@@ -1564,7 +1565,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #580603;
+  background: #e7b1c3;
 }
 .links-of-blogroll {
   font-size: 13px;
