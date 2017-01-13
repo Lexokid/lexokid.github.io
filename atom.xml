@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-13T08:43:44.947Z</updated>
+  <updated>2017-01-13T08:58:57.695Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>原始值和对象</title>
-    <link href="http://yoursite.com/2017/01/13/JavaScript%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B91/"/>
-    <id>http://yoursite.com/2017/01/13/JavaScript小知识点1/</id>
+    <link href="http://yoursite.com/2017/01/13/%E5%8E%9F%E5%A7%8B%E5%80%BC%E5%92%8C%E5%AF%B9%E8%B1%A1/"/>
+    <id>http://yoursite.com/2017/01/13/原始值和对象/</id>
     <published>2017-01-13T07:52:00.000Z</published>
-    <updated>2017-01-13T08:43:44.947Z</updated>
+    <updated>2017-01-13T08:58:57.695Z</updated>
     
     <content type="html"><![CDATA[<h2 id="原始值和对象"><a href="#原始值和对象" class="headerlink" title="原始值和对象"></a>原始值和对象</h2><p>在阅读深入理解JavaScript中发现值可以分为两类：<strong>原始值</strong>和<strong>对象</strong></p>
 <ul>
