@@ -3,9 +3,16 @@
   
     
     <entry>
+      <title><![CDATA[typeof和instanceof]]></title>
+      <url>%2F2017%2F01%2F14%2Ftypeof%E5%92%8Cinstanceof%2F</url>
+      <content type="text"><![CDATA[typeof和instanceof如果要对一个值进行分类，你就不得不区分JavaScript中的原始值和对象 typeof运算符能区分原始值和对象，并检测出原始值的类型 instanceof运算符可以检测一个对象是否是特定构造函数的一个实例 typeoftypeof运算符用法：1234typeof undefined; //'undefined'typeof 'abc'; //'string'typeof &#123;&#125;; //'object'typeof []; //'object' 返回一个字符串，会描述值的类型是什么 运算数 结果 undefined ‘undefined’ null ‘null’ 布尔值 ‘boolean’ 数字 ‘number’ 字符串 ‘string’ 函数 ‘function’ 所有其他常规属性 ‘object’ 注意：typeof null返回object是一个不能去修正的bug，因为这会破坏现有的代码。判断一个值是否是对象可以用下面这个函数： 12345function isObject(value)&#123; return (value !== null &amp;&amp; (typeof value === 'object' || typeof value === 'function'));&#125; instanceof判断value是由构造函数Constr还是子构造函数创建的，所以它是检测Constr.prototype是否在value的原型链上。因此，下两个表达式是等价的：value instanceof ConstrConstr.prototype.isPrototypeOf(value) instanceof运算符用法：123456789101112&#123;&#125; instanceof Object; //true[] instanceof Array; //true[] instanceof Object; //trueundefined instanceof Object; //falsenull instanceof Object; //falsenew Date() instanceof Date; //truenew Date() instanceof Object; //true'abc' instanceof String; //false123 instanceof Number; //false instanceof对原始值总是false如果instanceof的右边不是函数，则会抛出异常[] instanceof 123; //TypeError: Expecting a function in instanceof check 注意：几乎所有的对象都是Object的实例，因为Object.prototype在这些对象的原型链上。但也有个别对象不属于这种情况，如：12Object.create(null) instanceof Object; //falseObject.prototype instanceof Object; //false 是因为这些是没有原型的对象：12Object.getPrototypeOf(Object.create(null)); //nullObject.getPrototypeOf(Object.prototype); //null 但typeof可以正确的把这些归类为对象：12typeof Object.create(null); //'Object'typeof Object.prototype; //'Object']]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[原始值和对象]]></title>
       <url>%2F2017%2F01%2F13%2F%E5%8E%9F%E5%A7%8B%E5%80%BC%E5%92%8C%E5%AF%B9%E8%B1%A1%2F</url>
-      <content type="text"><![CDATA[原始值和对象在阅读深入理解JavaScript中发现值可以分为两类：原始值和对象 原始值包括布尔值、数字、字符串、null和undefined 其他的值都是对象 两者之间最主要的区别在于它们的比较方式：每个对象都有唯一的标识且（严格的）等于自己：1234var obj1 = &#123;&#125;;var obj2 = &#123;&#125;;obj1 === obj2; //falseobj1 === obj1; //true 相反，所有原始值只要编码值相同，则被认为相等：123var prim1 = 123;var prim2 = 123;prim1 === prim2; //true 原始值原始值包括布尔值、数字、字符串、null和undefined原始值具有以下特点： 按值比较 123 === 3; //true&apos;abc&apos; === &apos;abc&apos;; //true 不可改变 123456var str = 'abc';str.length = 1;str.length; //3str.foo = 3;str.foo; //undefined 对象所有非原始值都是对象对象具有以下特点： 按引用进行比较比较身份标识：每个值都有各自的身份标识 12345&#123;&#125; === &#123;&#125;; //falsevar obj1 = &#123;&#125;;var obj2 = obj1;obj1 === obj2; //true 默认可变对象属性可以被改变、添加和删除 123var obj = &#123;&#125;;obj.foo = 123;obj.foo; //123]]></content>
+      <content type="text"><![CDATA[原始值和对象在阅读深入理解JavaScript中发现值可以分为两类：原始值和对象 原始值包括布尔值、数字、字符串、null和undefined 其他的值都是对象 两者之间最主要的区别在于它们的比较方式：每个对象都有唯一的标识且（严格的）等于自己：1234var obj1 = &#123;&#125;;var obj2 = &#123;&#125;;obj1 === obj2; //falseobj1 === obj1; //true 相反，所有原始值只要编码值相同，则被认为相等：123var prim1 = 123;var prim2 = 123;prim1 === prim2; //true 原始值原始值包括布尔值、数字、字符串、null和undefined原始值具有以下特点： 按值比较 123 === 3; //true'abc' === 'abc'; //true 不可改变其属性不能被改变、添加和删除 1234567var str = 'abc';str.length = 1;str.length; //3str.foo = 3;str.foo; //undefined//读取未知属性时，总会返回undefined 对象所有非原始值都是对象对象具有以下特点： 按引用进行比较比较身份标识：每个值都有各自的身份标识 12345&#123;&#125; === &#123;&#125;; //falsevar obj1 = &#123;&#125;;var obj2 = obj1;obj1 === obj2; //true 默认可变对象属性可以被改变、添加和删除 123var obj = &#123;&#125;;obj.foo = 123;obj.foo; //123]]></content>
     </entry>
 
     
