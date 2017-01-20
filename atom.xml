@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-14T15:14:22.239Z</updated>
+  <updated>2017-01-20T11:25:26.462Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,258 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MarkDown代码块支持的语言</title>
+    <link href="http://yoursite.com/2017/01/20/MarkDown%E4%BB%A3%E7%A0%81%E5%9D%97%E6%94%AF%E6%8C%81%E7%9A%84%E8%AF%AD%E8%A8%80/"/>
+    <id>http://yoursite.com/2017/01/20/MarkDown代码块支持的语言/</id>
+    <published>2017-01-20T11:21:01.000Z</published>
+    <updated>2017-01-20T11:25:26.462Z</updated>
+    
+    <content type="html"><![CDATA[<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>关键字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AppleScript</td>
+<td>applescript</td>
+</tr>
+<tr>
+<td>ActionScript 3.0</td>
+<td>actionscript3 , as3</td>
+</tr>
+<tr>
+<td>Shell</td>
+<td>bash , shell</td>
+</tr>
+<tr>
+<td>ColdFusion</td>
+<td>coldfusion , cf</td>
+</tr>
+<tr>
+<td>C</td>
+<td>cpp , c</td>
+</tr>
+<tr>
+<td>C#</td>
+<td>c# , c-sharp , csharp</td>
+</tr>
+<tr>
+<td>CSS</td>
+<td>css</td>
+</tr>
+<tr>
+<td>Delphi</td>
+<td>delphi , pascal , pas</td>
+</tr>
+<tr>
+<td>diff&amp;patch</td>
+<td>diff patch</td>
+</tr>
+<tr>
+<td>Erlang</td>
+<td>erl , erlang</td>
+</tr>
+<tr>
+<td>Groovy</td>
+<td>groovy</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>java</td>
+</tr>
+<tr>
+<td>JavaFX</td>
+<td>jfx , javafx</td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td>js , jscript , javascript</td>
+</tr>
+<tr>
+<td>Perl</td>
+<td>perl , pl , Perl</td>
+</tr>
+<tr>
+<td>PHP</td>
+<td>php</td>
+</tr>
+<tr>
+<td>text</td>
+<td>text , plain</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>py , python</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td>ruby , rails , ror , rb</td>
+</tr>
+<tr>
+<td>SASS&amp;SCSS</td>
+<td>sass , scss</td>
+</tr>
+<tr>
+<td>Scala</td>
+<td>scala</td>
+</tr>
+<tr>
+<td>SQL</td>
+<td>sql</td>
+</tr>
+<tr>
+<td>Visual Basic</td>
+<td>vb , vbnet</td>
+</tr>
+<tr>
+<td>XML</td>
+<td>xml , xhtml , xslt , html</td>
+</tr>
+<tr>
+<td>Objective C</td>
+<td>objc , obj-c</td>
+</tr>
+<tr>
+<td>F#  f#</td>
+<td>f-sharp , fsharp</td>
+</tr>
+<tr>
+<td>R</td>
+<td>r , s , splus</td>
+</tr>
+<tr>
+<td>matlab</td>
+<td>matlab</td>
+</tr>
+<tr>
+<td>swift</td>
+<td>swift</td>
+</tr>
+<tr>
+<td>GO</td>
+<td>go , golang</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名称&lt;/th&gt;
+&lt;th&gt;关键字&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;AppleScript&lt;/td&gt;
+&lt;td&gt;applescript&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ActionScr
+    
+    </summary>
+    
+      <category term="MarkDown" scheme="http://yoursite.com/categories/MarkDown/"/>
+    
+    
+      <category term="MarkDown" scheme="http://yoursite.com/tags/MarkDown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySql基本命令</title>
+    <link href="http://yoursite.com/2017/01/20/mysql%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2017/01/20/mysql基本命令/</id>
+    <published>2017-01-20T08:56:54.000Z</published>
+    <updated>2017-01-20T11:08:52.647Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="MySql常用的几个基本命令"><a href="#MySql常用的几个基本命令" class="headerlink" title="MySql常用的几个基本命令"></a>MySql常用的几个基本命令</h2><h3 id="MySQL登录"><a href="#MySQL登录" class="headerlink" title="MySQL登录"></a>MySQL登录</h3><p><strong>mysql [-u username] [-h host] [-p[password]] [-P port]</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">mysql参数</th>
+<th style="text-align:center">参数-描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-D，–database=name</td>
+<td style="text-align:center">打开指定数据库</td>
+</tr>
+<tr>
+<td style="text-align:left">-h, –host=name</td>
+<td style="text-align:center">服务器名称（默认本地服务器127.0.0.1）</td>
+</tr>
+<tr>
+<td style="text-align:left">-p，–password[=name]</td>
+<td style="text-align:center">密码</td>
+</tr>
+<tr>
+<td style="text-align:left">-P, –port=#</td>
+<td style="text-align:center">端口号（默认3306）</td>
+</tr>
+<tr>
+<td style="text-align:left">-u, –user=name</td>
+<td style="text-align:center">用户名</td>
+</tr>
+<tr>
+<td style="text-align:left">-V, –version</td>
+<td style="text-align:center">输出版本信息并且退出</td>
+</tr>
+<tr>
+<td style="text-align:left">–delimiter=name</td>
+<td style="text-align:center">指定分隔符</td>
+</tr>
+<tr>
+<td style="text-align:left">–prompt=name</td>
+<td style="text-align:center">设置提示符</td>
+</tr>
+</tbody>
+</table>
+<p>示例：<code>mysql -uroot -proot -P3306 -h127.0.0.1</code>表示超级用户名root,密码root，端口号3306（不输入P默认为3306），主机地址127.0.0.1（若使用本机作为主机，h默认127.0.0.1）</p>
+<hr>
+<h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><h4 id="1-创建数据库"><a href="#1-创建数据库" class="headerlink" title="1.创建数据库"></a>1.创建数据库</h4><p>创建数据库,并设置其编码方式(如果不设置编码方式,系统将按照默认方式设置编码方式)<br><strong>CREATE ｛DATABASE | SCHEMA｝ [IF NOT EXITSTS] db_name [DEFAULT] CHARACTER SET [=] charset_name;</strong><br>示例：<code>CREATE DATABASE IF NOT EXISTS db1 CHARACTER SET gbk;</code></p>
+<h4 id="2-查看所有数据库"><a href="#2-查看所有数据库" class="headerlink" title="2.查看所有数据库"></a>2.查看所有数据库</h4><p><strong>SHOW {DATABASES | SCHEMAS};</strong></p>
+<h4 id="3-查看数据库创建时的指令"><a href="#3-查看数据库创建时的指令" class="headerlink" title="3.查看数据库创建时的指令"></a>3.查看数据库创建时的指令</h4><p><strong>SHOW CREATE DATABASE db_name;</strong></p>
+<h4 id="4-修改数据库编码方式"><a href="#4-修改数据库编码方式" class="headerlink" title="4.修改数据库编码方式"></a>4.修改数据库编码方式</h4><p><strong>ALTER {DATABASE | SCHEMA} db_name [DEFAULT] CHARACTER SET [=] charset_name;</strong><br>示例：<code>ALTER DATABASE db1 CHARACTER SET utf8;</code></p>
+<h4 id="5-删除数据库"><a href="#5-删除数据库" class="headerlink" title="5.删除数据库"></a>5.删除数据库</h4><p><strong>DROP {DATABASE | SCHEMA} [IF EXISTS] db_name;</strong><br>示例：<code>DROP DATABASE db1；</code></p>
+<h4 id="6-打开数据库"><a href="#6-打开数据库" class="headerlink" title="6.打开数据库"></a>6.打开数据库</h4><p><strong>USE db_name;</strong></p>
+<h4 id="7-查看警告信息"><a href="#7-查看警告信息" class="headerlink" title="7.查看警告信息"></a>7.查看警告信息</h4><p><strong>SHOW WARNINGS;</strong></p>
+<hr>
+<h3 id="数据表操作"><a href="#数据表操作" class="headerlink" title="数据表操作"></a>数据表操作</h3><h4 id="1-创建数据表"><a href="#1-创建数据表" class="headerlink" title="1.创建数据表"></a>1.创建数据表</h4><p><strong>CREATE TABLE [IF NOT EXISTS] table_name(column_name(列名称) data_type（列类型）[NOT NULL|NULL],….);</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">TABLE</span> tb1(</div><div class="line">username <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">age TINYINT <span class="keyword">UNSIGNED</span>,   //<span class="keyword">unsigned</span>表示无符号位，即不能为负数</div><div class="line">salary <span class="built_in">FLOAT</span>(<span class="number">8</span>,<span class="number">2</span>), <span class="keyword">UNSIGNED</span>,    //有效位数为<span class="number">8</span>位，精度为<span class="number">2</span>，即<span class="number">6</span>位整数，<span class="number">2</span>位小数</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<h4 id="2-查看数据表列表"><a href="#2-查看数据表列表" class="headerlink" title="2.查看数据表列表"></a>2.查看数据表列表</h4><p><strong>SHOW TABLES [FROM db_name] [LIKE ‘pattern’|WHERE expr];</strong><br>示例：<code>SHOW TABLES FROM mysql;    //查看mysql数据库的所有表</code></p>
+<h4 id="3-查看数据表结构"><a href="#3-查看数据表结构" class="headerlink" title="3.查看数据表结构"></a>3.查看数据表结构</h4><p><strong>SHOW COLUMNS FROM table_name;</strong></p>
+<h4 id="4-插入记录"><a href="#4-插入记录" class="headerlink" title="4.插入记录"></a>4.插入记录</h4><p><strong>INSERT [INTO] table_name [(col_name,…)] VALUES(val,…);</strong><br>示例：<code>INSERT tb1(username,salary) VALUES(&#39;Tom&#39;,6666.66);</code></p>
+<h4 id="5-查找记录"><a href="#5-查找记录" class="headerlink" title="5.查找记录"></a>5.查找记录</h4><p><strong>SELECT expr,… FROM table_name;</strong><br>示例：<code>SELECT * FROM tb1;</code></p>
+<hr>
+<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><h4 id="1-显示当前服务版本号"><a href="#1-显示当前服务版本号" class="headerlink" title="1.显示当前服务版本号"></a>1.显示当前服务版本号</h4><p><strong>SELECT VERSION();</strong></p>
+<h4 id="2-显示当前用户"><a href="#2-显示当前用户" class="headerlink" title="2.显示当前用户"></a>2.显示当前用户</h4><p><strong>SELECT USER();</strong></p>
+<h4 id="3-显示当前日期时间"><a href="#3-显示当前日期时间" class="headerlink" title="3.显示当前日期时间"></a>3.显示当前日期时间</h4><p><strong>SELECT NOW();</strong></p>
+<h4 id="4-显示当前所在数据库"><a href="#4-显示当前所在数据库" class="headerlink" title="4.显示当前所在数据库"></a>4.显示当前所在数据库</h4><p><strong>SELECT DATABASE();</strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;MySql常用的几个基本命令&quot;&gt;&lt;a href=&quot;#MySql常用的几个基本命令&quot; class=&quot;headerlink&quot; title=&quot;MySql常用的几个基本命令&quot;&gt;&lt;/a&gt;MySql常用的几个基本命令&lt;/h2&gt;&lt;h3 id=&quot;MySQL登录&quot;&gt;&lt;a href=
+    
+    </summary>
+    
+      <category term="MySql" scheme="http://yoursite.com/categories/MySql/"/>
+    
+    
+      <category term="MySql" scheme="http://yoursite.com/tags/MySql/"/>
+    
+      <category term="语法" scheme="http://yoursite.com/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>typeof和instanceof</title>
