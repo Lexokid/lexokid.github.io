@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-02T17:03:01.337Z</updated>
+  <updated>2017-02-08T14:31:26.888Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,25 +16,419 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>MySql零接触(6)</title>
+    <link href="http://yoursite.com/2017/02/08/MySql%E9%9B%B6%E6%8E%A5%E8%A7%A6(6)/"/>
+    <id>http://yoursite.com/2017/02/08/MySql零接触(6)/</id>
+    <published>2017-02-08T07:24:54.000Z</published>
+    <updated>2017-02-08T14:31:26.888Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h2><p>子查询是指出现在其他SQL语句内的SELECT子句<br>例如：<br><code>SELECT * FROM t1 WHERE column1 = (SELECT column2 FROM t2);</code><br>其中，SELECT * FROM t1 …称为Outer Query[外查询](或者Outer Statement)<br>SELECT column2 FROM t2 称为Sub Query[子查询]</p>
+<p>子查询的条件：<br>    1.始终出现在圆括号内<br>    2.可以包含多个关键字或者条件；如 distinct、group by、order by、limit、函数等  （改为大写）<br>    3.子查询的外查询可以是:【SELECT,INSERT,UPDATE,SET或DO】。SQL语句的统称</p>
+<p>子查询的返回值：<br>子查询可以返回标量、一行、一列或子查询</p>
+<p>使用比较运算符的子查询：<br>=、&gt;、&lt;、&gt;=、&lt;=、&lt;&gt;、!=、&lt;=&gt;<br>语法结构：<br>operand comparision_operator subquery<br>当子查询返回多个结果时，可用ANY、SOME、ALL关键字来修饰子查询<br>WHERE语句中不能使用聚合函数，想使用，需要通过SELECT子查询</p>
+<p>例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> tdb_goods(</div><div class="line">    goods_id    <span class="built_in">SMALLINT</span> <span class="keyword">UNSIGNED</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,    <span class="comment">--商品id</span></div><div class="line">    goods_name  <span class="built_in">VARCHAR</span>(<span class="number">150</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,    <span class="comment">--商品名</span></div><div class="line">    goods_cate  <span class="built_in">VARCHAR</span>(<span class="number">40</span>)  <span class="keyword">NOT</span> <span class="literal">NULL</span>,    <span class="comment">--商品类别</span></div><div class="line">    brand_name  <span class="built_in">VARCHAR</span>(<span class="number">40</span>)  <span class="keyword">NOT</span> <span class="literal">NULL</span>,    <span class="comment">--品牌</span></div><div class="line">    goods_price <span class="built_in">DECIMAL</span>(<span class="number">15</span>,<span class="number">3</span>) <span class="keyword">UNSIGNED</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>,    <span class="comment">--商品价格</span></div><div class="line">    is_show     <span class="built_in">BOOLEAN</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">1</span>,</div><div class="line">    is_saleoff  <span class="built_in">BOOLEAN</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span></div><div class="line">);</div><div class="line">...    <span class="comment">--插入数据</span></div><div class="line"></div><div class="line"><span class="comment">--查找价格大于平均值的商品</span></div><div class="line"><span class="keyword">SELECT</span> goods_id,goods_name,goods_price <span class="keyword">FROM</span> tdb_goods <span class="keyword">WHERE</span> goods_price&gt;=(<span class="keyword">SELECT</span> <span class="keyword">ROUND</span>(<span class="keyword">AVG</span>(goods_price),<span class="number">2</span>) <span class="keyword">FROM</span> tdb_goods);</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>table_reference {[INNER|CROSS] JOIN|{LEFT|RIGHT}[OUTER]JOIN} table_reference ON conditional_expr<br>连接类型：<br>INNER JOIN,内连接(在MySQL中，JOIN, CROSS JOIN 和 INNER JOIN 是等价的)<br>LEFT [OUTER] JOIN ,左外连接<br>RIGHT [OUTER] JOIN,右外连接<br>连接条件：<br>conditional_expr<br>例如：UPDATE 表1 INNER JOIN 表2 ON 列1 = 列2（两者属性完全相同）SET 列1 = 列3（设置值）。</p>
+<h3 id="多表更新"><a href="#多表更新" class="headerlink" title="多表更新"></a>多表更新</h3><p>UPDATE table_reference {[INNER|CROSS] JOIN|{LEFT|RIGHT}[OUTER]JOIN} table_reference ON conditional_expr SET col_name1={expr1 | DEFAULT} [,col_name2={expr2 | DEFAULT}]… [WHERE where_condition]</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- 创建“商品分类”表</span></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> tdb_goods_cates(</div><div class="line">    cate_id <span class="built_in">SMALLINT</span> <span class="keyword">UNSIGNED</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</div><div class="line">    cate_name <span class="built_in">VARCHAR</span>(<span class="number">40</span>)</div><div class="line">  );</div><div class="line"></div><div class="line"><span class="comment">-- 将分组结果写入到tdb_goods_cates数据表</span></div><div class="line"><span class="keyword">INSERT</span> tdb_goods_cates (cate_name) <span class="keyword">SELECT</span> goods_cate <span class="keyword">FROM</span> tdb_goods <span class="keyword">GROUP</span> <span class="keyword">BY</span> goods_cate;</div><div class="line"></div><div class="line"><span class="comment">-- 通过tdb_goods_cates数据表来更新tdb_goods表</span></div><div class="line"><span class="keyword">UPDATE</span> tdb_goods <span class="keyword">INNER</span> <span class="keyword">JOIN</span> tdb_goods_cates <span class="keyword">ON</span> goods_cate = cate_name <span class="keyword">SET</span> goods_cate = cate_id ;</div></pre></td></tr></table></figure>
+<h3 id="多表更新之一步到位"><a href="#多表更新之一步到位" class="headerlink" title="多表更新之一步到位"></a>多表更新之一步到位</h3><p>1.CREATE SELECT<br>创建数据表同时将查询结果写入到数据表<br>CREATE TABLE [IF NOT EXISTS] tbl_name [(create_definition,…)] select_statement;</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> tdb_goods_brands</div><div class="line">(</div><div class="line">brand_id <span class="built_in">SMALLINT</span> <span class="keyword">UNSIGNED</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</div><div class="line">brand_name <span class="built_in">VARCHAR</span>(<span class="number">40</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span></div><div class="line">)</div><div class="line"><span class="keyword">SELECT</span> brand_name <span class="keyword">FROM</span> tdb_goods <span class="keyword">GROUP</span> <span class="keyword">BY</span> brand_name;</div></pre></td></tr></table></figure>
+<p>2.两个表建立连接 多表更新<br>根据新建的表tdb_goods_brands修改商品表tdb_goods，把商品表中的brand_name改成tdb_goods_brands中的brand_id</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--两个表都有brand_name,要用 AS关键词给表起别名</span></div><div class="line"><span class="keyword">UPDATE</span> tdb_goods <span class="keyword">AS</span>  g  <span class="keyword">INNER</span> <span class="keyword">JOIN</span> tdb_goods_brands <span class="keyword">AS</span> b <span class="keyword">ON</span> g.brand_name = b.brand_name <span class="keyword">SET</span> g.brand_name = b.brand_id;</div></pre></td></tr></table></figure>
+<p>3.但是商品表tdb_goods中仍为 goods_cate VARCHAR, brand_name VARCHAR。我们要把goods_cate 改为 cate_id,把brand_name 改为 brand_id,并把数据类型改为SAMLLINT。既修改列名称又修改数据类型用CHANGE关键字</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tdb_goods</div><div class="line"><span class="keyword">CHANGE</span> goods_cate cate_id <span class="built_in">SMALLINT</span> <span class="keyword">UNSIGNED</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line"><span class="keyword">CHANGE</span> brand_name brand_id <span class="built_in">SMALLINT</span> <span class="keyword">UNSIGNED</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>;</div></pre></td></tr></table></figure>
+<p>4.不一定要用物理的外键即FOREIGN KEY 建立联系，也可以使用这种方法 称为事实外键。实际上物理外键使用得少</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;子查询&quot;&gt;&lt;a href=&quot;#子查询&quot; class=&quot;headerlink&quot; title=&quot;子查询&quot;&gt;&lt;/a&gt;子查询&lt;/h2&gt;&lt;p&gt;子查询是指出现在其他SQL语句内的SELECT子句&lt;br&gt;例如：&lt;br&gt;&lt;code&gt;SELECT * FROM t1 WHERE c
+    
+    </summary>
+    
+      <category term="MySql" scheme="http://yoursite.com/categories/MySql/"/>
+    
+    
+      <category term="MySql" scheme="http://yoursite.com/tags/MySql/"/>
+    
+      <category term="语法" scheme="http://yoursite.com/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySql零接触(5)</title>
+    <link href="http://yoursite.com/2017/02/08/MySql%E9%9B%B6%E6%8E%A5%E8%A7%A6(5)/"/>
+    <id>http://yoursite.com/2017/02/08/MySql零接触(5)/</id>
+    <published>2017-02-08T06:24:54.000Z</published>
+    <updated>2017-02-08T06:17:11.238Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="数据的操作"><a href="#数据的操作" class="headerlink" title="数据的操作"></a>数据的操作</h2><p>若省略列名称则所有列要依次赋值<br>对于自动编号的字段，插入“NULL”或“DEFAULT”系统将自动依次递增编号<br>对于有默认值的字段，可以插入“DEFAULT”表示使用默认值<br>列值可传入数值、表达式或函数，如密码可以用md5()函数(PHP中的函数  求字符串哈希值函数)(如md5(‘123’))<br>可同时插入多条数据，多条数据括号间用逗号“,”隔开</p>
+<h3 id="1-插入数据"><a href="#1-插入数据" class="headerlink" title="1.插入数据"></a>1.插入数据</h3><p>方法一：<strong>INSERT [INTO] tbl_name [(col_name)] {VALUES|VALUE}({expr|DEFAULT},…),(…),…;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> tb1(username,salary) <span class="keyword">VALUES</span>(<span class="string">'Tom'</span>,<span class="number">6666.66</span>),(<span class="string">'John'</span>,<span class="number">1234</span>);</div></pre></td></tr></table></figure></p>
+<p>方法二：<strong>INSERT [INTO] tbl_name SET col_name={expr|DEFAULT},…;</strong><br>此方法可以使用子查询，一次只能插入一条数据<br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> tb1 <span class="keyword">SET</span> username=<span class="string">'Ben'</span>,salary=<span class="string">'1234'</span>;</div></pre></td></tr></table></figure></p>
+<p>方法三：<strong>INSERT [INTO] tbl_name [(col_name,…)] SELECT …;</strong><br>此方法可以将查询结果插入到指定数据表<br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> <span class="keyword">test</span> <span class="keyword">SELECT</span> username <span class="keyword">FROM</span> tb1 <span class="keyword">WHERE</span> age &gt;=<span class="number">30</span>;</div><div class="line"><span class="comment">--新创建的test表只有uname字段，查找tb1表中age大于等于30的username的数据，插入test表</span></div></pre></td></tr></table></figure></p>
+<h3 id="2-更新数据"><a href="#2-更新数据" class="headerlink" title="2.更新数据"></a>2.更新数据</h3><p><strong>UPDATE [LOW_PRIORITY] [IGNORE] table_reference SET col_name1={expr1|DEFAULT} [,col_name2={expr2|DEFAULT}]… [WHERE where_condition]</strong><br>当缺少WHERE时，所有记录都会更新<br>LOW_PRIORITY：UPDATE的执行被延迟了，直到没有其它的客户端从表中读取为止<br>IGNORE：即使在更新过程中出现错误，更新语句也不会中断<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> tb1 <span class="keyword">SET</span> salary = <span class="number">1000</span>, age = age + <span class="number">5</span>;</div><div class="line"><span class="keyword">UPDATE</span> tb1 <span class="keyword">SET</span> salary = salary + <span class="number">1000</span> <span class="keyword">WHERE</span> age &gt;= <span class="number">20</span>;</div></pre></td></tr></table></figure></p>
+<h3 id="3-删除数据"><a href="#3-删除数据" class="headerlink" title="3.删除数据"></a>3.删除数据</h3><p>若不添加WHERE则删除全部记录<br>删除后再插入，插入的记录中设置为AUTO_INCREMENT(自动编号)列将从最大值往上加，而是基于原有记录最大编号继续增加<br><strong>DELETE FROM tbl_name [WHERE where_condition];</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> tb1 <span class="keyword">WHERE</span> username = <span class="string">'Tom'</span>;</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><h3 id="1-查找数据"><a href="#1-查找数据" class="headerlink" title="1.查找数据"></a>1.查找数据</h3><p><strong>SELECT select_expr [,select_expr2…] 只查找某一个函数或表达式<br>[<br>FROM table_references 查询表名<br>[WHERE where_conditon] 查询条件<br>[GROUP BY {col_name|position} [ASC|DESC],…] 按某个字段进行分组，相同的只显示第一个<br>[HAVING where_conditon] 分组时，给出显示条件<br>[ORDER BY {col_name|expr|position} [ASC(升序，默认)|DESC(降序)],…] 排序<br>[LIMIT {[offset,]row_count|row_count OFFSET offset}] 限制返回数量<br>]</strong><br>每一个表达式表示想要的一列，必须有至少一个<br>多个列之间以英文逗号分隔，输入列的顺序影响到结果列的顺序<br>可通过tal_name.col_name 来指明是tal_name的col_name列<br>星号(*)表示所有列，tbl_name.*可以表示命名表的所有列<br>查询表达式可以使用[AS] alias_name为其赋予别名，(主要用于不同表的同名列)别名影响到结果<br>别名可用于GROUP BY，ORDER BY或HAVING子句</p>
+<p>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">NOW</span>();    <span class="comment">--当前时间</span></div><div class="line"><span class="keyword">SELECT</span> username <span class="keyword">AS</span> uname, age <span class="keyword">FROM</span> tb1;    <span class="comment">--从tb1中查找username(以uname别名显示)和age</span></div><div class="line"><span class="keyword">SELECT</span> age <span class="keyword">FROM</span> tb1 <span class="keyword">GROUP</span> <span class="keyword">BY</span> age <span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(salary)&gt;<span class="number">2</span>;    <span class="comment">--以age分组，显示salary的个数多于2个的age分组</span></div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> tb1 <span class="keyword">ORDER</span> <span class="keyword">BY</span> age, salary <span class="keyword">DESC</span>;    <span class="comment">--先以age升序排列，在以salary降序排列</span></div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> tb1 <span class="keyword">ORDER</span> <span class="keyword">BY</span> salary <span class="keyword">LIMIT</span> <span class="number">2</span>,<span class="number">3</span>;    <span class="comment">--从第2条开始(从0开始)，返回3条信息</span></div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;数据的操作&quot;&gt;&lt;a href=&quot;#数据的操作&quot; class=&quot;headerlink&quot; title=&quot;数据的操作&quot;&gt;&lt;/a&gt;数据的操作&lt;/h2&gt;&lt;p&gt;若省略列名称则所有列要依次赋值&lt;br&gt;对于自动编号的字段，插入“NULL”或“DEFAULT”系统将自动依次递增编号
+    
+    </summary>
+    
+      <category term="MySql" scheme="http://yoursite.com/categories/MySql/"/>
+    
+    
+      <category term="MySql" scheme="http://yoursite.com/tags/MySql/"/>
+    
+      <category term="语法" scheme="http://yoursite.com/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySql零接触(4)</title>
+    <link href="http://yoursite.com/2017/02/06/MySql%E9%9B%B6%E6%8E%A5%E8%A7%A6(4)/"/>
+    <id>http://yoursite.com/2017/02/06/MySql零接触(4)/</id>
+    <published>2017-02-06T11:24:54.000Z</published>
+    <updated>2017-02-06T11:06:27.182Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><ul>
+<li>约束分为表级约束和列级约束</li>
+<li>约束保证数据的完整性和一致性</li>
+<li>约束类型包括：<br>  NOT NULL(非空约束）<br>  PRIMARY KEY（主键约束）<br>  UNIQUE(唯一约束)<br>  DEFAULT(默认约束)<br>  FOREIGN KEY(外键约束)</li>
+</ul>
+<h3 id="表级约束与列级约束"><a href="#表级约束与列级约束" class="headerlink" title="表级约束与列级约束"></a>表级约束与列级约束</h3><ul>
+<li>对于一个列所创建的约束，称之为列级约束，而对于两个或两个以上的列所创建的约束，我们称之为表级约束</li>
+<li>列级约束在使用的时候，既可以在列定义的时候声明，也可以在列定义以后声明</li>
+<li>表级的约束只能在列定义以后来声明</li>
+<li>在实际开发中，用列级约束比较多，表级约束很少用，除此之外，在所有的约束中，并不是说每种约束都存在着表级或列级约束，其中，NOT NULL 非空约束，DEFAULT约束这两种约束就不存在表级约束，它们只有列级约束，而对于其他的三种，像主键，唯一，外键，它们都可以存在表级和列级约束。</li>
+</ul>
+<hr>
+<h2 id="添加-修改约束"><a href="#添加-修改约束" class="headerlink" title="添加\修改约束"></a>添加\修改约束</h2><p><strong>主键约束</strong></p>
+<ul>
+<li>每张数据表只能存在一个主键</li>
+<li>主键保证数据的唯一性</li>
+<li>主键自动为NOT NULL</li>
+</ul>
+<h3 id="1-添加主键约束"><a href="#1-添加主键约束" class="headerlink" title="1.添加主键约束"></a>1.添加主键约束</h3><p><strong>ALTER TABLE tbl_name ADD [CONSTRAINT [symbol]] PRIMARY KEY [index_type] (index_col_name,…);</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> pk_tb1_username PRIMARY <span class="keyword">KEY</span> (username);</div></pre></td></tr></table></figure></p>
+<h3 id="2-删除主键约束"><a href="#2-删除主键约束" class="headerlink" title="2.删除主键约束"></a>2.删除主键约束</h3><p><strong>ALTER TABLE tbl_name DROP PRIMARY KEY;</strong></p>
+<hr>
+<p><strong>唯一约束</strong></p>
+<ul>
+<li>唯一约束可以保证记录的唯一性</li>
+<li>唯一约束的字段可以为空值</li>
+<li>每张数据表可以存在多个唯一约束</li>
+</ul>
+<h3 id="3-添加唯一约束"><a href="#3-添加唯一约束" class="headerlink" title="3.添加唯一约束"></a>3.添加唯一约束</h3><p><strong>ALTER TABLE tbl_name ADD [CONSTRAINT [symbol]] UNIQUE [INDEX|KEY] [index_name] [index_type] (index_col_name,…);</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> uq_tb1_age <span class="keyword">UNIQUE</span> (username);</div></pre></td></tr></table></figure></p>
+<h3 id="4-删除唯一约束"><a href="#4-删除唯一约束" class="headerlink" title="4.删除唯一约束"></a>4.删除唯一约束</h3><p><strong>ALTER TABLE tbl_name DROP {INDEX|KEY} index_name;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">DROP</span> uq_tb1_age;</div></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>外键约束</strong><br>保持数据一致性，完整性<br>实现数据表一对一或一对多关系<br><strong>外键约束的要求：</strong><br>1.父表和子表必须使用相同的存储引擎，而且禁止使用临时表<br>2.数据表的存储引擎只能为InnoDB<br>3.外键列和参照列必须具有相似的数据类型。其中数字的长度或是否有符号位必须相同，而字符的长度则可以不同<br>4.外键列和参照列必须创建索引。如果外键列不存在索引的话，mysql将自动创建索引</p>
+<p><strong>外键约束的参照操作</strong></p>
+<ol>
+<li>CASCADE 需要在两张表中插入记录，必须先在父表中插入记录再在子表中插入记录<br>因为子表参照的是父表中的信息，若父表中没有则无法参照<br>2、SET NULL：从父表删除或更新行，并设置子表中的外键列为NULL。如果使用该选项，必须保证子列表没有指定NOT NULL。<br>3、RESTRICT：拒绝对父表的删除或更新操作。<br>4、NO ACTION：标准SQL的关键字，在MySQL中与RESTRICT相同。</li>
+</ol>
+<p>FOREIGN KEY （子表列名） REFERENCES FROM 父表名（父表列名）[ON DELETE|UPDATE CASCADE|SET NULL|RESTRICT|NO ACTION];</p>
+<p>在实际开发中，存储引擎不为INNODB，无法使用FOREIGN KEY，普遍使用逻辑方法。</p>
+<h3 id="5-添加外键约束"><a href="#5-添加外键约束" class="headerlink" title="5.添加外键约束"></a>5.添加外键约束</h3><p><strong>ALTER TABLE tbl_name ADD [CONSTRAINT [symbol]] FOREIGN KEY [index_name] (index_col_name,…) REFERENCES tbl2_name (col_name);</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> fk_username FOREIGN <span class="keyword">KEY</span> (username) <span class="keyword">REFERENCES</span> tb2 (username);</div></pre></td></tr></table></figure></p>
+<h3 id="6-删除外键约束"><a href="#6-删除外键约束" class="headerlink" title="6.删除外键约束"></a>6.删除外键约束</h3><p><strong>ALTER TABLE tbl_name DROP FOREIGN KEY fk_symbol;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">DROP</span> FOREIGN <span class="keyword">KEY</span> fk_username;</div></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>默认约束</strong></p>
+<ul>
+<li>默认值</li>
+<li>当插入数据时，如果没有明确为字段赋值，则自动赋予默认值</li>
+</ul>
+<h3 id="7-添加-删除默认约束"><a href="#7-添加-删除默认约束" class="headerlink" title="7.添加/删除默认约束"></a>7.添加/删除默认约束</h3><p><strong>ALTER TABLE tbl_name ALTER [COLUMN] col_name {SET DEFAULT literal | DROP DEFAULT};</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">ALTER</span> salary <span class="keyword">SET</span> <span class="keyword">DEFAULT</span> <span class="number">2000</span>;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;约束&quot;&gt;&lt;a href=&quot;#约束&quot; class=&quot;headerlink&quot; title=&quot;约束&quot;&gt;&lt;/a&gt;约束&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;约束分为表级约束和列级约束&lt;/li&gt;
+&lt;li&gt;约束保证数据的完整性和一致性&lt;/li&gt;
+&lt;li&gt;约束类型包括：&lt;br&gt;  NOT 
+    
+    </summary>
+    
+      <category term="MySql" scheme="http://yoursite.com/categories/MySql/"/>
+    
+    
+      <category term="MySql" scheme="http://yoursite.com/tags/MySql/"/>
+    
+      <category term="语法" scheme="http://yoursite.com/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySql零接触(3)</title>
+    <link href="http://yoursite.com/2017/02/06/MySql%E9%9B%B6%E6%8E%A5%E8%A7%A6(3)/"/>
+    <id>http://yoursite.com/2017/02/06/MySql零接触(3)/</id>
+    <published>2017-02-06T10:24:54.000Z</published>
+    <updated>2017-02-08T14:31:00.242Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="数据表操作"><a href="#数据表操作" class="headerlink" title="数据表操作"></a>数据表操作</h2><p>NULL，字段值可以为空<br>NOT NULL，字段值禁止为空<br>AUTO_INCREMENT，自动编号，必须与主键组合使用，默认情况，起始值为1，每次的增量为1</p>
+<h3 id="1-创建数据表"><a href="#1-创建数据表" class="headerlink" title="1.创建数据表"></a>1.创建数据表</h3><p><strong>CREATE TABLE [IF NOT EXISTS] table_name(column_name(列名称) data_type(列类型)[NOT NULL|NULL],….);</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">TABLE</span> tb1(</div><div class="line">username <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">age TINYINT <span class="keyword">UNSIGNED</span>,   <span class="comment">--unsigned表示无符号位，即不能为负数</span></div><div class="line">salary <span class="built_in">FLOAT</span>(<span class="number">8</span>,<span class="number">2</span>), <span class="keyword">UNSIGNED</span>,    <span class="comment">--有效位数为8位，精度为2，即6位整数，2位小数</span></div><div class="line">);</div></pre></td></tr></table></figure></p>
+<h3 id="2-添加单列"><a href="#2-添加单列" class="headerlink" title="2.添加单列"></a>2.添加单列</h3><p><strong>ALTER TABLE tbl_name ADD [COLUMN] col_name column_definitione [FIRST | AFTER col_name];</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">ADD</span> pwd <span class="built_in">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">AFTER</span> username;    <span class="comment">--没指定FIRST或者AFTER将位于最后</span></div></pre></td></tr></table></figure></p>
+<h3 id="3-添加多列"><a href="#3-添加多列" class="headerlink" title="3.添加多列"></a>3.添加多列</h3><p><strong>ALTER TABLE tbl_name ADD [COLUMN] (col_name column_definition,…);</strong></p>
+<h3 id="4-删除列"><a href="#4-删除列" class="headerlink" title="4.删除列"></a>4.删除列</h3><p><strong>ALTER TABLE tbl_name DROP col_name,…;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">DROP</span> pwd, <span class="keyword">DROP</span> age;</div></pre></td></tr></table></figure></p>
+<h3 id="5-查看数据表结构"><a href="#5-查看数据表结构" class="headerlink" title="5.查看数据表结构"></a>5.查看数据表结构</h3><p><strong>SHOW COLUMNS FROM table_name;</strong><br><strong>DESC table_name;</strong></p>
+<h3 id="6-查看数据表列表"><a href="#6-查看数据表列表" class="headerlink" title="6.查看数据表列表"></a>6.查看数据表列表</h3><p><strong>SHOW TABLES [FROM db_name] [LIKE ‘pattern’|WHERE expr];</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SHOW</span> <span class="keyword">TABLES</span> <span class="keyword">FROM</span> mysql;    <span class="comment">--查看mysql数据库的所有表</span></div></pre></td></tr></table></figure></p>
+<h3 id="7-查看数据库创建时的指令"><a href="#7-查看数据库创建时的指令" class="headerlink" title="7.查看数据库创建时的指令"></a>7.查看数据库创建时的指令</h3><p><strong>SHOW CREATE TABLE tb_name;</strong></p>
+<hr>
+<h2 id="字段的修改"><a href="#字段的修改" class="headerlink" title="字段的修改"></a>字段的修改</h2><h3 id="1-修改列定义"><a href="#1-修改列定义" class="headerlink" title="1.修改列定义"></a>1.修改列定义</h3><p><strong>ALTER TABLE tbl_name MODIFY [COLUMN] col_name column_definition [FIRST|AFTER col_name];</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">MODIFY</span> age <span class="built_in">SMALLINT</span> <span class="keyword">UNSIGNED</span> <span class="keyword">FIRST</span>;</div></pre></td></tr></table></figure></p>
+<h3 id="2-修改列名称和定义"><a href="#2-修改列名称和定义" class="headerlink" title="2.修改列名称和定义"></a>2.修改列名称和定义</h3><p><strong>ALTER TABLE tbl_name CHANGE [COLUMN] old_col_name new_col_name column_definition [FIRST|AFTER col_name];</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">CHANGE</span> age user_age <span class="built_in">SMALLINT</span> <span class="keyword">UNSIGNED</span> <span class="keyword">FIRST</span>;</div></pre></td></tr></table></figure></p>
+<h3 id="3-数据表更名"><a href="#3-数据表更名" class="headerlink" title="3.数据表更名"></a>3.数据表更名</h3><p>方法1：<strong>ALTER TABLE tbl_name RENAME [TO|AS] new_tbl_name;</strong><br>方法2：<strong>RENAME TABLE tbl_name TO new_tbl_name[,tbl_name2 TO new_tbl_name2]…;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">RENAME</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">TO</span> <span class="keyword">users</span>;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;数据表操作&quot;&gt;&lt;a href=&quot;#数据表操作&quot; class=&quot;headerlink&quot; title=&quot;数据表操作&quot;&gt;&lt;/a&gt;数据表操作&lt;/h2&gt;&lt;p&gt;NULL，字段值可以为空&lt;br&gt;NOT NULL，字段值禁止为空&lt;br&gt;AUTO_INCREMENT，自动编号，必须
+    
+    </summary>
+    
+      <category term="MySql" scheme="http://yoursite.com/categories/MySql/"/>
+    
+    
+      <category term="MySql" scheme="http://yoursite.com/tags/MySql/"/>
+    
+      <category term="语法" scheme="http://yoursite.com/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySql零接触(2)</title>
+    <link href="http://yoursite.com/2017/02/06/MySql%E9%9B%B6%E6%8E%A5%E8%A7%A6(2)/"/>
+    <id>http://yoursite.com/2017/02/06/MySql零接触(2)/</id>
+    <published>2017-02-06T09:24:54.000Z</published>
+    <updated>2017-02-06T10:45:50.043Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>数据类型是指列、存储过程参数、表达式和局部变量的数据特征，它决定了数据的存储格式，代表了不同的信息类型</p>
+<h3 id="整形"><a href="#整形" class="headerlink" title="整形"></a>整形</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">存储范围</th>
+<th style="text-align:center">字节</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">TINYINT</td>
+<td style="text-align:left">有符号：-128到127(-2<sup>7</sup>到2<sup>7</sup>-1) <br> 无符号：0到255(0到2<sup>8</sup>-1)</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:left">SMALLINT</td>
+<td style="text-align:left">有符号：-32768到32767(-2<sup>15</sup>到2<sup>15</sup>-1) <br> 无符号：0到65535(0到2<sup>16</sup>-1)</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:left">MEDIUMINT</td>
+<td style="text-align:left">有符号：-8388608到8388607(-2<sup>23</sup>到2<sup>23</sup>-1) <br> 无符号：0到16777215(0到2<sup>24</sup>-1)</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:left">INT</td>
+<td style="text-align:left">有符号：-2147483648到2147483647(-2<sup>31</sup>到2<sup>31</sup>-1) <br> 无符号：0到3294967295(0到2<sup>32</sup>-1)</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:left">BIGINT</td>
+<td style="text-align:left">有符号：-9223372036854775808到9223372036854775807(-2<sup>63</sup>到2<sup>63</sup>-1) <br> 无符号 ：0到18446744073709551615(0到2<sup>64</sup>-1)</td>
+<td style="text-align:center">8</td>
+</tr>
+</tbody>
+</table>
+<h3 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">FLOAT[(M,D)]</td>
+<td style="text-align:left">M是数字总位数，D是小数点后面的位数。如果M和D被省略，根据硬件允许的限制来保存值。单精度浮点数精确到大约7位小数</td>
+</tr>
+<tr>
+<td style="text-align:left">DOUBLE[(M,D)]</td>
+<td style="text-align:left">M是数字总位数，D是小数点后面的位数。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="字符型"><a href="#字符型" class="headerlink" title="字符型"></a>字符型</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">列类型</th>
+<th style="text-align:left">储存需求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">CHAR(M)</td>
+<td style="text-align:left">M个字节 0&lt;=M&lt;=255 定长 M是5就5个字节 abc会算成abc00;</td>
+</tr>
+<tr>
+<td style="text-align:left">VARCHAR(M)</td>
+<td style="text-align:left">L+1个字节 L&lt;=M,0&lt;=M&lt;=65535; 变长 abc就是abc;</td>
+</tr>
+<tr>
+<td style="text-align:left">TINYTEXT</td>
+<td style="text-align:left">L+1个字节，L&lt;2的8次方;</td>
+</tr>
+<tr>
+<td style="text-align:left">TEXT</td>
+<td style="text-align:left">L+2个字节，L&lt;2的16次方;</td>
+</tr>
+<tr>
+<td style="text-align:left">MEDIUMTEXT</td>
+<td style="text-align:left">L+3个字节，L&lt;2的24次方;</td>
+</tr>
+<tr>
+<td style="text-align:left">LONGTEXT</td>
+<td style="text-align:left">L+4个字节，L&lt;2的32次方;</td>
+</tr>
+<tr>
+<td style="text-align:left">ENUM(‘value1’,’value2’,…)</td>
+<td style="text-align:left">1或2字节，取决于枚举值的个数（最多65535个值）;</td>
+</tr>
+<tr>
+<td style="text-align:left">SET(‘value1’,’value2’,…)</td>
+<td style="text-align:left">1、2、3、4、8字节，取决于set成员个数（最多64个成员）;</td>
+</tr>
+</tbody>
+</table>
+<p>CHAR 定长:固定长度 即显示的字符没有达到指定长度的时候,显示字符后面自动加空格补齐长度<br>VARCHAR 变长:变化长度 存储的字符是什么,就显示什么,不会自动给空格补齐<br>举例:L+3个字节 其中L&lt;2的24次方 因为计算机是以2进制进行存储 1个字节=8byte 最大的数就是111111,也就是255 所以可以理解为这里的3个字节其实就是2的24次方<br>ENUM 枚举 例如性别 三种选项:男,女,保密<br>SET 集合类型 比如里面有存储有a,b,c 那么可以选择a,b,c,ab,bc,ac,abc</p>
+<style>
+table th:first-of-type {
+    width: 120px;
+}
+table:nth-of-type(1) th:last-of-type {
+    width: 120px;
+}
+table:nth-of-type(3) th:first-of-type {
+    width: 240px;
+}
+</style>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;数据类型&quot;&gt;&lt;a href=&quot;#数据类型&quot; class=&quot;headerlink&quot; title=&quot;数据类型&quot;&gt;&lt;/a&gt;数据类型&lt;/h2&gt;&lt;p&gt;数据类型是指列、存储过程参数、表达式和局部变量的数据特征，它决定了数据的存储格式，代表了不同的信息类型&lt;/p&gt;
+&lt;h3 id
+    
+    </summary>
+    
+      <category term="MySql" scheme="http://yoursite.com/categories/MySql/"/>
+    
+    
+      <category term="MySql" scheme="http://yoursite.com/tags/MySql/"/>
+    
+      <category term="语法" scheme="http://yoursite.com/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySql零接触(1)</title>
+    <link href="http://yoursite.com/2017/02/06/MySql%E9%9B%B6%E6%8E%A5%E8%A7%A6(1)/"/>
+    <id>http://yoursite.com/2017/02/06/MySql零接触(1)/</id>
+    <published>2017-02-06T08:56:54.000Z</published>
+    <updated>2017-02-06T10:57:11.360Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近学习了<strong><a href="http://www.imooc.com/learn/122" target="_blank" rel="external">与MySQL的零距离接触</a></strong>发现适合初学者，讲得不错，做些笔记方便自己学习</p>
+<h2 id="MySQL登录"><a href="#MySQL登录" class="headerlink" title="MySQL登录"></a>MySQL登录</h2><p><strong>mysql [-u username] [-h host] [-p[password]] [-P port]</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">mysql参数</th>
+<th style="text-align:center">参数-描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-D，–database=name</td>
+<td style="text-align:center">打开指定数据库</td>
+</tr>
+<tr>
+<td style="text-align:left">-h, –host=name</td>
+<td style="text-align:center">服务器名称（默认本地服务器127.0.0.1）</td>
+</tr>
+<tr>
+<td style="text-align:left">-p，–password[=name]</td>
+<td style="text-align:center">密码</td>
+</tr>
+<tr>
+<td style="text-align:left">-P, –port=#</td>
+<td style="text-align:center">端口号（默认3306）</td>
+</tr>
+<tr>
+<td style="text-align:left">-u, –user=name</td>
+<td style="text-align:center">用户名</td>
+</tr>
+<tr>
+<td style="text-align:left">-V, –version</td>
+<td style="text-align:center">输出版本信息并且退出</td>
+</tr>
+<tr>
+<td style="text-align:left">–delimiter=name</td>
+<td style="text-align:center">指定分隔符</td>
+</tr>
+<tr>
+<td style="text-align:left">–prompt=name</td>
+<td style="text-align:center">设置提示符</td>
+</tr>
+</tbody>
+</table>
+<p>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -proot -P3306 -h127.0.0.1</div><div class="line"><span class="comment">--表示超级用户名root,密码root，端口号3306（不输入P默认为3306），主机地址127.0.0.1（若使用本机作为主机，h默认127.0.0.1）</span></div></pre></td></tr></table></figure></p>
+<h2 id="MySQL-语句的规范"><a href="#MySQL-语句的规范" class="headerlink" title="MySQL 语句的规范"></a>MySQL 语句的规范</h2><ol>
+<li>关键字，函数名称大写</li>
+<li>数据库名称，表的名称，字段名称小写</li>
+<li>SQL语句以；结尾</li>
+</ol>
+<hr>
+<h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><h3 id="1-创建数据库"><a href="#1-创建数据库" class="headerlink" title="1.创建数据库"></a>1.创建数据库</h3><p>创建数据库,并设置其编码方式(如果不设置编码方式,系统将按照默认方式设置编码方式)<br><strong>CREATE ｛DATABASE | SCHEMA｝ [IF NOT EXITSTS] db_name [DEFAULT] CHARACTER SET [=] charset_name;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> db1 <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> gbk;</div></pre></td></tr></table></figure></p>
+<h3 id="2-查看所有数据库"><a href="#2-查看所有数据库" class="headerlink" title="2.查看所有数据库"></a>2.查看所有数据库</h3><p><strong>SHOW {DATABASES | SCHEMAS};</strong></p>
+<h3 id="3-查看数据库创建时的指令"><a href="#3-查看数据库创建时的指令" class="headerlink" title="3.查看数据库创建时的指令"></a>3.查看数据库创建时的指令</h3><p><strong>SHOW CREATE DATABASE db_name;</strong></p>
+<h3 id="4-修改数据库编码方式"><a href="#4-修改数据库编码方式" class="headerlink" title="4.修改数据库编码方式"></a>4.修改数据库编码方式</h3><p><strong>ALTER {DATABASE | SCHEMA} db_name [DEFAULT] CHARACTER SET [=] charset_name;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> db1 <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8;</div></pre></td></tr></table></figure></p>
+<h3 id="5-删除数据库"><a href="#5-删除数据库" class="headerlink" title="5.删除数据库"></a>5.删除数据库</h3><p><strong>DROP {DATABASE | SCHEMA} [IF EXISTS] db_name;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DROP</span> <span class="keyword">DATABASE</span> db1;</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><h3 id="1-显示当前服务版本号"><a href="#1-显示当前服务版本号" class="headerlink" title="1.显示当前服务版本号"></a>1.显示当前服务版本号</h3><p><strong>SELECT VERSION();</strong></p>
+<h3 id="2-显示当前用户"><a href="#2-显示当前用户" class="headerlink" title="2.显示当前用户"></a>2.显示当前用户</h3><p><strong>SELECT USER();</strong></p>
+<h3 id="3-显示当前日期时间"><a href="#3-显示当前日期时间" class="headerlink" title="3.显示当前日期时间"></a>3.显示当前日期时间</h3><p><strong>SELECT NOW();</strong></p>
+<h3 id="4-显示当前所在数据库"><a href="#4-显示当前所在数据库" class="headerlink" title="4.显示当前所在数据库"></a>4.显示当前所在数据库</h3><p><strong>SELECT DATABASE();</strong></p>
+<hr>
+<h2 id="MySql的配置选项"><a href="#MySql的配置选项" class="headerlink" title="MySql的配置选项"></a>MySql的配置选项</h2><h3 id="1-修改编码"><a href="#1-修改编码" class="headerlink" title="1.修改编码"></a>1.修改编码</h3><p>打开my.ini添加\修改<br>[mysql]<br>default-character-set=utf8</p>
+<p>[mysqld]<br>character-set-server=utf8</p>
+<h3 id="2-修改数据表的默认存储引擎"><a href="#2-修改数据表的默认存储引擎" class="headerlink" title="2.修改数据表的默认存储引擎"></a>2.修改数据表的默认存储引擎</h3><p>打开my.ini修改</p>
+<p>default-storage-engine=INNODB</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近学习了&lt;strong&gt;&lt;a href=&quot;http://www.imooc.com/learn/122&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;与MySQL的零距离接触&lt;/a&gt;&lt;/strong&gt;发现适合初学者，讲得不错，做些笔记方便自己学习&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="MySql" scheme="http://yoursite.com/categories/MySql/"/>
+    
+    
+      <category term="MySql" scheme="http://yoursite.com/tags/MySql/"/>
+    
+      <category term="语法" scheme="http://yoursite.com/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>正则表达式</title>
     <link href="http://yoursite.com/2017/01/28/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     <id>http://yoursite.com/2017/01/28/正则表达式/</id>
     <published>2017-01-28T07:17:12.000Z</published>
-    <updated>2017-02-02T17:03:01.337Z</updated>
+    <updated>2017-02-06T10:26:50.904Z</updated>
     
-    <content type="html"><![CDATA[<style>
-table th:first-of-type {
-    width: 80px;
-}
-table:nth-of-type(1) th:nth-of-type(2) {
-    width: 120px;
-}
-table:nth-of-type(2) td:first-of-type {
-    font-weight: 900;
-}
-</style>
-
-<p>本文以javascript来演示正则表达式</p>
+    <content type="html"><![CDATA[<p>本文以javascript来演示正则表达式</p>
 <h2 id="REGEXP对象"><a href="#REGEXP对象" class="headerlink" title="REGEXP对象"></a>REGEXP对象</h2><p>在javascript中通过对象regexp来使用正则表达式，regexp有两种方法实例化</p>
 <h3 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h3><p>/表达式/修饰符<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/[A-Za-z]/g</span>;</div></pre></td></tr></table></figure></p>
 <h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>RegExp(‘表达式’,修饰符);<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'[A-Za-z]'</span>,g);</div></pre></td></tr></table></figure></p>
@@ -257,18 +651,23 @@ table:nth-of-type(2) td:first-of-type {
 </tr>
 </tbody>
 </table>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;style&gt;
+<style>
 table th:first-of-type {
     width: 80px;
 }
 table:nth-of-type(1) th:nth-of-type(2) {
     width: 120px;
 }
-table:nth-of-type(2) td:fir
+table:nth-of-type(2) td:first-of-type {
+    font-weight: 900;
+}
+</style>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文以javascript来演示正则表达式&lt;/p&gt;
+&lt;h2 id=&quot;REGEXP对象&quot;&gt;&lt;a href=&quot;#REGEXP对象&quot; class=&quot;headerlink&quot; title=&quot;REGEXP对象&quot;&gt;&lt;/a&gt;REGEXP对象&lt;/h2&gt;&lt;p&gt;在javascript中通过对象r
     
     </summary>
     
@@ -443,114 +842,6 @@ table:nth-of-type(2) td:fir
     
     
       <category term="MarkDown" scheme="http://yoursite.com/tags/MarkDown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySql基本命令</title>
-    <link href="http://yoursite.com/2017/01/20/mysql%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2017/01/20/mysql基本命令/</id>
-    <published>2017-01-20T08:56:54.000Z</published>
-    <updated>2017-01-27T10:22:05.639Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="MySQL登录"><a href="#MySQL登录" class="headerlink" title="MySQL登录"></a>MySQL登录</h3><p><strong>mysql [-u username] [-h host] [-p[password]] [-P port]</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">mysql参数</th>
-<th style="text-align:center">参数-描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">-D，–database=name</td>
-<td style="text-align:center">打开指定数据库</td>
-</tr>
-<tr>
-<td style="text-align:left">-h, –host=name</td>
-<td style="text-align:center">服务器名称（默认本地服务器127.0.0.1）</td>
-</tr>
-<tr>
-<td style="text-align:left">-p，–password[=name]</td>
-<td style="text-align:center">密码</td>
-</tr>
-<tr>
-<td style="text-align:left">-P, –port=#</td>
-<td style="text-align:center">端口号（默认3306）</td>
-</tr>
-<tr>
-<td style="text-align:left">-u, –user=name</td>
-<td style="text-align:center">用户名</td>
-</tr>
-<tr>
-<td style="text-align:left">-V, –version</td>
-<td style="text-align:center">输出版本信息并且退出</td>
-</tr>
-<tr>
-<td style="text-align:left">–delimiter=name</td>
-<td style="text-align:center">指定分隔符</td>
-</tr>
-<tr>
-<td style="text-align:left">–prompt=name</td>
-<td style="text-align:center">设置提示符</td>
-</tr>
-</tbody>
-</table>
-<p>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -proot -P3306 -h127.0.0.1</div><div class="line"><span class="comment">--表示超级用户名root,密码root，端口号3306（不输入P默认为3306），主机地址127.0.0.1（若使用本机作为主机，h默认127.0.0.1）</span></div></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><h4 id="1-创建数据库"><a href="#1-创建数据库" class="headerlink" title="1.创建数据库"></a>1.创建数据库</h4><p>创建数据库,并设置其编码方式(如果不设置编码方式,系统将按照默认方式设置编码方式)<br><strong>CREATE ｛DATABASE | SCHEMA｝ [IF NOT EXITSTS] db_name [DEFAULT] CHARACTER SET [=] charset_name;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> db1 <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> gbk;</div></pre></td></tr></table></figure></p>
-<h4 id="2-查看所有数据库"><a href="#2-查看所有数据库" class="headerlink" title="2.查看所有数据库"></a>2.查看所有数据库</h4><p><strong>SHOW {DATABASES | SCHEMAS};</strong></p>
-<h4 id="3-查看数据库创建时的指令"><a href="#3-查看数据库创建时的指令" class="headerlink" title="3.查看数据库创建时的指令"></a>3.查看数据库创建时的指令</h4><p><strong>SHOW CREATE DATABASE db_name;</strong></p>
-<h4 id="4-修改数据库编码方式"><a href="#4-修改数据库编码方式" class="headerlink" title="4.修改数据库编码方式"></a>4.修改数据库编码方式</h4><p><strong>ALTER {DATABASE | SCHEMA} db_name [DEFAULT] CHARACTER SET [=] charset_name;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> db1 <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8;</div></pre></td></tr></table></figure></p>
-<h4 id="5-删除数据库"><a href="#5-删除数据库" class="headerlink" title="5.删除数据库"></a>5.删除数据库</h4><p><strong>DROP {DATABASE | SCHEMA} [IF EXISTS] db_name;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DROP</span> <span class="keyword">DATABASE</span> db1;</div></pre></td></tr></table></figure></p>
-<h4 id="6-打开数据库"><a href="#6-打开数据库" class="headerlink" title="6.打开数据库"></a>6.打开数据库</h4><p><strong>USE db_name;</strong></p>
-<h4 id="7-查看警告信息"><a href="#7-查看警告信息" class="headerlink" title="7.查看警告信息"></a>7.查看警告信息</h4><p><strong>SHOW WARNINGS;</strong></p>
-<hr>
-<h3 id="数据表操作"><a href="#数据表操作" class="headerlink" title="数据表操作"></a>数据表操作</h3><h4 id="1-创建数据表"><a href="#1-创建数据表" class="headerlink" title="1.创建数据表"></a>1.创建数据表</h4><p><strong>CREATE TABLE [IF NOT EXISTS] table_name(column_name(列名称) data_type(列类型)[NOT NULL|NULL],….);</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">TABLE</span> tb1(</div><div class="line">username <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">age TINYINT <span class="keyword">UNSIGNED</span>,   <span class="comment">--unsigned表示无符号位，即不能为负数</span></div><div class="line">salary <span class="built_in">FLOAT</span>(<span class="number">8</span>,<span class="number">2</span>), <span class="keyword">UNSIGNED</span>,    <span class="comment">--有效位数为8位，精度为2，即6位整数，2位小数</span></div><div class="line">);</div></pre></td></tr></table></figure></p>
-<h4 id="2-添加单列"><a href="#2-添加单列" class="headerlink" title="2.添加单列"></a>2.添加单列</h4><p><strong>ALTER TABLE tbl_name ADD [COLUMN] col_name column_definitione [FIRST | AFTER col_name];</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">ADD</span> pwd <span class="built_in">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">AFTER</span> username;    <span class="comment">--没指定FIRST或者AFTER将位于最后</span></div></pre></td></tr></table></figure></p>
-<h4 id="3-添加多列"><a href="#3-添加多列" class="headerlink" title="3.添加多列"></a>3.添加多列</h4><p><strong>ALTER TABLE tbl_name ADD [COLUMN] (col_name column_definition,…);</strong></p>
-<h4 id="4-删除列"><a href="#4-删除列" class="headerlink" title="4.删除列"></a>4.删除列</h4><p><strong>ALTER TABLE tbl_name DROP col_name,…;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">DROP</span> pwd, <span class="keyword">DROP</span> age;</div></pre></td></tr></table></figure></p>
-<h4 id="5-查看数据表结构"><a href="#5-查看数据表结构" class="headerlink" title="5.查看数据表结构"></a>5.查看数据表结构</h4><p><strong>SHOW COLUMNS FROM table_name;</strong></p>
-<h4 id="6-查看数据表列表"><a href="#6-查看数据表列表" class="headerlink" title="6.查看数据表列表"></a>6.查看数据表列表</h4><p><strong>SHOW TABLES [FROM db_name] [LIKE ‘pattern’|WHERE expr];</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SHOW</span> <span class="keyword">TABLES</span> <span class="keyword">FROM</span> mysql;    <span class="comment">--查看mysql数据库的所有表</span></div></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="修改约束"><a href="#修改约束" class="headerlink" title="修改约束"></a>修改约束</h3><h4 id="1-添加主键约束"><a href="#1-添加主键约束" class="headerlink" title="1.添加主键约束"></a>1.添加主键约束</h4><p><strong>ALTER TABLE tbl_name ADD [CONSTRAINT [symbol]] PRIMARY KEY [index_type] (index_col_name,…);</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> pk_tb1_username PRIMARY <span class="keyword">KEY</span> (username);</div></pre></td></tr></table></figure></p>
-<h4 id="2-删除主键约束"><a href="#2-删除主键约束" class="headerlink" title="2.删除主键约束"></a>2.删除主键约束</h4><p><strong>ALTER TABLE tbl_name DROP PRIMARY KEY;</strong></p>
-<h4 id="3-添加唯一约束"><a href="#3-添加唯一约束" class="headerlink" title="3.添加唯一约束"></a>3.添加唯一约束</h4><p><strong>ALTER TABLE tbl_name ADD [CONSTRAINT [symbol]] UNIQUE [INDEX|KEY] [index_name] [index_type] (index_col_name,…);</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> uq_tb1_age <span class="keyword">UNIQUE</span> (username);</div></pre></td></tr></table></figure></p>
-<h4 id="4-删除唯一约束"><a href="#4-删除唯一约束" class="headerlink" title="4.删除唯一约束"></a>4.删除唯一约束</h4><p><strong>ALTER TABLE tbl_name DROP {INDEX|KEY} index_name;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">DROP</span> uq_tb1_age;</div></pre></td></tr></table></figure></p>
-<h4 id="5-添加外键约束"><a href="#5-添加外键约束" class="headerlink" title="5.添加外键约束"></a>5.添加外键约束</h4><p><strong>ALTER TABLE tbl_name ADD [CONSTRAINT [symbol]] FOREIGN KEY [index_name] (index_col_name,…) REFERENCES tbl2_name (col_name);</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> fk_username FOREIGN <span class="keyword">KEY</span> (username) <span class="keyword">REFERENCES</span> tb2 (username);</div></pre></td></tr></table></figure></p>
-<h4 id="6-删除外键约束"><a href="#6-删除外键约束" class="headerlink" title="6.删除外键约束"></a>6.删除外键约束</h4><p><strong>ALTER TABLE tbl_name DROP FOREIGN KEY fk_symbol;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">DROP</span> FOREIGN <span class="keyword">KEY</span> fk_username;</div></pre></td></tr></table></figure></p>
-<h4 id="7-添加-删除默认约束"><a href="#7-添加-删除默认约束" class="headerlink" title="7.添加/删除默认约束"></a>7.添加/删除默认约束</h4><p><strong>ALTER TABLE tbl_name ALTER [COLUMN] col_name {SET DEFAULT literal | DROP DEFAULT};</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">ALTER</span> salary <span class="keyword">SET</span> <span class="keyword">DEFAULT</span> <span class="number">2000</span>;</div></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="字段的修改"><a href="#字段的修改" class="headerlink" title="字段的修改"></a>字段的修改</h3><h4 id="1-修改列定义"><a href="#1-修改列定义" class="headerlink" title="1.修改列定义"></a>1.修改列定义</h4><p><strong>ALTER TABLE tbl_name MODIFY [COLUMN] col_name column_definition [FIRST|AFTER col_name];</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">MODIFY</span> age <span class="built_in">SMALLINT</span> <span class="keyword">UNSIGNED</span> <span class="keyword">FIRST</span>;</div></pre></td></tr></table></figure></p>
-<h4 id="2-修改列名称"><a href="#2-修改列名称" class="headerlink" title="2.修改列名称"></a>2.修改列名称</h4><p><strong>ALTER TABLE tbl_name CHANGE [COLUMN] old_col_name new_col_name column_definition [FIRST|AFTER col_name];</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">CHANGE</span> age user_age <span class="built_in">SMALLINT</span> <span class="keyword">UNSIGNED</span> <span class="keyword">FIRST</span>;</div></pre></td></tr></table></figure></p>
-<h4 id="3-数据表更名"><a href="#3-数据表更名" class="headerlink" title="3.数据表更名"></a>3.数据表更名</h4><p>方法1：<strong>ALTER TABLE tbl_name RENAME [TO|AS] new_tbl_name;</strong><br>方法2：<strong>RENAME TABLE tbl_name TO new_tbl_name[,tbl_name2 TO new_tbl_name2]…;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">RENAME</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">TO</span> <span class="keyword">users</span>;</div></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="数据的操作"><a href="#数据的操作" class="headerlink" title="数据的操作"></a>数据的操作</h3><h4 id="1-插入数据"><a href="#1-插入数据" class="headerlink" title="1.插入数据"></a>1.插入数据</h4><p>方法一：<strong>INSERT [INTO] tbl_name [(col_name)] {VALUES|VALUE}({expr|DEFAULT},…),(…),…;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> tb1(username,salary) <span class="keyword">VALUES</span>(<span class="string">'Tom'</span>,<span class="number">6666.66</span>),(<span class="string">'John'</span>,<span class="number">1234</span>);</div></pre></td></tr></table></figure></p>
-<p>方法二：<strong>INSERT [INTO] tbl_name SET col_name={expr|DEFAULT},…;</strong><br>此方法可以使用子查询<br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> tb1 <span class="keyword">SET</span> username=<span class="string">'Ben'</span>,salary=<span class="string">'1234'</span>;</div></pre></td></tr></table></figure></p>
-<p>方法三：<strong>INSERT [INTO] tbl_name [(col_name,…)] SELECT …;</strong><br>此方法可以将查询结果插入到指定数据表</p>
-<h4 id="2-更改数据"><a href="#2-更改数据" class="headerlink" title="2.更改数据"></a>2.更改数据</h4><p><strong>UPDATE [LOW_PRIORITY] [IGNORE] table_reference SET col_name1={expr1|DEFAULT} [,col_name2={expr2|DEFAULT}]… [WHERE where_condition]</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> tb1 <span class="keyword">SET</span> salary = <span class="number">1000</span>, age = age + <span class="number">5</span>;</div><div class="line"><span class="keyword">UPDATE</span> tb1 <span class="keyword">SET</span> salary = salary + <span class="number">1000</span> <span class="keyword">WHERE</span> age &gt;= <span class="number">20</span>;</div></pre></td></tr></table></figure></p>
-<h4 id="3-删除数据"><a href="#3-删除数据" class="headerlink" title="3.删除数据"></a>3.删除数据</h4><p><strong>DELETE FROM tbl_name [WHERE where_condition];</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> tb1 <span class="keyword">WHERE</span> username = <span class="string">'Tom'</span>;</div></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><h4 id="1-查找数据"><a href="#1-查找数据" class="headerlink" title="1.查找数据"></a>1.查找数据</h4><p><strong>SELECT select_expr [,select_expr2…] 只查找某一个函数或表达式<br>[<br>FROM table_references 查询表名<br>[WHERE where_conditon] 查询条件<br>[GROUP BY {col_name|position} [ASC|DESC],…] 按某个字段进行分组，相同的只显示第一个<br>[HAVING where_conditon] 分组时，给出显示条件<br>[ORDER BY {col_name|expr|position} [ASC(升序，默认)|DESC(降序)],…] 排序<br>[LIMIT {[offset,]row_count|row_count OFFSET offset}] 限制返回数量<br>]</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">NOW</span>();    <span class="comment">--当前时间</span></div><div class="line"><span class="keyword">SELECT</span> username <span class="keyword">AS</span> uname, age <span class="keyword">FROM</span> tb1;    <span class="comment">--从tb1中查找username(以uname别名显示)和age</span></div><div class="line"><span class="keyword">SELECT</span> age <span class="keyword">FROM</span> tb1 <span class="keyword">GROUP</span> <span class="keyword">BY</span> age <span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(salary)&gt;<span class="number">2</span>;    <span class="comment">--以age分组，显示salary的个数多于2个的age分组</span></div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> tb1 <span class="keyword">ORDER</span> <span class="keyword">BY</span> age, salary <span class="keyword">DESC</span>;    <span class="comment">--先以age升序排列，在以salary降序排列</span></div></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><h4 id="1-显示当前服务版本号"><a href="#1-显示当前服务版本号" class="headerlink" title="1.显示当前服务版本号"></a>1.显示当前服务版本号</h4><p><strong>SELECT VERSION();</strong></p>
-<h4 id="2-显示当前用户"><a href="#2-显示当前用户" class="headerlink" title="2.显示当前用户"></a>2.显示当前用户</h4><p><strong>SELECT USER();</strong></p>
-<h4 id="3-显示当前日期时间"><a href="#3-显示当前日期时间" class="headerlink" title="3.显示当前日期时间"></a>3.显示当前日期时间</h4><p><strong>SELECT NOW();</strong></p>
-<h4 id="4-显示当前所在数据库"><a href="#4-显示当前所在数据库" class="headerlink" title="4.显示当前所在数据库"></a>4.显示当前所在数据库</h4><p><strong>SELECT DATABASE();</strong></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;MySQL登录&quot;&gt;&lt;a href=&quot;#MySQL登录&quot; class=&quot;headerlink&quot; title=&quot;MySQL登录&quot;&gt;&lt;/a&gt;MySQL登录&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;mysql [-u username] [-h host] [-p[password
-    
-    </summary>
-    
-      <category term="MySql" scheme="http://yoursite.com/categories/MySql/"/>
-    
-    
-      <category term="MySql" scheme="http://yoursite.com/tags/MySql/"/>
-    
-      <category term="语法" scheme="http://yoursite.com/tags/%E8%AF%AD%E6%B3%95/"/>
     
   </entry>
   
