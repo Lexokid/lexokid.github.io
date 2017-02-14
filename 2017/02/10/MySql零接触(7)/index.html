@@ -86,73 +86,16 @@
 
 
 
-<meta name="description" content="最近学习了与MySQL的零距离接触发现适合初学者，讲得不错，做些笔记方便自己学习
-MySQL登录mysql [-u username] [-h host] [-p[password]] [-P port]
-
-
-
-mysql参数
-参数-描述
-
-
-
-
--D，–database=name
-打开指定数据库
-
-
--h, –host=name
-服务器名称（默认本地服务器127.0.0.1）
-
-
--p，–pas">
+<meta name="description" content="字符函数CONCAT(char1,char2…) 将括号内的字符进行连接CONCAT_WS(sep,char1,char2…) 将字符进行连接，字符间用sep分开FORMAT(char_num,num) 将char_num进行格式化，保留num位小数，返回字符型结果LOWER(char) 转化成小写字母UPPER(char) 转化成大写字母LEFT(char,num) 获取char中左侧num个字">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySql零接触(1)">
-<meta property="og:url" content="http://yoursite.com/2017/02/06/MySql零接触(1)/index.html">
+<meta property="og:title" content="MySql零接触(7)">
+<meta property="og:url" content="http://yoursite.com/2017/02/10/MySql零接触(7)/index.html">
 <meta property="og:site_name" content="Lexokid的博客">
-<meta property="og:description" content="最近学习了与MySQL的零距离接触发现适合初学者，讲得不错，做些笔记方便自己学习
-MySQL登录mysql [-u username] [-h host] [-p[password]] [-P port]
-
-
-
-mysql参数
-参数-描述
-
-
-
-
--D，–database=name
-打开指定数据库
-
-
--h, –host=name
-服务器名称（默认本地服务器127.0.0.1）
-
-
--p，–pas">
-<meta property="og:updated_time" content="2017-02-06T10:57:11.360Z">
+<meta property="og:description" content="字符函数CONCAT(char1,char2…) 将括号内的字符进行连接CONCAT_WS(sep,char1,char2…) 将字符进行连接，字符间用sep分开FORMAT(char_num,num) 将char_num进行格式化，保留num位小数，返回字符型结果LOWER(char) 转化成小写字母UPPER(char) 转化成大写字母LEFT(char,num) 获取char中左侧num个字">
+<meta property="og:updated_time" content="2017-02-11T13:09:07.120Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySql零接触(1)">
-<meta name="twitter:description" content="最近学习了与MySQL的零距离接触发现适合初学者，讲得不错，做些笔记方便自己学习
-MySQL登录mysql [-u username] [-h host] [-p[password]] [-P port]
-
-
-
-mysql参数
-参数-描述
-
-
-
-
--D，–database=name
-打开指定数据库
-
-
--h, –host=name
-服务器名称（默认本地服务器127.0.0.1）
-
-
--p，–pas">
+<meta name="twitter:title" content="MySql零接触(7)">
+<meta name="twitter:description" content="字符函数CONCAT(char1,char2…) 将括号内的字符进行连接CONCAT_WS(sep,char1,char2…) 将字符进行连接，字符间用sep分开FORMAT(char_num,num) 将char_num进行格式化，保留num位小数，返回字符型结果LOWER(char) 转化成小写字母UPPER(char) 转化成大写字母LEFT(char,num) 获取char中左侧num个字">
 
 
 
@@ -173,10 +116,10 @@ mysql参数
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/06/MySql零接触(1)/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/10/MySql零接触(7)/"/>
 
 
-  <title> MySql零接触(1) | Lexokid的博客 </title>
+  <title> MySql零接触(7) | Lexokid的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -339,7 +282,7 @@ mysql参数
             
             
               
-                MySql零接触(1)
+                MySql零接触(7)
               
             
           </h1>
@@ -351,8 +294,8 @@ mysql参数
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-06T16:56:54+08:00" content="2017-02-06">
-              2017-02-06
+            <time itemprop="dateCreated" datetime="2017-02-10T15:24:54+08:00" content="2017-02-10">
+              2017-02-10
             </time>
           </span>
 
@@ -398,72 +341,20 @@ mysql参数
       
 
       
-        <p>最近学习了<strong><a href="http://www.imooc.com/learn/122" target="_blank" rel="external">与MySQL的零距离接触</a></strong>发现适合初学者，讲得不错，做些笔记方便自己学习</p>
-<h2 id="MySQL登录"><a href="#MySQL登录" class="headerlink" title="MySQL登录"></a>MySQL登录</h2><p><strong>mysql [-u username] [-h host] [-p[password]] [-P port]</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">mysql参数</th>
-<th style="text-align:center">参数-描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">-D，–database=name</td>
-<td style="text-align:center">打开指定数据库</td>
-</tr>
-<tr>
-<td style="text-align:left">-h, –host=name</td>
-<td style="text-align:center">服务器名称（默认本地服务器127.0.0.1）</td>
-</tr>
-<tr>
-<td style="text-align:left">-p，–password[=name]</td>
-<td style="text-align:center">密码</td>
-</tr>
-<tr>
-<td style="text-align:left">-P, –port=#</td>
-<td style="text-align:center">端口号（默认3306）</td>
-</tr>
-<tr>
-<td style="text-align:left">-u, –user=name</td>
-<td style="text-align:center">用户名</td>
-</tr>
-<tr>
-<td style="text-align:left">-V, –version</td>
-<td style="text-align:center">输出版本信息并且退出</td>
-</tr>
-<tr>
-<td style="text-align:left">–delimiter=name</td>
-<td style="text-align:center">指定分隔符</td>
-</tr>
-<tr>
-<td style="text-align:left">–prompt=name</td>
-<td style="text-align:center">设置提示符</td>
-</tr>
-</tbody>
-</table>
-<p>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -proot -P3306 -h127.0.0.1</div><div class="line"><span class="comment">--表示超级用户名root,密码root，端口号3306（不输入P默认为3306），主机地址127.0.0.1（若使用本机作为主机，h默认127.0.0.1）</span></div></pre></td></tr></table></figure></p>
-<h2 id="MySQL-语句的规范"><a href="#MySQL-语句的规范" class="headerlink" title="MySQL 语句的规范"></a>MySQL 语句的规范</h2><ol>
-<li>关键字，函数名称大写</li>
-<li>数据库名称，表的名称，字段名称小写</li>
-<li>SQL语句以；结尾</li>
-</ol>
+        <h2 id="字符函数"><a href="#字符函数" class="headerlink" title="字符函数"></a>字符函数</h2><p>CONCAT(char1,char2…) 将括号内的字符进行连接<br>CONCAT_WS(sep,char1,char2…) 将字符进行连接，字符间用sep分开<br>FORMAT(char_num,num) 将char_num进行格式化，保留num位小数，返回字符型结果<br>LOWER(char) 转化成小写字母<br>UPPER(char) 转化成大写字母<br>LEFT(char,num) 获取char中左侧num个字符<br>RIGHT(char,num) 获取char中右侧num个字符<br>LENGTH(char) 返回字符串长度（空格也算在长度内）<br>LTRIM(char) 删除前导空格<br>RTRIM(char) 删除后续空格<br>TRIM(char) 删除前导和后续空格<br>TRIM(LEADING char1 FROM char2) 删除char2中的前导char1<br>TRIM(TRAILING char2 FROM char2) 删除char2中的后续char1<br>TRIM(BOTH char1 FROM char2) 删除char2中的前导和后续char1<br>REPLACE(char1,char2,char3) 将char1中的char2替换成char3。可用空格替换。<br>SUBSTRING(char,num1,num2) 在char中，从num1开始，截取num2个字符串（字符串从1开始）。如果缺省num2，则自num1开始截取到末尾。如果num1&lt;0，则倒取。<br>[NOT] LIKE 模式匹配。%代表任意个字符，_代表任意一个字符。若要查找%或_，可写成LIKE ‘%1%%’ EXCAPE ‘1’; //1后面的不用进行解析</p>
 <hr>
-<h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><h3 id="1-创建数据库"><a href="#1-创建数据库" class="headerlink" title="1.创建数据库"></a>1.创建数据库</h3><p>创建数据库,并设置其编码方式(如果不设置编码方式,系统将按照默认方式设置编码方式)<br><strong>CREATE ｛DATABASE | SCHEMA｝ [IF NOT EXITSTS] db_name [DEFAULT] CHARACTER SET [=] charset_name;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> db1 <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> gbk;</div></pre></td></tr></table></figure></p>
-<h3 id="2-查看所有数据库"><a href="#2-查看所有数据库" class="headerlink" title="2.查看所有数据库"></a>2.查看所有数据库</h3><p><strong>SHOW {DATABASES | SCHEMAS};</strong></p>
-<h3 id="3-查看数据库创建时的指令"><a href="#3-查看数据库创建时的指令" class="headerlink" title="3.查看数据库创建时的指令"></a>3.查看数据库创建时的指令</h3><p><strong>SHOW CREATE DATABASE db_name;</strong></p>
-<h3 id="4-修改数据库编码方式"><a href="#4-修改数据库编码方式" class="headerlink" title="4.修改数据库编码方式"></a>4.修改数据库编码方式</h3><p><strong>ALTER {DATABASE | SCHEMA} db_name [DEFAULT] CHARACTER SET [=] charset_name;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> db1 <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8;</div></pre></td></tr></table></figure></p>
-<h3 id="5-删除数据库"><a href="#5-删除数据库" class="headerlink" title="5.删除数据库"></a>5.删除数据库</h3><p><strong>DROP {DATABASE | SCHEMA} [IF EXISTS] db_name;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DROP</span> <span class="keyword">DATABASE</span> db1;</div></pre></td></tr></table></figure></p>
+<h2 id="数值运算符与函数"><a href="#数值运算符与函数" class="headerlink" title="数值运算符与函数"></a>数值运算符与函数</h2><p>CEIL(num) num向上取整<br>FLOOR(num) num向下取整<br>DIV 整数除法，小于1取0<br>MOD 取余数，等价于%<br>POWER(num1,num2) 取num1的num2次方<br>ROUND(num1,num2) 对num1后的num2位小数进行四舍五入<br>TRUNCATE(num1,num2) 对num1后的num2位小数进行截断(不进行四舍五入)</p>
 <hr>
-<h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><h3 id="1-显示当前服务版本号"><a href="#1-显示当前服务版本号" class="headerlink" title="1.显示当前服务版本号"></a>1.显示当前服务版本号</h3><p><strong>SELECT VERSION();</strong></p>
-<h3 id="2-显示当前用户"><a href="#2-显示当前用户" class="headerlink" title="2.显示当前用户"></a>2.显示当前用户</h3><p><strong>SELECT USER();</strong></p>
-<h3 id="3-显示当前日期时间"><a href="#3-显示当前日期时间" class="headerlink" title="3.显示当前日期时间"></a>3.显示当前日期时间</h3><p><strong>SELECT NOW();</strong></p>
-<h3 id="4-显示当前所在数据库"><a href="#4-显示当前所在数据库" class="headerlink" title="4.显示当前所在数据库"></a>4.显示当前所在数据库</h3><p><strong>SELECT DATABASE();</strong></p>
+<h2 id="比较运算符与函数"><a href="#比较运算符与函数" class="headerlink" title="比较运算符与函数"></a>比较运算符与函数</h2><p>1.[NOT] BETWEEN…AND…   [不]在范围之内<br>2.[NOT] IN()               [不]在列出值范围内<br>3.IS [NOT] NULL            [不]为空</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="number">15</span> BETWEEND <span class="number">1</span> <span class="keyword">AND</span> <span class="number">20</span>;   <span class="comment">--返回1，15在1到20范围内</span></div><div class="line"><span class="keyword">SELECT</span> <span class="number">15</span> <span class="keyword">NOT</span> BETWEEND <span class="number">1</span> <span class="keyword">AND</span> <span class="number">20</span>;    <span class="comment">--返回0，15不在1到20之间,条件不成立 返回值是0</span></div><div class="line"><span class="keyword">SELECT</span> <span class="number">10</span> <span class="keyword">IN</span>(<span class="number">5</span>,<span class="number">10</span>,<span class="number">15</span>);    <span class="comment">--返回1，值是否在给定的数值中,条件成立为1不成立为0</span></div><div class="line"><span class="keyword">SELECT</span> <span class="number">10</span> <span class="keyword">NOT</span> <span class="keyword">IN</span>(<span class="number">5</span>,<span class="number">10</span>,<span class="number">15</span>);    <span class="comment">--返回0，数值是否不在给定的数值中,条件成立为1不成立为0</span></div><div class="line"><span class="keyword">SELECT</span> <span class="literal">NULL</span> <span class="keyword">IS</span> <span class="literal">NULL</span>;    <span class="comment">--返回1，空是空 条件成立返回1,不成立返回0</span></div><div class="line"><span class="keyword">SELECT</span> <span class="string">''</span> <span class="keyword">IS</span> <span class="literal">NULL</span>;    <span class="comment">--返回0，除了NULL空其它都是非空 返回都是0</span></div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> abc <span class="keyword">WHERE</span> <span class="keyword">id</span> <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>;    <span class="comment">--查找abc表中id不为NULL的列</span></div></pre></td></tr></table></figure>
 <hr>
-<h2 id="MySql的配置选项"><a href="#MySql的配置选项" class="headerlink" title="MySql的配置选项"></a>MySql的配置选项</h2><h3 id="1-修改编码"><a href="#1-修改编码" class="headerlink" title="1.修改编码"></a>1.修改编码</h3><p>打开my.ini添加\修改<br>[mysql]<br>default-character-set=utf8</p>
-<p>[mysqld]<br>character-set-server=utf8</p>
-<h3 id="2-修改数据表的默认存储引擎"><a href="#2-修改数据表的默认存储引擎" class="headerlink" title="2.修改数据表的默认存储引擎"></a>2.修改数据表的默认存储引擎</h3><p>打开my.ini修改</p>
-<p>default-storage-engine=INNODB</p>
+<h2 id="日期时间函数"><a href="#日期时间函数" class="headerlink" title="日期时间函数"></a>日期时间函数</h2><p>NOW() 当前时间 含日期时间<br>CURDATE() 当前日期 只有日期<br>CURTIME() 当前时间 只有时间<br>DATE_ADD() 日期变化（时间增减或减少）<br>DATEDIFF() 日期差值<br>DATE_FORMAT() 日期格式化<br>例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">DATE_ADD</span>(<span class="string">'2014-3-12'</span>,<span class="built_in">INTERVAL</span> <span class="number">365</span> <span class="keyword">DAY</span>); <span class="comment">-- 2015-3-12 --在原有给定的时间上增加365天</span></div><div class="line"><span class="comment">--INTERVAL增加可以增加负值 单位 year,month,week,day</span></div><div class="line"></div><div class="line"><span class="keyword">SELECT</span> <span class="keyword">DATEDIFF</span>(<span class="string">'2014-1-1'</span>,<span class="string">'2015-1-1'</span>) <span class="comment">-- -365</span></div><div class="line"><span class="comment">--时间差值计算 单位为日 前面时间减去后面时间</span></div><div class="line"></div><div class="line"><span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>(<span class="string">'2014-3-2'</span>,<span class="string">'%m/%d/%y'</span>); <span class="comment">-- 03/02/2014</span></div><div class="line"><span class="comment">--日期格式转换</span></div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="信息函数"><a href="#信息函数" class="headerlink" title="信息函数"></a>信息函数</h2><p>CONNECTION_ID(); 连接ID<br>SELECT DATABASE(); 当前数据库<br>LAST_INSERT_ID(); 最后插入记录的 ID 号（所查询的数据表必须有一个自动编号的列才能使用这个语句进行查询），如果是一次insert中插入的是多条记录，得到的是多条中的第一条（而不是最后一条！）<br>VERSION(); 版本的信息<br>USER(); 当前用户</p>
+<hr>
+<h2 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h2><p>聚合函数的共同特点：只有一个返回值<br>AVG() 平均值<br>COUNT() 计数<br>MAX() 最大值<br>MIN() 最小值<br>SUM() 求和</p>
+<hr>
+<h2 id="加密函数"><a href="#加密函数" class="headerlink" title="加密函数"></a>加密函数</h2><p>MD5(char) 信息摘要算法，针对web页面的数据库。<br>PASSWORD(char) 密码算法，针对修改当前用户和其他用户的密码。修改客户端密码SET PASSWORD=PASSWORD(‘密码’)。</p>
 
       
     </div>
@@ -497,16 +388,16 @@ mysql参数
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/28/正则表达式/" rel="next" title="正则表达式">
-                <i class="fa fa-chevron-left"></i> 正则表达式
+              <a href="/2017/02/08/MySql零接触(6)/" rel="next" title="MySql零接触(6)">
+                <i class="fa fa-chevron-left"></i> MySql零接触(6)
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/06/MySql零接触(2)/" rel="prev" title="MySql零接触(2)">
-                MySql零接触(2) <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/11/MySql零接触(8)/" rel="prev" title="MySql零接触(8)">
+                MySql零接触(8) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -686,7 +577,7 @@ mysql参数
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL登录"><span class="nav-number">1.</span> <span class="nav-text">MySQL登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-语句的规范"><span class="nav-number">2.</span> <span class="nav-text">MySQL 语句的规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库操作"><span class="nav-number">3.</span> <span class="nav-text">数据库操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-创建数据库"><span class="nav-number">3.1.</span> <span class="nav-text">1.创建数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-查看所有数据库"><span class="nav-number">3.2.</span> <span class="nav-text">2.查看所有数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-查看数据库创建时的指令"><span class="nav-number">3.3.</span> <span class="nav-text">3.查看数据库创建时的指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-修改数据库编码方式"><span class="nav-number">3.4.</span> <span class="nav-text">4.修改数据库编码方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-删除数据库"><span class="nav-number">3.5.</span> <span class="nav-text">5.删除数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他命令"><span class="nav-number">4.</span> <span class="nav-text">其他命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-显示当前服务版本号"><span class="nav-number">4.1.</span> <span class="nav-text">1.显示当前服务版本号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-显示当前用户"><span class="nav-number">4.2.</span> <span class="nav-text">2.显示当前用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-显示当前日期时间"><span class="nav-number">4.3.</span> <span class="nav-text">3.显示当前日期时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-显示当前所在数据库"><span class="nav-number">4.4.</span> <span class="nav-text">4.显示当前所在数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySql的配置选项"><span class="nav-number">5.</span> <span class="nav-text">MySql的配置选项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-修改编码"><span class="nav-number">5.1.</span> <span class="nav-text">1.修改编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-修改数据表的默认存储引擎"><span class="nav-number">5.2.</span> <span class="nav-text">2.修改数据表的默认存储引擎</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符函数"><span class="nav-number">1.</span> <span class="nav-text">字符函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数值运算符与函数"><span class="nav-number">2.</span> <span class="nav-text">数值运算符与函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较运算符与函数"><span class="nav-number">3.</span> <span class="nav-text">比较运算符与函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期时间函数"><span class="nav-number">4.</span> <span class="nav-text">日期时间函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息函数"><span class="nav-number">5.</span> <span class="nav-text">信息函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#聚合函数"><span class="nav-number">6.</span> <span class="nav-text">聚合函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加密函数"><span class="nav-number">7.</span> <span class="nav-text">加密函数</span></a></li></ol></div>
             
           </div>
         </section>
