@@ -97,11 +97,10 @@
     <link href="http://yoursite.com/2017/02/27/git/git%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2017/02/27/git/git命令/</id>
     <published>2017-02-27T13:50:00.000Z</published>
-    <updated>2017-02-28T03:01:23.651Z</updated>
+    <updated>2017-02-28T06:08:16.865Z</updated>
     
-    <content type="html"><![CDATA[<p>来源<a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">阮一峰博客</a></p>
-<p><img src="/images/17227(1).png" class="full-image"></p>
-<a id="more"></a>
+    <content type="html"><![CDATA[<p><img src="/images/17227(1).png" class="full-image"><br><a id="more"></a></p>
+<p>来源<a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">阮一峰博客</a></p>
 <ul>
 <li>Workspace：工作区</li>
 <li>Index / Stage：暂存区</li>
@@ -132,8 +131,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;来源&lt;a href=&quot;http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html&quot;&gt;阮一峰博客&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/17227(1).png&quot; class=&quot;full-image&quot; /&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;/images/17227(1).png&quot; class=&quot;full-image&quot; /&gt;&lt;br&gt;
     
     </summary>
     
