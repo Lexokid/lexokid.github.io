@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-03-01T04:13:11.710Z</updated>
+  <updated>2017-03-01T06:07:26.506Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/03/01/css/flexbox/"/>
     <id>http://yoursite.com/2017/03/01/css/flexbox/</id>
     <published>2017-03-01T03:36:00.000Z</published>
-    <updated>2017-03-01T04:13:11.710Z</updated>
+    <updated>2017-03-01T06:07:26.506Z</updated>
     
     <content type="html"><![CDATA[
 <style>
@@ -171,7 +171,7 @@
             <div class="boxstyle">
                 <p>display: -webkit-flex;</p>
             </div>
-            <div class="demo demo1">
+            <div class="demo demo1 boxborder">
                 <div class="item" style="width: 100px">width:100px;</div>
                 <div class="item" style="flex: 2">flex: 2;</div>
                 <div class="item" style="flex: 1">flex: 1;</div>
@@ -199,7 +199,7 @@
                 <p>flex-direction: row; /*default*/</p>
                 <p>display: -webkit-flex;</p>
             </div>
-            <div class="demo demo-row">
+            <div class="demo demo-row boxborder">
                 <div class="item" style="flex: 1">flex: 1;</div>
                 <div class="item" style="flex: 2">flex: 2;</div>
                 <div class="item" style="flex: 3">flex: 3;</div>
@@ -210,7 +210,7 @@
                 <p>flex-direction: row-reverse;</p>
                 <p>display: -webkit-flex; </p>
             </div>
-            <div class="demo demo-row-reverse">
+            <div class="demo demo-row-reverse boxborder">
                 <div class="item" style="flex: 1">flex: 1;</div>
                 <div class="item" style="flex: 2">flex: 2;</div>
                 <div class="item" style="flex: 3">flex: 3;</div>
@@ -221,7 +221,7 @@
                 <p>flex-direction: column;</p>
                 <p>display: -webkit-flex; </p>
             </div>
-            <div class="demo demo-column">
+            <div class="demo demo-column boxborder">
                 <div class="item" style="flex: 1">flex: 1;</div>
                 <div class="item" style="flex: 2">flex: 2;</div>
                 <div class="item" style="flex: 3">flex: 3;</div>
@@ -232,7 +232,7 @@
                 <p>flex-direction: column-reverse;</p>
                 <p>display: -webkit-flex; </p>
             </div>
-            <div class="demo demo-column-reverse">
+            <div class="demo demo-column-reverse boxborder">
                 <div class="item" style="flex: 1">flex: 1;</div>
                 <div class="item" style="flex: 2">flex: 2;</div>
                 <div class="item" style="flex: 3">flex: 3;</div>
@@ -247,7 +247,7 @@
                 <p>display: -webkit-flex; </p>
                 <p>width: 400px</p>
             </div>
-            <div class="demo demo-nowrap">
+            <div class="demo demo-nowrap boxborder">
                 <div class="item" style="width: 100px">100px;</div>
                 <div class="item" style="width: 200px">width: 200px;</div>
                 <div class="item" style="width: 300px">width: 300px;</div>
@@ -595,9 +595,9 @@
       <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
     
     
-      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
-    
       <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
     
   </entry>
   
@@ -624,9 +624,9 @@
       <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
     
     
-      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
-    
       <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
     
   </entry>
   
