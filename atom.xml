@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-27T15:18:32.444Z</updated>
+  <updated>2017-03-01T04:13:11.710Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,19 +16,579 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>定位和居中</title>
-    <link href="http://yoursite.com/2017/02/27/ife2017/%E5%AE%9A%E4%BD%8D%E5%92%8C%E5%B1%85%E4%B8%AD/"/>
-    <id>http://yoursite.com/2017/02/27/ife2017/定位和居中/</id>
-    <published>2017-02-27T15:10:00.000Z</published>
-    <updated>2017-02-27T15:18:32.444Z</updated>
+    <title>Web的Flex弹性盒模型</title>
+    <link href="http://yoursite.com/2017/03/01/css/flexbox/"/>
+    <id>http://yoursite.com/2017/03/01/css/flexbox/</id>
+    <published>2017-03-01T03:36:00.000Z</published>
+    <updated>2017-03-01T04:13:11.710Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/1-4/index.html" target="_blank" rel="external">https://github.com/Lexokid/ife/blob/master/1-4/index.html</a></p>
-<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/1-4/index.html" target="_blank" rel="external">https://lexokid.github.io/ife/1-4/index.html</a></p>
+    <content type="html"><![CDATA[
+<style>
+    h1 {
+        color: #0BF;
+        text-indent: 15px;
+    }
+
+    h3 {
+        color: #6D7273;
+        text-indent: 15px;
+        padding: 10px 0;
+        background-color: #fff;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+        color: #666;
+        margin-bottom: 5px;
+    }
+
+    .boxes {
+        padding: 0 10px;
+        /* overflow: hidden; */
+        display: -webkit-flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
+
+    .box {
+        width: 400px;
+        padding: 8px;
+        margin-right: 20px;
+        margin-bottom: 10px;
+        display: inline-block;
+        /*box-shadow: 2px 2px 3px 1px #E0E0E0;*/
+        box-shadow: 0px 0px 20px 1px #E0E0E0;
+    }
+
+    .boxstyle {
+        padding: 8px 0;
+    }
+
+    .boxborder {
+        border: 1px dashed #B6B6B6;
+    }
+
+    .demo {
+        color: #fff;
+        display: -webkit-flex;
+        text-align: center;
+    }
+
+        .demo .item {
+            line-height: 40px;
+            background-color: #ddd;
+        }
+
+            .demo .item:nth-child(1) {
+                background-color: #E46C49;
+            }
+
+            .demo .item:nth-child(2) {
+                background-color: #37B0D3;
+            }
+
+            .demo .item:nth-child(3) {
+                background-color: #68B33D;
+            }
+
+            .demo .item:nth-child(4) {
+                background-color: #E46775;
+            }
+
+            .demo .item:nth-child(5) {
+                background-color: #CFC731;
+            }
+
+            .demo .item:nth-child(6) {
+                background-color: #8370F4;
+            }
+
+            .demo .item span {
+                display: block;
+            }
+
+    .demo2 .item {
+        height: 60px;
+        width: 150px;
+        word-wrap: break-word;
+        line-height: 1.5;
+    }
+
+    .demo-row {
+        flex-direction: row;
+    }
+
+    .demo-row-reverse {
+        flex-direction: row-reverse;
+    }
+
+    .demo-column {
+        height: 200px;
+        flex-direction: column;
+    }
+
+    .demo-column-reverse {
+        height: 200px;
+        flex-direction: column-reverse;
+    }
+
+    .demo-nowrap {
+        -webkit-flex-wrap: nowrap;
+        width: 400px;
+    }
+
+    .demo-wrap {
+        -webkit-flex-wrap: wrap;
+        width: 400px;
+    }
+
+    .demo-wrap-reverse {
+        -webkit-flex-wrap: wrap-reverse;
+        width: 400px;
+    }
+
+    .demo-align-content {
+        width: 400px;
+        flex-wrap: wrap;
+        height: 200px;
+        border: 1px dashed #B6B6B6;
+    }
+
+        .demo-align-content .item:nth-child(1), .demo-align-content .item:nth-child(2), .demo-align-content .item:nth-child(3),
+        .demo-align-content .item:nth-child(4), .demo-align-content .item:nth-child(5), .demo-align-content .item:nth-child(6) {
+            background-color: #717171;
+            width: 80px;
+            margin: 2px 10px;
+        }
+</style>
+
+<h1>Web的Flex弹性盒模型</h1>
+<div class="content">
+    <h3>[ flex ]</h3>
+    <div class="boxes">
+        <div class="box">
+            <div class="boxstyle">
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo demo1">
+                <div class="item" style="width: 100px">width:100px;</div>
+                <div class="item" style="flex: 2">flex: 2;</div>
+                <div class="item" style="flex: 1">flex: 1;</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>display: -webkit-flex; </p>
+            </div>
+            <div class="demo demo2 boxborder">
+                <div class="item" style="margin-right: 10px;">
+                    <span>width:150px;</span> <span>margin-right:10px;</span>
+                </div>
+                <div class="item" style="flex: 1">flex: 1;</div>
+                <div class="item" style="margin-left: 10px;">
+                    <span>width:150px;</span> <span>margin-left:10px;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3>[ flex-direction ]</h3>
+    <div class="boxes" style="width: 900px">
+        <div class="box">
+            <div class="boxstyle">
+                <p>flex-direction: row; /*default*/</p>
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo demo-row">
+                <div class="item" style="flex: 1">flex: 1;</div>
+                <div class="item" style="flex: 2">flex: 2;</div>
+                <div class="item" style="flex: 3">flex: 3;</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>flex-direction: row-reverse;</p>
+                <p>display: -webkit-flex; </p>
+            </div>
+            <div class="demo demo-row-reverse">
+                <div class="item" style="flex: 1">flex: 1;</div>
+                <div class="item" style="flex: 2">flex: 2;</div>
+                <div class="item" style="flex: 3">flex: 3;</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>flex-direction: column;</p>
+                <p>display: -webkit-flex; </p>
+            </div>
+            <div class="demo demo-column">
+                <div class="item" style="flex: 1">flex: 1;</div>
+                <div class="item" style="flex: 2">flex: 2;</div>
+                <div class="item" style="flex: 3">flex: 3;</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>flex-direction: column-reverse;</p>
+                <p>display: -webkit-flex; </p>
+            </div>
+            <div class="demo demo-column-reverse">
+                <div class="item" style="flex: 1">flex: 1;</div>
+                <div class="item" style="flex: 2">flex: 2;</div>
+                <div class="item" style="flex: 3">flex: 3;</div>
+            </div>
+        </div>
+    </div>
+    <h3>[ flex-wrap ]</h3>
+    <div class="boxes">
+        <div class="box">
+            <div class="boxstyle">
+                <p>-webkit-flex-wrap: nowrap; /* default */</p>
+                <p>display: -webkit-flex; </p>
+                <p>width: 400px</p>
+            </div>
+            <div class="demo demo-nowrap">
+                <div class="item" style="width: 100px">100px;</div>
+                <div class="item" style="width: 200px">width: 200px;</div>
+                <div class="item" style="width: 300px">width: 300px;</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>-webkit-flex-wrap: wrap</p>
+                <p>display: -webkit-flex; </p>
+                <p>width: 400px</p>
+            </div>
+            <div class="demo demo-wrap boxborder">
+                <div class="item" style="width: 100px">100px;</div>
+                <div class="item" style="width: 200px">width: 200px;</div>
+                <div class="item" style="width: 300px">width: 300px;</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>-webkit-flex-wrap: wrap-reverse</p>
+                <p>display: -webkit-flex; </p>
+                <p>width: 400px</p>
+            </div>
+            <div class="demo demo-wrap-reverse boxborder">
+                <div class="item" style="width: 100px">100px;</div>
+                <div class="item" style="width: 200px">width: 200px;</div>
+                <div class="item" style="width: 300px">width: 300px;</div>
+            </div>
+        </div>
+    </div>
+    <h3>[ flex-flow ]: flex-direction flex-wrap; /* 自个体会吧 */</h3>
+    <h3>[ justify-content ]</h3>
+    <div class="boxes">
+        <div class="box">
+            <div class="boxstyle">
+                <p>/* 效果如同 float:left; */</p>
+                <p>justify-content: flex-start; /* default */</p>
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo boxborder" style="justify-content: flex-start;">
+                <div class="item" style="width: 100px">width:100px;</div>
+                <div class="item" style="width: 100px">width:100px;</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>
+                    </p><p>/* 效果如同 float:right; */</p>
+                <p></p>
+                <p>justify-content: flex-end;</p>
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo demo-justify boxborder" style="justify-content: flex-end;">
+                <div class="item" style="width: 100px">width:100px;</div>
+                <div class="item" style="width: 100px">width:100px;</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>/* 第三代水平居中方案 */</p>
+                <p>justify-content: center;</p>
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo demo-justify-end boxborder" style="justify-content: center;">
+                <div class="item" style="width: 100px">width:100px;</div>
+                <div class="item" style="width: 100px">width:100px;</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>justify-content: space-between; </p>
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo demo-justify boxborder" style="justify-content: space-between;">
+                <div class="item" style="width: 100px">width:100px;</div>
+                <div class="item" style="width: 100px">width:100px;</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>justify-content: space-around; </p>
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo demo-justify-end boxborder" style="justify-content: space-around;">
+                <div class="item" style="width: 100px">width:100px;</div>
+                <div class="item" style="width: 100px">width:100px;</div>
+            </div>
+        </div>
+    </div>
+    <h3>[ align-self ]</h3>
+    <div class="boxes">
+        <div class="box" style="width: 960px;">
+            <div class="boxstyle">
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo boxborder" style="width: 960px; height: 200px;">
+                <div class="item" style="width: 200px; align-self: flex-start;">align-self:flex-start;</div>
+                <div class="item" style="width: 200px; align-self: flex-end;">align-self:flex-end;</div>
+                <div class="item" style="width: 200px; align-self: center;">align-self:center;</div>
+                <div class="item" style="width: 200px; align-self: auto;">
+                    <span>align-self:auto;</span>
+                    <span>/*default */</span>
+                </div>
+                <div class="item" style="width: 200px; align-self: baseline;">align-self:baseline;</div>
+                <div class="item" style="width: 200px; align-self: stretch;">align-self:stretch;</div>
+            </div>
+        </div>
+    </div>
+    <h3>[ align-items ]</h3>
+    <div class="boxes">
+        <div class="box">
+            <div class="boxstyle">
+                <p>align-items: flex-start; /* default */</p>
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo boxborder" style="align-items: flex-start; height: 200px;">
+                <div class="item" style="width: 100px">width:100px;</div>
+                <div class="item" style="width: 100px">width:100px;</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>align-items: flex-end; </p>
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo boxborder" style="align-items: flex-end; height: 200px;">
+                <div class="item" style="width: 100px">width:100px;</div>
+                <div class="item" style="width: 100px">width:100px;</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>/* 第三代垂直居中 */</p>
+                <p>align-items: center; </p>
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo boxborder" style="align-items: center; height: 200px;">
+                <div class="item" style="width: 100px">width:100px;</div>
+                <div class="item" style="width: 100px">width:100px;</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>align-items: baseline; </p>
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo boxborder" style="align-items: baseline; height: 200px;">
+                <div class="item" style="width: 100px">width:100px;</div>
+                <div class="item" style="width: 100px">width:100px;</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>align-items: stretch; </p>
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo boxborder" style="align-items: stretch; height: 200px;">
+                <div class="item" style="width: 100px; height: 100px;">height:100px;</div>
+                <div class="item" style="width: 150px; min-height: 20px;">min-height:20px;</div>
+                <div class="item" style="width: 150px; max-height: 60px;">max-height:60px;</div>
+            </div>
+        </div>
+    </div>
+    <h3>[ align-content ]</h3>
+    <div class="boxes">
+        <div class="box">
+            <div class="boxstyle">
+                <p>/* <span style="color: red">对比 align-items</span>*/</p>
+                <p>align-items: flex-start</p>
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo demo-align-content" style="align-items: flex-start">
+                <div class="item">a</div>
+                <div class="item">b</div>
+                <div class="item">c</div>
+                <div class="item">d</div>
+                <div class="item">e</div>
+                <div class="item">f</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>align-content: flex-start; </p>
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo demo-align-content" style="align-content: flex-start;">
+                <div class="item">a</div>
+                <div class="item">b</div>
+                <div class="item">c</div>
+                <div class="item">d</div>
+                <div class="item">e</div>
+                <div class="item">f</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>align-content: flex-end; </p>
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo demo-align-content" style="align-content: flex-end;">
+                <div class="item">a</div>
+                <div class="item">b</div>
+                <div class="item">c</div>
+                <div class="item">d</div>
+                <div class="item">e</div>
+                <div class="item">f</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>align-content: center; </p>
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo demo-align-content" style="align-content: center;">
+                <div class="item">a</div>
+                <div class="item">b</div>
+                <div class="item">c</div>
+                <div class="item">d</div>
+                <div class="item">e</div>
+                <div class="item">f</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>align-content: space-between; </p>
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo demo-align-content" style="align-content: space-between;">
+                <div class="item">a</div>
+                <div class="item">b</div>
+                <div class="item">c</div>
+                <div class="item">d</div>
+                <div class="item">e</div>
+                <div class="item">f</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>align-content: space-around; </p>
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo demo-align-content" style="align-content: space-around;">
+                <div class="item">a</div>
+                <div class="item">b</div>
+                <div class="item">c</div>
+                <div class="item">d</div>
+                <div class="item">e</div>
+                <div class="item">f</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>align-content: stretch; /*default*/ </p>
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo demo-align-content" style="align-content: stretch;">
+                <div class="item">a</div>
+                <div class="item">b</div>
+                <div class="item">c</div>
+                <div class="item">d</div>
+                <div class="item">e</div>
+                <div class="item">f</div>
+            </div>
+        </div>
+    </div>
+    <h3>[ order ]</h3>
+    <div class="boxes">
+        <div class="box" style="width: 960px;">
+            <div class="boxstyle">
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo demo-align-content" style="width: 960px; height: 40px;">
+                <div class="item">a</div>
+                <div class="item">b</div>
+                <div class="item">c</div>
+                <div class="item" style="order: -1; width: 120px">d (order:-1) </div>
+                <div class="item">e</div>
+                <div class="item">f</div>
+            </div>
+        </div>
+    </div>
+</div>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;源码&quot;&gt;&lt;a href=&quot;#源码&quot; class=&quot;headerlink&quot; title=&quot;源码&quot;&gt;&lt;/a&gt;源码&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Lexokid/ife/blob/master/1-4/index.html&quot; ta
+      
+&lt;style&gt;
+    h1 {
+        color: #0BF;
+        text-indent: 15px;
+    }
+
+    h3 {
+        color: #6D7273;
+        text-indent: 15px;
+       
+    
+    </summary>
+    
+      <category term="css" scheme="http://yoursite.com/categories/css/"/>
+    
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+      <category term="flexbox" scheme="http://yoursite.com/tags/flexbox/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>定位和居中</title>
+    <link href="http://yoursite.com/2017/02/27/ife2017/%E5%AE%9A%E4%BD%8D%E5%92%8C%E5%B1%85%E4%B8%AD/"/>
+    <id>http://yoursite.com/2017/02/27/ife2017/定位和居中/</id>
+    <published>2017-02-27T15:10:00.000Z</published>
+    <updated>2017-03-01T05:58:28.339Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://ife.baidu.com/course/detail/id/95" target="_blank" rel="external">题</a></p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/1-4/index.html" target="_blank" rel="external">https://github.com/Lexokid/ife/blob/master/1-4/index.html</a></p>
+<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/1-4/index.html" target="_blank" rel="external">https://lexokid.github.io/ife/1-4/index.html</a></p>
+<h2 id="水平"><a href="#水平" class="headerlink" title="水平"></a>水平</h2><h3 id="内联元素居中-文本等"><a href="#内联元素居中-文本等" class="headerlink" title="内联元素居中(文本等)"></a>内联元素居中(文本等)</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.center-children</span> &#123;</div><div class="line">  <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="块级元素水平居中"><a href="#块级元素水平居中" class="headerlink" title="块级元素水平居中"></a>块级元素水平居中</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.center-me</span> &#123;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="多个块级元素水平居中"><a href="#多个块级元素水平居中" class="headerlink" title="多个块级元素水平居中"></a>多个块级元素水平居中</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*1.*/</span></div><div class="line"><span class="selector-class">.inline-block-center</span> &#123;</div><div class="line">  <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.inline-block-center</span> <span class="selector-tag">div</span> &#123;</div><div class="line">  <span class="attribute">display</span>: inline-block;</div><div class="line">  <span class="attribute">text-align</span>: left;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*2.*/</span></div><div class="line"><span class="selector-class">.flex-center</span> &#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>示例：<a href="http://codepen.io/chriscoyier/pen/ebing" target="_blank" rel="external">http://codepen.io/chriscoyier/pen/ebing</a></p>
+<hr>
+<h2 id="垂直"><a href="#垂直" class="headerlink" title="垂直"></a>垂直</h2><h3 id="内联元素居中-文本等-1"><a href="#内联元素居中-文本等-1" class="headerlink" title="内联元素居中(文本等)"></a>内联元素居中(文本等)</h3><h4 id="单行"><a href="#单行" class="headerlink" title="单行"></a>单行</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*1.padding-top与padding-bottom相等*/</span></div><div class="line"><span class="selector-class">.link</span> &#123;</div><div class="line">  <span class="attribute">padding-top</span>: <span class="number">30px</span>;</div><div class="line">  <span class="attribute">padding-bottom</span>: <span class="number">30px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*2.height与line-height相等*/</span></div><div class="line"><span class="selector-class">.center-text-trick</span> &#123;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">line-height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">white-space</span>: nowrap;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="多行"><a href="#多行" class="headerlink" title="多行"></a>多行</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*1. flexbox 用于包裹的元素上*/</span></div><div class="line"><span class="selector-tag">flex-center-vertically</span> &#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">  <span class="attribute">flex-direction</span>: column;</div><div class="line">  <span class="attribute">height</span>: <span class="number">400px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*2.*/</span></div><div class="line"><span class="selector-class">.center-table</span> &#123;</div><div class="line">  <span class="attribute">display</span>: table;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.center-table</span> <span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">display</span>: table-cell;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">vertical-align</span>: middle;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="块级元素居中"><a href="#块级元素居中" class="headerlink" title="块级元素居中"></a>块级元素居中</h3><h4 id="定高"><a href="#定高" class="headerlink" title="定高"></a>定高</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child</span> &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">margin-top</span>: -<span class="number">50px</span>; <span class="comment">/* account for padding and border if not using box-sizing: border-box; */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="不定高"><a href="#不定高" class="headerlink" title="不定高"></a>不定高</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child</span> &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="flexbox居中"><a href="#flexbox居中" class="headerlink" title="flexbox居中"></a>flexbox居中</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">flex-direction</span>: column;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="水平垂直"><a href="#水平垂直" class="headerlink" title="水平垂直"></a>水平垂直</h2><h3 id="元素定宽高"><a href="#元素定宽高" class="headerlink" title="元素定宽高"></a>元素定宽高</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.child</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line"></div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line"></div><div class="line">  <span class="attribute">margin</span>: -<span class="number">70px</span> <span class="number">0</span> <span class="number">0</span> -<span class="number">170px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="元素不定宽高"><a href="#元素不定宽高" class="headerlink" title="元素不定宽高"></a>元素不定宽高</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child</span> &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%, -50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="flexbox居中-1"><a href="#flexbox居中-1" class="headerlink" title="flexbox居中"></a>flexbox居中</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">  <span class="attribute">align-items</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://css-tricks.com/centering-css-complete-guide/" target="_blank" rel="external">Centering in CSS: A Complete Guide</a><br><a href="http://howtocenterincss.com/" target="_blank" rel="external">Get HTML &amp; CSS Tips In Your Inbox</a><br><a href="http://www.w3cplus.com/css/advanced-html-css-lesson2-detailed-css-positioning.html" target="_blank" rel="external">HTML和CSS高级指南之二——定位详解</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://ife.baidu.com/course/detail/id/95&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;题&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;源码&quot;&gt;&lt;a href=&quot;#源码&quot; class=&quot;headerlink&quot; 
     
     </summary>
     
