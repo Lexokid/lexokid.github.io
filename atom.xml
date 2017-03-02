@@ -25,7 +25,7 @@
     <content type="html"><![CDATA[<p><a href="http://ife.baidu.com/course/detail/id/99" target="_blank" rel="external">题</a></p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/1-6/index.html" target="_blank" rel="external">https://github.com/Lexokid/ife/blob/master/1-6/index.html</a></p>
 <h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/1-6/index.html" target="_blank" rel="external">https://lexokid.github.io/ife/1-6/index.html</a></p>
-<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><h3 id="首字母变大加下划线"><a href="#首字母变大加下划线" class="headerlink" title="首字母变大加下划线"></a>首字母变大加下划线</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span>abcd<span class="tag">&lt;/<span class="name">div</span>&gt;</span>    <span class="comment">&lt;!-- 字母小写 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></div><div class="line">    <span class="selector-class">.text</span>&#123;</div><div class="line">        <span class="attribute">font-variant</span>: small-caps;</div><div class="line">        <span class="attribute">text-transform</span>: capitalize;</div><div class="line">        <span class="attribute">text-decoration</span>: underline;</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><h3 id="首字母变大加下划线"><a href="#首字母变大加下划线" class="headerlink" title="首字母变大加下划线"></a>首字母变大加下划线</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span>abcd<span class="tag">&lt;/<span class="name">div</span>&gt;</span>    <span class="comment">&lt;!-- 字母小写 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line">    .text&#123;</div><div class="line">        font-variant: small-caps;</div><div class="line">        text-transform: capitalize;</div><div class="line">        text-decoration: underline;</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="css字体名"><a href="#css字体名" class="headerlink" title="css字体名"></a>css字体名</h3><p>在css中推荐使用中文字体的英文表示法，以下附常见中文字体的英文名：</p>
 <h4 id="Mac-OS的一些："><a href="#Mac-OS的一些：" class="headerlink" title="Mac OS的一些："></a>Mac OS的一些：</h4><p>华文细黑：STHeiti Light [STXihei]<br>华文黑体：STHeiti<br>华文楷体：STKaiti<br>华文宋体：STSong<br>华文仿宋：STFangsong<br>儷黑 Pro：LiHei Pro Medium<br>儷宋 Pro：LiSong Pro Light<br>標楷體：BiauKai<br>蘋果儷中黑：Apple LiGothic Medium<br>蘋果儷細宋：Apple LiSung Light</p>
 <h4 id="Windows的一些："><a href="#Windows的一些：" class="headerlink" title="Windows的一些："></a>Windows的一些：</h4><p>新細明體：PMingLiU<br>細明體：MingLiU<br>標楷體：DFKai-SB<br>黑体：SimHei<br>宋体：SimSun<br>新宋体：NSimSun<br>仿宋：FangSong<br>楷体：KaiTi<br>仿宋_GB2312：FangSong_GB2312<br>楷体_GB2312：KaiTi_GB2312<br>微軟正黑體：Microsoft JhengHei<br>微软雅黑体：Microsoft YaHei</p>
@@ -42,9 +42,9 @@
       <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
     
     
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
       <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
       <category term="html" scheme="http://yoursite.com/tags/html/"/>
     
@@ -630,9 +630,9 @@
       <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
     
     
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
       <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
   </entry>
   
@@ -659,9 +659,9 @@
       <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
     
     
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
       <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
   </entry>
   
@@ -670,9 +670,9 @@
     <link href="http://yoursite.com/2017/02/27/ife2017/ife2017/"/>
     <id>http://yoursite.com/2017/02/27/ife2017/ife2017/</id>
     <published>2017-02-27T14:46:00.000Z</published>
-    <updated>2017-03-02T13:44:10.096Z</updated>
+    <updated>2017-03-02T13:45:41.442Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="三栏式布局"><a href="#三栏式布局" class="headerlink" title="三栏式布局"></a><a href="https://lexokid.github.io/2017/02/27/ife2017/%E4%B8%89%E6%A0%8F%E5%BC%8F%E5%B8%83%E5%B1%80/" target="_blank" rel="external">三栏式布局</a></h3><h3 id="定位和居中"><a href="#定位和居中" class="headerlink" title="定位和居中"></a><a href="https://lexokid.github.io/2017/02/27/ife2017/%E5%AE%9A%E4%BD%8D%E5%92%8C%E5%B1%85%E4%B8%AD/" target="_blank" rel="external">定位和居中</a></h3><h3 id="通过HTML及CSS模拟报纸排版"><a href="#通过HTML及CSS模拟报纸排版" class="headerlink" title="通过HTML及CSS模拟报纸排版"></a><a href="https://lexokid.github.io/2017/02/27/ife2017/%E9%80%9A%E8%BF%87HTML%E5%8F%8ACSS%E6%A8%A1%E6%8B%9F%E6%8A%A5%E7%BA%B8%E6%8E%92%E7%89%88/" target="_blank" rel="external">通过HTML及CSS模拟报纸排版</a></h3>]]></content>
+    <content type="html"><![CDATA[<h3 id="三栏式布局"><a href="#三栏式布局" class="headerlink" title="三栏式布局"></a><a href="https://lexokid.github.io/2017/02/27/ife2017/%E4%B8%89%E6%A0%8F%E5%BC%8F%E5%B8%83%E5%B1%80/" target="_blank" rel="external">三栏式布局</a></h3><h3 id="定位和居中"><a href="#定位和居中" class="headerlink" title="定位和居中"></a><a href="https://lexokid.github.io/2017/02/27/ife2017/%E5%AE%9A%E4%BD%8D%E5%92%8C%E5%B1%85%E4%B8%AD/" target="_blank" rel="external">定位和居中</a></h3><h3 id="通过HTML及CSS模拟报纸排版"><a href="#通过HTML及CSS模拟报纸排版" class="headerlink" title="通过HTML及CSS模拟报纸排版"></a><a href="https://lexokid.github.io/2017/03/02/ife2017/%E9%80%9A%E8%BF%87HTML%E5%8F%8ACSS%E6%A8%A1%E6%8B%9F%E6%8A%A5%E7%BA%B8%E6%8E%92%E7%89%88/" target="_blank" rel="external">通过HTML及CSS模拟报纸排版</a></h3>]]></content>
     
     <summary type="html">
     
