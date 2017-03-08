@@ -3,7 +3,7 @@
   
     
     <entry>
-      <title><![CDATA[响应式网格]]></title>
+      <title><![CDATA[Flexbox 布局练习]]></title>
       <url>%2F2017%2F03%2F08%2Fife2017%2FFlexbox%20%E5%B8%83%E5%B1%80%E7%BB%83%E4%B9%A0%2F</url>
       <content type="text"><![CDATA[题 源码https://github.com/Lexokid/ife/blob/master/1-10/index.html demohttps://lexokid.github.io/ife/1-10/index.html 参考资料Flexbox详解Flexbox——快速布局神器使用 CSS 弹性盒MDN flex属性]]></content>
     </entry>
@@ -54,7 +54,7 @@
     <entry>
       <title><![CDATA[ife2017]]></title>
       <url>%2F2017%2F02%2F27%2Fife2017%2Fife2017%2F</url>
-      <content type="text"><![CDATA[三栏式布局定位和居中通过HTML及CSS模拟报纸排版实现常见的技术产品官网的页面架构及样式布局响应式网格三栏式布局]]></content>
+      <content type="text"><![CDATA[三栏式布局定位和居中通过HTML及CSS模拟报纸排版实现常见的技术产品官网的页面架构及样式布局响应式网格Flexbox 布局练习]]></content>
     </entry>
 
     
