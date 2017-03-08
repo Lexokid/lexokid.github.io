@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[响应式网格]]></title>
+      <url>%2F2017%2F03%2F08%2Fife2017%2F%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BD%91%E6%A0%BC%2F</url>
+      <content type="text"><![CDATA[题 源码https://github.com/Lexokid/ife/blob/master/1-8/index.html demohttps://lexokid.github.io/ife/1-8/index.html 知识点123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111/*设置container*/.grid-container &#123; width: 100%; max-width: 1200px; padding: 10px;&#125;.grid-container,.grid-container * &#123; box-sizing: border-box;&#125;/*为row类清除浮动来防止由浮动元素造成的外边距折叠*/.row::before,.row::after &#123; content: ""; display: table; clear: both;&#125;/*给每一行设置flex，用order可以控制3-3，3-4，3-5排列顺序*/.row&#123; display: flex; flex-wrap: wrap;&#125;@media all and (max-width: 768px) &#123; ... .col-2&#123; -webkit-order: 2; width: 25%; &#125; ...&#125;/*设置左浮动，如果列是空的浮动列将堆叠在彼此的顶部。为了防止这种情况，我们给列的最小高度为1px*/[class*='col-'] &#123; float: left; min-height: 1px; width: calc(100% * (1 / 12)); padding: 10px;&#125;/*设置文本*/[class*='col-']&gt;p&#123; text-align: center; padding: 0; margin: 0; height: 50px; background: #eee; line-height: 50px;&#125;/*设置列的百分比宽 以12列为例*/.col-1 &#123; width: calc(100% * (1 / 12));&#125;.col-2 &#123; width: calc(100% * (2 / 12));&#125;.col-3 &#123; width: calc(100% * (3 / 12));&#125;.../*设置外边框不会占据空间*/.outline p &#123; outline: 1px solid #999;&#125;/*响应式布局*/@media all and (max-width: 768px) &#123; .col-4&#123; width: 50%; &#125; .col-4:last-of-type&#123; width: 100%; &#125; .col-1&#123; width: 16.66%; &#125; .col-2&#123; -webkit-order: 2; -moz-order: 2; -ms-order: 2; -o-order: 2; order: 2; width: 25%; &#125; .col-6:last-of-type&#123; width: 66.66%; &#125;&#125;&lt;div class="grid-container outline"&gt; &lt;div class="row"&gt; &lt;div class="col-4"&gt;&lt;p&gt;1-1&lt;/p&gt;&lt;/div&gt; &lt;div class="col-4"&gt;&lt;p&gt;1-2&lt;/p&gt;&lt;/div&gt; &lt;div class="col-4"&gt;&lt;p&gt;1-3&lt;/p&gt;&lt;/div&gt; &lt;/div&gt; &lt;div class="row"&gt; &lt;div class="col-3"&gt;&lt;p&gt;2-1&lt;/p&gt;&lt;/div&gt; &lt;div class="col-6"&gt;&lt;p&gt;2-2&lt;/p&gt;&lt;/div&gt; &lt;div class="col-3"&gt;&lt;p&gt;2-3&lt;/p&gt;&lt;/div&gt; &lt;/div&gt; &lt;div class="row"&gt; &lt;div class="col-1"&gt;&lt;p&gt;3-1&lt;/p&gt;&lt;/div&gt; &lt;div class="col-1"&gt;&lt;p&gt;3-2&lt;/p&gt;&lt;/div&gt; &lt;div class="col-2"&gt;&lt;p&gt;3-3&lt;/p&gt;&lt;/div&gt; &lt;div class="col-2"&gt;&lt;p&gt;3-4&lt;/p&gt;&lt;/div&gt; &lt;div class="col-6"&gt;&lt;p&gt;3-5&lt;/p&gt;&lt;/div&gt; &lt;/div&gt;&lt;/div&gt; 参考资料Creating Your Own CSS Grid SystemBootstrap grid examplesBootStrap 带 offset 的网格系统]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[实现常见的技术产品官网的页面架构及样式布局]]></title>
       <url>%2F2017%2F03%2F06%2Fife2017%2F%E5%AE%9E%E7%8E%B0%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81%E5%AE%98%E7%BD%91%E7%9A%84%E9%A1%B5%E9%9D%A2%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%A0%B7%E5%BC%8F%E5%B8%83%E5%B1%80%2F</url>
       <content type="text"><![CDATA[题 源码https://github.com/Lexokid/ife/blob/master/1-7/index.html demohttps://lexokid.github.io/ife/1-7/index.html 参考资料CSS background 属性CSS 选择器]]></content>
@@ -40,7 +47,7 @@
     <entry>
       <title><![CDATA[ife2017]]></title>
       <url>%2F2017%2F02%2F27%2Fife2017%2Fife2017%2F</url>
-      <content type="text"><![CDATA[三栏式布局定位和居中通过HTML及CSS模拟报纸排版实现常见的技术产品官网的页面架构及样式布局]]></content>
+      <content type="text"><![CDATA[三栏式布局定位和居中通过HTML及CSS模拟报纸排版实现常见的技术产品官网的页面架构及样式布局响应式网格]]></content>
     </entry>
 
     

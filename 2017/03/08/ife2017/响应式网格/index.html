@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="MySql,语法," />
+  <meta name="keywords" content="css,ife,html,响应式," />
 
 
 
@@ -86,37 +86,22 @@
 
 
 
-<meta name="description" content="约束
-约束分为表级约束和列级约束
-约束保证数据的完整性和一致性
-约束类型包括：  NOT NULL(非空约束）  PRIMARY KEY（主键约束）  UNIQUE(唯一约束)  DEFAULT(默认约束)  FOREIGN KEY(外键约束)
-
-表级约束与列级约束
-对于一个列所创建的约束，称之为列级约束，而对于两个或两个以上的列所创建的约束，我们称之为表级约束
-列级约束在使用的时候，既可以在列定">
+<meta name="description" content="题
+源码https://github.com/Lexokid/ife/blob/master/1-8/index.html
+demohttps://lexokid.github.io/ife/1-8/index.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySql零接触(4)">
-<meta property="og:url" content="http://yoursite.com/2017/02/06/MySql/MySql零接触(4)/index.html">
+<meta property="og:title" content="响应式网格">
+<meta property="og:url" content="http://yoursite.com/2017/03/08/ife2017/响应式网格/index.html">
 <meta property="og:site_name" content="Lexokid的博客">
-<meta property="og:description" content="约束
-约束分为表级约束和列级约束
-约束保证数据的完整性和一致性
-约束类型包括：  NOT NULL(非空约束）  PRIMARY KEY（主键约束）  UNIQUE(唯一约束)  DEFAULT(默认约束)  FOREIGN KEY(外键约束)
-
-表级约束与列级约束
-对于一个列所创建的约束，称之为列级约束，而对于两个或两个以上的列所创建的约束，我们称之为表级约束
-列级约束在使用的时候，既可以在列定">
-<meta property="og:updated_time" content="2017-02-06T11:06:27.182Z">
+<meta property="og:description" content="题
+源码https://github.com/Lexokid/ife/blob/master/1-8/index.html
+demohttps://lexokid.github.io/ife/1-8/index.html">
+<meta property="og:updated_time" content="2017-03-08T09:40:43.783Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySql零接触(4)">
-<meta name="twitter:description" content="约束
-约束分为表级约束和列级约束
-约束保证数据的完整性和一致性
-约束类型包括：  NOT NULL(非空约束）  PRIMARY KEY（主键约束）  UNIQUE(唯一约束)  DEFAULT(默认约束)  FOREIGN KEY(外键约束)
-
-表级约束与列级约束
-对于一个列所创建的约束，称之为列级约束，而对于两个或两个以上的列所创建的约束，我们称之为表级约束
-列级约束在使用的时候，既可以在列定">
+<meta name="twitter:title" content="响应式网格">
+<meta name="twitter:description" content="题
+源码https://github.com/Lexokid/ife/blob/master/1-8/index.html
+demohttps://lexokid.github.io/ife/1-8/index.html">
 
 
 
@@ -137,10 +122,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/06/MySql/MySql零接触(4)/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/08/ife2017/响应式网格/"/>
 
 
-  <title> MySql零接触(4) | Lexokid的博客 </title>
+  <title> 响应式网格 | Lexokid的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -303,7 +288,7 @@
             
             
               
-                MySql零接触(4)
+                响应式网格
               
             
           </h1>
@@ -315,8 +300,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-06T19:24:54+08:00" content="2017-02-06">
-              2017-02-06
+            <time itemprop="dateCreated" datetime="2017-03-08T13:13:00+08:00" content="2017-03-08">
+              2017-03-08
             </time>
           </span>
 
@@ -329,8 +314,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/MySql/" itemprop="url" rel="index">
-                    <span itemprop="name">MySql</span>
+                  <a href="/categories/ife/" itemprop="url" rel="index">
+                    <span itemprop="name">ife</span>
                   </a>
                 </span>
 
@@ -362,52 +347,14 @@
       
 
       
-        <h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><ul>
-<li>约束分为表级约束和列级约束</li>
-<li>约束保证数据的完整性和一致性</li>
-<li>约束类型包括：<br>  NOT NULL(非空约束）<br>  PRIMARY KEY（主键约束）<br>  UNIQUE(唯一约束)<br>  DEFAULT(默认约束)<br>  FOREIGN KEY(外键约束)</li>
-</ul>
-<h3 id="表级约束与列级约束"><a href="#表级约束与列级约束" class="headerlink" title="表级约束与列级约束"></a>表级约束与列级约束</h3><ul>
-<li>对于一个列所创建的约束，称之为列级约束，而对于两个或两个以上的列所创建的约束，我们称之为表级约束</li>
-<li>列级约束在使用的时候，既可以在列定义的时候声明，也可以在列定义以后声明</li>
-<li>表级的约束只能在列定义以后来声明</li>
-<li>在实际开发中，用列级约束比较多，表级约束很少用，除此之外，在所有的约束中，并不是说每种约束都存在着表级或列级约束，其中，NOT NULL 非空约束，DEFAULT约束这两种约束就不存在表级约束，它们只有列级约束，而对于其他的三种，像主键，唯一，外键，它们都可以存在表级和列级约束。</li>
-</ul>
+        <p><a href="http://ife.baidu.com/course/detail/id/104" target="_blank" rel="external">题</a></p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/1-8/index.html" target="_blank" rel="external">https://github.com/Lexokid/ife/blob/master/1-8/index.html</a></p>
+<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/1-8/index.html" target="_blank" rel="external">https://lexokid.github.io/ife/1-8/index.html</a></p>
+<a id="more"></a>
 <hr>
-<h2 id="添加-修改约束"><a href="#添加-修改约束" class="headerlink" title="添加\修改约束"></a>添加\修改约束</h2><p><strong>主键约束</strong></p>
-<ul>
-<li>每张数据表只能存在一个主键</li>
-<li>主键保证数据的唯一性</li>
-<li>主键自动为NOT NULL</li>
-</ul>
-<h3 id="1-添加主键约束"><a href="#1-添加主键约束" class="headerlink" title="1.添加主键约束"></a>1.添加主键约束</h3><p><strong>ALTER TABLE tbl_name ADD [CONSTRAINT [symbol]] PRIMARY KEY [index_type] (index_col_name,…);</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> pk_tb1_username PRIMARY <span class="keyword">KEY</span> (username);</div></pre></td></tr></table></figure></p>
-<h3 id="2-删除主键约束"><a href="#2-删除主键约束" class="headerlink" title="2.删除主键约束"></a>2.删除主键约束</h3><p><strong>ALTER TABLE tbl_name DROP PRIMARY KEY;</strong></p>
+<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div></pre></td><td class="code"><pre><div class="line">/*设置container*/</div><div class="line">.grid-container &#123;</div><div class="line">    width: 100%;</div><div class="line">    max-width: 1200px;</div><div class="line">    padding: 10px;</div><div class="line">&#125;</div><div class="line">.grid-container,</div><div class="line">.grid-container * &#123;</div><div class="line">    box-sizing: border-box;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*为row类清除浮动来防止由浮动元素造成的外边距折叠*/</div><div class="line">.row::before,</div><div class="line">.row::after &#123;</div><div class="line">    content: "";</div><div class="line">    display: table;</div><div class="line">    clear: both;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*给每一行设置flex，用order可以控制3-3，3-4，3-5排列顺序*/</div><div class="line">.row&#123;</div><div class="line">    display: flex;</div><div class="line">    flex-wrap: wrap;</div><div class="line">&#125;</div><div class="line">@media all and (max-width: 768px) &#123;</div><div class="line">    ...</div><div class="line">    .col-2&#123;</div><div class="line">        -webkit-order: 2;</div><div class="line">        width: 25%;</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*设置左浮动，如果列是空的浮动列将堆叠在彼此的顶部。为了防止这种情况，我们给列的最小高度为1px*/</div><div class="line">[class*='col-'] &#123;</div><div class="line">    float: left;</div><div class="line">    min-height: 1px;</div><div class="line">    width: calc(100% * (1 / 12));</div><div class="line">    padding: 10px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*设置文本*/</div><div class="line">[class*='col-']&gt;p&#123;</div><div class="line">    text-align: center;</div><div class="line">    padding: 0;</div><div class="line">    margin: 0;</div><div class="line">    height: 50px;</div><div class="line">    background: #eee;</div><div class="line">    line-height: 50px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*设置列的百分比宽 以12列为例*/</div><div class="line">.col-1 &#123;</div><div class="line">    width: calc(100% * (1 / 12));</div><div class="line">&#125;</div><div class="line">.col-2 &#123;</div><div class="line">    width: calc(100% * (2 / 12));</div><div class="line">&#125;</div><div class="line">.col-3 &#123;</div><div class="line">    width: calc(100% * (3 / 12));</div><div class="line">&#125;</div><div class="line">...</div><div class="line"></div><div class="line">/*设置外边框不会占据空间*/</div><div class="line">.outline p &#123;</div><div class="line">    outline: 1px solid #999;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*响应式布局*/</div><div class="line">@media all and (max-width: 768px) &#123;</div><div class="line">    .col-4&#123;</div><div class="line">        width: 50%;</div><div class="line">    &#125;</div><div class="line">    .col-4:last-of-type&#123;</div><div class="line">        width: 100%;</div><div class="line">    &#125;</div><div class="line">    .col-1&#123;</div><div class="line">        width: 16.66%;</div><div class="line">    &#125;</div><div class="line">    .col-2&#123;</div><div class="line">        -webkit-order: 2;</div><div class="line">        -moz-order: 2;</div><div class="line">        -ms-order: 2;</div><div class="line">        -o-order: 2;</div><div class="line">        order: 2;</div><div class="line">        width: 25%;</div><div class="line">    &#125;</div><div class="line">    .col-6:last-of-type&#123;</div><div class="line">        width: 66.66%;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"grid-container outline"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-4"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>1-1<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-4"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>1-2<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-4"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>1-3<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-3"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>2-1<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-6"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>2-2<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-3"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>2-3<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-1"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>3-1<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-1"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>3-2<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-2"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>3-3<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-2"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>3-4<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-6"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>3-5<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <hr>
-<p><strong>唯一约束</strong></p>
-<ul>
-<li>唯一约束可以保证记录的唯一性</li>
-<li>唯一约束的字段可以为空值</li>
-<li>每张数据表可以存在多个唯一约束</li>
-</ul>
-<h3 id="3-添加唯一约束"><a href="#3-添加唯一约束" class="headerlink" title="3.添加唯一约束"></a>3.添加唯一约束</h3><p><strong>ALTER TABLE tbl_name ADD [CONSTRAINT [symbol]] UNIQUE [INDEX|KEY] [index_name] [index_type] (index_col_name,…);</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> uq_tb1_age <span class="keyword">UNIQUE</span> (username);</div></pre></td></tr></table></figure></p>
-<h3 id="4-删除唯一约束"><a href="#4-删除唯一约束" class="headerlink" title="4.删除唯一约束"></a>4.删除唯一约束</h3><p><strong>ALTER TABLE tbl_name DROP {INDEX|KEY} index_name;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">DROP</span> uq_tb1_age;</div></pre></td></tr></table></figure></p>
-<hr>
-<p><strong>外键约束</strong><br>保持数据一致性，完整性<br>实现数据表一对一或一对多关系<br><strong>外键约束的要求：</strong><br>1.父表和子表必须使用相同的存储引擎，而且禁止使用临时表<br>2.数据表的存储引擎只能为InnoDB<br>3.外键列和参照列必须具有相似的数据类型。其中数字的长度或是否有符号位必须相同，而字符的长度则可以不同<br>4.外键列和参照列必须创建索引。如果外键列不存在索引的话，mysql将自动创建索引</p>
-<p><strong>外键约束的参照操作</strong></p>
-<ol>
-<li>CASCADE 需要在两张表中插入记录，必须先在父表中插入记录再在子表中插入记录<br>因为子表参照的是父表中的信息，若父表中没有则无法参照<br>2、SET NULL：从父表删除或更新行，并设置子表中的外键列为NULL。如果使用该选项，必须保证子列表没有指定NOT NULL。<br>3、RESTRICT：拒绝对父表的删除或更新操作。<br>4、NO ACTION：标准SQL的关键字，在MySQL中与RESTRICT相同。</li>
-</ol>
-<p>FOREIGN KEY （子表列名） REFERENCES FROM 父表名（父表列名）[ON DELETE|UPDATE CASCADE|SET NULL|RESTRICT|NO ACTION];</p>
-<p>在实际开发中，存储引擎不为INNODB，无法使用FOREIGN KEY，普遍使用逻辑方法。</p>
-<h3 id="5-添加外键约束"><a href="#5-添加外键约束" class="headerlink" title="5.添加外键约束"></a>5.添加外键约束</h3><p><strong>ALTER TABLE tbl_name ADD [CONSTRAINT [symbol]] FOREIGN KEY [index_name] (index_col_name,…) REFERENCES tbl2_name (col_name);</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> fk_username FOREIGN <span class="keyword">KEY</span> (username) <span class="keyword">REFERENCES</span> tb2 (username);</div></pre></td></tr></table></figure></p>
-<h3 id="6-删除外键约束"><a href="#6-删除外键约束" class="headerlink" title="6.删除外键约束"></a>6.删除外键约束</h3><p><strong>ALTER TABLE tbl_name DROP FOREIGN KEY fk_symbol;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">DROP</span> FOREIGN <span class="keyword">KEY</span> fk_username;</div></pre></td></tr></table></figure></p>
-<hr>
-<p><strong>默认约束</strong></p>
-<ul>
-<li>默认值</li>
-<li>当插入数据时，如果没有明确为字段赋值，则自动赋予默认值</li>
-</ul>
-<h3 id="7-添加-删除默认约束"><a href="#7-添加-删除默认约束" class="headerlink" title="7.添加/删除默认约束"></a>7.添加/删除默认约束</h3><p><strong>ALTER TABLE tbl_name ALTER [COLUMN] col_name {SET DEFAULT literal | DROP DEFAULT};</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">ALTER</span> salary <span class="keyword">SET</span> <span class="keyword">DEFAULT</span> <span class="number">2000</span>;</div></pre></td></tr></table></figure></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://j4n.co/blog/Creating-your-own-css-grid-system" target="_blank" rel="external">Creating Your Own CSS Grid System</a><br><a href="https://getbootstrap.com/examples/grid/" target="_blank" rel="external">Bootstrap grid examples</a><br><a href="http://getbootstrap.com/2.3.2/scaffolding.html#gridSystem" target="_blank" rel="external">BootStrap 带 offset 的网格系统</a></p>
 
       
     </div>
@@ -430,9 +377,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MySql/" rel="tag">#MySql</a>
+            <a href="/tags/css/" rel="tag">#css</a>
           
-            <a href="/tags/语法/" rel="tag">#语法</a>
+            <a href="/tags/ife/" rel="tag">#ife</a>
+          
+            <a href="/tags/html/" rel="tag">#html</a>
+          
+            <a href="/tags/响应式/" rel="tag">#响应式</a>
           
         </div>
       
@@ -441,17 +392,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/06/MySql/MySql零接触(3)/" rel="next" title="MySql零接触(3)">
-                <i class="fa fa-chevron-left"></i> MySql零接触(3)
+              <a href="/2017/03/06/ife2017/实现常见的技术产品官网的页面架构及样式布局/" rel="next" title="实现常见的技术产品官网的页面架构及样式布局">
+                <i class="fa fa-chevron-left"></i> 实现常见的技术产品官网的页面架构及样式布局
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/08/MySql/MySql零接触(5)/" rel="prev" title="MySql零接触(5)">
-                MySql零接触(5) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -630,7 +577,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#约束"><span class="nav-number">1.</span> <span class="nav-text">约束</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表级约束与列级约束"><span class="nav-number">1.1.</span> <span class="nav-text">表级约束与列级约束</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加-修改约束"><span class="nav-number">2.</span> <span class="nav-text">添加\修改约束</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-添加主键约束"><span class="nav-number">2.1.</span> <span class="nav-text">1.添加主键约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-删除主键约束"><span class="nav-number">2.2.</span> <span class="nav-text">2.删除主键约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-添加唯一约束"><span class="nav-number">2.3.</span> <span class="nav-text">3.添加唯一约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-删除唯一约束"><span class="nav-number">2.4.</span> <span class="nav-text">4.删除唯一约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-添加外键约束"><span class="nav-number">2.5.</span> <span class="nav-text">5.添加外键约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-删除外键约束"><span class="nav-number">2.6.</span> <span class="nav-text">6.删除外键约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-添加-删除默认约束"><span class="nav-number">2.7.</span> <span class="nav-text">7.添加/删除默认约束</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#源码"><span class="nav-number">1.</span> <span class="nav-text">源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#demo"><span class="nav-number">2.</span> <span class="nav-text">demo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知识点"><span class="nav-number">3.</span> <span class="nav-text">知识点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
           </div>
         </section>
