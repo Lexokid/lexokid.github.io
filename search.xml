@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[学习CSS3的新特性]]></title>
+      <url>%2F2017%2F03%2F14%2Fife2017%2F%E5%AD%A6%E4%B9%A0CSS3%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7%2F</url>
+      <content type="text"><![CDATA[题 源码https://github.com/Lexokid/ife/blob/master/1-12 demohttps://lexokid.github.io/ife/1-12/index.html 知识点animation-fill-mode假设有一个盒子1234567891011121314151617&lt;div class="box"&gt;&lt;/div&gt;&lt;style type="text/css"&gt;.box&#123; width: 100px; height: 100px; margin: 100px; background: #f00; transform: translateY(0); animation: move 1s;&#125;@keyframes move&#123; from&#123;transform: translateY(-50px)&#125; to &#123;transform: translateY( 50px)&#125;&#125;&lt;/style&gt; 使用图片来表示 translateY 的值与 时间 的关系: 横轴为表示 时间，为 0 时表示动画开始的时间，也就是向 box 加上 on 类名的时间，横轴一格表示 0.5s 纵轴表示translateY的值，为 0 时表示 translateY 的值为 0，纵轴一格表示 50px animation-fill-mode: none animation-fill-mode: backwards animation-fill-mode: forwards animation-fill-mode: both transition-timing-function: steps()steps 函数指定了一个阶跃函数第一个参数指定了时间函数中的间隔数量（必须是正整数）第二个参数可选，接受 start 和 end 两个值，指定在每个间隔的起点或是终点发生阶跃变化，默认为 end。step-start等同于steps(1,start)，动画分成1步，动画执行时为开始左侧端点的部分为开始；step-end等同于steps(1,end)：动画分成一步，动画执行时以结尾端点为开始，默认值为end。transition-timing-function 针对第一个参数timing-function 作用于每两个关键帧之间，而不是整个动画steps的设置都是针对两个关键帧之间的，而非是整个keyframes，所以第一个参数对 - 次数对应了每次steps的变化 第二个参数可选，接受 start 和 end 两个值，指定在每个间隔的起点或是终点发生阶跃变化，默认为 end2个参数都会选择性的跳过前后部分，start跳过0%，end跳过100%step-start在变化过程中，都是以下一帧的显示效果来填充间隔动画step-end与上面相反，都是以上一帧的显示效果来填充间隔动画 step的工作机制图 总结：steps函数，它可以传入两个参数，第一个是一个大于0的整数，他是将间隔动画等分成指定数目的小间隔动画，然后根据第二个参数来决定显示效果。第二个参数设置后其实和step-start，step-end同义，在分成的小间隔动画中判断显示效果。可以看出：steps(1, start) 等于step-start，steps(1,end)等于step-end 参考资料及来源如何理解animation-fill-mode及其使用？http://www.cnblogs.com/aaronjs/p/4642015.htmlhttp://www.tuicool.com/articles/neqMVrhttp://designmodo.com/steps-css-animations/]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[移动Web页面布局]]></title>
       <url>%2F2017%2F03%2F11%2Fife2017%2F%E7%A7%BB%E5%8A%A8Web%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%2F</url>
       <content type="text"><![CDATA[题 源码https://github.com/Lexokid/ife/blob/master/1-11 demohttps://lexokid.github.io/ife/1-11/index.html 知识点meta123456789101112&lt;meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"&gt;&lt;meta content="yes" name="apple-mobile-web-app-capable"&gt;&lt;meta content="black" name="apple-mobile-web-app-status-bar-style"&gt;&lt;meta content="telephone=no" name="format-detection"&gt;&lt;meta content="email=no" name="format-detection" /&gt;&lt;!--第一个meta标签表示：强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览；第二个meta标签是iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；第三个meta标签也是iphone的私有标签，它指定的iphone中safari顶端的状态条的样式；第四个meta标签表示：告诉设备忽略将页面中的数字识别为电话号码第五个meta标签表示：去除Android平台中对邮箱地址的识别 --&gt; 像素pixel - px ( picture element )dpi / ppi - 每英寸像素 ( dot per inch )dips - 设备独立像素 ( device-independent pixels )devicePixelRatio( 设备像素比 ) - 物理像素 / dips 字体设置1234body &#123; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC","Helvetica Neue",STHeiti,"Microsoft Yahei",Tahoma,Simsun,sans-serif;&#125; CSS 实现类似原生效果的 1px 边框123456789101112131415.border-1px &#123; position: relative;&#125;.border-1px:after &#123; position: absolute; content: ''; top: -50%; bottom: -50%; left: -50%; right: -50%; -webkit-transform: scale(0.5); transform: scale(0.5); border-top: 1px solid #666; border-bottom: 1px solid #666;&#125; 去除iOS和Android中的输入URL的控件条setTimeout(function(){ window.scrollTo(0, 1); }, 0);请注意，这句代码必须放在window.onload里才能够正常的工作，而且你的当前文档的内容高度必须是高于窗口的高度时，这句代码才能有效的执行。 关闭iOS中键盘自动大写我们知道在iOS中，当虚拟键盘弹出时，默认情况下键盘是开启首字母大写的功能的，根据某些业务场景，可能我们需要关闭这个功能，移动版本webkit为input元素提供了autocapitalize属性，通过指定autocapitalize=”off”来关闭键盘默认首字母大写。 参考资料MDN:手机网页开发MDN:在移动浏览器中使用viewport元标签控制布局移动前端开发和 Web 前端开发的区别是什么Alloyteam移动开发规范概述手机/移动前端开发需要注意的20个要点w3cplus响应式技术资源浅谈移动Web开发Alloyteam Mars移动WEB开发入门移动开发资源集合移动前端不得不了解的html5 head 头标签]]></content>
@@ -61,7 +68,7 @@
     <entry>
       <title><![CDATA[ife2017]]></title>
       <url>%2F2017%2F02%2F27%2Fife2017%2Fife2017%2F</url>
-      <content type="text"><![CDATA[三栏式布局定位和居中通过HTML及CSS模拟报纸排版实现常见的技术产品官网的页面架构及样式布局响应式网格Flexbox 布局练习移动Web页面布局]]></content>
+      <content type="text"><![CDATA[三栏式布局定位和居中通过HTML及CSS模拟报纸排版实现常见的技术产品官网的页面架构及样式布局响应式网格Flexbox 布局练习移动Web页面布局学习CSS 3的新特性]]></content>
     </entry>
 
     
