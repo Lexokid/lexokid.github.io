@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-03-14T05:02:24.259Z</updated>
+  <updated>2017-03-15T02:13:30.673Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>零基础JavaScript编码</title>
+    <link href="http://yoursite.com/2017/03/14/ife2017/%E9%9B%B6%E5%9F%BA%E7%A1%80JavaScript%E7%BC%96%E7%A0%81/"/>
+    <id>http://yoursite.com/2017/03/14/ife2017/零基础JavaScript编码/</id>
+    <published>2017-03-14T12:02:00.000Z</published>
+    <updated>2017-03-15T02:13:30.673Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><p><a href="http://ife.baidu.com/course/detail/id/93" target="_blank" rel="external">题</a></p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/2-1" target="_blank" rel="external">https://github.com/Lexokid/ife/blob/master/2-1</a></p>
+<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/2-1/index.html" target="_blank" rel="external">https://lexokid.github.io/ife/2-1/index.html</a></p>
+<h1 id="二"><a href="#二" class="headerlink" title="二"></a>二</h1><p><a href="http://ife.baidu.com/course/detail/id/91" target="_blank" rel="external">题</a></p>
+<h2 id="源码-1"><a href="#源码-1" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/2-2" target="_blank" rel="external">https://github.com/Lexokid/ife/blob/master/2-2</a></p>
+<h2 id="demo-1"><a href="#demo-1" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/2-2/index.html" target="_blank" rel="external">https://lexokid.github.io/ife/2-2/index.html</a></p>
+<h1 id="三"><a href="#三" class="headerlink" title="三"></a>三</h1><p><a href="http://ife.baidu.com/course/detail/id/98" target="_blank" rel="external">题</a></p>
+<h2 id="源码-2"><a href="#源码-2" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/2-3" target="_blank" rel="external">https://github.com/Lexokid/ife/blob/master/2-3</a></p>
+<h2 id="demo-2"><a href="#demo-2" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/2-3/index.html" target="_blank" rel="external">https://lexokid.github.io/ife/2-3/index.html</a></p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="sort排序"><a href="#sort排序" class="headerlink" title="sort排序"></a>sort排序</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sortArray</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">        <span class="comment">//a-b从小到大，b-a从大到小</span></div><div class="line">        <span class="keyword">return</span> a-b;</div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">return</span> arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一&quot;&gt;&lt;a href=&quot;#一&quot; class=&quot;headerlink&quot; title=&quot;一&quot;&gt;&lt;/a&gt;一&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://ife.baidu.com/course/detail/id/93&quot; target=&quot;_blank&quot; rel=&quot;ex
+    
+    </summary>
+    
+      <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
+    
+  </entry>
   
   <entry>
     <title>学习CSS3的新特性</title>
@@ -67,9 +101,9 @@
       <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
     
     
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
       <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
       <category term="html" scheme="http://yoursite.com/tags/html/"/>
     
@@ -105,9 +139,9 @@
       <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
     
     
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
       <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
       <category term="html" scheme="http://yoursite.com/tags/html/"/>
     
@@ -138,13 +172,13 @@
       <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
     
     
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-      <category term="flexbox" scheme="http://yoursite.com/tags/flexbox/"/>
-    
       <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
     
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
       <category term="html" scheme="http://yoursite.com/tags/html/"/>
+    
+      <category term="flexbox" scheme="http://yoursite.com/tags/flexbox/"/>
     
   </entry>
   
@@ -176,9 +210,9 @@
       <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
     
     
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
       <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
       <category term="html" scheme="http://yoursite.com/tags/html/"/>
     
@@ -209,9 +243,9 @@
       <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
     
     
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
       <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
   </entry>
   
@@ -242,9 +276,9 @@
       <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
     
     
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
       <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
       <category term="html" scheme="http://yoursite.com/tags/html/"/>
     
@@ -831,9 +865,9 @@
       <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
     
     
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
       <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
   </entry>
   
@@ -860,9 +894,9 @@
       <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
     
     
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
       <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
   </entry>
   
@@ -1433,265 +1467,6 @@ table:nth-of-type(3) th:first-of-type {
       <category term="MySql" scheme="http://yoursite.com/tags/MySql/"/>
     
       <category term="语法" scheme="http://yoursite.com/tags/%E8%AF%AD%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正则表达式</title>
-    <link href="http://yoursite.com/2017/01/28/%E6%AD%A3%E5%88%99/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    <id>http://yoursite.com/2017/01/28/正则/正则表达式/</id>
-    <published>2017-01-28T07:17:12.000Z</published>
-    <updated>2017-02-06T10:26:50.904Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文以javascript来演示正则表达式</p>
-<h2 id="REGEXP对象"><a href="#REGEXP对象" class="headerlink" title="REGEXP对象"></a>REGEXP对象</h2><p>在javascript中通过对象regexp来使用正则表达式，regexp有两种方法实例化</p>
-<h3 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h3><p>/表达式/修饰符<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/[A-Za-z]/g</span>;</div></pre></td></tr></table></figure></p>
-<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>RegExp(‘表达式’,修饰符);<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'[A-Za-z]'</span>,g);</div></pre></td></tr></table></figure></p>
-<p>修饰符：<br>g:全文搜索<br>i:忽略大小写<br>m:多行搜索</p>
-<hr>
-<h2 id="字符类型"><a href="#字符类型" class="headerlink" title="字符类型"></a>字符类型</h2><h3 id="普通字符"><a href="#普通字符" class="headerlink" title="普通字符"></a>普通字符</h3><p>由所有那些未显式指定为元字符的打印和非打印字符组成。这包括所有的大写和小写字母字符，所有数字，所有标点符号以及一些符号。 例如：abc、123</p>
-<h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><p>在正则表达式中有特殊意义的非字母字符 例如：\d匹配一个数字字符，而非\d<br>在正则表达式中具体特殊含义的字符：<strong>* + ? $ ^ . \ () {} []</strong></p>
-<hr>
-<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a>字符类</h3><p>使用元字符[]和字符来构建的字符类，是泛指，而不是特定的某个字符，表达式可以匹配这类的字符<br>例如:<code>[abc]</code>用来匹配<strong>a或b或c</strong>，<code>[^abc]</code>用来匹配<strong>不是a或b或c</strong>的内容</p>
-<h3 id="范围类"><a href="#范围类" class="headerlink" title="范围类"></a>范围类</h3><p>使用-来连接两个字符表示范围类，例如：<code>[a-zA-Z]</code>匹配<strong>a到z或A到Z</strong>之间的任意字符包涵a,z,A,Z</p>
-<h3 id="预定义类"><a href="#预定义类" class="headerlink" title="预定义类"></a>预定义类</h3><p>正则表达式提供预定义类来匹配常见的字符类<br>预定义类有：.,\d,\D,\s,\S,\w,\W等，见下<a href="#正则表达式全符号解释">表</a><br>例如：<code>ab\d.</code>匹配一个<strong>ab+数字+任意字符</strong>组成的字符串，等同于<code>ab[0-9][^\n]</code></p>
-<h3 id="边界"><a href="#边界" class="headerlink" title="边界"></a>边界</h3><p>正则表达式提供了几个常用的边界匹配字符，有：^,$,\b,\B<br>例如：<code>^abc\d</code>匹配<strong>以abc开头一个数字结尾的字符串</strong>，^在[]内表示取反</p>
-<h3 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h3><p>量词用来表示匹配多少次，有：?,+,*,{n},{n,m},{n,}<br>例如：<code>abc\d{3,5}</code>匹配一个<strong>abc+3~5个数字</strong>组成的字符串</p>
-<h4 id="1-贪婪模式"><a href="#1-贪婪模式" class="headerlink" title="1.贪婪模式"></a>1.贪婪模式</h4><p>让正则表达式尽可能多的匹配<br>例：如果字符串<code>1234567</code>,则<code>\d{2,5}</code>会匹配字符串<code>12345</code>,他会尽可能多的匹配而不会只匹配<code>12</code></p>
-<h4 id="2-非贪婪模式"><a href="#2-非贪婪模式" class="headerlink" title="2.非贪婪模式"></a>2.非贪婪模式</h4><p>让正则表达式尽可能少的匹配，在量词后加?即可<br>例：如果字符串<code>1234567</code>,则<code>\d{2,5}?</code>会匹配字符串<code>12</code>、<code>34</code>、<code>56</code><br>ps:不是很清楚\d{2,3}?与\d{2}有什么区别</p>
-<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><p>使用()可以达到分组的功能，使量词作用于分组<br>使用 | 可以达到或的效果<br>例如：<code>(abc\d){2}</code>则会匹配<strong>abc+1个数字+abc+1个数字</strong></p>
-<h3 id="反向引用"><a href="#反向引用" class="headerlink" title="反向引用"></a>反向引用</h3><p>正则表达式一个最重要的特性就是将匹配成功的模式的某部分进行存储供以后使用这一能力。对一个正则表达式模式或部分模式两边添加圆括号将导致这部分表达式存储到一个临时缓冲区中。可以使用非捕获元字符<strong>‘?:’</strong>来忽略对这部分正则表达式的保存。<br>所捕获的每个子匹配都按照在正则表达式模式中从左至右所遇到的内容存储。存储子匹配的缓冲区编号从 1 开始，连续编号直至最大 99 个子表达式。每个缓冲区都可以使用 ‘$n’ 访问，其中 n 为一个标识特定缓冲区的一位或两位十进制数。<br>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="string">'world-hello'</span>.replace(<span class="regexp">/(\w+)-(\w+)/g</span>,<span class="string">'$2-$1'</span>);</div><div class="line"><span class="comment">//'hello-world'</span></div><div class="line"><span class="comment">//第一个分组匹配到world存储到一个临时缓冲区，第二个分组匹配到的hello存储到另一个临时缓冲区,使用$1访问第一个临时缓冲区，$2访问第二个临时缓冲区</span></div><div class="line"></div><div class="line"><span class="string">'world-hello'</span>.replace(<span class="regexp">/(?:\w+)-(\w+)/g</span>,<span class="string">'$1'</span>);</div><div class="line"><span class="comment">//'hello'</span></div><div class="line"><span class="comment">//使用?:来忽略对这部分正则表达式的保存，第一个分组匹配到的world被忽略，第二个分组匹配到的hello存储到第一个临时缓冲区</span></div></pre></td></tr></table></figure></p>
-<h3 id="前瞻后顾"><a href="#前瞻后顾" class="headerlink" title="前瞻后顾"></a>前瞻后顾</h3><p>正则表达式从文本头部向尾部开始解析，<strong>文本尾部方向为“前”</strong><br>前瞻就是在正则表达式匹配到规则的时候，向前检查是否符合断言，后顾相反<br>JavaScript不支持后顾<br>符合不符合特点的断言称为正向匹配和负向匹配</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">名称</th>
-<th style="text-align:left">正则</th>
-<th style="text-align:left">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">正向前瞻</td>
-<td style="text-align:left">exp1(?=exp2)</td>
-<td style="text-align:left">匹配前面是exp2的exp1</td>
-</tr>
-<tr>
-<td style="text-align:center">负向前瞻</td>
-<td style="text-align:left">exp1(?!exp2)</td>
-<td style="text-align:left">匹配前面不是exp2的exp1</td>
-</tr>
-<tr>
-<td style="text-align:center">正向后顾</td>
-<td style="text-align:left">exp1(?&lt;=exp2)</td>
-<td style="text-align:left">匹配后面是exp2的exp1，JavaScript不支持</td>
-</tr>
-<tr>
-<td style="text-align:center">负向后顾</td>
-<td style="text-align:left">exp1(?&lt;!exp2)</td>
-<td style="text-align:left">匹配后面不是exp2的exp1，JavaScript不支持</td>
-</tr>
-</tbody>
-</table>
-<p>ps:文本尾部方向为“前”</p>
-<p>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="string">'a2b3c4'</span>.replace(<span class="regexp">/[a-zA-Z](?=3)/g</span>,<span class="string">'X'</span>);</div><div class="line"><span class="comment">//a2X3c4</span></div><div class="line"><span class="comment">//匹配前面是数字3的字母，并替换为'X'</span></div><div class="line"></div><div class="line"><span class="string">'ab2c3de'</span>.replace(<span class="regexp">/[a-zA-Z](?!\d)/g</span>,<span class="string">'X'</span>);</div><div class="line"><span class="comment">//Xb2c3XX</span></div><div class="line"><span class="comment">//匹配前面不是数字的字母，并替换为'X'</span></div></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="正则表达式全符号解释"><a href="#正则表达式全符号解释" class="headerlink" title="正则表达式全符号解释"></a>正则表达式全符号解释</h2><table>
-<thead>
-<tr>
-<th style="text-align:center">字符</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">\</td>
-<td style="text-align:left">将下一个字符标记为一个特殊字符、或一个原义字符、或一个 后向引用、或一个八进制转义符。例如，’n’ 匹配字符 “n”。’\n’ 匹配一个换行符。序列 ‘\\‘ 匹配 “\“ 而 “\(“ 则匹配 “(“。</td>
-</tr>
-<tr>
-<td style="text-align:center">^</td>
-<td style="text-align:left">匹配输入字符串的开始位置。如果设置了 RegExp 对象的 Multiline 属性，^ 也匹配 ‘\n’ 或 ‘\r’ 之后的位置。</td>
-</tr>
-<tr>
-<td style="text-align:center">$</td>
-<td style="text-align:left">匹配输入字符串的结束位置。如果设置了RegExp 对象的 Multiline 属性，$ 也匹配 ‘\n’ 或 ‘\r’ 之前的位置。</td>
-</tr>
-<tr>
-<td style="text-align:center">*</td>
-<td style="text-align:left">匹配前面的子表达式零次或多次。例如，zo* 能匹配 “z” 以及 “zoo”。 * 等价于{0,}。</td>
-</tr>
-<tr>
-<td style="text-align:center">+</td>
-<td style="text-align:left">匹配前面的子表达式一次或多次。例如，’zo+’ 能匹配 “zo” 以及 “zoo”，但不能匹配 “z”。+ 等价于 {1,}。</td>
-</tr>
-<tr>
-<td style="text-align:center">?</td>
-<td style="text-align:left">匹配前面的子表达式零次或一次。例如，”do(es)?” 可以匹配 “do” 或 “does” 中的”do” 。? 等价于 {0,1}。</td>
-</tr>
-<tr>
-<td style="text-align:center">{n}</td>
-<td style="text-align:left">n 是一个非负整数。匹配确定的 n 次。例如，’o{2}’ 不能匹配 “Bob” 中的 ‘o’，但是能匹配 “food” 中的两个 o。</td>
-</tr>
-<tr>
-<td style="text-align:center">{n,}</td>
-<td style="text-align:left">n 是一个非负整数。至少匹配n 次。例如，’o{2,}’ 不能匹配 “Bob” 中的 ‘o’，但能匹配 “foooood” 中的所有 o。’o{1,}’ 等价于 ‘o+’。’o{0,}’ 则等价于 ‘o*’。</td>
-</tr>
-<tr>
-<td style="text-align:center">{n,m}</td>
-<td style="text-align:left">m 和 n 均为非负整数，其中n &lt;= m。最少匹配 n 次且最多匹配 m 次。刘， “o{1,3}” 将匹配 “fooooood” 中的前三个 o。’o{0,1}’ 等价于 ‘o?’。请注意在逗号和两个数之间不能有空格。</td>
-</tr>
-<tr>
-<td style="text-align:center">?</td>
-<td style="text-align:left">当该字符紧跟在任何一个其他限制符 (*, +, ?, {n}, {n,}, {n,m}) 后面时，匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串。例如，对于字符串 “oooo”，’o+?’ 将匹配单个 “o”，而 ‘o+’ 将匹配所有 ‘o’。</td>
-</tr>
-<tr>
-<td style="text-align:center">.</td>
-<td style="text-align:left">匹配除 “\n” 之外的任何单个字符。要匹配包括 ‘\n’ 在内的任何字符，请使用象 ‘[.\n]’ 的模式。</td>
-</tr>
-<tr>
-<td style="text-align:center">(pattern)</td>
-<td style="text-align:left">匹配pattern 并获取这一匹配。所获取的匹配可以从产生的 Matches 集合得到，在VBScript 中使用 SubMatches 集合，在JScript 中则使用 $0…$9 属性。要匹配圆括号字符，请使用 ‘(‘ 或 ‘)‘。</td>
-</tr>
-<tr>
-<td style="text-align:center">(?:pattern)</td>
-<td style="text-align:left">匹配 pattern 但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用。这在使用 “或” 字符 (&#124;) 来组合一个模式的各个部分是很有用。例如， ‘industr(?:y&#124;ies) 就是一个比 ‘industry&#124;industries’ 更简略的表达式。</td>
-</tr>
-<tr>
-<td style="text-align:center">(?=pattern)</td>
-<td style="text-align:left">正向预查，在任何匹配 pattern 的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如， ‘Windows (?=95&#124;98&#124;NT&#124;2000)’ 能匹配 “Windows 2000” 中的 “Windows” ，但不能匹配 “Windows 3.1” 中的 “Windows”。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始。</td>
-</tr>
-<tr>
-<td style="text-align:center">(?!pattern)</td>
-<td style="text-align:left">负向预查，在任何不匹配Negative lookahead matches the search string at any point where a string not matching pattern 的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如’Windows (?!95&#124;98&#124;NT&#124;2000)’ 能匹配 “Windows 3.1” 中的 “Windows”，但不能匹配 “Windows 2000” 中的 “Windows”。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始。</td>
-</tr>
-<tr>
-<td style="text-align:center">x&#124;y</td>
-<td style="text-align:left">匹配 x 或 y。例如，’z&#124;food’ 能匹配 “z” 或 “food”。’(z&#124;f)ood’ 则匹配 “zood” 或 “food”。</td>
-</tr>
-<tr>
-<td style="text-align:center">[xyz]</td>
-<td style="text-align:left">字符集合。匹配所包含的任意一个字符。例如， ‘[abc]’ 可以匹配 “plain” 中的 ‘a’。</td>
-</tr>
-<tr>
-<td style="text-align:center">[^xyz]</td>
-<td style="text-align:left">负值字符集合。匹配未包含的任意字符。例如， ‘[^abc]’ 可以匹配 “plain” 中的’p’。</td>
-</tr>
-<tr>
-<td style="text-align:center">[a-z]</td>
-<td style="text-align:left">字符范围。匹配指定范围内的任意字符。例如，’[a-z]’ 可以匹配 ‘a’ 到 ‘z’ 范围内的任意小写字母字符。</td>
-</tr>
-<tr>
-<td style="text-align:center">[^a-z]</td>
-<td style="text-align:left">负值字符范围。匹配任何不在指定范围内的任意字符。例如，’[^a-z]’ 可以匹配任何不在 ‘a’ 到 ‘z’ 范围内的任意字符。</td>
-</tr>
-<tr>
-<td style="text-align:center">\b</td>
-<td style="text-align:left">匹配一个单词边界，也就是指单词和空格间的位置。例如， ‘er\b’ 可以匹配”never” 中的 ‘er’，但不能匹配 “verb” 中的 ‘er’。</td>
-</tr>
-<tr>
-<td style="text-align:center">\B</td>
-<td style="text-align:left">匹配非单词边界。’er\B’ 能匹配 “verb” 中的 ‘er’，但不能匹配 “never” 中的 ‘er’。</td>
-</tr>
-<tr>
-<td style="text-align:center">\cx</td>
-<td style="text-align:left">匹配由x指明的控制字符。例如， \cM 匹配一个 Control-M 或回车符。 x 的值必须为 A-Z 或 a-z 之一。否则，将 c 视为一个原义的 ‘c’ 字符。</td>
-</tr>
-<tr>
-<td style="text-align:center">\d</td>
-<td style="text-align:left">匹配一个数字字符。等价于 [0-9]。</td>
-</tr>
-<tr>
-<td style="text-align:center">\D</td>
-<td style="text-align:left">匹配一个非数字字符。等价于 [^0-9]。</td>
-</tr>
-<tr>
-<td style="text-align:center">\f</td>
-<td style="text-align:left">匹配一个换页符。等价于 \x0c 和 \cL。</td>
-</tr>
-<tr>
-<td style="text-align:center">\n</td>
-<td style="text-align:left">匹配一个换行符。等价于 \x0a 和 \cJ。</td>
-</tr>
-<tr>
-<td style="text-align:center">\r</td>
-<td style="text-align:left">匹配一个回车符。等价于 \x0d 和 \cM。</td>
-</tr>
-<tr>
-<td style="text-align:center">\s</td>
-<td style="text-align:left">匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。</td>
-</tr>
-<tr>
-<td style="text-align:center">\S</td>
-<td style="text-align:left">匹配任何非空白字符。等价于 [^ \f\n\r\t\v]。</td>
-</tr>
-<tr>
-<td style="text-align:center">\t</td>
-<td style="text-align:left">匹配一个制表符。等价于 \x09 和 \cI。</td>
-</tr>
-<tr>
-<td style="text-align:center">\v</td>
-<td style="text-align:left">匹配一个垂直制表符。等价于 \x0b 和 \cK。</td>
-</tr>
-<tr>
-<td style="text-align:center">\w</td>
-<td style="text-align:left">匹配包括下划线的任何单词字符。等价于’[A-Za-z0-9_]’。</td>
-</tr>
-<tr>
-<td style="text-align:center">\W</td>
-<td style="text-align:left">匹配任何非单词字符。等价于 ‘[^A-Za-z0-9_]’。</td>
-</tr>
-<tr>
-<td style="text-align:center">\xn</td>
-<td style="text-align:left">匹配 n，其中 n 为十六进制转义值。十六进制转义值必须为确定的两个数字长。例如， ‘\x41’ 匹配 “A”。’\x041’ 则等价于 ‘\x04’ &amp; “1”。正则表达式中可以使用 ASCII 编码。</td>
-</tr>
-<tr>
-<td style="text-align:center">\num</td>
-<td style="text-align:left">匹配 num，其中 num 是一个正整数。对所获取的匹配的引用。例如，’(.)\1’ 匹配两个连续的相同字符。</td>
-</tr>
-<tr>
-<td style="text-align:center">\n</td>
-<td style="text-align:left">标识一个八进制转义值或一个后向引用。如果 \n 之前至少 n 个获取的子表达式，则 n 为后向引用。否则，如果 n 为八进制数字 (0-7)，则 n 为一个八进制转义值。</td>
-</tr>
-<tr>
-<td style="text-align:center">\nm</td>
-<td style="text-align:left">标识一个八进制转义值或一个后向引用。如果 \nm 之前至少有is preceded by at least nm 个获取得子表达式，则 nm 为后向引用。如果 \nm 之前至少有 n 个获取，则 n 为一个后跟文字 m 的后向引用。如果前面的条件都不满足，若  n 和 m 均为八进制数字 (0-7)，则 \nm 将匹配八进制转义值 nm。</td>
-</tr>
-<tr>
-<td style="text-align:center">\nml</td>
-<td style="text-align:left">如果 n 为八进制数字 (0-3)，且 m 和 l 均为八进制数字 (0-7)，则匹配八进制转义值 nml。</td>
-</tr>
-<tr>
-<td style="text-align:center">\un</td>
-<td style="text-align:left">匹配 n，其中 n 是一个用四个十六进制数字表示的 Unicode 字符。例如， \u00A9 匹配版权符号 (?)。</td>
-</tr>
-</tbody>
-</table>
-<style>
-table th:first-of-type {
-    width: 80px;
-}
-table:nth-of-type(1) th:nth-of-type(2) {
-    width: 120px;
-}
-table:nth-of-type(2) td:first-of-type {
-    font-weight: 900;
-}
-</style>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文以javascript来演示正则表达式&lt;/p&gt;
-&lt;h2 id=&quot;REGEXP对象&quot;&gt;&lt;a href=&quot;#REGEXP对象&quot; class=&quot;headerlink&quot; title=&quot;REGEXP对象&quot;&gt;&lt;/a&gt;REGEXP对象&lt;/h2&gt;&lt;p&gt;在javascript中通过对象r
-    
-    </summary>
-    
-      <category term="正则表达式" scheme="http://yoursite.com/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-      <category term="正则表达式" scheme="http://yoursite.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
   </entry>
   

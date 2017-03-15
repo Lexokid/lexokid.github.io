@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[零基础JavaScript编码]]></title>
+      <url>%2F2017%2F03%2F14%2Fife2017%2F%E9%9B%B6%E5%9F%BA%E7%A1%80JavaScript%E7%BC%96%E7%A0%81%2F</url>
+      <content type="text"><![CDATA[一题 源码https://github.com/Lexokid/ife/blob/master/2-1 demohttps://lexokid.github.io/ife/2-1/index.html 二题 源码https://github.com/Lexokid/ife/blob/master/2-2 demohttps://lexokid.github.io/ife/2-2/index.html 三题 源码https://github.com/Lexokid/ife/blob/master/2-3 demohttps://lexokid.github.io/ife/2-3/index.html 知识点sort排序1234567function sortArray(arr) &#123; arr.sort(function(a,b)&#123; //a-b从小到大，b-a从大到小 return a-b; &#125;) return arr;&#125;]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[学习CSS3的新特性]]></title>
       <url>%2F2017%2F03%2F14%2Fife2017%2F%E5%AD%A6%E4%B9%A0CSS3%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7%2F</url>
       <content type="text"><![CDATA[题 源码https://github.com/Lexokid/ife/blob/master/1-12 demohttps://lexokid.github.io/ife/1-12/index.html 知识点animation-fill-mode假设有一个盒子1234567891011121314151617&lt;div class="box"&gt;&lt;/div&gt;&lt;style type="text/css"&gt;.box&#123; width: 100px; height: 100px; margin: 100px; background: #f00; transform: translateY(0); animation: move 1s;&#125;@keyframes move&#123; from&#123;transform: translateY(-50px)&#125; to &#123;transform: translateY( 50px)&#125;&#125;&lt;/style&gt; 使用图片来表示 translateY 的值与 时间 的关系: 横轴为表示 时间，为 0 时表示动画开始的时间，也就是向 box 加上 on 类名的时间，横轴一格表示 0.5s 纵轴表示translateY的值，为 0 时表示 translateY 的值为 0，纵轴一格表示 50px animation-fill-mode: none animation-fill-mode: backwards animation-fill-mode: forwards animation-fill-mode: both transition-timing-function: steps()steps 函数指定了一个阶跃函数第一个参数指定了时间函数中的间隔数量（必须是正整数）第二个参数可选，接受 start 和 end 两个值，指定在每个间隔的起点或是终点发生阶跃变化，默认为 end。step-start等同于steps(1,start)，动画分成1步，动画执行时为开始左侧端点的部分为开始；step-end等同于steps(1,end)：动画分成一步，动画执行时以结尾端点为开始，默认值为end。transition-timing-function 针对第一个参数timing-function 作用于每两个关键帧之间，而不是整个动画steps的设置都是针对两个关键帧之间的，而非是整个keyframes，所以第一个参数对 - 次数对应了每次steps的变化 第二个参数可选，接受 start 和 end 两个值，指定在每个间隔的起点或是终点发生阶跃变化，默认为 end2个参数都会选择性的跳过前后部分，start跳过0%，end跳过100%step-start在变化过程中，都是以下一帧的显示效果来填充间隔动画step-end与上面相反，都是以上一帧的显示效果来填充间隔动画 step的工作机制图 总结：steps函数，它可以传入两个参数，第一个是一个大于0的整数，他是将间隔动画等分成指定数目的小间隔动画，然后根据第二个参数来决定显示效果。第二个参数设置后其实和step-start，step-end同义，在分成的小间隔动画中判断显示效果。可以看出：steps(1, start) 等于step-start，steps(1,end)等于step-end 参考资料及来源如何理解animation-fill-mode及其使用？http://www.cnblogs.com/aaronjs/p/4642015.htmlhttp://www.tuicool.com/articles/neqMVrhttp://designmodo.com/steps-css-animations/]]></content>
