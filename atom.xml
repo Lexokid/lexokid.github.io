@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-03-17T08:14:25.175Z</updated>
+  <updated>2017-03-23T15:17:36.225Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,22 +16,145 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JavaScript和树</title>
+    <link href="http://yoursite.com/2017/03/23/ife2017/JavaScript%E5%92%8C%E6%A0%91/"/>
+    <id>http://yoursite.com/2017/03/23/ife2017/JavaScript和树/</id>
+    <published>2017-03-23T15:16:00.000Z</published>
+    <updated>2017-03-23T15:17:36.225Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><p><a href="http://ife.baidu.com/course/detail/id/108" target="_blank" rel="external">题</a></p>
+<blockquote>
+<p>任务描述</p>
+</blockquote>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/2-7" target="_blank" rel="external">https://github.com/Lexokid/ife/blob/master/2-7</a></p>
+<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/2-7/index.html" target="_blank" rel="external">https://lexokid.github.io/ife/2-7/index.html</a></p>
+<h1 id="二"><a href="#二" class="headerlink" title="二"></a>二</h1><p><a href="http://ife.baidu.com/course/detail/id/110" target="_blank" rel="external">题</a></p>
+<blockquote>
+<p>任务描述</p>
+</blockquote>
+<h2 id="源码-1"><a href="#源码-1" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/2-8" target="_blank" rel="external">https://github.com/Lexokid/ife/blob/master/2-8</a></p>
+<h2 id="demo-1"><a href="#demo-1" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/2-8/index.html" target="_blank" rel="external">https://lexokid.github.io/ife/2-8/index.html</a></p>
+<h1 id="三"><a href="#三" class="headerlink" title="三"></a>三</h1><p><a href="http://ife.baidu.com/course/detail/id/111" target="_blank" rel="external">题</a></p>
+<blockquote>
+<p>任务描述</p>
+</blockquote>
+<h2 id="源码-2"><a href="#源码-2" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/2-9" target="_blank" rel="external">https://github.com/Lexokid/ife/blob/master/2-9</a></p>
+<h2 id="demo-2"><a href="#demo-2" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/2-9/index.html" target="_blank" rel="external">https://lexokid.github.io/ife/2-9/index.html</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一&quot;&gt;&lt;a href=&quot;#一&quot; class=&quot;headerlink&quot; title=&quot;一&quot;&gt;&lt;/a&gt;一&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://ife.baidu.com/course/detail/id/108&quot; target=&quot;_blank&quot; rel=&quot;e
+    
+    </summary>
+    
+      <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
+    
+      <category term="树" scheme="http://yoursite.com/tags/%E6%A0%91/"/>
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js排序</title>
+    <link href="http://yoursite.com/2017/03/17/JavaScript/js%E6%8E%92%E5%BA%8F/"/>
+    <id>http://yoursite.com/2017/03/17/JavaScript/js排序/</id>
+    <published>2017-03-17T12:30:00.000Z</published>
+    <updated>2017-03-17T13:11:06.656Z</updated>
+    
+    <content type="html"><![CDATA[<p>js的几种排序(从小到大)</p>
+<h1 id="sort排序（推荐）"><a href="#sort排序（推荐）" class="headerlink" title="sort排序（推荐）"></a>sort排序（推荐）</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">systemSort</span>(<span class="params">array</span>)</span>&#123;</div><div class="line">    array.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> a - b;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> array;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h1><p>时间复杂度O(n<sup>2</sup>)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">swapSort</span>(<span class="params">array</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> i, j, d;</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (j = i+<span class="number">1</span>; j &lt; array.length; j++) &#123;</div><div class="line">            <span class="keyword">if</span> (array[i] &gt; array[j]) &#123;</div><div class="line">                d = array[j];</div><div class="line">                array[j] = array[i];</div><div class="line">                array[i] = d;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> array;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><p>时间复杂度O(n<sup>2</sup>)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">array</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> i, j, d;</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (j = array.length<span class="number">-1</span>; j &gt; i; j--) &#123;</div><div class="line">            <span class="keyword">if</span> (array[j] &lt; array[j<span class="number">-1</span>]) &#123;</div><div class="line">                d = array[j];</div><div class="line">                array[j] = array[j<span class="number">-1</span>];</div><div class="line">                array[j<span class="number">-1</span>] = d;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> array;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>改进：当在<code>i&lt;array.length</code>的时候序列已经有序，就不需要在接着循环了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">array</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> i, j, d;</div><div class="line">    <span class="keyword">var</span> flag=<span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; array.length &amp;&amp; flag; i++) &#123;</div><div class="line">        flag=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (j = array.length<span class="number">-1</span>; j &gt; i; j--) &#123;</div><div class="line">            <span class="keyword">if</span> (array[j] &lt; array[j<span class="number">-1</span>]) &#123;</div><div class="line">                d = array[j];</div><div class="line">                array[j] = array[j<span class="number">-1</span>];</div><div class="line">                array[j<span class="number">-1</span>] = d;</div><div class="line">                flag=<span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> array;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<p><a href="http://jun-lu.github.io/SortAnimate/index.html" target="_blank" rel="external">排序动画</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;js的几种排序(从小到大)&lt;/p&gt;
+&lt;h1 id=&quot;sort排序（推荐）&quot;&gt;&lt;a href=&quot;#sort排序（推荐）&quot; class=&quot;headerlink&quot; title=&quot;sort排序（推荐）&quot;&gt;&lt;/a&gt;sort排序（推荐）&lt;/h1&gt;&lt;figure class=&quot;highl
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="排序" scheme="http://yoursite.com/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>基础JavaScript练习</title>
     <link href="http://yoursite.com/2017/03/17/ife2017/%E5%9F%BA%E7%A1%80JavaScript%E7%BB%83%E4%B9%A0/"/>
     <id>http://yoursite.com/2017/03/17/ife2017/基础JavaScript练习/</id>
     <published>2017-03-17T08:02:00.000Z</published>
-    <updated>2017-03-17T08:14:25.175Z</updated>
+    <updated>2017-03-23T15:17:47.124Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><p><a href="http://ife.baidu.com/course/detail/id/103" target="_blank" rel="external">题</a></p>
+<blockquote>
+<p>任务描述</p>
+</blockquote>
+<ul>
+<li>模拟一个队列，队列的每个元素是一个数字，初始队列为空</li>
+<li>有一个input输入框，以及4个操作按钮<ul>
+<li>点击”左侧入”，将input中输入的数字从左侧插入队列中；</li>
+<li>点击”右侧入”，将input中输入的数字从右侧插入队列中；</li>
+<li>点击”左侧出”，读取并删除队列左侧第一个元素，并弹窗显示元素中数值；</li>
+<li>点击”右侧出”，读取并删除队列又侧第一个元素，并弹窗显示元素中数值；</li>
+</ul>
+</li>
+<li>点击队列中任何一个元素，则该元素会被从队列中删除</li>
+</ul>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/2-4" target="_blank" rel="external">https://github.com/Lexokid/ife/blob/master/2-4</a></p>
 <h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/2-4/index.html" target="_blank" rel="external">https://lexokid.github.io/ife/2-4/index.html</a></p>
+<p>这题没有什么难度，就是一些DOM节点的基本操作</p>
 <h1 id="二"><a href="#二" class="headerlink" title="二"></a>二</h1><p><a href="http://ife.baidu.com/course/detail/id/105" target="_blank" rel="external">题</a></p>
+<blockquote>
+<p>任务描述</p>
+</blockquote>
+<ul>
+<li>基于上一任务</li>
+<li>限制输入的数字在10-100</li>
+<li>队列元素数量最多限制为60个，当超过60个时，添加元素时alert出提示</li>
+<li>队列展现方式变化如图，直接用高度表示数字大小</li>
+<li>实现一个简单的排序功能，如冒泡排序（不限制具体算法），用可视化的方法表达出来</li>
+</ul>
 <h2 id="源码-1"><a href="#源码-1" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/2-5" target="_blank" rel="external">https://github.com/Lexokid/ife/blob/master/2-5</a></p>
 <h2 id="demo-1"><a href="#demo-1" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/2-5/index.html" target="_blank" rel="external">https://lexokid.github.io/ife/2-5/index.html</a></p>
+<p>这一题前面几个要求都不怎么难，主要是最后一个要求排序需要以可视化的方法来表达出来，这个要求有点难度，后来发现用setTimeout的递归方法和timer累加法可以实现js动画，setInterval也可以<br>setTimeout的递归方法原理差不多是这样<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// do something</span></div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">// do second thing</span></div><div class="line">    &#125;, <span class="number">1000</span>);</div><div class="line">&#125;, <span class="number">1000</span>);</div><div class="line"></div><div class="line">(<span class="function"><span class="keyword">function</span> <span class="title">loop</span>(<span class="params">i</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(i);</div><div class="line">    <span class="keyword">if</span>(i)&#123;</div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;loop(--i);&#125;,<span class="number">1000</span>);</div><div class="line">    &#125;</div><div class="line">&#125;)(<span class="number">3</span>);</div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">delay</span>(<span class="params">fn, t</span>) </span>&#123;</div><div class="line">    <span class="comment">// private instance variables</span></div><div class="line">    <span class="keyword">var</span> queue = [], self, timer;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">schedule</span>(<span class="params">fn, t</span>) </span>&#123;</div><div class="line">        timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            timer = <span class="literal">null</span>;</div><div class="line">            fn();</div><div class="line">            <span class="keyword">if</span> (queue.length) &#123;</div><div class="line">                <span class="keyword">var</span> item = queue.shift();</div><div class="line">                schedule(item.fn, item.t);</div><div class="line">            &#125;</div><div class="line">        &#125;, t);</div><div class="line">    &#125;</div><div class="line">    self = &#123;</div><div class="line">        <span class="attr">delay</span>: <span class="function"><span class="keyword">function</span>(<span class="params">fn, t</span>) </span>&#123;</div><div class="line">            <span class="comment">// if already queuing things or running a timer,</span></div><div class="line">            <span class="comment">//   then just add to the queue</span></div><div class="line">              <span class="keyword">if</span> (queue.length || timer) &#123;</div><div class="line">                queue.push(&#123;<span class="attr">fn</span>: fn, <span class="attr">t</span>: t&#125;);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="comment">// no queue or timer yet, so schedule the timer</span></div><div class="line">                schedule(fn, t);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> self;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">cancel</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            clearTimeout(timer);</div><div class="line">            queue = [];</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">return</span> self.delay(fn, t);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"a"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">delay(fn,<span class="number">1000</span>).delay(fn,<span class="number">2000</span>);</div><div class="line"><span class="comment">/*</span></div><div class="line">wait 1000ms</div><div class="line">a</div><div class="line">wait 2000ms</div><div class="line">b</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>timer累加<br>原理<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</div><div class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(x);&#125;,i*<span class="number">1000</span>);</div><div class="line">    &#125;)(i);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(i);&#125;,i*<span class="number">1000</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>setInterval<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// delay  每一帧之间的间隔(ms)</span></div><div class="line"><span class="comment">// duration  整个动画完成需要的时间(ms)</span></div><div class="line"><span class="comment">// start   动画开始的时间</span></div><div class="line"><span class="comment">// timePassed  从动画开始所经过的时间(ms)</span></div><div class="line"><span class="comment">// progress   已经过去的动画时间作为分子，计算每一帧通过公式timePassed/duration</span></div><div class="line"><span class="comment">// delta通过当前的时间，计算当前的动画进度</span></div><div class="line"><span class="comment">// delta(progress)一个返回当前动画进度的函数。</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">animate</span>(<span class="params">opts</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> start = <span class="keyword">new</span> <span class="built_in">Date</span>;</div><div class="line">    <span class="keyword">var</span> id = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> timePassed = <span class="keyword">new</span> <span class="built_in">Date</span> - start;</div><div class="line">        <span class="keyword">var</span> progress = timePassed / opts.duration;</div><div class="line">        progress = (progress &lt; <span class="number">1</span>) ? progress : <span class="number">1</span>;</div><div class="line">        <span class="keyword">var</span> delta = opts.delta(progress)</div><div class="line">        opts.step(delta)</div><div class="line">        <span class="keyword">if</span> (progress == <span class="number">1</span>) &#123;</div><div class="line">            clearInterval(id)</div><div class="line">        &#125;</div><div class="line">    &#125;, opts.delay || <span class="number">10</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">element, delta, duration</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> to = <span class="number">1000</span>;</div><div class="line">    animate(&#123;</div><div class="line">        <span class="attr">delay</span>: <span class="number">10</span>,</div><div class="line">        <span class="attr">duration</span>: duration || <span class="number">1000</span>,</div><div class="line">        <span class="attr">delta</span>: delta,</div><div class="line">        <span class="attr">step</span>: <span class="function"><span class="keyword">function</span>(<span class="params">delta</span>) </span>&#123;</div><div class="line">            element.style.left = to * delta + <span class="string">'px'</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">linear</span>(<span class="params">progress</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> progress;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">quad</span>(<span class="params">progress</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.pow(progress, <span class="number">2</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">circ</span>(<span class="params">progress</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span> - <span class="built_in">Math</span>.sin(<span class="built_in">Math</span>.acos(progress))</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">back</span>(<span class="params">progress, x</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.pow(progress, <span class="number">2</span>) * ((x + <span class="number">1</span>) * progress - x)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bounce</span>(<span class="params">progress</span>) </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> a = <span class="number">0</span>, b = <span class="number">1</span>, result; <span class="number">1</span>; a += b, b /= <span class="number">2</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (progress &gt;= (<span class="number">7</span> - <span class="number">4</span> * a) / <span class="number">11</span>) &#123;</div><div class="line">            <span class="keyword">return</span> -<span class="built_in">Math</span>.pow((<span class="number">11</span> - <span class="number">6</span> * a - <span class="number">11</span> * progress) / <span class="number">4</span>, <span class="number">2</span>) + <span class="built_in">Math</span>.pow(b, <span class="number">2</span>)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">elastic</span>(<span class="params">progress, x</span>) </span>&#123;</div><div class="line">    x = x || <span class="number">5</span>;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">10</span> * (progress - <span class="number">1</span>)) * <span class="built_in">Math</span>.cos(<span class="number">20</span> * <span class="built_in">Math</span>.PI * x / <span class="number">3</span> * progress)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>代码贴的有点多了，不过都是思路，记下来方便以后使用<br>这题我用的是timer累加的方法来实现动画效果<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sortHandle</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> array = $(<span class="string">"num"</span>).children;</div><div class="line">    <span class="keyword">let</span> time = <span class="number">100</span>;</div><div class="line">    <span class="keyword">let</span> timer;</div><div class="line">    <span class="keyword">let</span> count = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = array.length - <span class="number">1</span>; j &gt; i; j--) &#123;</div><div class="line">            timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                [].forEach.call($(<span class="string">"num"</span>).children, <span class="function"><span class="keyword">function</span>(<span class="params">its</span>) </span>&#123;</div><div class="line">                    its.style.boxShadow = <span class="string">`none`</span>;</div><div class="line">                &#125;);</div><div class="line">                array[j].style.boxShadow = <span class="string">`inset 0 0 2px 3px red`</span>;</div><div class="line">                array[j - <span class="number">1</span>].style.boxShadow = <span class="string">`inset 0 0 2px 2px red`</span>;</div><div class="line">                <span class="keyword">if</span> (~~(array[j].innerText) &gt; ~~(array[j - <span class="number">1</span>].innerText)) &#123;</div><div class="line">                    $(<span class="string">"num"</span>).insertBefore(array[j], array[j - <span class="number">1</span>]);</div><div class="line">                &#125;</div><div class="line">            &#125;, time * count++);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        [].forEach.call($(<span class="string">"num"</span>).children, <span class="function"><span class="keyword">function</span>(<span class="params">its</span>) </span>&#123;</div><div class="line">            its.style.boxShadow = <span class="string">`none`</span>;</div><div class="line">        &#125;);</div><div class="line">    &#125;, time * count);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注意：两个for循环的循环变量要用let来定义，因为循环是不会因为setTimeout阻塞的，所以循环会先执行完，var定义的变量是以函数为作用域的，循环执行完时变量会一直保持在循环结束时的状态，导致setTimeout执行时访问的那个变量永远不变<br>或者可以用一个数组来储存排序的结果，然后用定时器去重现保存的结果</p>
 <h1 id="三"><a href="#三" class="headerlink" title="三"></a>三</h1><p><a href="http://ife.baidu.com/course/detail/id/107" target="_blank" rel="external">题</a></p>
 <h2 id="源码-2"><a href="#源码-2" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/2-6" target="_blank" rel="external">https://github.com/Lexokid/ife/blob/master/2-6</a></p>
 <h2 id="demo-2"><a href="#demo-2" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/2-6/index.html" target="_blank" rel="external">https://lexokid.github.io/ife/2-6/index.html</a></p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1>]]></content>
+<blockquote>
+<p>任务描述</p>
+</blockquote>
+<ul>
+<li>基于任务四进行升级</li>
+<li>将新元素输入框从input改为textarea</li>
+<li>允许一次批量输入多个内容，格式可以为数字、中文、英文等，可以通过用回车，逗号（全角半角均可），顿号，空格（全角半角、Tab等均可）等符号作为不同内容的间隔</li>
+<li>增加一个查询文本输入框，和一个查询按钮，当点击查询时，将查询词在各个元素内容中做模糊匹配，将匹配到的内容进行特殊标识，如文字颜色等。举例，内容中有abcd，查询词为ab或bc，则该内容需要标识</li>
+</ul>
+<p>这题一样没什么难度，考察了一点正则表达式</p>
+<p>这样就可以把除数字、英文、中文以外的字符替换为空格<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/[^a-zA-Z0-9\u4e00-\u9fa5]+/g</span>;</div><div class="line">str = str.replace(reg, <span class="string">" "</span>);</div></pre></td></tr></table></figure></p>
+<p>模糊匹配可以用<code>str.match(reg)</code>的方法</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://segmentfault.com/a/1190000008570887" target="_blank" rel="external">【翻译】javascript 动画原理浅析</a><br><a href="http://stackoverflow.com/questions/6921275/is-it-possible-to-chain-settimeout-functions-in-javascript" target="_blank" rel="external">setTimeout任务链</a><br><a href="https://www.zhihu.com/question/41642706?sort=created" target="_blank" rel="external">我用js写了一个冒泡排序法，怎么用html和css把排序过程展现出来？</a></p>
+]]></content>
     
     <summary type="html">
     
@@ -44,7 +167,11 @@
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
+      <category term="排序" scheme="http://yoursite.com/tags/%E6%8E%92%E5%BA%8F/"/>
+    
       <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -205,7 +332,7 @@
     <link href="http://yoursite.com/2017/03/14/ife2017/%E9%9B%B6%E5%9F%BA%E7%A1%80JavaScript%E7%BC%96%E7%A0%81/"/>
     <id>http://yoursite.com/2017/03/14/ife2017/零基础JavaScript编码/</id>
     <published>2017-03-14T12:02:00.000Z</published>
-    <updated>2017-03-15T02:13:30.673Z</updated>
+    <updated>2017-03-23T15:17:58.757Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><p><a href="http://ife.baidu.com/course/detail/id/93" target="_blank" rel="external">题</a></p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/2-1" target="_blank" rel="external">https://github.com/Lexokid/ife/blob/master/2-1</a></p>
@@ -1090,9 +1217,9 @@
     <link href="http://yoursite.com/2017/02/27/ife2017/ife2017/"/>
     <id>http://yoursite.com/2017/02/27/ife2017/ife2017/</id>
     <published>2017-02-27T14:46:00.000Z</published>
-    <updated>2017-03-17T08:15:32.783Z</updated>
+    <updated>2017-03-23T15:16:55.838Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="三栏式布局"><a href="#三栏式布局" class="headerlink" title="三栏式布局"></a><a href="https://lexokid.github.io/2017/02/27/ife2017/%E4%B8%89%E6%A0%8F%E5%BC%8F%E5%B8%83%E5%B1%80/" target="_blank" rel="external">三栏式布局</a></h3><h3 id="定位和居中"><a href="#定位和居中" class="headerlink" title="定位和居中"></a><a href="https://lexokid.github.io/2017/02/27/ife2017/%E5%AE%9A%E4%BD%8D%E5%92%8C%E5%B1%85%E4%B8%AD/" target="_blank" rel="external">定位和居中</a></h3><h3 id="通过HTML及CSS模拟报纸排版"><a href="#通过HTML及CSS模拟报纸排版" class="headerlink" title="通过HTML及CSS模拟报纸排版"></a><a href="https://lexokid.github.io/2017/03/02/ife2017/%E9%80%9A%E8%BF%87HTML%E5%8F%8ACSS%E6%A8%A1%E6%8B%9F%E6%8A%A5%E7%BA%B8%E6%8E%92%E7%89%88/" target="_blank" rel="external">通过HTML及CSS模拟报纸排版</a></h3><h3 id="实现常见的技术产品官网的页面架构及样式布局"><a href="#实现常见的技术产品官网的页面架构及样式布局" class="headerlink" title="实现常见的技术产品官网的页面架构及样式布局"></a><a href="https://lexokid.github.io/2017/03/06/ife2017/%E5%AE%9E%E7%8E%B0%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81%E5%AE%98%E7%BD%91%E7%9A%84%E9%A1%B5%E9%9D%A2%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%A0%B7%E5%BC%8F%E5%B8%83%E5%B1%80/" target="_blank" rel="external">实现常见的技术产品官网的页面架构及样式布局</a></h3><h3 id="响应式网格"><a href="#响应式网格" class="headerlink" title="响应式网格"></a><a href="https://lexokid.github.io/2017/03/08/ife2017/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BD%91%E6%A0%BC/" target="_blank" rel="external">响应式网格</a></h3><h3 id="Flexbox-布局练习"><a href="#Flexbox-布局练习" class="headerlink" title="Flexbox 布局练习"></a><a href="https://lexokid.github.io/2017/03/08/ife2017/Flexbox%20%E5%B8%83%E5%B1%80%E7%BB%83%E4%B9%A0/" target="_blank" rel="external">Flexbox 布局练习</a></h3><h3 id="移动Web页面布局"><a href="#移动Web页面布局" class="headerlink" title="移动Web页面布局"></a><a href="https://lexokid.github.io/2017/03/11/ife2017/%E7%A7%BB%E5%8A%A8Web%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80/" target="_blank" rel="external">移动Web页面布局</a></h3><h3 id="学习CSS3的新特性"><a href="#学习CSS3的新特性" class="headerlink" title="学习CSS3的新特性"></a><a href="https://lexokid.github.io/2017/03/14/ife2017/%E5%AD%A6%E4%B9%A0CSS3%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7/" target="_blank" rel="external">学习CSS3的新特性</a></h3><h3 id="零基础JavaScript编码"><a href="#零基础JavaScript编码" class="headerlink" title="零基础JavaScript编码"></a><a href="https://lexokid.github.io/2017/03/14/ife2017/%E9%9B%B6%E5%9F%BA%E7%A1%80JavaScript%E7%BC%96%E7%A0%81/" target="_blank" rel="external">零基础JavaScript编码</a></h3><h3 id="基础JavaScript练习"><a href="#基础JavaScript练习" class="headerlink" title="基础JavaScript练习"></a><a href="https://lexokid.github.io/2017/03/17/ife2017/%E5%9F%BA%E7%A1%80JavaScript%E7%BB%83%E4%B9%A0/" target="_blank" rel="external">基础JavaScript练习</a></h3>]]></content>
+    <content type="html"><![CDATA[<h3 id="三栏式布局"><a href="#三栏式布局" class="headerlink" title="三栏式布局"></a><a href="https://lexokid.github.io/2017/02/27/ife2017/%E4%B8%89%E6%A0%8F%E5%BC%8F%E5%B8%83%E5%B1%80/" target="_blank" rel="external">三栏式布局</a></h3><h3 id="定位和居中"><a href="#定位和居中" class="headerlink" title="定位和居中"></a><a href="https://lexokid.github.io/2017/02/27/ife2017/%E5%AE%9A%E4%BD%8D%E5%92%8C%E5%B1%85%E4%B8%AD/" target="_blank" rel="external">定位和居中</a></h3><h3 id="通过HTML及CSS模拟报纸排版"><a href="#通过HTML及CSS模拟报纸排版" class="headerlink" title="通过HTML及CSS模拟报纸排版"></a><a href="https://lexokid.github.io/2017/03/02/ife2017/%E9%80%9A%E8%BF%87HTML%E5%8F%8ACSS%E6%A8%A1%E6%8B%9F%E6%8A%A5%E7%BA%B8%E6%8E%92%E7%89%88/" target="_blank" rel="external">通过HTML及CSS模拟报纸排版</a></h3><h3 id="实现常见的技术产品官网的页面架构及样式布局"><a href="#实现常见的技术产品官网的页面架构及样式布局" class="headerlink" title="实现常见的技术产品官网的页面架构及样式布局"></a><a href="https://lexokid.github.io/2017/03/06/ife2017/%E5%AE%9E%E7%8E%B0%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81%E5%AE%98%E7%BD%91%E7%9A%84%E9%A1%B5%E9%9D%A2%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%A0%B7%E5%BC%8F%E5%B8%83%E5%B1%80/" target="_blank" rel="external">实现常见的技术产品官网的页面架构及样式布局</a></h3><h3 id="响应式网格"><a href="#响应式网格" class="headerlink" title="响应式网格"></a><a href="https://lexokid.github.io/2017/03/08/ife2017/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BD%91%E6%A0%BC/" target="_blank" rel="external">响应式网格</a></h3><h3 id="Flexbox-布局练习"><a href="#Flexbox-布局练习" class="headerlink" title="Flexbox 布局练习"></a><a href="https://lexokid.github.io/2017/03/08/ife2017/Flexbox%20%E5%B8%83%E5%B1%80%E7%BB%83%E4%B9%A0/" target="_blank" rel="external">Flexbox 布局练习</a></h3><h3 id="移动Web页面布局"><a href="#移动Web页面布局" class="headerlink" title="移动Web页面布局"></a><a href="https://lexokid.github.io/2017/03/11/ife2017/%E7%A7%BB%E5%8A%A8Web%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80/" target="_blank" rel="external">移动Web页面布局</a></h3><h3 id="学习CSS3的新特性"><a href="#学习CSS3的新特性" class="headerlink" title="学习CSS3的新特性"></a><a href="https://lexokid.github.io/2017/03/14/ife2017/%E5%AD%A6%E4%B9%A0CSS3%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7/" target="_blank" rel="external">学习CSS3的新特性</a></h3><h3 id="零基础JavaScript编码"><a href="#零基础JavaScript编码" class="headerlink" title="零基础JavaScript编码"></a><a href="https://lexokid.github.io/2017/03/14/ife2017/%E9%9B%B6%E5%9F%BA%E7%A1%80JavaScript%E7%BC%96%E7%A0%81/" target="_blank" rel="external">零基础JavaScript编码</a></h3><h3 id="基础JavaScript练习"><a href="#基础JavaScript练习" class="headerlink" title="基础JavaScript练习"></a><a href="https://lexokid.github.io/2017/03/17/ife2017/%E5%9F%BA%E7%A1%80JavaScript%E7%BB%83%E4%B9%A0/" target="_blank" rel="external">基础JavaScript练习</a></h3><h3 id="JavaScript和树"><a href="#JavaScript和树" class="headerlink" title="JavaScript和树"></a><a href="https://lexokid.github.io/2017/03/23/ife2017/JavaScript%E5%92%8C%E6%A0%91/" target="_blank" rel="external">JavaScript和树</a></h3>]]></content>
     
     <summary type="html">
     
@@ -1277,112 +1404,6 @@
     <summary type="html">
     
       &lt;h2 id=&quot;子查询&quot;&gt;&lt;a href=&quot;#子查询&quot; class=&quot;headerlink&quot; title=&quot;子查询&quot;&gt;&lt;/a&gt;子查询&lt;/h2&gt;&lt;p&gt;子查询是指出现在其他SQL语句内的SELECT子句&lt;br&gt;例如：&lt;br&gt;&lt;code&gt;SELECT * FROM t1 WHERE c
-    
-    </summary>
-    
-      <category term="MySql" scheme="http://yoursite.com/categories/MySql/"/>
-    
-    
-      <category term="MySql" scheme="http://yoursite.com/tags/MySql/"/>
-    
-      <category term="语法" scheme="http://yoursite.com/tags/%E8%AF%AD%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySql零接触(5)</title>
-    <link href="http://yoursite.com/2017/02/08/MySql/MySql%E9%9B%B6%E6%8E%A5%E8%A7%A6(5)/"/>
-    <id>http://yoursite.com/2017/02/08/MySql/MySql零接触(5)/</id>
-    <published>2017-02-08T06:24:54.000Z</published>
-    <updated>2017-02-08T06:17:11.238Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="数据的操作"><a href="#数据的操作" class="headerlink" title="数据的操作"></a>数据的操作</h2><p>若省略列名称则所有列要依次赋值<br>对于自动编号的字段，插入“NULL”或“DEFAULT”系统将自动依次递增编号<br>对于有默认值的字段，可以插入“DEFAULT”表示使用默认值<br>列值可传入数值、表达式或函数，如密码可以用md5()函数(PHP中的函数  求字符串哈希值函数)(如md5(‘123’))<br>可同时插入多条数据，多条数据括号间用逗号“,”隔开</p>
-<h3 id="1-插入数据"><a href="#1-插入数据" class="headerlink" title="1.插入数据"></a>1.插入数据</h3><p>方法一：<strong>INSERT [INTO] tbl_name [(col_name)] {VALUES|VALUE}({expr|DEFAULT},…),(…),…;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> tb1(username,salary) <span class="keyword">VALUES</span>(<span class="string">'Tom'</span>,<span class="number">6666.66</span>),(<span class="string">'John'</span>,<span class="number">1234</span>);</div></pre></td></tr></table></figure></p>
-<p>方法二：<strong>INSERT [INTO] tbl_name SET col_name={expr|DEFAULT},…;</strong><br>此方法可以使用子查询，一次只能插入一条数据<br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> tb1 <span class="keyword">SET</span> username=<span class="string">'Ben'</span>,salary=<span class="string">'1234'</span>;</div></pre></td></tr></table></figure></p>
-<p>方法三：<strong>INSERT [INTO] tbl_name [(col_name,…)] SELECT …;</strong><br>此方法可以将查询结果插入到指定数据表<br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> <span class="keyword">test</span> <span class="keyword">SELECT</span> username <span class="keyword">FROM</span> tb1 <span class="keyword">WHERE</span> age &gt;=<span class="number">30</span>;</div><div class="line"><span class="comment">--新创建的test表只有uname字段，查找tb1表中age大于等于30的username的数据，插入test表</span></div></pre></td></tr></table></figure></p>
-<h3 id="2-更新数据"><a href="#2-更新数据" class="headerlink" title="2.更新数据"></a>2.更新数据</h3><p><strong>UPDATE [LOW_PRIORITY] [IGNORE] table_reference SET col_name1={expr1|DEFAULT} [,col_name2={expr2|DEFAULT}]… [WHERE where_condition]</strong><br>当缺少WHERE时，所有记录都会更新<br>LOW_PRIORITY：UPDATE的执行被延迟了，直到没有其它的客户端从表中读取为止<br>IGNORE：即使在更新过程中出现错误，更新语句也不会中断<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> tb1 <span class="keyword">SET</span> salary = <span class="number">1000</span>, age = age + <span class="number">5</span>;</div><div class="line"><span class="keyword">UPDATE</span> tb1 <span class="keyword">SET</span> salary = salary + <span class="number">1000</span> <span class="keyword">WHERE</span> age &gt;= <span class="number">20</span>;</div></pre></td></tr></table></figure></p>
-<h3 id="3-删除数据"><a href="#3-删除数据" class="headerlink" title="3.删除数据"></a>3.删除数据</h3><p>若不添加WHERE则删除全部记录<br>删除后再插入，插入的记录中设置为AUTO_INCREMENT(自动编号)列将从最大值往上加，而是基于原有记录最大编号继续增加<br><strong>DELETE FROM tbl_name [WHERE where_condition];</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> tb1 <span class="keyword">WHERE</span> username = <span class="string">'Tom'</span>;</div></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><h3 id="1-查找数据"><a href="#1-查找数据" class="headerlink" title="1.查找数据"></a>1.查找数据</h3><p><strong>SELECT select_expr [,select_expr2…] 只查找某一个函数或表达式<br>[<br>FROM table_references 查询表名<br>[WHERE where_conditon] 查询条件<br>[GROUP BY {col_name|position} [ASC|DESC],…] 按某个字段进行分组，相同的只显示第一个<br>[HAVING where_conditon] 分组时，给出显示条件<br>[ORDER BY {col_name|expr|position} [ASC(升序，默认)|DESC(降序)],…] 排序<br>[LIMIT {[offset,]row_count|row_count OFFSET offset}] 限制返回数量<br>]</strong><br>每一个表达式表示想要的一列，必须有至少一个<br>多个列之间以英文逗号分隔，输入列的顺序影响到结果列的顺序<br>可通过tal_name.col_name 来指明是tal_name的col_name列<br>星号(*)表示所有列，tbl_name.*可以表示命名表的所有列<br>查询表达式可以使用[AS] alias_name为其赋予别名，(主要用于不同表的同名列)别名影响到结果<br>别名可用于GROUP BY，ORDER BY或HAVING子句</p>
-<p>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">NOW</span>();    <span class="comment">--当前时间</span></div><div class="line"><span class="keyword">SELECT</span> username <span class="keyword">AS</span> uname, age <span class="keyword">FROM</span> tb1;    <span class="comment">--从tb1中查找username(以uname别名显示)和age</span></div><div class="line"><span class="keyword">SELECT</span> age <span class="keyword">FROM</span> tb1 <span class="keyword">GROUP</span> <span class="keyword">BY</span> age <span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(salary)&gt;<span class="number">2</span>;    <span class="comment">--以age分组，显示salary的个数多于2个的age分组</span></div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> tb1 <span class="keyword">ORDER</span> <span class="keyword">BY</span> age, salary <span class="keyword">DESC</span>;    <span class="comment">--先以age升序排列，在以salary降序排列</span></div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> tb1 <span class="keyword">ORDER</span> <span class="keyword">BY</span> salary <span class="keyword">LIMIT</span> <span class="number">2</span>,<span class="number">3</span>;    <span class="comment">--从第2条开始(从0开始)，返回3条信息</span></div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;数据的操作&quot;&gt;&lt;a href=&quot;#数据的操作&quot; class=&quot;headerlink&quot; title=&quot;数据的操作&quot;&gt;&lt;/a&gt;数据的操作&lt;/h2&gt;&lt;p&gt;若省略列名称则所有列要依次赋值&lt;br&gt;对于自动编号的字段，插入“NULL”或“DEFAULT”系统将自动依次递增编号
-    
-    </summary>
-    
-      <category term="MySql" scheme="http://yoursite.com/categories/MySql/"/>
-    
-    
-      <category term="MySql" scheme="http://yoursite.com/tags/MySql/"/>
-    
-      <category term="语法" scheme="http://yoursite.com/tags/%E8%AF%AD%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySql零接触(4)</title>
-    <link href="http://yoursite.com/2017/02/06/MySql/MySql%E9%9B%B6%E6%8E%A5%E8%A7%A6(4)/"/>
-    <id>http://yoursite.com/2017/02/06/MySql/MySql零接触(4)/</id>
-    <published>2017-02-06T11:24:54.000Z</published>
-    <updated>2017-02-06T11:06:27.182Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><ul>
-<li>约束分为表级约束和列级约束</li>
-<li>约束保证数据的完整性和一致性</li>
-<li>约束类型包括：<br>  NOT NULL(非空约束）<br>  PRIMARY KEY（主键约束）<br>  UNIQUE(唯一约束)<br>  DEFAULT(默认约束)<br>  FOREIGN KEY(外键约束)</li>
-</ul>
-<h3 id="表级约束与列级约束"><a href="#表级约束与列级约束" class="headerlink" title="表级约束与列级约束"></a>表级约束与列级约束</h3><ul>
-<li>对于一个列所创建的约束，称之为列级约束，而对于两个或两个以上的列所创建的约束，我们称之为表级约束</li>
-<li>列级约束在使用的时候，既可以在列定义的时候声明，也可以在列定义以后声明</li>
-<li>表级的约束只能在列定义以后来声明</li>
-<li>在实际开发中，用列级约束比较多，表级约束很少用，除此之外，在所有的约束中，并不是说每种约束都存在着表级或列级约束，其中，NOT NULL 非空约束，DEFAULT约束这两种约束就不存在表级约束，它们只有列级约束，而对于其他的三种，像主键，唯一，外键，它们都可以存在表级和列级约束。</li>
-</ul>
-<hr>
-<h2 id="添加-修改约束"><a href="#添加-修改约束" class="headerlink" title="添加\修改约束"></a>添加\修改约束</h2><p><strong>主键约束</strong></p>
-<ul>
-<li>每张数据表只能存在一个主键</li>
-<li>主键保证数据的唯一性</li>
-<li>主键自动为NOT NULL</li>
-</ul>
-<h3 id="1-添加主键约束"><a href="#1-添加主键约束" class="headerlink" title="1.添加主键约束"></a>1.添加主键约束</h3><p><strong>ALTER TABLE tbl_name ADD [CONSTRAINT [symbol]] PRIMARY KEY [index_type] (index_col_name,…);</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> pk_tb1_username PRIMARY <span class="keyword">KEY</span> (username);</div></pre></td></tr></table></figure></p>
-<h3 id="2-删除主键约束"><a href="#2-删除主键约束" class="headerlink" title="2.删除主键约束"></a>2.删除主键约束</h3><p><strong>ALTER TABLE tbl_name DROP PRIMARY KEY;</strong></p>
-<hr>
-<p><strong>唯一约束</strong></p>
-<ul>
-<li>唯一约束可以保证记录的唯一性</li>
-<li>唯一约束的字段可以为空值</li>
-<li>每张数据表可以存在多个唯一约束</li>
-</ul>
-<h3 id="3-添加唯一约束"><a href="#3-添加唯一约束" class="headerlink" title="3.添加唯一约束"></a>3.添加唯一约束</h3><p><strong>ALTER TABLE tbl_name ADD [CONSTRAINT [symbol]] UNIQUE [INDEX|KEY] [index_name] [index_type] (index_col_name,…);</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> uq_tb1_age <span class="keyword">UNIQUE</span> (username);</div></pre></td></tr></table></figure></p>
-<h3 id="4-删除唯一约束"><a href="#4-删除唯一约束" class="headerlink" title="4.删除唯一约束"></a>4.删除唯一约束</h3><p><strong>ALTER TABLE tbl_name DROP {INDEX|KEY} index_name;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">DROP</span> uq_tb1_age;</div></pre></td></tr></table></figure></p>
-<hr>
-<p><strong>外键约束</strong><br>保持数据一致性，完整性<br>实现数据表一对一或一对多关系<br><strong>外键约束的要求：</strong><br>1.父表和子表必须使用相同的存储引擎，而且禁止使用临时表<br>2.数据表的存储引擎只能为InnoDB<br>3.外键列和参照列必须具有相似的数据类型。其中数字的长度或是否有符号位必须相同，而字符的长度则可以不同<br>4.外键列和参照列必须创建索引。如果外键列不存在索引的话，mysql将自动创建索引</p>
-<p><strong>外键约束的参照操作</strong></p>
-<ol>
-<li>CASCADE 需要在两张表中插入记录，必须先在父表中插入记录再在子表中插入记录<br>因为子表参照的是父表中的信息，若父表中没有则无法参照<br>2、SET NULL：从父表删除或更新行，并设置子表中的外键列为NULL。如果使用该选项，必须保证子列表没有指定NOT NULL。<br>3、RESTRICT：拒绝对父表的删除或更新操作。<br>4、NO ACTION：标准SQL的关键字，在MySQL中与RESTRICT相同。</li>
-</ol>
-<p>FOREIGN KEY （子表列名） REFERENCES FROM 父表名（父表列名）[ON DELETE|UPDATE CASCADE|SET NULL|RESTRICT|NO ACTION];</p>
-<p>在实际开发中，存储引擎不为INNODB，无法使用FOREIGN KEY，普遍使用逻辑方法。</p>
-<h3 id="5-添加外键约束"><a href="#5-添加外键约束" class="headerlink" title="5.添加外键约束"></a>5.添加外键约束</h3><p><strong>ALTER TABLE tbl_name ADD [CONSTRAINT [symbol]] FOREIGN KEY [index_name] (index_col_name,…) REFERENCES tbl2_name (col_name);</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> fk_username FOREIGN <span class="keyword">KEY</span> (username) <span class="keyword">REFERENCES</span> tb2 (username);</div></pre></td></tr></table></figure></p>
-<h3 id="6-删除外键约束"><a href="#6-删除外键约束" class="headerlink" title="6.删除外键约束"></a>6.删除外键约束</h3><p><strong>ALTER TABLE tbl_name DROP FOREIGN KEY fk_symbol;</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">DROP</span> FOREIGN <span class="keyword">KEY</span> fk_username;</div></pre></td></tr></table></figure></p>
-<hr>
-<p><strong>默认约束</strong></p>
-<ul>
-<li>默认值</li>
-<li>当插入数据时，如果没有明确为字段赋值，则自动赋予默认值</li>
-</ul>
-<h3 id="7-添加-删除默认约束"><a href="#7-添加-删除默认约束" class="headerlink" title="7.添加/删除默认约束"></a>7.添加/删除默认约束</h3><p><strong>ALTER TABLE tbl_name ALTER [COLUMN] col_name {SET DEFAULT literal | DROP DEFAULT};</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">ALTER</span> salary <span class="keyword">SET</span> <span class="keyword">DEFAULT</span> <span class="number">2000</span>;</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;约束&quot;&gt;&lt;a href=&quot;#约束&quot; class=&quot;headerlink&quot; title=&quot;约束&quot;&gt;&lt;/a&gt;约束&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;约束分为表级约束和列级约束&lt;/li&gt;
-&lt;li&gt;约束保证数据的完整性和一致性&lt;/li&gt;
-&lt;li&gt;约束类型包括：&lt;br&gt;  NOT 
     
     </summary>
     
