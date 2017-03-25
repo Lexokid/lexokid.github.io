@@ -102,7 +102,7 @@
 其他的值都是对象
 
 两者之间最主要的区别在于它们的比较方式：每个对象都有唯一的标识且（严格的）等于自己：1234var obj1 = &amp;#123;&amp;#125;;var obj2 = &amp;#123;&amp;#125;;obj1 === obj2;    //fal">
-<meta property="og:updated_time" content="2017-01-14T08:00:22.580Z">
+<meta property="og:updated_time" content="2017-03-25T05:59:31.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原始值和对象">
 <meta name="twitter:description" content="原始值和对象在阅读深入理解JavaScript中发现值可以分为两类：原始值和对象
@@ -363,6 +363,7 @@
 </ul>
 <p>两者之间最主要的区别在于它们的比较方式：每个对象都有唯一的标识且（严格的）等于自己：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj1 = &#123;&#125;;</div><div class="line"><span class="keyword">var</span> obj2 = &#123;&#125;;</div><div class="line">obj1 === obj2;    <span class="comment">//false</span></div><div class="line">obj1 === obj1;    <span class="comment">//true</span></div></pre></td></tr></table></figure></p>
 <p>相反，所有原始值只要编码值相同，则被认为相等：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> prim1 = <span class="number">123</span>;</div><div class="line"><span class="keyword">var</span> prim2 = <span class="number">123</span>;</div><div class="line">prim1 === prim2;    <span class="comment">//true</span></div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <h3 id="原始值"><a href="#原始值" class="headerlink" title="原始值"></a>原始值</h3><p>原始值包括布尔值、数字、字符串、null和undefined<br>原始值具有以下特点：</p>
 <ol>
 <li><p>按值比较</p>

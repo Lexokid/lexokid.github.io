@@ -346,14 +346,9 @@
 
       
         
-          
-          题
-源码https://github.com/Lexokid/ife/blob/master/1-10
-demohttps://lexokid.github.io/ife/1-10/index.html
-参考资料Flexbox详解Flexbox——快速布局神器使用 CSS 弹性盒MDN flex属性
-
-          
-
+          <p><a href="http://ife.baidu.com/course/detail/id/114">题目地址</a></p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/1-10">https://github.com/Lexokid/ife/blob/master/1-10</a></p>
+<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/1-10/index.html">https://lexokid.github.io/ife/1-10/index.html</a></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/03/08/ife2017/Flexbox 布局练习/#more" rel="contents">
               阅读全文 &raquo;
@@ -468,7 +463,7 @@ demohttps://lexokid.github.io/ife/1-10/index.html
 
       
         
-          <p><a href="http://ife.baidu.com/course/detail/id/104">题</a></p>
+          <p><a href="http://ife.baidu.com/course/detail/id/104">题目地址</a></p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/1-8">https://github.com/Lexokid/ife/blob/master/1-8</a></p>
 <h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/1-8/index.html">https://lexokid.github.io/ife/1-8/index.html</a></p>
           <div class="post-more-link text-center">
@@ -585,14 +580,9 @@ demohttps://lexokid.github.io/ife/1-10/index.html
 
       
         
-          
-          题
-源码https://github.com/Lexokid/ife/blob/master/1-7
-demohttps://lexokid.github.io/ife/1-7/index.html
-参考资料CSS background 属性CSS 选择器
-
-          
-
+          <p><a href="http://ife.baidu.com/course/detail/id/102">题目地址</a></p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/1-7">https://github.com/Lexokid/ife/blob/master/1-7</a></p>
+<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/1-7/index.html">https://lexokid.github.io/ife/1-7/index.html</a></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/03/06/ife2017/实现常见的技术产品官网的页面架构及样式布局/#more" rel="contents">
               阅读全文 &raquo;
@@ -707,13 +697,9 @@ demohttps://lexokid.github.io/ife/1-7/index.html
 
       
         
-          
-          题
-源码https://github.com/Lexokid/ife/blob/master/1-6/index.html
-demohttps://lexokid.github.io/ife/1-6/index.html
-知识点首字母变大加下划线12345678&lt;div class="text"&gt;abcd&lt;/div&gt;    &lt;!-- 字母小写 --&gt;&lt;style type="text/css"&gt;    .text&#123;        font
-          ...
-
+          <p><a href="http://ife.baidu.com/course/detail/id/99">题目地址</a></p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/1-6/index.html">https://github.com/Lexokid/ife/blob/master/1-6/index.html</a></p>
+<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/1-6/index.html">https://lexokid.github.io/ife/1-6/index.html</a></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/03/02/ife2017/通过HTML及CSS模拟报纸排版/#more" rel="contents">
               阅读全文 &raquo;
@@ -828,9 +814,7 @@ demohttps://lexokid.github.io/ife/1-6/index.html
 
       
         
-          
-          
-
+          <style>
     h1 {
         color: #0BF;
         text-indent: 15px;
@@ -846,9 +830,159 @@ demohttps://lexokid.github.io/ife/1-6/index.html
     p {
         margin: 0;
         padding: 0;
-        color
-          ...
+        color: #666;
+        margin-bottom: 5px;
+    }
 
+    .boxes {
+        padding: 0 10px;
+        /* overflow: hidden; */
+        display: -webkit-flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
+
+    .box {
+        width: 400px;
+        padding: 8px;
+        margin-right: 20px;
+        margin-bottom: 10px;
+        display: inline-block;
+        /*box-shadow: 2px 2px 3px 1px #E0E0E0;*/
+        box-shadow: 0px 0px 20px 1px #E0E0E0;
+    }
+
+    .boxstyle {
+        padding: 8px 0;
+    }
+
+    .boxborder {
+        border: 1px dashed #B6B6B6;
+    }
+
+    .demo {
+        color: #fff;
+        display: -webkit-flex;
+        text-align: center;
+    }
+
+        .demo .item {
+            line-height: 40px;
+            background-color: #ddd;
+        }
+
+            .demo .item:nth-child(1) {
+                background-color: #E46C49;
+            }
+
+            .demo .item:nth-child(2) {
+                background-color: #37B0D3;
+            }
+
+            .demo .item:nth-child(3) {
+                background-color: #68B33D;
+            }
+
+            .demo .item:nth-child(4) {
+                background-color: #E46775;
+            }
+
+            .demo .item:nth-child(5) {
+                background-color: #CFC731;
+            }
+
+            .demo .item:nth-child(6) {
+                background-color: #8370F4;
+            }
+
+            .demo .item span {
+                display: block;
+            }
+
+    .demo2 .item {
+        height: 60px;
+        width: 150px;
+        word-wrap: break-word;
+        line-height: 1.5;
+    }
+
+    .demo-row {
+        flex-direction: row;
+    }
+
+    .demo-row-reverse {
+        flex-direction: row-reverse;
+    }
+
+    .demo-column {
+        height: 200px;
+        flex-direction: column;
+    }
+
+    .demo-column-reverse {
+        height: 200px;
+        flex-direction: column-reverse;
+    }
+
+    .demo-nowrap {
+        -webkit-flex-wrap: nowrap;
+        width: 400px;
+    }
+
+    .demo-wrap {
+        -webkit-flex-wrap: wrap;
+        width: 400px;
+    }
+
+    .demo-wrap-reverse {
+        -webkit-flex-wrap: wrap-reverse;
+        width: 400px;
+    }
+
+    .demo-align-content {
+        width: 400px;
+        flex-wrap: wrap;
+        height: 200px;
+        border: 1px dashed #B6B6B6;
+    }
+
+        .demo-align-content .item:nth-child(1), .demo-align-content .item:nth-child(2), .demo-align-content .item:nth-child(3),
+        .demo-align-content .item:nth-child(4), .demo-align-content .item:nth-child(5), .demo-align-content .item:nth-child(6) {
+            background-color: #717171;
+            width: 80px;
+            margin: 2px 10px;
+        }
+</style>
+
+<h1>Web的Flex弹性盒模型</h1>
+<div class="content">
+    <h3>[ flex ]</h3>
+    <div class="boxes">
+        <div class="box">
+            <div class="boxstyle">
+                <p>display: -webkit-flex;</p>
+            </div>
+            <div class="demo demo1 boxborder">
+                <div class="item" style="width: 100px">width:100px;</div>
+                <div class="item" style="flex: 2">flex: 2;</div>
+                <div class="item" style="flex: 1">flex: 1;</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxstyle">
+                <p>display: -webkit-flex; </p>
+            </div>
+            <div class="demo demo2 boxborder">
+                <div class="item" style="margin-right: 10px;">
+                    <span>width:150px;</span> <span>margin-right:10px;</span>
+                </div>
+                <div class="item" style="flex: 1">flex: 1;</div>
+                <div class="item" style="margin-left: 10px;">
+                    <span>width:150px;</span> <span>margin-left:10px;</span>
+                </div>
+            </div>
+        </div>
+    </div>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/03/01/css/flexbox/#more" rel="contents">
               阅读全文 &raquo;
@@ -963,16 +1097,9 @@ demohttps://lexokid.github.io/ife/1-6/index.html
 
       
         
-          
-          题
-源码https://github.com/Lexokid/ife/blob/master/1-4/index.html
-demohttps://lexokid.github.io/ife/1-4/index.html
-知识点
-水平内联元素居中(文本等)123.center-children &#123;  text-align: center;&#125;
-块级元素水平居中123.center-me &#123;  margin: 0 auto;&#125;
-多个块级元素水平居中123456
-          ...
-
+          <p><a href="http://ife.baidu.com/course/detail/id/95">题目地址</a></p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/1-4/index.html">https://github.com/Lexokid/ife/blob/master/1-4/index.html</a></p>
+<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/1-4/index.html">https://lexokid.github.io/ife/1-4/index.html</a></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/02/27/ife2017/定位和居中/#more" rel="contents">
               阅读全文 &raquo;
@@ -1087,14 +1214,9 @@ demohttps://lexokid.github.io/ife/1-4/index.html
 
       
         
-          
-          题
-源码https://github.com/Lexokid/ife/blob/master/1-3/index.html
-demohttps://lexokid.github.io/ife/1-3/index.html
-参考资料：三栏式布局Learn CSS Positioning in Ten Steps清除浮动（clearfix hack）
-
-          
-
+          <p><a href="http://ife.baidu.com/course/detail/id/94">题目地址</a></p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/1-3/index.html">https://github.com/Lexokid/ife/blob/master/1-3/index.html</a></p>
+<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/1-3/index.html">https://lexokid.github.io/ife/1-3/index.html</a></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/02/27/ife2017/三栏式布局/#more" rel="contents">
               阅读全文 &raquo;
@@ -1209,10 +1331,7 @@ demohttps://lexokid.github.io/ife/1-3/index.html
 
       
         
-          
-          三栏式布局定位和居中通过HTML及CSS模拟报纸排版实现常见的技术产品官网的页面架构及样式布局响应式网格Flexbox 布局练习移动Web页面布局学习CSS3的新特性零基础JavaScript编码基础JavaScript练习JavaScript和树
-          
-
+          <h3 id="三栏式布局"><a href="#三栏式布局" class="headerlink" title="三栏式布局"></a><a href="https://lexokid.github.io/2017/02/27/ife2017/%E4%B8%89%E6%A0%8F%E5%BC%8F%E5%B8%83%E5%B1%80/">三栏式布局</a></h3><h3 id="定位和居中"><a href="#定位和居中" class="headerlink" title="定位和居中"></a><a href="https://lexokid.github.io/2017/02/27/ife2017/%E5%AE%9A%E4%BD%8D%E5%92%8C%E5%B1%85%E4%B8%AD/">定位和居中</a></h3><h3 id="通过HTML及CSS模拟报纸排版"><a href="#通过HTML及CSS模拟报纸排版" class="headerlink" title="通过HTML及CSS模拟报纸排版"></a><a href="https://lexokid.github.io/2017/03/02/ife2017/%E9%80%9A%E8%BF%87HTML%E5%8F%8ACSS%E6%A8%A1%E6%8B%9F%E6%8A%A5%E7%BA%B8%E6%8E%92%E7%89%88/">通过HTML及CSS模拟报纸排版</a></h3><h3 id="实现常见的技术产品官网的页面架构及样式布局"><a href="#实现常见的技术产品官网的页面架构及样式布局" class="headerlink" title="实现常见的技术产品官网的页面架构及样式布局"></a><a href="https://lexokid.github.io/2017/03/06/ife2017/%E5%AE%9E%E7%8E%B0%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81%E5%AE%98%E7%BD%91%E7%9A%84%E9%A1%B5%E9%9D%A2%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%A0%B7%E5%BC%8F%E5%B8%83%E5%B1%80/">实现常见的技术产品官网的页面架构及样式布局</a></h3><h3 id="响应式网格"><a href="#响应式网格" class="headerlink" title="响应式网格"></a><a href="https://lexokid.github.io/2017/03/08/ife2017/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BD%91%E6%A0%BC/">响应式网格</a></h3>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/02/27/ife2017/ife2017/#more" rel="contents">
               阅读全文 &raquo;

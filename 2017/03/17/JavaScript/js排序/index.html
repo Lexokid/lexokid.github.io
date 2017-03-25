@@ -87,21 +87,18 @@
 
 
 <meta name="description" content="js的几种排序(从小到大)
-sort排序（推荐）123456function systemSort(array)&amp;#123;    array.sort(function(a, b) &amp;#123;        return a - b;    &amp;#125;);    return array;&amp;#125;
-交换排序时间复杂度O(n2)12345678910111213function swapS">
+sort排序（推荐）123456function systemSort(array)&amp;#123;    array.sort(function(a, b) &amp;#123;        return a - b;    &amp;#125;);    return array;&amp;#125;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js排序">
 <meta property="og:url" content="http://yoursite.com/2017/03/17/JavaScript/js排序/index.html">
 <meta property="og:site_name" content="Lexokid的博客">
 <meta property="og:description" content="js的几种排序(从小到大)
-sort排序（推荐）123456function systemSort(array)&amp;#123;    array.sort(function(a, b) &amp;#123;        return a - b;    &amp;#125;);    return array;&amp;#125;
-交换排序时间复杂度O(n2)12345678910111213function swapS">
-<meta property="og:updated_time" content="2017-03-17T13:11:06.656Z">
+sort排序（推荐）123456function systemSort(array)&amp;#123;    array.sort(function(a, b) &amp;#123;        return a - b;    &amp;#125;);    return array;&amp;#125;">
+<meta property="og:updated_time" content="2017-03-25T05:59:40.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js排序">
 <meta name="twitter:description" content="js的几种排序(从小到大)
-sort排序（推荐）123456function systemSort(array)&amp;#123;    array.sort(function(a, b) &amp;#123;        return a - b;    &amp;#125;);    return array;&amp;#125;
-交换排序时间复杂度O(n2)12345678910111213function swapS">
+sort排序（推荐）123456function systemSort(array)&amp;#123;    array.sort(function(a, b) &amp;#123;        return a - b;    &amp;#125;);    return array;&amp;#125;">
 
 
 
@@ -349,6 +346,7 @@ sort排序（推荐）123456function systemSort(array)&amp;#123;    array.sort(f
       
         <p>js的几种排序(从小到大)</p>
 <h1 id="sort排序（推荐）"><a href="#sort排序（推荐）" class="headerlink" title="sort排序（推荐）"></a>sort排序（推荐）</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">systemSort</span>(<span class="params">array</span>)</span>&#123;</div><div class="line">    array.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> a - b;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> array;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h1 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h1><p>时间复杂度O(n<sup>2</sup>)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">swapSort</span>(<span class="params">array</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> i, j, d;</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (j = i+<span class="number">1</span>; j &lt; array.length; j++) &#123;</div><div class="line">            <span class="keyword">if</span> (array[i] &gt; array[j]) &#123;</div><div class="line">                d = array[j];</div><div class="line">                array[j] = array[i];</div><div class="line">                array[i] = d;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> array;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><p>时间复杂度O(n<sup>2</sup>)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">array</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> i, j, d;</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (j = array.length<span class="number">-1</span>; j &gt; i; j--) &#123;</div><div class="line">            <span class="keyword">if</span> (array[j] &lt; array[j<span class="number">-1</span>]) &#123;</div><div class="line">                d = array[j];</div><div class="line">                array[j] = array[j<span class="number">-1</span>];</div><div class="line">                array[j<span class="number">-1</span>] = d;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> array;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>改进：当在<code>i&lt;array.length</code>的时候序列已经有序，就不需要在接着循环了</p>

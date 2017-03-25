@@ -86,19 +86,16 @@
 
 
 
-<meta name="description" content="数据表操作NULL，字段值可以为空NOT NULL，字段值禁止为空AUTO_INCREMENT，自动编号，必须与主键组合使用，默认情况，起始值为1，每次的增量为1
-1.创建数据表CREATE TABLE [IF NOT EXISTS] table_name(column_name(列名称) data_type(列类型)[NOT NULL|NULL],….);示例：12345create TABLE">
+<meta name="description" content="数据表操作NULL，字段值可以为空NOT NULL，字段值禁止为空AUTO_INCREMENT，自动编号，必须与主键组合使用，默认情况，起始值为1，每次的增量为1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySql零接触(3)">
 <meta property="og:url" content="http://yoursite.com/2017/02/06/MySql/MySql零接触(3)/index.html">
 <meta property="og:site_name" content="Lexokid的博客">
-<meta property="og:description" content="数据表操作NULL，字段值可以为空NOT NULL，字段值禁止为空AUTO_INCREMENT，自动编号，必须与主键组合使用，默认情况，起始值为1，每次的增量为1
-1.创建数据表CREATE TABLE [IF NOT EXISTS] table_name(column_name(列名称) data_type(列类型)[NOT NULL|NULL],….);示例：12345create TABLE">
-<meta property="og:updated_time" content="2017-02-08T14:31:00.242Z">
+<meta property="og:description" content="数据表操作NULL，字段值可以为空NOT NULL，字段值禁止为空AUTO_INCREMENT，自动编号，必须与主键组合使用，默认情况，起始值为1，每次的增量为1">
+<meta property="og:updated_time" content="2017-03-25T06:00:15.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySql零接触(3)">
-<meta name="twitter:description" content="数据表操作NULL，字段值可以为空NOT NULL，字段值禁止为空AUTO_INCREMENT，自动编号，必须与主键组合使用，默认情况，起始值为1，每次的增量为1
-1.创建数据表CREATE TABLE [IF NOT EXISTS] table_name(column_name(列名称) data_type(列类型)[NOT NULL|NULL],….);示例：12345create TABLE">
+<meta name="twitter:description" content="数据表操作NULL，字段值可以为空NOT NULL，字段值禁止为空AUTO_INCREMENT，自动编号，必须与主键组合使用，默认情况，起始值为1，每次的增量为1">
 
 
 
@@ -345,6 +342,7 @@
 
       
         <h2 id="数据表操作"><a href="#数据表操作" class="headerlink" title="数据表操作"></a>数据表操作</h2><p>NULL，字段值可以为空<br>NOT NULL，字段值禁止为空<br>AUTO_INCREMENT，自动编号，必须与主键组合使用，默认情况，起始值为1，每次的增量为1</p>
+<a id="more"></a>
 <h3 id="1-创建数据表"><a href="#1-创建数据表" class="headerlink" title="1.创建数据表"></a>1.创建数据表</h3><p><strong>CREATE TABLE [IF NOT EXISTS] table_name(column_name(列名称) data_type(列类型)[NOT NULL|NULL],….);</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">TABLE</span> tb1(</div><div class="line">username <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">age TINYINT <span class="keyword">UNSIGNED</span>,   <span class="comment">--unsigned表示无符号位，即不能为负数</span></div><div class="line">salary <span class="built_in">FLOAT</span>(<span class="number">8</span>,<span class="number">2</span>), <span class="keyword">UNSIGNED</span>,    <span class="comment">--有效位数为8位，精度为2，即6位整数，2位小数</span></div><div class="line">);</div></pre></td></tr></table></figure></p>
 <h3 id="2-添加单列"><a href="#2-添加单列" class="headerlink" title="2.添加单列"></a>2.添加单列</h3><p><strong>ALTER TABLE tbl_name ADD [COLUMN] col_name column_definitione [FIRST | AFTER col_name];</strong><br>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tb1 <span class="keyword">ADD</span> pwd <span class="built_in">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">AFTER</span> username;    <span class="comment">--没指定FIRST或者AFTER将位于最后</span></div></pre></td></tr></table></figure></p>
 <h3 id="3-添加多列"><a href="#3-添加多列" class="headerlink" title="3.添加多列"></a>3.添加多列</h3><p><strong>ALTER TABLE tbl_name ADD [COLUMN] (col_name column_definition,…);</strong></p>

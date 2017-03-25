@@ -86,19 +86,16 @@
 
 
 
-<meta name="description" content="子查询子查询是指出现在其他SQL语句内的SELECT子句例如：SELECT * FROM t1 WHERE column1 = (SELECT column2 FROM t2);其中，SELECT * FROM t1 …称为Outer Query[外查询](或者Outer Statement)SELECT column2 FROM t2 称为Sub Query[子查询]
-子查询的条件：    1.">
+<meta name="description" content="子查询子查询是指出现在其他SQL语句内的SELECT子句例如：SELECT * FROM t1 WHERE column1 = (SELECT column2 FROM t2);其中，SELECT * FROM t1 …称为Outer Query[外查询](或者Outer Statement)SELECT column2 FROM t2 称为Sub Query[子查询]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySql零接触(6)">
 <meta property="og:url" content="http://yoursite.com/2017/02/08/MySql/MySql零接触(6)/index.html">
 <meta property="og:site_name" content="Lexokid的博客">
-<meta property="og:description" content="子查询子查询是指出现在其他SQL语句内的SELECT子句例如：SELECT * FROM t1 WHERE column1 = (SELECT column2 FROM t2);其中，SELECT * FROM t1 …称为Outer Query[外查询](或者Outer Statement)SELECT column2 FROM t2 称为Sub Query[子查询]
-子查询的条件：    1.">
-<meta property="og:updated_time" content="2017-02-10T11:31:25.885Z">
+<meta property="og:description" content="子查询子查询是指出现在其他SQL语句内的SELECT子句例如：SELECT * FROM t1 WHERE column1 = (SELECT column2 FROM t2);其中，SELECT * FROM t1 …称为Outer Query[外查询](或者Outer Statement)SELECT column2 FROM t2 称为Sub Query[子查询]">
+<meta property="og:updated_time" content="2017-03-25T06:00:26.860Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySql零接触(6)">
-<meta name="twitter:description" content="子查询子查询是指出现在其他SQL语句内的SELECT子句例如：SELECT * FROM t1 WHERE column1 = (SELECT column2 FROM t2);其中，SELECT * FROM t1 …称为Outer Query[外查询](或者Outer Statement)SELECT column2 FROM t2 称为Sub Query[子查询]
-子查询的条件：    1.">
+<meta name="twitter:description" content="子查询子查询是指出现在其他SQL语句内的SELECT子句例如：SELECT * FROM t1 WHERE column1 = (SELECT column2 FROM t2);其中，SELECT * FROM t1 …称为Outer Query[外查询](或者Outer Statement)SELECT column2 FROM t2 称为Sub Query[子查询]">
 
 
 
@@ -345,6 +342,7 @@
 
       
         <h2 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h2><p>子查询是指出现在其他SQL语句内的SELECT子句<br>例如：<br><code>SELECT * FROM t1 WHERE column1 = (SELECT column2 FROM t2);</code><br>其中，SELECT * FROM t1 …称为Outer Query[外查询](或者Outer Statement)<br>SELECT column2 FROM t2 称为Sub Query[子查询]</p>
+<a id="more"></a>
 <p>子查询的条件：<br>    1.始终出现在圆括号内<br>    2.可以包含多个关键字或者条件；如 distinct、group by、order by、limit、函数等  （改为大写）<br>    3.子查询的外查询可以是:【SELECT,INSERT,UPDATE,SET或DO】。SQL语句的统称</p>
 <p>子查询的返回值：<br>子查询可以返回标量、一行、一列或子查询</p>
 <p>使用比较运算符的子查询：<br>=、&gt;、&lt;、&gt;=、&lt;=、&lt;&gt;、!=、&lt;=&gt;<br>语法结构：<br>operand comparision_operator subquery<br>当子查询返回多个结果时，可用ANY、SOME、ALL关键字来修饰子查询<br>WHERE语句中不能使用聚合函数，想使用，需要通过SELECT子查询</p>
