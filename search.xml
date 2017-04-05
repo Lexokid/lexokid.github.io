@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[表单]]></title>
+      <url>%2F2017%2F03%2F29%2Fife2017%2F%E8%A1%A8%E5%8D%95%2F</url>
+      <content type="text"><![CDATA[一题目地址 任务描述 在页面中实现一个输入框与按钮，要求点击验证按钮后，对输入框中内容进行格式校验，并在其下方显示校验结果 校验规则： 1.字符数为4~16位 2.每个英文字母、数字、英文符号长度为1 3.每个汉字，中文符号长度为2 source demo 计算字符串长度（英文1中文2）1234567function getStrLen(str) &#123; let len = 0; for (let i of str) &#123; i.codePointAt(0) &lt;= 0xFF ? len++ : len += 2; &#125; return len;&#125; 二题目地址 任务描述 基于上一个任务，在页面中添加多个表单 要求: 表单获得焦点时，下方显示表单填写规则 表单失去焦点时校验表单内容 校验结果正确时，表单边框显示绿色，并在下方显示验证通过的描述文字 校验结果错误时，表单边框显示红色，并在下方显示验证错误的描述文字 点击提交按钮时，对页面中所有输入进行校验，校验结果显示方式同上。若所有表单校验通过，弹窗显示“提交成功”，否则显示“提交失败” source demo 很常规的验证表单的题，不难，有点繁琐ps：命名真是一件痛苦的事 三题目地址 任务描述 在页面中完成两个单选框，切换单选框的不同选项时下方显示的表单随之切换。 当选择在校生时，出现两个select下拉菜单，一个选择城市，一个选择学校，当选择非在校生时，出一个文本输入框 学校下拉菜单里的学校名单均为城市下拉菜单中所选的城市中的大学，当城市发生变化时，学校一起发生变化 城市及学校的数据随意编造即可，无需真实完整 source demo 感觉这题完成度不高，纯粹为了完成而完成，不方便日后的拓展ヽ(●-`Д´-)ノ 参考资料HTML表单指南如何判断中文字符]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[悬浮模糊效果]]></title>
       <url>%2F2017%2F03%2F27%2Fife2017%2F%E6%82%AC%E6%B5%AE%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C%2F</url>
       <content type="text"><![CDATA[悬浮模糊效果题目地址 任务描述 实现文字的流光渐变动画 背景图需要进行模糊处理 实现按钮边框的从中间到两边扩展开 source demo 这题主要的难点就是文字的流光渐变效果主要跟这五个属性有关123456789101112131415161718192021222324.demo&#123; /*前50%颜色组要与后50%颜色组一样且最后100%的颜色要和开头0%的颜色相等*/ background-image: -webkit-linear-gradient(left, blue, red 25%, blue 50%, red 75%, blue 100%); /*背景裁剪至文字形状*/ -webkit-background-clip: text; /*文字透明，使背景颜色显示出来*/ color: transparent; /*将背景图宽度拉长至两倍，之前设置background-image的两份相同的颜色组，就是为了能在此拉长后只显示一份颜色组，另外超出的半截颜色组用来实现流光效果*/ background-size: 200% 100%; /*将背景从0移动到-100%的位置，无限重复即可得到流光渐变效果*/ animation: streamer 3s infinite linear;&#125;@keyframes streamer&#123; from&#123; background-size: 0 0; &#125; to&#123; background-size: -100% 0; &#125;&#125; 关于background-clip的text选项估计很多人都不知道，我也是遇到这题才知道有这个值而且w3school上也没有这个值（估计是没更新吧，毕竟前端发展蛮快的）关于这题，你仔细观察题目demo会发现有2个细节 鼠标放上图片时文字有几十像素的向上移动 边框变长的贝塞尔曲线（一开始很快然后变得很慢，边框并不是匀速变长的）主要看了一些同学的demo，发现有好多都没有注意细节前端嘛，主要就是细心边框的上下与左右的边框宽度不一样，我感觉不好看就没做了 关于背景图我用的不是gif而是用把几张图拼接成一张长图，通过改变background-position-x来形成类似gif的效果1234567891011121314.gif&#123; background-image: url(); background-repeat: no-repeat; background-position: 0 0; animation: gif 8s steps(11) infinite; /*steps(n) n为图片数量*/&#125;@keyframes gif&#123; to&#123; background-position: -3665px 0; /*图片的总长*/ &#125;&#125; 下方这是张鑫旭大神的gif实现方法（底部有链接）12345678910111213141516.love &#123; display: block; width: 100px; height: 100px; background: url(web_heart_animation.png) 0 0 no-repeat; background-size: 2900%; animation: heart-burst steps(28) 0.8s infinite both;&#125;@keyframes heart-burst &#123; 0% &#123; background-position: 0%; &#125; 100% &#123; background-position: 100%; &#125;&#125; 一开始用张大神的写法发现图片会少一帧至于为什么少一帧，很好目前我也不懂 这个还是蛮需要想象力的，但这就是它的有趣之处另外用这个方法还可以实现ktv歌词的滚动效果也许还能做出更炫酷的效果，这就需要想象力了总之这题挺有趣的（PS：一开始为了找背景图就去贴吧下cg，7g多因为百度云限速下了一天多，结果cg都是H的，后面才知道这玩意叫sd，才几百m ORZ 白白浪费一天时间下载） 参考资料w3cplusCodropsAlloyTeamCSS或JS实现gif动态图片的停止与播放]]></content>
@@ -117,7 +124,7 @@
     <entry>
       <title><![CDATA[ife2017]]></title>
       <url>%2F2017%2F02%2F27%2Fife2017%2Fife2017%2F</url>
-      <content type="text"><![CDATA[三栏式布局定位和居中通过HTML及CSS模拟报纸排版实现常见的技术产品官网的页面架构及样式布局响应式网格 Flexbox 布局练习移动Web页面布局学习CSS3的新特性零基础JavaScript编码基础JavaScript练习JavaScript和树悬浮模糊效果]]></content>
+      <content type="text"><![CDATA[三栏式布局定位和居中通过HTML及CSS模拟报纸排版实现常见的技术产品官网的页面架构及样式布局响应式网格 Flexbox 布局练习移动Web页面布局学习CSS3的新特性零基础JavaScript编码基础JavaScript练习JavaScript和树悬浮模糊效果表单]]></content>
     </entry>
 
     
