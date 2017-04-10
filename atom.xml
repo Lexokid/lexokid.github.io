@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-05T12:36:33.911Z</updated>
+  <updated>2017-04-10T11:19:52.154Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,103 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>听指令的小方块</title>
+    <link href="http://yoursite.com/2017/04/10/ife2017/%E5%90%AC%E6%8C%87%E4%BB%A4%E7%9A%84%E5%B0%8F%E6%96%B9%E5%9D%97/"/>
+    <id>http://yoursite.com/2017/04/10/ife2017/听指令的小方块/</id>
+    <published>2017-04-10T05:29:00.000Z</published>
+    <updated>2017-04-10T11:19:52.154Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><p><a href="http://ife.baidu.com/course/detail/id/109" target="_blank" rel="external">题目地址</a></p>
+<blockquote>
+<p>任务描述</p>
+</blockquote>
+<ul>
+<li>实现一个类似棋盘的格子空间，每个格子用两个数字可以定位，一个红正方形的DOM在这个空间内，正方形中的蓝色边表示这是他的正面，有一个input输入框</li>
+<li>在输入框中允许输入如下指令，按下按钮后，使得正方形做相应动作<ul>
+<li>GO：向蓝色边所面向的方向前进一格（一格等同于正方形的边长）</li>
+<li>TUN LEF：向左转（逆时针旋转90度）</li>
+<li>TUN RIG：向右转（顺时针旋转90度）</li>
+<li>TUN BAC：向右转（旋转180度）</li>
+</ul>
+</li>
+<li>移动不能超出格子空间</li>
+</ul>
+<p><a href="https://github.com/Lexokid/ife/blob/master/3-4/index.html" target="_blank" rel="external">source</a></p>
+<p><a href="https://lexokid.github.io/ife/3-4/index.html" target="_blank" rel="external">demo</a></p>
+<a id="more"></a>
+<p>第一次尝试用面向对象的方式去做题<br>这也算是一种进步吧<br>在做这题时，当我把棋盘画完时（100个div。。。）就觉得好蠢<br>应该把棋盘当作一个对象用js动态创建的，并能调整大小<br>鉴于已经写了就算了，如果下次遇到类似的题就应该动态创建地图</p>
+<p>接下来来谈谈这题的小知识</p>
+<p>1.当我们用<code>element.style.XXX</code>获取样式时获取的是行内样式<br>这时我们应该用<code>getComputedStyle()</code>来获取元素的样式</p>
+<blockquote>
+<p>在“DOM2 级样式”中提供了 <code>getComputedStyle()</code> 方法。这个方法接受两个参数：要取得计算样式的元素和一个伪元素字符串（例如”:after”）。如果不需要伪元素信息，第二个参数可以是 null。<code>getComputedStyle()</code> 方法返回一个 CSSStyleDeclaration 对象（与 style 属性的类型相同），其中包含当前元素的所有计算的样式。———— 以上来自《JavaScript 高级程序设计》</p>
+</blockquote>
+<p><strong>getComputedStyle与style的区别</strong></p>
+<ul>
+<li><code>getComputedStyle()</code>方法是只读的，只能获取样式，不能设置；而<code>element.style</code>能读能写</li>
+<li><code>getComputedStyle()</code>方法获取的是最终应用在元素上的所有CSS属性对象；而<code>element.style</code>只能获取元素style属性中的CSS样式</li>
+</ul>
+<p>例如：我们获取元素的left属性可以这样<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> block = <span class="built_in">document</span>.getElementById(<span class="string">"block"</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.getComputedStyle(block, <span class="literal">null</span>).left);</div><div class="line"></div><div class="line"><span class="comment">//如果元素有伪类</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.getComputedStyle(block, <span class="string">":after"</span>).left);</div></pre></td></tr></table></figure></p>
+<p>2.用<code>getComputedStyle()</code>来获取元素的transform样式时得到的是matrix<br>所以我们需要把matrix进行转换<br>从网上找到一个可以转换为scale和rotate和translate</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAngle</span>(<span class="params">el</span>) </span>&#123;</div><div class="line">    <span class="comment">//var el = document.getElementById("divTransform");</span></div><div class="line">    <span class="keyword">var</span> st = <span class="built_in">window</span>.getComputedStyle(el, <span class="literal">null</span>);</div><div class="line">    <span class="keyword">var</span> tr = st.getPropertyValue(<span class="string">"-webkit-transform"</span>) ||</div><div class="line">        st.getPropertyValue(<span class="string">"-moz-transform"</span>) ||</div><div class="line">        st.getPropertyValue(<span class="string">"-ms-transform"</span>) ||</div><div class="line">        st.getPropertyValue(<span class="string">"-o-transform"</span>) ||</div><div class="line">        st.getPropertyValue(<span class="string">"transform"</span>) ||</div><div class="line">        <span class="string">"FAIL"</span>;</div><div class="line"></div><div class="line">    <span class="comment">// With rotate(30deg)...</span></div><div class="line">    <span class="comment">// matrix(0.866025, 0.5, -0.5, 0.866025, 0px, 0px)</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Matrix: '</span> + tr);</div><div class="line"></div><div class="line">    <span class="comment">// rotation matrix - http://en.wikipedia.org/wiki/Rotation_matrix</span></div><div class="line"></div><div class="line">    <span class="keyword">var</span> values = tr.split(<span class="string">'('</span>)[<span class="number">1</span>].split(<span class="string">')'</span>)[<span class="number">0</span>].split(<span class="string">','</span>);</div><div class="line">    <span class="keyword">var</span> a = values[<span class="number">0</span>];</div><div class="line">    <span class="keyword">var</span> b = values[<span class="number">1</span>];</div><div class="line">    <span class="keyword">var</span> c = values[<span class="number">2</span>];</div><div class="line">    <span class="keyword">var</span> d = values[<span class="number">3</span>];</div><div class="line"></div><div class="line">    <span class="keyword">var</span> scale = <span class="built_in">Math</span>.sqrt(a * a + b * b);</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Scale: '</span> + scale);</div><div class="line"></div><div class="line">    <span class="comment">// arc sin, convert from radians to degrees, round</span></div><div class="line">    <span class="keyword">var</span> sin = b / scale;</div><div class="line">    <span class="comment">// next line works for 30deg but not 130deg (returns 50);</span></div><div class="line">    <span class="keyword">var</span> angle = <span class="built_in">Math</span>.round(<span class="built_in">Math</span>.asin(sin) * (<span class="number">180</span> / <span class="built_in">Math</span>.PI));</div><div class="line">    <span class="comment">// var angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));</span></div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Rotate: '</span> + angle + <span class="string">'deg'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这题我并没有用到这个方法<br>先记下方便日后参考</p>
+<h1 id="二"><a href="#二" class="headerlink" title="二"></a>二</h1><p><a href="http://ife.baidu.com/course/detail/id/112" target="_blank" rel="external">题目地址</a></p>
+<blockquote>
+<p>任务描述</p>
+</blockquote>
+<ul>
+<li>对于正方形的移动增加相应动画，包括移动和旋转</li>
+<li>每个指令的执行时间是1s（可以自己调整）</li>
+<li>增加新的指令如下：<ul>
+<li>TRA LEF：向屏幕的左侧移动一格，方向不变</li>
+<li>TRA TOP：向屏幕的上面移动一格，方向不变</li>
+<li>TRA RIG：向屏幕的右侧移动一格，方向不变</li>
+<li>TRA BOT：向屏幕的下面移动一格，方向不变</li>
+<li>MOV LEF：方向转向屏幕左侧，并向屏幕的左侧移动一格</li>
+<li>MOV TOP：方向转向屏幕上面，向屏幕的上面移动一格</li>
+<li>MOV RIG：方向转向屏幕右侧，向屏幕的右侧移动一格</li>
+<li>MOV BOT：方向转向屏幕下面，向屏幕的下面移动一格</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://github.com/Lexokid/ife/blob/master/3-5/index.html" target="_blank" rel="external">source</a></p>
+<p><a href="https://lexokid.github.io/ife/3-5/index.html" target="_blank" rel="external">demo</a></p>
+<p>这题在上题的基础上新加入了几个命令<br>用上题的几个命令组合使用即可实现这题几个命令</p>
+<p>js面向对象基础<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">User</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> name = name; <span class="comment">//私有属性</span></div><div class="line">    <span class="keyword">this</span>.name = name; <span class="comment">//公有属性</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; <span class="comment">//私有方法</span></div><div class="line">        <span class="keyword">return</span> name;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">User.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">//公有方法</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;</div><div class="line">User.name = <span class="string">'Wscats'</span>; <span class="comment">//静态属性</span></div><div class="line">User.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">//静态方法</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> Wscat = <span class="keyword">new</span> User(<span class="string">'Wscats'</span>); <span class="comment">//实例化</span></div></pre></td></tr></table></figure></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://www.zhangxinxu.com/wordpress/?p=2378" target="_blank" rel="external">获取元素CSS值之getComputedStyle方法熟悉</a><br><a href="http://www.zhangxinxu.com/wordpress/?p=2427" target="_blank" rel="external">理解CSS3 transform中的Matrix(矩阵)</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一&quot;&gt;&lt;a href=&quot;#一&quot; class=&quot;headerlink&quot; title=&quot;一&quot;&gt;&lt;/a&gt;一&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://ife.baidu.com/course/detail/id/109&quot;&gt;题目地址&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;任务描述&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;实现一个类似棋盘的格子空间，每个格子用两个数字可以定位，一个红正方形的DOM在这个空间内，正方形中的蓝色边表示这是他的正面，有一个input输入框&lt;/li&gt;
+&lt;li&gt;在输入框中允许输入如下指令，按下按钮后，使得正方形做相应动作&lt;ul&gt;
+&lt;li&gt;GO：向蓝色边所面向的方向前进一格（一格等同于正方形的边长）&lt;/li&gt;
+&lt;li&gt;TUN LEF：向左转（逆时针旋转90度）&lt;/li&gt;
+&lt;li&gt;TUN RIG：向右转（顺时针旋转90度）&lt;/li&gt;
+&lt;li&gt;TUN BAC：向右转（旋转180度）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;移动不能超出格子空间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Lexokid/ife/blob/master/3-4/index.html&quot;&gt;source&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://lexokid.github.io/ife/3-4/index.html&quot;&gt;demo&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
+    
+  </entry>
   
   <entry>
     <title>表单</title>
@@ -1669,51 +1766,6 @@
     
     
       <category term="git" scheme="http://yoursite.com/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySql零接触(8)</title>
-    <link href="http://yoursite.com/2017/02/11/MySql/MySql%E9%9B%B6%E6%8E%A5%E8%A7%A6(8)/"/>
-    <id>http://yoursite.com/2017/02/11/MySql/MySql零接触(8)/</id>
-    <published>2017-02-11T07:24:54.000Z</published>
-    <updated>2017-03-25T06:00:37.875Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="自定义函数（UDF）"><a href="#自定义函数（UDF）" class="headerlink" title="自定义函数（UDF）"></a>自定义函数（UDF）</h2><p>自定义函数：UDF是对MySQL扩展的途径，其用法与内置函数相同。<br>必要条件：返回值（必须），参数（非必须）<br>函数可以返回任意类型的值，同样可以接受这些类型的参数</p>
-<p>CREATE FUNCTION function_name(参数)<br>RETURNS (返回值类型)<br>{STRING|INTEGER|REAL|DECIMAL}<br>routine_body (函数体，要有RETURN)</p>
-<a id="more"></a>
-<p>函数体：<br>1.函数体由合法的SQL语句构成<br>2.函数体可以是简单的SELECT或INSERT语句<br>3.函数体如果为复合结构则使用BEGIN…END语句<br>4.复合结构可以包含声明，循环，控制结构</p>
-<p>删除函数：<br>DROP FUNCTION [IF EXISTS] function_name;</p>
-<p>修改结束符：<br>DELEMITER 结束符<br>且当编写函数体内容的时候，需要使用 DELIMITER 关键字将结束符先修改为别的，否则编写语句的时候写到 ‘;’ 的时候会直接执行，导致函数编写失败</p>
-<p>例：<br>如果我们要以 X年X月X日 X点:X分:X秒 显示时间<br>每次都需要<code>SELECT DATE_FORMAT(NOW(),&#39;%Y年%m月%d日 %H点:%i分:%s秒&#39;);</code><br>如果我们写成函数就可以直接调用了<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> f1() <span class="keyword">RETURNS</span> <span class="built_in">VARCHAR</span>(<span class="number">30</span>)</div><div class="line"><span class="keyword">RETURN</span> <span class="keyword">DATE_FORMAT</span>(<span class="keyword">NOW</span>(),<span class="string">'%Y年%m月%d日 %H点:%i分:%s秒'</span>);</div><div class="line"></div><div class="line"><span class="keyword">SELECT</span> f1();</div></pre></td></tr></table></figure></p>
-<p>实现往表中插入记录时，返回插入的ID</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">DELIMITER $$    <span class="comment">--先修改结束符</span></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> ADD_USER(p_id <span class="built_in">SMALLINT</span>,username <span class="built_in">VARCHAR</span>(<span class="number">20</span>))</div><div class="line"><span class="keyword">RETURNS</span> <span class="built_in">INT</span> <span class="keyword">UNSIGNED</span></div><div class="line"><span class="keyword">BEGIN</span></div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">user</span>(p_id,username) <span class="keyword">VALUES</span>(p_id,username);</div><div class="line">RETURN LAST_INSERT_ID();</div><div class="line"><span class="keyword">END</span></div><div class="line">$$</div></pre></td></tr></table></figure>
-<hr>
-<h2 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h2><p>存储过程是SQL语句和控制语句的预编译集合，以一个名称存储并作为一个单元处理（类似函数）。存储过程存储在数据库内，可以由应用程序调用执行，而且允许用户申明变量以及进行流程控制。存储过程可以接受输入类型的参数和输出类型的参数，并且可以存在多个返回值。只在第一次调用时进行语法分析和编译，以后的调用直接调用编译的结果，效率大大提高。</p>
-<p>优点：<br>1、增强SQL语句的功能和灵活性：可以通过控制语句对流程进行控制和判断<br>2、实现较快的执行速度：客户端第一次调用存储过程时，MySQL引擎会对其进行语法分析、编译等操作，然后将编译结果存储到内存中，所以第一次和之前的效率一样，然而以后会直接调用内存中的编译结果，效率提高<br>3、减少网络流量：例如删除一个记录，我们原本要输入DELETE FROM xx WHERE …; 要传输的字符较多，如果写成存储过程，就只要调用存储过程的名字和相应参数就行，传输的字符数量较少，所以减少了网络流量。</p>
-<p>存储过程语法结构分析：<br>CREATE<br>[DEFINER = {user|CURRENT_USER}]//定义时的用户，若是不写就默认为当前用户<br>PROCEDURE sp_name ([proc_parameter[,…]]) //可以带0到多个参数 sp_name存储过程的名字<br>[characteristic …] routine_body<br>其中参数<br>proc_parameter:<br>[IN|OUT|INOUT] param_name type<br>IN, 表示该参数的值必须在调用存储过程时指定<br>OUT, 表示该参数的值可以被存储过程改变，并且可以返回<br>INOUT, 表示该参数的值调用时指定，并且可以被改变和返回</p>
-<p>特性：<br>COMMENT ‘string’<br>{CONTAINS SQL|NO SQL|READS SQL DATA|MODIFIES SQL DATA|SQL SECURITY{DEFINER|INVOKER}<br>COMMENT:注释<br>CONTAINS SQL:包含SQL语句, 但不包含读或写数据的语句<br>NO SQL:不包含SQL语句<br>READS SQL DATA:包含读数据的语句<br>MODIFIES SQL DATA:包含写数据的语句<br>SQL SECURITY {DEFINER|INVOKER}指明谁有权限来执行</p>
-<p>过程体：<br>(1)过程体由合法的SQL语句构成；<br>(2)过程体可以是任意SQL语句;对表格进行增删，连接，但是不能创建数据表<br>(3)过程体如果为复合结构则使用BEGIN…END语句<br>(4)复合结构可以使用条件、循环等控制语句</p>
-<p>修改存储过程：<br>不能修改过程体 要修改过程体需删除存储过程，重新创建<br>ALTER PROCEDURE sp_name [characteristic]<br>COMMENT ‘string’<br>|{CONTAINS SQL|NO SQL|READS SQL DATA|MODIFIES SQL DATA}<br>|SQL SECURITY{DEFINER|INVOKER}</p>
-<p>删除存储过程：<br>DROP PROCEDURE [IF EXISTS] sp_name;<br>DROP PROCEDUER removeUserById;</p>
-<p>1.用户变量：以”@”开始，形式为”@变量名”  eg.SET @i=7;<br>用户变量跟mysql客户端是绑定的，设置的变量，只对当前用户使用的客户端生效<br>2.全局变量：定义时，以如下两种形式出现，set GLOBAL 变量名  或者  set @@global.变量名<br>对所有客户端生效。只有具有super权限才可以设置全局变量<br>3.会话变量：只对连接的客户端有效。<br>4.局部变量：作用范围在begin到end语句块之间。在该语句块里设置的变量<br>declare语句专门用于定义局部变量。set语句是设置不同类型的变量，包括会话变量和全局变量</p>
-<p>例：<br>创建一个输入id号即可删除记录，并返回删除的记录数和剩余的记录数的存储过程<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">DELIMITER $$</div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> removeUserAndReturnInfos(<span class="keyword">IN</span> p_id <span class="built_in">INT</span> <span class="keyword">UNSIGNED</span>,<span class="keyword">OUT</span> userNums <span class="built_in">INT</span> <span class="keyword">UNSIGNED</span>, <span class="keyword">OUT</span> delNums <span class="built_in">SMALLINT</span> <span class="keyword">UNSIGNED</span>)</div><div class="line"><span class="keyword">BEGIN</span></div><div class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> <span class="keyword">id</span> = p_id;</div><div class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(<span class="keyword">id</span>) <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">INTO</span> userNums;</div><div class="line"><span class="keyword">SELECT</span> <span class="keyword">ROW_COUNT</span>() <span class="keyword">INTO</span> delNums;</div><div class="line"><span class="comment">--INTO 含义就是将 SELECT 语句结果的表达式（id数量）返回到 userNums 变量中。   将SELECT结果的表达式放入到OUT变量，使用INTO</span></div><div class="line"><span class="keyword">END</span></div><div class="line">$$</div><div class="line">DELIMITER ;</div><div class="line"><span class="keyword">CALL</span> removeUserAndReturnInfos(<span class="number">20</span>, @a, @b);</div><div class="line">SELELCT  @a, @b;</div></pre></td></tr></table></figure></p>
-<p>存储过程与自定义函数的区别：<br>1、存储过程实现的功能相对复杂，函数针对性较强<br>2、存储过程可以返回多个值，函数只能有一个返回值<br>3、存储过程一般独立执行，函数可以作为 sql 语句的组成部分来出现<br>另外，存储过程也比通过API接口调用程序要快。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;自定义函数（UDF）&quot;&gt;&lt;a href=&quot;#自定义函数（UDF）&quot; class=&quot;headerlink&quot; title=&quot;自定义函数（UDF）&quot;&gt;&lt;/a&gt;自定义函数（UDF）&lt;/h2&gt;&lt;p&gt;自定义函数：UDF是对MySQL扩展的途径，其用法与内置函数相同。&lt;br&gt;必要条件：返回值（必须），参数（非必须）&lt;br&gt;函数可以返回任意类型的值，同样可以接受这些类型的参数&lt;/p&gt;
-&lt;p&gt;CREATE FUNCTION function_name(参数)&lt;br&gt;RETURNS (返回值类型)&lt;br&gt;{STRING|INTEGER|REAL|DECIMAL}&lt;br&gt;routine_body (函数体，要有RETURN)&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="MySql" scheme="http://yoursite.com/categories/MySql/"/>
-    
-    
-      <category term="MySql" scheme="http://yoursite.com/tags/MySql/"/>
-    
-      <category term="语法" scheme="http://yoursite.com/tags/%E8%AF%AD%E6%B3%95/"/>
     
   </entry>
   
