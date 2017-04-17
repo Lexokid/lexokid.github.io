@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[排序表格]]></title>
+      <url>%2F2017%2F04%2F16%2Fife2017%2F%E6%8E%92%E5%BA%8F%E8%A1%A8%E6%A0%BC%2F</url>
+      <content type="text"><![CDATA[排序表格题目地址 任务描述 实现一个支持列排序的表格组件 提供生成表格的接口，表格中的数据，表格样式尽量低耦合 可以配置对哪些列支持排序功能，并在表头进行排序按钮的显示，图中的样式为示意参考，可自行设定样式及交互方式 提供点击排序按钮后的响应接口，并提供默认的排序方法，当提供的接口没有具体实现时，按默认的排序方法进行排序操作，并更新表格中的数据显示。 source demo 关于这题讲讲两点 1.由于这题需要表格排序，每一次排序都会涉及到大量DOM的更新渲染（我不知道有没有更好的办法），所以我使用innerHTML拼接字符串的方式以提高性能 对于小的DOM更改而言，两种方法（createElement()、innerHTML）效率都差不多。然而，对于大的DOM更改，使用innerHTML要比使用标准DOM方法创建同样的DOM结构快得多。————《JavaScript高级程序设计》24.2.4.2 123456789var list = document.getElementById("myList");var html = "";var i;for(i = 0; i &lt; 10; i++)&#123; html += "&lt;li&gt;Item " + i + "&lt;/li&gt;";&#125;list.innerHTML = html; 2.根据数组对象的某一个属性进行排序1234567891011121314151617181920212223function sortByProperty(PropertyName, dir) &#123; return function(obj1, obj2) &#123; let val1 = obj1[PropertyName]; let val2 = obj2[PropertyName]; dir = dir || "stb"; if(dir === "stb")&#123; return val1-val2;// 小到大 &#125;else if(dir === "bts")&#123; return val2-val1 ;// 大到小 &#125; &#125;;&#125;let data = [&#123; "age": 10 &#125;,&#123; "age": 20 &#125;,&#123; "age": 30&#125;];data.sort(sortByProperty("age","bts"));]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[浮出层]]></title>
       <url>%2F2017%2F04%2F13%2Fife2017%2F%E6%B5%AE%E5%87%BA%E5%B1%82%2F</url>
       <content type="text"><![CDATA[浮出层题目地址 任务描述 实现一个浮出层的UI组件实现 浮出层的中心默认在屏幕正中 当浮出层显示时，屏幕滚动时，浮出层始终保持位置固定在屏幕正中，不随屏幕滚动而变化位置。或者禁止页面在有浮出层出现时滚动 当浮出层显示时，点击浮出层以外的部分，默认为关闭浮出层。可以实现一个半透明的遮罩来挡住浮出层外的部分 浮出层的样式、内容和逻辑尽量解耦 提供使用JavaScript控制浮出层展现和关闭的接口 浮出层的窗口大小可以是一个默认固定值，也可以是随内容变化而自适应变化，也可以是通过接口参数进行调整，自行根据自己能力进行选择 有能力的同学可以实现浮出层的拖拽移动浮出窗口位置以及拖拽边缘来放大缩小浮出窗口的功能 source demo 好吧，功能性的要求我都完成了就差如何做到尽量解耦和如何优化代码了这题的难点就是怎么实现拖拽移动浮窗口和拖拽边缘来放大缩小浮出窗口的逻辑没什么好讲的，看代码吧！]]></content>
@@ -145,7 +152,7 @@
     <entry>
       <title><![CDATA[ife2017]]></title>
       <url>%2F2017%2F02%2F27%2Fife2017%2Fife2017%2F</url>
-      <content type="text"><![CDATA[三栏式布局定位和居中通过HTML及CSS模拟报纸排版实现常见的技术产品官网的页面架构及样式布局响应式网格 Flexbox 布局练习移动Web页面布局学习CSS3的新特性零基础JavaScript编码基础JavaScript练习JavaScript和树悬浮模糊效果表单听指令的小方块浮出层]]></content>
+      <content type="text"><![CDATA[三栏式布局定位和居中通过HTML及CSS模拟报纸排版实现常见的技术产品官网的页面架构及样式布局响应式网格 Flexbox 布局练习移动Web页面布局学习CSS3的新特性零基础JavaScript编码基础JavaScript练习JavaScript和树悬浮模糊效果表单听指令的小方块浮出层排序表格]]></content>
     </entry>
 
     

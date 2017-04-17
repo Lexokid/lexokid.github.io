@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-14T12:37:12.983Z</updated>
+  <updated>2017-04-17T09:33:32.110Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>排序表格</title>
+    <link href="http://yoursite.com/2017/04/16/ife2017/%E6%8E%92%E5%BA%8F%E8%A1%A8%E6%A0%BC/"/>
+    <id>http://yoursite.com/2017/04/16/ife2017/排序表格/</id>
+    <published>2017-04-16T13:52:00.000Z</published>
+    <updated>2017-04-17T09:33:32.110Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="排序表格"><a href="#排序表格" class="headerlink" title="排序表格"></a>排序表格</h1><p><a href="http://ife.baidu.com/course/detail/id/118" target="_blank" rel="external">题目地址</a></p>
+<blockquote>
+<p>任务描述</p>
+</blockquote>
+<ul>
+<li>实现一个支持列排序的表格组件</li>
+<li>提供生成表格的接口，表格中的数据，表格样式尽量低耦合</li>
+<li>可以配置对哪些列支持排序功能，并在表头进行排序按钮的显示，图中的样式为示意参考，可自行设定样式及交互方式</li>
+<li>提供点击排序按钮后的响应接口，并提供默认的排序方法，当提供的接口没有具体实现时，按默认的排序方法进行排序操作，并更新表格中的数据显示。</li>
+</ul>
+<p><a href="https://github.com/Lexokid/ife/blob/master/3-7/index.html" target="_blank" rel="external">source</a></p>
+<p><a href="https://lexokid.github.io/ife/3-7/index.html" target="_blank" rel="external">demo</a></p>
+<a id="more"></a>
+<p>关于这题讲讲两点</p>
+<p>1.由于这题需要表格排序，每一次排序都会涉及到大量DOM的更新渲染（我不知道有没有更好的办法），所以我使用innerHTML拼接字符串的方式以提高性能</p>
+<blockquote>
+<p>对于小的DOM更改而言，两种方法（createElement()、innerHTML）效率都差不多。然而，对于大的DOM更改，使用innerHTML要比使用标准DOM方法创建同样的DOM结构快得多。————《JavaScript高级程序设计》24.2.4.2</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> list = <span class="built_in">document</span>.getElementById(<span class="string">"myList"</span>);</div><div class="line"><span class="keyword">var</span> html = <span class="string">""</span>;</div><div class="line"><span class="keyword">var</span> i;</div><div class="line"></div><div class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</div><div class="line">    html += <span class="string">"&lt;li&gt;Item "</span> + i + <span class="string">"&lt;/li&gt;"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">list.innerHTML = html;</div></pre></td></tr></table></figure>
+<p>2.根据数组对象的某一个属性进行排序<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sortByProperty</span>(<span class="params">PropertyName, dir</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">obj1, obj2</span>) </span>&#123;</div><div class="line">        <span class="keyword">let</span> val1 = obj1[PropertyName];</div><div class="line">        <span class="keyword">let</span> val2 = obj2[PropertyName];</div><div class="line"></div><div class="line">        dir = dir || <span class="string">"stb"</span>;</div><div class="line">        <span class="keyword">if</span>(dir === <span class="string">"stb"</span>)&#123;</div><div class="line">            <span class="keyword">return</span> val1-val2;<span class="comment">// 小到大</span></div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(dir === <span class="string">"bts"</span>)&#123;</div><div class="line">            <span class="keyword">return</span> val2-val1 ;<span class="comment">// 大到小</span></div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> data = [&#123;</div><div class="line">    <span class="string">"age"</span>: <span class="number">10</span></div><div class="line">    &#125;,&#123;</div><div class="line">    <span class="string">"age"</span>: <span class="number">20</span></div><div class="line">    &#125;,&#123;</div><div class="line">    <span class="string">"age"</span>: <span class="number">30</span></div><div class="line">&#125;];</div><div class="line"></div><div class="line">data.sort(sortByProperty(<span class="string">"age"</span>,<span class="string">"bts"</span>));</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;排序表格&quot;&gt;&lt;a href=&quot;#排序表格&quot; class=&quot;headerlink&quot; title=&quot;排序表格&quot;&gt;&lt;/a&gt;排序表格&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://ife.baidu.com/course/detail/id/118&quot;&gt;题目地址&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;任务描述&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;实现一个支持列排序的表格组件&lt;/li&gt;
+&lt;li&gt;提供生成表格的接口，表格中的数据，表格样式尽量低耦合&lt;/li&gt;
+&lt;li&gt;可以配置对哪些列支持排序功能，并在表头进行排序按钮的显示，图中的样式为示意参考，可自行设定样式及交互方式&lt;/li&gt;
+&lt;li&gt;提供点击排序按钮后的响应接口，并提供默认的排序方法，当提供的接口没有具体实现时，按默认的排序方法进行排序操作，并更新表格中的数据显示。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Lexokid/ife/blob/master/3-7/index.html&quot;&gt;source&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://lexokid.github.io/ife/3-7/index.html&quot;&gt;demo&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
+    
+      <category term="排序表格" scheme="http://yoursite.com/tags/%E6%8E%92%E5%BA%8F%E8%A1%A8%E6%A0%BC/"/>
+    
+  </entry>
   
   <entry>
     <title>浮出层</title>
@@ -1748,37 +1805,6 @@
       &lt;p&gt;&lt;a href=&quot;http://ife.baidu.com/course/detail/id/95&quot;&gt;题目地址&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;源码&quot;&gt;&lt;a href=&quot;#源码&quot; class=&quot;headerlink&quot; title=&quot;源码&quot;&gt;&lt;/a&gt;源码&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Lexokid/ife/blob/master/1-4/index.html&quot;&gt;https://github.com/Lexokid/ife/blob/master/1-4/index.html&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;demo&quot;&gt;&lt;a href=&quot;#demo&quot; class=&quot;headerlink&quot; title=&quot;demo&quot;&gt;&lt;/a&gt;demo&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://lexokid.github.io/ife/1-4/index.html&quot;&gt;https://lexokid.github.io/ife/1-4/index.html&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
-    
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>三栏式布局</title>
-    <link href="http://yoursite.com/2017/02/27/ife2017/%E4%B8%89%E6%A0%8F%E5%BC%8F%E5%B8%83%E5%B1%80/"/>
-    <id>http://yoursite.com/2017/02/27/ife2017/三栏式布局/</id>
-    <published>2017-02-27T14:55:00.000Z</published>
-    <updated>2017-03-25T05:56:10.629Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://ife.baidu.com/course/detail/id/94" target="_blank" rel="external">题目地址</a></p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/1-3/index.html" target="_blank" rel="external">https://github.com/Lexokid/ife/blob/master/1-3/index.html</a></p>
-<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/1-3/index.html" target="_blank" rel="external">https://lexokid.github.io/ife/1-3/index.html</a></p>
-<a id="more"></a>
-<p>参考资料：<br><a href="http://www.zhangxinxu.com/wordpress/?p=370" target="_blank" rel="external">三栏式布局</a><br><a href="http://www.barelyfitz.com/screencast/html-training/css/positioning/" target="_blank" rel="external">Learn CSS Positioning in Ten Steps</a><br><a href="http://zh.learnlayout.com/clearfix.html" target="_blank" rel="external">清除浮动（clearfix hack）</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://ife.baidu.com/course/detail/id/94&quot;&gt;题目地址&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;源码&quot;&gt;&lt;a href=&quot;#源码&quot; class=&quot;headerlink&quot; title=&quot;源码&quot;&gt;&lt;/a&gt;源码&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Lexokid/ife/blob/master/1-3/index.html&quot;&gt;https://github.com/Lexokid/ife/blob/master/1-3/index.html&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;demo&quot;&gt;&lt;a href=&quot;#demo&quot; class=&quot;headerlink&quot; title=&quot;demo&quot;&gt;&lt;/a&gt;demo&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://lexokid.github.io/ife/1-3/index.html&quot;&gt;https://lexokid.github.io/ife/1-3/index.html&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
