@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-17T09:33:32.110Z</updated>
+  <updated>2017-04-17T14:35:39.018Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>自定义checkbox、radio样式</title>
+    <link href="http://yoursite.com/2017/04/17/ife2017/%E8%87%AA%E5%AE%9A%E4%B9%89checkbox%E3%80%81radio%E6%A0%B7%E5%BC%8F/"/>
+    <id>http://yoursite.com/2017/04/17/ife2017/自定义checkbox、radio样式/</id>
+    <published>2017-04-17T12:39:00.000Z</published>
+    <updated>2017-04-17T14:35:39.018Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="自定义checkbox、radio样式"><a href="#自定义checkbox、radio样式" class="headerlink" title="自定义checkbox、radio样式"></a>自定义checkbox、radio样式</h1><p><a href="http://ife.baidu.com/course/detail/id/23" target="_blank" rel="external">题目地址</a></p>
+<blockquote>
+<p>任务描述</p>
+</blockquote>
+<ul>
+<li>深入了解html label标签</li>
+<li>了解CSS边框、背景、伪元素、伪类（注意和伪元素区分）等属性的设置</li>
+<li>了解CSS中常见的雪碧图，并能自己制作使用雪碧图</li>
+</ul>
+<p><a href="https://github.com/Lexokid/ife/blob/master/6-6/index.html" target="_blank" rel="external">source</a></p>
+<p><a href="https://lexokid.github.io/ife/6-6/index.html" target="_blank" rel="external">demo</a></p>
+<a id="more"></a>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line">    #chkbox&#123;</div><div class="line">        display: none;</div><div class="line">    &#125;</div><div class="line">    #chkbox+label&#123;</div><div class="line">        //style</div><div class="line">    &#125;</div><div class="line">    #chkbox:checked+label&#123;</div><div class="line">        //checked style</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"chkbox"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"chkbox"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>使input为none<br>for属性关联input<br>设计label的样式</p>
+<p>css3<br>优点：减少http请求数据提高网络性能<br>缺点：代码量大，编写复杂，复杂图形没办法（可引入Font Awesome缓解，其他fonticon也行）<br>sprite<br>优点：可使用任何图标<br>缺点：请求数据量较大，放大会模糊，调整位置麻烦</p>
+<p>具体效果看demo！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;自定义checkbox、radio样式&quot;&gt;&lt;a href=&quot;#自定义checkbox、radio样式&quot; class=&quot;headerlink&quot; title=&quot;自定义checkbox、radio样式&quot;&gt;&lt;/a&gt;自定义checkbox、radio样式&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://ife.baidu.com/course/detail/id/23&quot;&gt;题目地址&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;任务描述&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;深入了解html label标签&lt;/li&gt;
+&lt;li&gt;了解CSS边框、背景、伪元素、伪类（注意和伪元素区分）等属性的设置&lt;/li&gt;
+&lt;li&gt;了解CSS中常见的雪碧图，并能自己制作使用雪碧图&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Lexokid/ife/blob/master/6-6/index.html&quot;&gt;source&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://lexokid.github.io/ife/6-6/index.html&quot;&gt;demo&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
+    
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
+    
+  </entry>
   
   <entry>
     <title>排序表格</title>
@@ -953,11 +1003,11 @@
     
       <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
-      <category term="flexbox" scheme="http://yoursite.com/tags/flexbox/"/>
-    
       <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
     
       <category term="html" scheme="http://yoursite.com/tags/html/"/>
+    
+      <category term="flexbox" scheme="http://yoursite.com/tags/flexbox/"/>
     
   </entry>
   
@@ -1767,53 +1817,6 @@
       <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
       <category term="flexbox" scheme="http://yoursite.com/tags/flexbox/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>定位和居中</title>
-    <link href="http://yoursite.com/2017/02/27/ife2017/%E5%AE%9A%E4%BD%8D%E5%92%8C%E5%B1%85%E4%B8%AD/"/>
-    <id>http://yoursite.com/2017/02/27/ife2017/定位和居中/</id>
-    <published>2017-02-27T15:10:00.000Z</published>
-    <updated>2017-03-25T05:56:23.280Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://ife.baidu.com/course/detail/id/95" target="_blank" rel="external">题目地址</a></p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/1-4/index.html" target="_blank" rel="external">https://github.com/Lexokid/ife/blob/master/1-4/index.html</a></p>
-<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/1-4/index.html" target="_blank" rel="external">https://lexokid.github.io/ife/1-4/index.html</a></p>
-<a id="more"></a>
-<p><strong>知识点</strong></p>
-<h2 id="水平"><a href="#水平" class="headerlink" title="水平"></a>水平</h2><h3 id="内联元素居中-文本等"><a href="#内联元素居中-文本等" class="headerlink" title="内联元素居中(文本等)"></a>内联元素居中(文本等)</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.center-children</span> &#123;</div><div class="line">  <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="块级元素水平居中"><a href="#块级元素水平居中" class="headerlink" title="块级元素水平居中"></a>块级元素水平居中</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.center-me</span> &#123;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="多个块级元素水平居中"><a href="#多个块级元素水平居中" class="headerlink" title="多个块级元素水平居中"></a>多个块级元素水平居中</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*1.*/</span></div><div class="line"><span class="selector-class">.inline-block-center</span> &#123;</div><div class="line">  <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.inline-block-center</span> <span class="selector-tag">div</span> &#123;</div><div class="line">  <span class="attribute">display</span>: inline-block;</div><div class="line">  <span class="attribute">text-align</span>: left;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*2.*/</span></div><div class="line"><span class="selector-class">.flex-center</span> &#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>示例：<a href="http://codepen.io/chriscoyier/pen/ebing" target="_blank" rel="external">http://codepen.io/chriscoyier/pen/ebing</a></p>
-<hr>
-<h2 id="垂直"><a href="#垂直" class="headerlink" title="垂直"></a>垂直</h2><h3 id="内联元素居中-文本等-1"><a href="#内联元素居中-文本等-1" class="headerlink" title="内联元素居中(文本等)"></a>内联元素居中(文本等)</h3><h4 id="单行"><a href="#单行" class="headerlink" title="单行"></a>单行</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*1.padding-top与padding-bottom相等*/</span></div><div class="line"><span class="selector-class">.link</span> &#123;</div><div class="line">  <span class="attribute">padding-top</span>: <span class="number">30px</span>;</div><div class="line">  <span class="attribute">padding-bottom</span>: <span class="number">30px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*2.height与line-height相等*/</span></div><div class="line"><span class="selector-class">.center-text-trick</span> &#123;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">line-height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">white-space</span>: nowrap;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="多行"><a href="#多行" class="headerlink" title="多行"></a>多行</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*1. flexbox 用于包裹的元素上*/</span></div><div class="line"><span class="selector-tag">flex-center-vertically</span> &#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">  <span class="attribute">flex-direction</span>: column;</div><div class="line">  <span class="attribute">height</span>: <span class="number">400px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*2.*/</span></div><div class="line"><span class="selector-class">.center-table</span> &#123;</div><div class="line">  <span class="attribute">display</span>: table;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.center-table</span> <span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">display</span>: table-cell;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">vertical-align</span>: middle;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="块级元素居中"><a href="#块级元素居中" class="headerlink" title="块级元素居中"></a>块级元素居中</h3><h4 id="定高"><a href="#定高" class="headerlink" title="定高"></a>定高</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child</span> &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">margin-top</span>: -<span class="number">50px</span>; <span class="comment">/* account for padding and border if not using box-sizing: border-box; */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="不定高"><a href="#不定高" class="headerlink" title="不定高"></a>不定高</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child</span> &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="flexbox居中"><a href="#flexbox居中" class="headerlink" title="flexbox居中"></a>flexbox居中</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">flex-direction</span>: column;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<hr>
-<h2 id="水平垂直"><a href="#水平垂直" class="headerlink" title="水平垂直"></a>水平垂直</h2><h3 id="元素定宽高"><a href="#元素定宽高" class="headerlink" title="元素定宽高"></a>元素定宽高</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.child</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line"></div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line"></div><div class="line">  <span class="attribute">margin</span>: -<span class="number">70px</span> <span class="number">0</span> <span class="number">0</span> -<span class="number">170px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="元素不定宽高"><a href="#元素不定宽高" class="headerlink" title="元素不定宽高"></a>元素不定宽高</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child</span> &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%, -50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="flexbox居中-1"><a href="#flexbox居中-1" class="headerlink" title="flexbox居中"></a>flexbox居中</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">  <span class="attribute">align-items</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<hr>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://css-tricks.com/centering-css-complete-guide/" target="_blank" rel="external">Centering in CSS: A Complete Guide</a><br><a href="http://howtocenterincss.com/" target="_blank" rel="external">Get HTML &amp; CSS Tips In Your Inbox</a><br><a href="http://www.w3cplus.com/css/advanced-html-css-lesson2-detailed-css-positioning.html" target="_blank" rel="external">HTML和CSS高级指南之二——定位详解</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://ife.baidu.com/course/detail/id/95&quot;&gt;题目地址&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;源码&quot;&gt;&lt;a href=&quot;#源码&quot; class=&quot;headerlink&quot; title=&quot;源码&quot;&gt;&lt;/a&gt;源码&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Lexokid/ife/blob/master/1-4/index.html&quot;&gt;https://github.com/Lexokid/ife/blob/master/1-4/index.html&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;demo&quot;&gt;&lt;a href=&quot;#demo&quot; class=&quot;headerlink&quot; title=&quot;demo&quot;&gt;&lt;/a&gt;demo&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://lexokid.github.io/ife/1-4/index.html&quot;&gt;https://lexokid.github.io/ife/1-4/index.html&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
-    
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
     
   </entry>
   

@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[自定义checkbox、radio样式]]></title>
+      <url>%2F2017%2F04%2F17%2Fife2017%2F%E8%87%AA%E5%AE%9A%E4%B9%89checkbox%E3%80%81radio%E6%A0%B7%E5%BC%8F%2F</url>
+      <content type="text"><![CDATA[自定义checkbox、radio样式题目地址 任务描述 深入了解html label标签 了解CSS边框、背景、伪元素、伪类（注意和伪元素区分）等属性的设置 了解CSS中常见的雪碧图，并能自己制作使用雪碧图 source demo 1234567891011121314&lt;style type="text/css"&gt; #chkbox&#123; display: none; &#125; #chkbox+label&#123; //style &#125; #chkbox:checked+label&#123; //checked style &#125;&lt;/style&gt;&lt;input type="checkbox" id="chkbox"&gt;&lt;label for="chkbox"&gt;&lt;/label&gt; 使input为nonefor属性关联input设计label的样式 css3优点：减少http请求数据提高网络性能缺点：代码量大，编写复杂，复杂图形没办法（可引入Font Awesome缓解，其他fonticon也行）sprite优点：可使用任何图标缺点：请求数据量较大，放大会模糊，调整位置麻烦 具体效果看demo！]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[排序表格]]></title>
       <url>%2F2017%2F04%2F16%2Fife2017%2F%E6%8E%92%E5%BA%8F%E8%A1%A8%E6%A0%BC%2F</url>
       <content type="text"><![CDATA[排序表格题目地址 任务描述 实现一个支持列排序的表格组件 提供生成表格的接口，表格中的数据，表格样式尽量低耦合 可以配置对哪些列支持排序功能，并在表头进行排序按钮的显示，图中的样式为示意参考，可自行设定样式及交互方式 提供点击排序按钮后的响应接口，并提供默认的排序方法，当提供的接口没有具体实现时，按默认的排序方法进行排序操作，并更新表格中的数据显示。 source demo 关于这题讲讲两点 1.由于这题需要表格排序，每一次排序都会涉及到大量DOM的更新渲染（我不知道有没有更好的办法），所以我使用innerHTML拼接字符串的方式以提高性能 对于小的DOM更改而言，两种方法（createElement()、innerHTML）效率都差不多。然而，对于大的DOM更改，使用innerHTML要比使用标准DOM方法创建同样的DOM结构快得多。————《JavaScript高级程序设计》24.2.4.2 123456789var list = document.getElementById("myList");var html = "";var i;for(i = 0; i &lt; 10; i++)&#123; html += "&lt;li&gt;Item " + i + "&lt;/li&gt;";&#125;list.innerHTML = html; 2.根据数组对象的某一个属性进行排序1234567891011121314151617181920212223function sortByProperty(PropertyName, dir) &#123; return function(obj1, obj2) &#123; let val1 = obj1[PropertyName]; let val2 = obj2[PropertyName]; dir = dir || "stb"; if(dir === "stb")&#123; return val1-val2;// 小到大 &#125;else if(dir === "bts")&#123; return val2-val1 ;// 大到小 &#125; &#125;;&#125;let data = [&#123; "age": 10 &#125;,&#123; "age": 20 &#125;,&#123; "age": 30&#125;];data.sort(sortByProperty("age","bts"));]]></content>
@@ -152,7 +159,7 @@
     <entry>
       <title><![CDATA[ife2017]]></title>
       <url>%2F2017%2F02%2F27%2Fife2017%2Fife2017%2F</url>
-      <content type="text"><![CDATA[三栏式布局定位和居中通过HTML及CSS模拟报纸排版实现常见的技术产品官网的页面架构及样式布局响应式网格 Flexbox 布局练习移动Web页面布局学习CSS3的新特性零基础JavaScript编码基础JavaScript练习JavaScript和树悬浮模糊效果表单听指令的小方块浮出层排序表格]]></content>
+      <content type="text"><![CDATA[三栏式布局定位和居中通过HTML及CSS模拟报纸排版实现常见的技术产品官网的页面架构及样式布局响应式网格 Flexbox 布局练习移动Web页面布局学习CSS3的新特性零基础JavaScript编码基础JavaScript练习JavaScript和树悬浮模糊效果表单听指令的小方块浮出层排序表格自定义checkbox、radio样式]]></content>
     </entry>
 
     
