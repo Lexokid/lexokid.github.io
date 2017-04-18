@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[自定义网页右键菜单]]></title>
+      <url>%2F2017%2F04%2F18%2Fife2017%2F%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E9%A1%B5%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%2F</url>
+      <content type="text"><![CDATA[自定义网页右键菜单题目地址 任务描述 实现鼠标右击时，出现自定义菜单。点击非自定义菜单区域时，隐藏自定义菜单。 点击自定义菜单条目时，弹出菜单条目名称。 自定义菜单出现在鼠标指针右下方，当右边区域不够大，展示在左下方，同理，当下方区域不够时，展示在鼠标指针上方 注意测试不同情况，尤其是极端情况下的效果 source demo Event.page[X|Y]; //鼠标相对页面(html)的位置Event.client[X|Y] //鼠标相对可视区的位置Element.offset[Width|Height] //元素的宽高（包括边框）document.documentElement（html).client[Width|Height] //窗口（html）可视宽高window.inner[Width|Height] //窗口可视宽高 参考资料oncontextmenu事件event那些事]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[自定义checkbox、radio样式]]></title>
       <url>%2F2017%2F04%2F17%2Fife2017%2F%E8%87%AA%E5%AE%9A%E4%B9%89checkbox%E3%80%81radio%E6%A0%B7%E5%BC%8F%2F</url>
       <content type="text"><![CDATA[自定义checkbox、radio样式题目地址 任务描述 深入了解html label标签 了解CSS边框、背景、伪元素、伪类（注意和伪元素区分）等属性的设置 了解CSS中常见的雪碧图，并能自己制作使用雪碧图 source demo 1234567891011121314&lt;style type="text/css"&gt; #chkbox&#123; display: none; &#125; #chkbox+label&#123; //style &#125; #chkbox:checked+label&#123; //checked style &#125;&lt;/style&gt;&lt;input type="checkbox" id="chkbox"&gt;&lt;label for="chkbox"&gt;&lt;/label&gt; 使input为nonefor属性关联input设计label的样式 css3优点：减少http请求数据提高网络性能缺点：代码量大，编写复杂，复杂图形没办法（可引入Font Awesome缓解，其他fonticon也行）sprite优点：可使用任何图标缺点：请求数据量较大，放大会模糊，调整位置麻烦 具体效果看demo！]]></content>
@@ -159,7 +166,7 @@
     <entry>
       <title><![CDATA[ife2017]]></title>
       <url>%2F2017%2F02%2F27%2Fife2017%2Fife2017%2F</url>
-      <content type="text"><![CDATA[三栏式布局定位和居中通过HTML及CSS模拟报纸排版实现常见的技术产品官网的页面架构及样式布局响应式网格 Flexbox 布局练习移动Web页面布局学习CSS3的新特性零基础JavaScript编码基础JavaScript练习JavaScript和树悬浮模糊效果表单听指令的小方块浮出层排序表格自定义checkbox、radio样式]]></content>
+      <content type="text"><![CDATA[三栏式布局定位和居中通过HTML及CSS模拟报纸排版实现常见的技术产品官网的页面架构及样式布局响应式网格 Flexbox 布局练习移动Web页面布局学习CSS3的新特性零基础JavaScript编码基础JavaScript练习JavaScript和树悬浮模糊效果表单听指令的小方块浮出层排序表格自定义checkbox、radio样式自定义网页右键菜单]]></content>
     </entry>
 
     
