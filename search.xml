@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[使用CSS实现折叠面板]]></title>
+      <url>%2F2017%2F04%2F19%2Fife2017%2F%E4%BD%BF%E7%94%A8CSS%E5%AE%9E%E7%8E%B0%E6%8A%98%E5%8F%A0%E9%9D%A2%E6%9D%BF%2F</url>
+      <content type="text"><![CDATA[使用CSS实现折叠面板题目地址 任务描述 深入理解html中radio的特性 深入理解CSS选择器以及伪元素的使用 使用input的radio单选框特性结合CSS中的伪元素实现bootstrap中折叠面板点击查看样例，要求样式一致。 当其中一个面对折叠时，其他面板需要隐藏 只能使用HTML，CSS，不允许使用JavaScript 注意测试不同情况，尤其是极端情况下的效果 有能力的同学在面板折叠或者展开时添加动画效果* source demo 讲真这题怎么写一开始真的没有头绪，但仔细阅读题目会发现深入理解html中radio的特性和底下参考资料MDN label现在马上就知道怎么写了，有木有；就像自定义radio的那题一样，无非就是radio+label、checkbox+label配合:checked伪类选择器的应用感觉写css就要脑洞大开,信我:checked+label能实现很多效果 参考资料MDN labelMDN Adjacent sibling selectors]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[自定义网页右键菜单]]></title>
       <url>%2F2017%2F04%2F18%2Fife2017%2F%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E9%A1%B5%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%2F</url>
       <content type="text"><![CDATA[自定义网页右键菜单题目地址 任务描述 实现鼠标右击时，出现自定义菜单。点击非自定义菜单区域时，隐藏自定义菜单。 点击自定义菜单条目时，弹出菜单条目名称。 自定义菜单出现在鼠标指针右下方，当右边区域不够大，展示在左下方，同理，当下方区域不够时，展示在鼠标指针上方 注意测试不同情况，尤其是极端情况下的效果 source demo Event.page[X|Y]; //鼠标相对页面(html)的位置Event.client[X|Y] //鼠标相对可视区的位置Element.offset[Width|Height] //元素的宽高（包括边框）document.documentElement（html).client[Width|Height] //窗口（html）可视宽高window.inner[Width|Height] //窗口可视宽高 参考资料oncontextmenu事件event那些事]]></content>
