@@ -100,7 +100,7 @@ REGEXP对象在javascript中通过对象regexp来使用正则表达式，regexp�
 字面量/表达式/修饰符1var reg = /[A-Za-z]/g;
 构造函数RegExp(‘表达式’,修饰符);1var reg = new RegExp(&apos;[A-Za-z]&apos;,g);
 修饰符：g:全文搜索i:忽略大小写m:多行搜索">
-<meta property="og:updated_time" content="2017-03-25T05:58:53.029Z">
+<meta property="og:updated_time" content="2017-04-20T11:26:38.854Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式">
 <meta name="twitter:description" content="本文以javascript来演示正则表达式
@@ -589,6 +589,8 @@ table:nth-of-type(2) td:first-of-type {
 }
 </style>
 
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://regexper.com/" target="_blank" rel="external">正则表达式可视化</a></p>
+
       
     </div>
 
@@ -699,7 +701,7 @@ table:nth-of-type(2) td:first-of-type {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -830,7 +832,7 @@ table:nth-of-type(2) td:first-of-type {
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#REGEXP对象"><span class="nav-number">1.</span> <span class="nav-text">REGEXP对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字面量"><span class="nav-number">1.1.</span> <span class="nav-text">字面量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数"><span class="nav-number">1.2.</span> <span class="nav-text">构造函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符类型"><span class="nav-number">2.</span> <span class="nav-text">字符类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通字符"><span class="nav-number">2.1.</span> <span class="nav-text">普通字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元字符"><span class="nav-number">2.2.</span> <span class="nav-text">元字符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本语法"><span class="nav-number">3.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符类"><span class="nav-number">3.1.</span> <span class="nav-text">字符类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#范围类"><span class="nav-number">3.2.</span> <span class="nav-text">范围类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预定义类"><span class="nav-number">3.3.</span> <span class="nav-text">预定义类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#边界"><span class="nav-number">3.4.</span> <span class="nav-text">边界</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#量词"><span class="nav-number">3.5.</span> <span class="nav-text">量词</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-贪婪模式"><span class="nav-number">3.5.1.</span> <span class="nav-text">1.贪婪模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-非贪婪模式"><span class="nav-number">3.5.2.</span> <span class="nav-text">2.非贪婪模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分组"><span class="nav-number">3.6.</span> <span class="nav-text">分组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反向引用"><span class="nav-number">3.7.</span> <span class="nav-text">反向引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前瞻后顾"><span class="nav-number">3.8.</span> <span class="nav-text">前瞻后顾</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式全符号解释"><span class="nav-number">4.</span> <span class="nav-text">正则表达式全符号解释</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#REGEXP对象"><span class="nav-number">1.</span> <span class="nav-text">REGEXP对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字面量"><span class="nav-number">1.1.</span> <span class="nav-text">字面量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数"><span class="nav-number">1.2.</span> <span class="nav-text">构造函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符类型"><span class="nav-number">2.</span> <span class="nav-text">字符类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通字符"><span class="nav-number">2.1.</span> <span class="nav-text">普通字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元字符"><span class="nav-number">2.2.</span> <span class="nav-text">元字符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本语法"><span class="nav-number">3.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符类"><span class="nav-number">3.1.</span> <span class="nav-text">字符类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#范围类"><span class="nav-number">3.2.</span> <span class="nav-text">范围类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预定义类"><span class="nav-number">3.3.</span> <span class="nav-text">预定义类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#边界"><span class="nav-number">3.4.</span> <span class="nav-text">边界</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#量词"><span class="nav-number">3.5.</span> <span class="nav-text">量词</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-贪婪模式"><span class="nav-number">3.5.1.</span> <span class="nav-text">1.贪婪模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-非贪婪模式"><span class="nav-number">3.5.2.</span> <span class="nav-text">2.非贪婪模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分组"><span class="nav-number">3.6.</span> <span class="nav-text">分组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反向引用"><span class="nav-number">3.7.</span> <span class="nav-text">反向引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前瞻后顾"><span class="nav-number">3.8.</span> <span class="nav-text">前瞻后顾</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式全符号解释"><span class="nav-number">4.</span> <span class="nav-text">正则表达式全符号解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
           </div>
         </section>
