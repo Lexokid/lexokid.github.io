@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-21T09:47:47.894Z</updated>
+  <updated>2017-04-23T07:09:25.609Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,70 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>CSS3实现3D轮播图</title>
+    <link href="http://yoursite.com/2017/04/22/ife2017/CSS3%E5%AE%9E%E7%8E%B03D%E8%BD%AE%E6%92%AD%E5%9B%BE/"/>
+    <id>http://yoursite.com/2017/04/22/ife2017/CSS3实现3D轮播图/</id>
+    <published>2017-04-22T15:19:00.000Z</published>
+    <updated>2017-04-23T07:09:25.609Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="CSS3实现3D轮播图"><a href="#CSS3实现3D轮播图" class="headerlink" title="CSS3实现3D轮播图"></a>CSS3实现3D轮播图</h1><p><a href="http://ife.baidu.com/course/detail/id/51" target="_blank" rel="external">题目地址</a></p>
+<blockquote>
+<p>任务描述</p>
+</blockquote>
+<ul>
+<li>实现图示效果<a href="https://ww1.sinaimg.cn/large/006tNbRwly1fcr5jr0994g30w30gx4qz.gif" target="_blank" rel="external">点击查看</a></li>
+<li>只需要完成HTML，CSS代码编写，需要写一点JavaScript</li>
+<li>需要有一定的数学计算</li>
+<li>可以尝试不同的逻辑处理：如点击切换，滑动切换等等</li>
+<li>示例图仅为参考，不需要完全实现一致，其中的图片、文案均可自行设定</li>
+<li>尽可能多地尝试不同的、更多的样式设定来实践各种CSS属性</li>
+<li>HTML 及 CSS 代码结构清晰、规范</li>
+</ul>
+<p><a href="https://github.com/Lexokid/ife/blob/master/6-13/index.html" target="_blank" rel="external">source</a></p>
+<p><a href="https://lexokid.github.io/ife/6-13/index.html" target="_blank" rel="external">demo</a></p>
+<a id="more"></a>
+<p>要完成这题需要两个css3属性：<br>1.transform-style: preserve-3d;<br>2.perspective;<br>下面有两个参考资料写的很详细，只要能认真看完，这题就没什么难度了<br>我讲一下我做题遇到的坑<br>那就是transfrom属性的translate、rotate、scale、skew执行起来貌似是有顺序<br><code>transform:translateX(100px) scale(2)</code>与<code>transform:scale(2) translateX(100px)</code>效果不一样<br>我在写这题的时候给每个img是这么赋值的<code>transform: translateZ(500px) rotateY(N*60deg);</code><br>结果img除了变大点跟<code>transform: rotateY(60deg);</code>没区别（前提父元素有perspective，且没有overflow:hidden）<br>个人认为简单来说原因是坐标轴变换了（详细参考参考资料）<br><code>transform: translateZ(500px) rotateY(60deg);</code>先向屏幕方向（Z轴）移动了500px在旋转<br><code>transform: rotateY(60deg)translateZ(500px);</code>先旋转，在向旋转过的方向向Z轴移动了500px<br>所以效果会不一样<br>总之简单点说就是<strong>transform属性的书写顺序会影响最终的变换效果</strong>切记切记</p>
+<p>记一个元素大小与perspective（px）和translateZ（px）的放大关系：<br>元素的初始宽为X,初始高为Y<br><strong>放大后的X=X*(1+translateZ/(perspective-translateZ))</strong><br>X与Y可互换<br>可以看得出perspective趋于无穷大或translateZ趋于0 3d效果越不明显</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/" target="_blank" rel="external">好吧，CSS3 3D transform变换，不过如此！</a><br><a href="http://www.w3cplus.com/css3/transform-basic-property.html" target="_blank" rel="external">Transform-style和Perspective属性</a><br><a href="https://blog.yiminghe.me/2013/12/03/decomposing-css-2d-transform-matrix-into-simple-transformations/" target="_blank" rel="external">decomposing css 2d transform matrix into simple transformations</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;CSS3实现3D轮播图&quot;&gt;&lt;a href=&quot;#CSS3实现3D轮播图&quot; class=&quot;headerlink&quot; title=&quot;CSS3实现3D轮播图&quot;&gt;&lt;/a&gt;CSS3实现3D轮播图&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://ife.baidu.com/course/detail/id/51&quot;&gt;题目地址&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;任务描述&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;实现图示效果&lt;a href=&quot;https://ww1.sinaimg.cn/large/006tNbRwly1fcr5jr0994g30w30gx4qz.gif&quot;&gt;点击查看&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;只需要完成HTML，CSS代码编写，需要写一点JavaScript&lt;/li&gt;
+&lt;li&gt;需要有一定的数学计算&lt;/li&gt;
+&lt;li&gt;可以尝试不同的逻辑处理：如点击切换，滑动切换等等&lt;/li&gt;
+&lt;li&gt;示例图仅为参考，不需要完全实现一致，其中的图片、文案均可自行设定&lt;/li&gt;
+&lt;li&gt;尽可能多地尝试不同的、更多的样式设定来实践各种CSS属性&lt;/li&gt;
+&lt;li&gt;HTML 及 CSS 代码结构清晰、规范&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Lexokid/ife/blob/master/6-13/index.html&quot;&gt;source&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://lexokid.github.io/ife/6-13/index.html&quot;&gt;demo&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
+    
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
+    
+      <category term="css3d" scheme="http://yoursite.com/tags/css3d/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CSS3饼状loading效果</title>
     <link href="http://yoursite.com/2017/04/21/ife2017/CSS3%E9%A5%BC%E7%8A%B6loading%E6%95%88%E6%9E%9C/"/>
     <id>http://yoursite.com/2017/04/21/ife2017/CSS3饼状loading效果/</id>
     <published>2017-04-21T09:36:00.000Z</published>
-    <updated>2017-04-21T09:47:47.894Z</updated>
+    <updated>2017-04-21T09:53:55.073Z</updated>
     
     <content type="html"><![CDATA[<h1 id="CSS3饼状loading效果"><a href="#CSS3饼状loading效果" class="headerlink" title="CSS3饼状loading效果"></a>CSS3饼状loading效果</h1><p><a href="http://ife.baidu.com/course/detail/id/36" target="_blank" rel="external">题目地址</a></p>
 <blockquote>
@@ -36,7 +95,7 @@
 <p><a href="https://lexokid.github.io/ife/6-12/index.html" target="_blank" rel="external">demo</a></p>
 <a id="more"></a>
 <p>这玩意比想象中的有难度啊<br>至于原理还是看看代码吧（不会作图(┬＿┬)）<br>css画图能力LEVEL+1！！</p>
-<p><a href="http://www.zhangxinxu.com/wordpress/?p=4144" target="_blank" rel="external">CSS3实现鸡蛋饼饼状图loading等待转转转</a><br><a href="http://codepen.io/CreativeJuiz/pen/vFBIh" target="_blank" rel="external">CSS Loading</a></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://www.zhangxinxu.com/wordpress/?p=4144" target="_blank" rel="external">CSS3实现鸡蛋饼饼状图loading等待转转转</a><br><a href="http://codepen.io/CreativeJuiz/pen/vFBIh" target="_blank" rel="external">CSS Loading</a></p>
 ]]></content>
     
     <summary type="html">
@@ -59,9 +118,9 @@
       <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
     
     
-      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
-    
       <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
     
       <category term="loading" scheme="http://yoursite.com/tags/loading/"/>
     
@@ -173,9 +232,9 @@
       <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
     
     
-      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
-    
       <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
     
   </entry>
   
@@ -273,9 +332,9 @@
       <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
     
     
-      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
-    
       <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
     
   </entry>
   
@@ -668,9 +727,9 @@
       <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
     
     
-      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
-    
       <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
     
   </entry>
   
@@ -753,9 +812,9 @@
     
       <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="树" scheme="http://yoursite.com/tags/%E6%A0%91/"/>
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -1097,7 +1156,7 @@
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/1-12" target="_blank" rel="external">https://github.com/Lexokid/ife/blob/master/1-12</a></p>
 <h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/1-12/index.html" target="_blank" rel="external">https://lexokid.github.io/ife/1-12/index.html</a></p>
 <a id="more"></a>
-<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><h3 id="animation-fill-mode"><a href="#animation-fill-mode" class="headerlink" title="animation-fill-mode"></a>animation-fill-mode</h3><p>假设有一个盒子<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line">.box&#123;</div><div class="line">    width: 100px;</div><div class="line">    height: 100px;</div><div class="line">    margin: 100px;</div><div class="line">    background: #f00;</div><div class="line">    transform: translateY(0);</div><div class="line">    animation: move 1s;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@keyframes move&#123;</div><div class="line">    from&#123;transform: translateY(-50px)&#125;</div><div class="line">    to  &#123;transform: translateY( 50px)&#125;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><h3 id="animation-fill-mode"><a href="#animation-fill-mode" class="headerlink" title="animation-fill-mode"></a>animation-fill-mode</h3><p>假设有一个盒子<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></div><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#f00</span>;</div><div class="line">    <span class="attribute">transform</span>: <span class="built_in">translateY</span>(0);</div><div class="line">    <span class="attribute">animation</span>: move <span class="number">1s</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">keyframes</span> move&#123;</div><div class="line">    <span class="selector-tag">from</span>&#123;<span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50px)&#125;</div><div class="line">    <span class="selector-tag">to</span>  &#123;<span class="attribute">transform</span>: <span class="built_in">translateY</span>( 50px)&#125;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p><strong>使用图片来表示 translateY 的值与 时间 的关系:</strong></p>
 <ul>
 <li>横轴为表示 时间，为 0 时表示动画开始的时间，也就是向 box 加上 on 类名的时间，横轴一格表示 0.5s</li>
@@ -1140,9 +1199,9 @@
       <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
     
     
-      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
-    
       <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
     
       <category term="html" scheme="http://yoursite.com/tags/html/"/>
     
@@ -1180,48 +1239,13 @@
       <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
     
     
-      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
-    
       <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
     
       <category term="html" scheme="http://yoursite.com/tags/html/"/>
     
       <category term="移动Web" scheme="http://yoursite.com/tags/%E7%A7%BB%E5%8A%A8Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Flexbox 布局练习</title>
-    <link href="http://yoursite.com/2017/03/08/ife2017/Flexbox%20%E5%B8%83%E5%B1%80%E7%BB%83%E4%B9%A0/"/>
-    <id>http://yoursite.com/2017/03/08/ife2017/Flexbox 布局练习/</id>
-    <published>2017-03-08T13:27:00.000Z</published>
-    <updated>2017-03-25T05:56:33.978Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://ife.baidu.com/course/detail/id/114" target="_blank" rel="external">题目地址</a></p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/1-10" target="_blank" rel="external">https://github.com/Lexokid/ife/blob/master/1-10</a></p>
-<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/1-10/index.html" target="_blank" rel="external">https://lexokid.github.io/ife/1-10/index.html</a></p>
-<a id="more"></a>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://segmentfault.com/a/1190000002910324" target="_blank" rel="external">Flexbox详解</a><br><a href="http://www.w3cplus.com/css3/flexbox-basics.html" target="_blank" rel="external">Flexbox——快速布局神器</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes" target="_blank" rel="external">使用 CSS 弹性盒</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex" target="_blank" rel="external">MDN flex属性</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://ife.baidu.com/course/detail/id/114&quot;&gt;题目地址&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;源码&quot;&gt;&lt;a href=&quot;#源码&quot; class=&quot;headerlink&quot; title=&quot;源码&quot;&gt;&lt;/a&gt;源码&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Lexokid/ife/blob/master/1-10&quot;&gt;https://github.com/Lexokid/ife/blob/master/1-10&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;demo&quot;&gt;&lt;a href=&quot;#demo&quot; class=&quot;headerlink&quot; title=&quot;demo&quot;&gt;&lt;/a&gt;demo&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://lexokid.github.io/ife/1-10/index.html&quot;&gt;https://lexokid.github.io/ife/1-10/index.html&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
-    
-    
-      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-      <category term="html" scheme="http://yoursite.com/tags/html/"/>
-    
-      <category term="flexbox" scheme="http://yoursite.com/tags/flexbox/"/>
     
   </entry>
   
