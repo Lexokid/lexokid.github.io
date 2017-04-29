@@ -1,0 +1,1398 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,canvas," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lexokid的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="1.canvasCanvas API（画布）是在HTML5中新增的标签用于在网页实时生成图像，并且可以操作图像内容，基本上它是一个可以用JavaScript操作的位图（bitmap）。
+1.1SVG 以及VML之间的差异编辑:&amp;lt;canvas&amp;gt; 标记和 SVG以及 VML 之间的一个重要的不同是，&amp;lt;canvas&amp;gt; 有一个基于 JavaScript 的绘图 API，而 SVG">
+<meta property="og:type" content="article">
+<meta property="og:title" content="canvas基础">
+<meta property="og:url" content="http://yoursite.com/2017/04/24/canvas/canvas基础/index.html">
+<meta property="og:site_name" content="Lexokid的博客">
+<meta property="og:description" content="1.canvasCanvas API（画布）是在HTML5中新增的标签用于在网页实时生成图像，并且可以操作图像内容，基本上它是一个可以用JavaScript操作的位图（bitmap）。
+1.1SVG 以及VML之间的差异编辑:&amp;lt;canvas&amp;gt; 标记和 SVG以及 VML 之间的一个重要的不同是，&amp;lt;canvas&amp;gt; 有一个基于 JavaScript 的绘图 API，而 SVG">
+<meta property="og:image" content="http://yoursite.com/images/17424(2).png">
+<meta property="og:image" content="http://yoursite.com/images/17424(1).png">
+<meta property="og:image" content="http://yoursite.com/images/17424(3).png">
+<meta property="og:image" content="http://yoursite.com/images/17424(4).png">
+<meta property="og:updated_time" content="2017-04-29T08:38:42.596Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="canvas基础">
+<meta name="twitter:description" content="1.canvasCanvas API（画布）是在HTML5中新增的标签用于在网页实时生成图像，并且可以操作图像内容，基本上它是一个可以用JavaScript操作的位图（bitmap）。
+1.1SVG 以及VML之间的差异编辑:&amp;lt;canvas&amp;gt; 标记和 SVG以及 VML 之间的一个重要的不同是，&amp;lt;canvas&amp;gt; 有一个基于 JavaScript 的绘图 API，而 SVG">
+<meta name="twitter:image" content="http://yoursite.com/images/17424(2).png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/24/canvas/canvas基础/"/>
+
+
+  <title> canvas基础 | Lexokid的博客 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lexokid的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                canvas基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-24T17:53:00+08:00" content="2017-04-24">
+              2017-04-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/canvas/" itemprop="url" rel="index">
+                    <span itemprop="name">canvas</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-canvas"><a href="#1-canvas" class="headerlink" title="1.canvas"></a>1.canvas</h1><p>Canvas API（画布）是在HTML5中新增的标签用于在网页实时生成图像，并且可以操作图像内容，基本上它是一个可以用JavaScript操作的位图（bitmap）。</p>
+<h2 id="1-1SVG-以及VML之间的差异编辑"><a href="#1-1SVG-以及VML之间的差异编辑" class="headerlink" title="1.1SVG 以及VML之间的差异编辑:"></a>1.1SVG 以及VML之间的差异编辑:</h2><p><code>&lt;canvas&gt;</code> 标记和 SVG以及 VML 之间的一个重要的不同是，<code>&lt;canvas&gt;</code> 有一个基于 JavaScript 的绘图 API，而 SVG 和 VML 使用一个 XML 文档来描述绘图。<br>这两种方式在功能上是等同的，任何一种都可以用另一种来模拟。从表面上看，它们很不相同，可是，每一种都有强项和弱点。例如，SVG 绘图很容易编辑，只要从其描述中移除元素就行。<br>要从同一图形的一个 <code>&lt;canvas&gt;</code> 标记中移除元素，往往需要擦掉绘图重新绘制它。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h1 id="2-创建-Canvas-元素"><a href="#2-创建-Canvas-元素" class="headerlink" title="2.创建 Canvas 元素"></a>2.创建 Canvas 元素</h1><p>向 HTML5 页面添加 canvas 元素。<br>规定元素的 id：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span>&gt;</span>当前浏览器不支持canvas<span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>canvas 元素本身是没有绘图能力的。所有的绘制工作必须在 JavaScript 内部完成：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</div><div class="line">canvas.width = <span class="number">1024</span>;</div><div class="line">canvas.height = <span class="number">768</span>;</div><div class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</div></pre></td></tr></table></figure>
+<p>当没有设置宽度和高度的时候，canvas会初始化宽度为300像素和高度为150像素。该元素可以使用CSS来定义大小，但在绘制时图像会伸缩以适应它的框架尺寸：如果CSS的尺寸与初始画布的比例不一致，它会出现扭曲。</p>
+<h1 id="3-基本绘制"><a href="#3-基本绘制" class="headerlink" title="3.基本绘制"></a>3.基本绘制</h1><h2 id="3-1-beginPath"><a href="#3-1-beginPath" class="headerlink" title="3.1 beginPath"></a>3.1 beginPath</h2><p>1.beginPath()开始新的绘制路径。在beginPath()之后改变的状态，不会影响到beginPath()之前定义的状态。如果某个状态一直没有改变，就会一直延续的使用下去，而不会再beginPath()之后恢复为默认。<br>2.beginPath()的调用相当于清除之前的绘制状态（包括线条颜色，绘制点的位置等等），所以beginPath()之后的moveTo可以改为lineTo，因为调用的beginPath()，所以之前的绘制点相当于不存在。</p>
+<p><canvas id="canvas1" style="border: 1px solid #bbb;">当前浏览器不支持canvas！</canvas></p>
+<script type="text/javascript">
+    var canvas1 = document.getElementById("canvas1");
+    canvas1.width = 320;
+    canvas1.height = 180;
+    var ctx = canvas1.getContext('2d');
+    ctx.lineWidth = 5;
+    ctx.beginPath();
+    ctx.lineTo(10,10);
+    ctx.lineTo(100,90);
+    ctx.lineTo(10,170);
+    ctx.strokeStyle = "red";
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.lineTo(110,10);
+    ctx.lineTo(200,90);
+    ctx.lineTo(110,170);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.lineTo(210,10);
+    ctx.lineTo(300,90);
+    ctx.lineTo(210,170);
+    ctx.strokeStyle = "blue";
+    ctx.stroke();
+</script>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">ctx.lineWidth = <span class="number">5</span>;</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.lineTo(<span class="number">10</span>,<span class="number">10</span>);</div><div class="line">ctx.lineTo(<span class="number">100</span>,<span class="number">90</span>);</div><div class="line">ctx.lineTo(<span class="number">10</span>,<span class="number">170</span>);</div><div class="line">ctx.strokeStyle = <span class="string">"red"</span>;  <span class="comment">// 如果某个状态一直没有改变，就会一直延续的使用下去，而不会再beginPath()之后恢复为默认</span></div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.lineTo(<span class="number">110</span>,<span class="number">10</span>);</div><div class="line">ctx.lineTo(<span class="number">200</span>,<span class="number">90</span>);</div><div class="line">ctx.lineTo(<span class="number">110</span>,<span class="number">170</span>);</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.lineTo(<span class="number">210</span>,<span class="number">10</span>);</div><div class="line">ctx.lineTo(<span class="number">300</span>,<span class="number">90</span>);</div><div class="line">ctx.lineTo(<span class="number">210</span>,<span class="number">170</span>);</div><div class="line">ctx.strokeStyle = <span class="string">"blue"</span>;  <span class="comment">// 在beginPath()之后改变的状态，不会影响到beginPath()之前定义的状态</span></div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+<h2 id="3-2-closePath"><a href="#3-2-closePath" class="headerlink" title="3.2 closePath"></a>3.2 closePath</h2><p>1.closePath()会自动将未封闭的图形用一条直线连接起来<br>2.当我们不想让图形封闭起来只需要用beginPath()就行了<br>3.beginPath()和closePath()不一定要同时出现<br>4.closePath()对fill()没用</p>
+<p><canvas id="canvas2" style="border: 1px solid #bbb;">当前浏览器不支持canvas！</canvas></p>
+<script type="text/javascript">
+    var canvas2 = document.getElementById("canvas2");
+    canvas2.width = 320;
+    canvas2.height = 180;
+    var ctx = canvas2.getContext('2d');
+    ctx.lineWidth = 15;
+    ctx.beginPath();
+    ctx.lineTo(30,30);
+    ctx.lineTo(100,30);
+    ctx.lineTo(100,150);
+    ctx.lineTo(30,150);
+    ctx.lineTo(30,30);
+    ctx.strokeStyle = "red";
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.lineTo(130,30);
+    ctx.lineTo(200,30);
+    ctx.lineTo(200,150);
+    ctx.lineTo(130,150);
+    ctx.lineTo(130,30);
+    ctx.strokeStyle = "blue";
+    ctx.closePath();
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.lineTo(230,30);
+    ctx.lineTo(300,30);
+    ctx.lineTo(300,150);
+    ctx.lineTo(230,150);
+    ctx.strokeStyle = "green";
+    ctx.closePath();
+    ctx.stroke();
+</script>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">ctx.lineWidth = <span class="number">15</span>;</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.lineTo(<span class="number">30</span>,<span class="number">30</span>);</div><div class="line">ctx.lineTo(<span class="number">100</span>,<span class="number">30</span>);</div><div class="line">ctx.lineTo(<span class="number">100</span>,<span class="number">150</span>);</div><div class="line">ctx.lineTo(<span class="number">30</span>,<span class="number">150</span>);</div><div class="line">ctx.lineTo(<span class="number">30</span>,<span class="number">30</span>);</div><div class="line">ctx.strokeStyle = <span class="string">"red"</span>;</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.lineTo(<span class="number">130</span>,<span class="number">30</span>);</div><div class="line">ctx.lineTo(<span class="number">200</span>,<span class="number">30</span>);</div><div class="line">ctx.lineTo(<span class="number">200</span>,<span class="number">150</span>);</div><div class="line">ctx.lineTo(<span class="number">130</span>,<span class="number">150</span>);</div><div class="line">ctx.lineTo(<span class="number">130</span>,<span class="number">30</span>);</div><div class="line">ctx.strokeStyle = <span class="string">"blue"</span>;</div><div class="line">ctx.closePath();</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.lineTo(<span class="number">230</span>,<span class="number">30</span>);</div><div class="line">ctx.lineTo(<span class="number">300</span>,<span class="number">30</span>);</div><div class="line">ctx.lineTo(<span class="number">300</span>,<span class="number">150</span>);</div><div class="line">ctx.lineTo(<span class="number">230</span>,<span class="number">150</span>);</div><div class="line">ctx.strokeStyle = <span class="string">"blue"</span>;</div><div class="line">ctx.closePath();</div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+<p>我们看到第一个图形未写closePath()，所以线条连接处没有完全闭合<br>第二个用了closePath()使线条连接处完全闭合<br>因为closePath()会自动将未封闭的图形用一条直线连接起来，所以使用closePath时，最后一个连接到起始点的lineTo()是可以省略的，会自动连接到起始点</p>
+<h2 id="3-3-绘制直线"><a href="#3-3-绘制直线" class="headerlink" title="3.3 绘制直线"></a>3.3 绘制直线</h2><p>canvas 是基于状态绘制的，即先定义状态，后绘制</p>
+<p><canvas id="canvas3" style="border: 1px solid #bbb;">当前浏览器不支持canvas！</canvas></p>
+<script type="text/javascript">
+    var canvas3 = document.getElementById("canvas3");
+    canvas3.width = 320;
+    canvas3.height = 180;
+    var ctx = canvas3.getContext('2d');
+    ctx.beginPath();
+    ctx.moveTo(10,10);
+    ctx.lineTo(310,170);
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "orange";
+    ctx.closePath();
+    ctx.stroke();
+</script>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ctx.beginPath();  <span class="comment">// 路径绘制开始</span></div><div class="line">ctx.moveTo(<span class="number">10</span>,<span class="number">10</span>);  <span class="comment">// 起始</span></div><div class="line">ctx.lineTo(<span class="number">310</span>,<span class="number">170</span>);  <span class="comment">// 终止</span></div><div class="line">ctx.lineWidth = <span class="number">2</span>;  <span class="comment">// 线宽</span></div><div class="line">ctx.strokeStyle = <span class="string">"orange"</span>;  <span class="comment">// 颜色</span></div><div class="line">ctx.closePath();  <span class="comment">// 路径绘制结束</span></div><div class="line">ctx.stroke();  <span class="comment">// 线条</span></div></pre></td></tr></table></figure>
+<h2 id="3-4-绘制图形"><a href="#3-4-绘制图形" class="headerlink" title="3.4 绘制图形"></a>3.4 绘制图形</h2><p><canvas id="canvas4" style="border: 1px solid #bbb;">当前浏览器不支持canvas！</canvas></p>
+<script type="text/javascript">
+    var canvas4 = document.getElementById("canvas4");
+    canvas4.width = 320;
+    canvas4.height = 180;
+    var ctx = canvas4.getContext('2d');
+    ctx.beginPath();
+    ctx.moveTo(10,10);
+    ctx.lineTo(310,170);
+    ctx.lineTo(10,170);
+    ctx.lineTo(10,10);
+    ctx.closePath();
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = "red";
+    ctx.stroke();
+    ctx.fillStyle = "green";
+    ctx.fill();
+</script>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">ctx.beginPath();  <span class="comment">// 路径绘制开始</span></div><div class="line">ctx.moveTo(<span class="number">100</span>,<span class="number">100</span>);  <span class="comment">// 起始</span></div><div class="line">ctx.lineTo(<span class="number">700</span>,<span class="number">700</span>);  <span class="comment">// 终止</span></div><div class="line">ctx.lineTo(<span class="number">100</span>,<span class="number">700</span>);  <span class="comment">// 终止</span></div><div class="line">ctx.closePath();  <span class="comment">// 路径绘制结束</span></div><div class="line"></div><div class="line">ctx.lineWidth = <span class="number">5</span>;  <span class="comment">// 线宽</span></div><div class="line">ctx.strokeStyle = <span class="string">"orange"</span>;  <span class="comment">// 线条颜色</span></div><div class="line">ctx.stroke();  <span class="comment">// 绘制线条</span></div><div class="line"></div><div class="line">ctx.fillStyle = <span class="string">"green"</span>;  <span class="comment">// 填充颜色</span></div><div class="line">ctx.fill();  <span class="comment">// 填充</span></div></pre></td></tr></table></figure>
+<h2 id="3-5-绘制弧"><a href="#3-5-绘制弧" class="headerlink" title="3.5 绘制弧"></a>3.5 绘制弧</h2><h3 id="3-5-1-arc"><a href="#3-5-1-arc" class="headerlink" title="3.5.1 arc()"></a>3.5.1 arc()</h3><p>context.arc(<br>  centerx,centery,radius,<br>  startingAngle,endingAngle,<br>  anticlockwise = false<br>);<br>centerx:原点x坐标<br>centery:原点y坐标<br>radius:半径<br>startingAngle:起始弧度(固定位置)<br>endingAngle:结束弧度(固定位置)<br>anticlockwise:绘制方向(默认false 顺时针)</p>
+<p><canvas id="canvas5" style="border: 1px solid #bbb;">当前浏览器不支持canvas！</canvas></p>
+<script type="text/javascript">
+    var canvas5 = document.getElementById("canvas5");
+    canvas5.width = 640;
+    canvas5.height = 180;
+    var ctx = canvas5.getContext('2d');
+    ctx.beginPath();
+    ctx.arc(80,90,50,0,1.5*Math.PI);
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = "red";
+    ctx.closePath();
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(240,90,50,0,1.5*Math.PI,true);
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = "blue";
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(400,90,50,0,1.5*Math.PI);
+    ctx.fillStyle = "yellow";
+    ctx.closePath();
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(560,90,50,0,1.5*Math.PI);
+    ctx.fillStyle = "yellow";
+    ctx.fill();
+</script>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">ctx.beginPath();</div><div class="line">ctx.arc(<span class="number">80</span>,<span class="number">90</span>,<span class="number">50</span>,<span class="number">0</span>,<span class="number">1.5</span>*<span class="built_in">Math</span>.PI);  <span class="comment">// 顺时针</span></div><div class="line">ctx.lineWidth = <span class="number">5</span>;</div><div class="line">ctx.strokeStyle = <span class="string">"red"</span>;</div><div class="line">ctx.closePath();</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.arc(<span class="number">240</span>,<span class="number">90</span>,<span class="number">50</span>,<span class="number">0</span>,<span class="number">1.5</span>*<span class="built_in">Math</span>.PI,<span class="literal">true</span>);  <span class="comment">// 逆时针</span></div><div class="line">ctx.lineWidth = <span class="number">5</span>;</div><div class="line">ctx.strokeStyle = <span class="string">"blue"</span>;</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line"><span class="comment">//closePath()对fill()没用</span></div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.arc(<span class="number">400</span>,<span class="number">90</span>,<span class="number">50</span>,<span class="number">0</span>,<span class="number">1.5</span>*<span class="built_in">Math</span>.PI);  <span class="comment">// 顺时针</span></div><div class="line">ctx.fillStyle = <span class="string">"yellow"</span>;</div><div class="line">ctx.closePath();</div><div class="line">ctx.fill();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.arc(<span class="number">560</span>,<span class="number">90</span>,<span class="number">50</span>,<span class="number">0</span>,<span class="number">1.5</span>*<span class="built_in">Math</span>.PI);  <span class="comment">// 顺时针</span></div><div class="line">ctx.fillStyle = <span class="string">"yellow"</span>;</div><div class="line">ctx.fill();</div></pre></td></tr></table></figure>
+<h3 id="3-5-2-arcTo"><a href="#3-5-2-arcTo" class="headerlink" title="3.5.2 arcTo()"></a>3.5.2 arcTo()</h3><p>context.arcTo( x1 , y1 , x2 , y2 ,radius );<br><img src="/images/17424(2).png" style="width: 500px;"><br>绘制起点是( x0, y0 )，但是( x0, y0 )不一定是切点，arcTo 方法在( x0, y0 )( x1, y1 )和( x1, y1 )( x2, y2 )两条线段上寻找切点，绘制圆弧（圆弧终止于( x1, y1 )( x2, y2 )这条线段的切点），而且，( x2, y2 )不一定是所绘制圆弧的终点，只是作为辅助线的结束位置，其中( x0, y0 )是上一个点的位置。</p>
+<h3 id="3-5-3-二次贝塞尔曲线quadraticCurveTo"><a href="#3-5-3-二次贝塞尔曲线quadraticCurveTo" class="headerlink" title="3.5.3 二次贝塞尔曲线quadraticCurveTo()"></a>3.5.3 二次贝塞尔曲线quadraticCurveTo()</h3><p>context.moveTo( x0 , y0 );<br>context.quadraticCurveTo( x1, y1, x2, y2 );</p>
+<p>(x0,y0)起始点<br>(x1,y1)控制点<br>(x2,y2)终止点<br>圆弧起于起始点，终于终止点，与起始点、终止点与控制点的连线相切<br>参考以下demo便于理解<br><a href="https://www.rgraph.net/blog/an-example-of-the-html5-canvas-quadraticcurveto-function.html" target="_blank" rel="external">quadraticCurveTo demo</a></p>
+<h3 id="3-5-4-三次贝塞尔曲线bezierCurveTo"><a href="#3-5-4-三次贝塞尔曲线bezierCurveTo" class="headerlink" title="3.5.4 三次贝塞尔曲线bezierCurveTo()"></a>3.5.4 三次贝塞尔曲线bezierCurveTo()</h3><p>context.moveTo( x0 , y0 );<br>context.bezierCurveTo( x1, y1, x2, y2, x3, y3  );</p>
+<p>(x0,y0)起始点<br>(x1,y1)控制点1<br>(x1,y1)控制点2<br>(x3,y3)终止点</p>
+<p>三次贝塞尔曲线比二次贝塞尔曲线多了一个控制点，所有更加灵活<br>参考以下demo便于理解<br><a href="http://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html" target="_blank" rel="external">bezierCurveTo demo</a><br><a href="http://www.j--d.com/bezier" target="_blank" rel="external">quadraticCurveTo or bezierCurveTo</a></p>
+<h2 id="3-6-绘制矩形"><a href="#3-6-绘制矩形" class="headerlink" title="3.6 绘制矩形"></a>3.6 绘制矩形</h2><p>ctx.rect(x,y,width,,height);  // 绘制矩形路径<br>ctx.fillRect(x,y,width,height);  //  绘制填充矩形<br>ctx.strokeRect(x,y,width,height);  // 绘制边框矩形</p>
+<p><canvas id="canvas6" style="border: 1px solid #bbb;">当前浏览器不支持canvas！</canvas></p>
+<script type="text/javascript">
+    var canvas6 = document.getElementById("canvas6");
+    canvas6.width = 320;
+    canvas6.height = 180;
+    var ctx = canvas6.getContext('2d');
+    ctx.beginPath();
+    ctx.rect(20,20,80,140);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.fillRect(120,20,80,140);
+    ctx.beginPath();
+    ctx.strokeRect(220,20,80,140);
+</script>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">ctx.beginPath();</div><div class="line">ctx.rect(<span class="number">20</span>,<span class="number">20</span>,<span class="number">80</span>,<span class="number">140</span>);</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.fillRect(<span class="number">120</span>,<span class="number">20</span>,<span class="number">80</span>,<span class="number">140</span>);</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.strokeRect(<span class="number">220</span>,<span class="number">20</span>,<span class="number">80</span>,<span class="number">140</span>);</div></pre></td></tr></table></figure>
+<h2 id="3-7-绘制文字"><a href="#3-7-绘制文字" class="headerlink" title="3.7 绘制文字"></a>3.7 绘制文字</h2><h3 id="3-7-1-font"><a href="#3-7-1-font" class="headerlink" title="3.7.1 font"></a>3.7.1 font</h3><p>ctx.font = font-style font-variant font-weight font-size font-family</p>
+<p>font-style: normal  ( Default ), italic  ( 斜体字 ), oblique ( 倾斜字体 )</p>
+<p>font-variant: normal ( Default ), small-caps (应用于小写字母，显示小型的大写字母)</p>
+<p>font-weight: lighter, normal ( Default ), bold, bolder,<br>100 , 200 , 300 , 400 (normal) ,<br>500 , 600 , 700 (bold) ,<br>800 , 900</p>
+<p>font-size: 20px ( Default ), 2em, 150%,<br>xx-small, x-small,<br>medium, large,<br>x-large, xx-large</p>
+<p>font-family: 设置多种字体备选, 支持 @font-face, Web安全字体</p>
+<h3 id="3-7-2-textAlign"><a href="#3-7-2-textAlign" class="headerlink" title="3.7.2 textAlign"></a>3.7.2 textAlign</h3><p>ctx.textAlign = left, center, right</p>
+<h3 id="3-7-3-textBaseline"><a href="#3-7-3-textBaseline" class="headerlink" title="3.7.3 textBaseline"></a>3.7.3 textBaseline</h3><p>ctx.textBaseline =  top, middle, bottom,<br>alphabetic (Default), ideographic, hanging<br>后面三个分别表示拉丁文的垂直方向基准线、日语中文等方块字的垂直方向基准线、印度文的垂直方向基准线</p>
+<h3 id="3-7-4-fillText"><a href="#3-7-4-fillText" class="headerlink" title="3.7.4 fillText()"></a>3.7.4 fillText()</h3><p>ctx.fillText( string , x , y , [maxlen] );<br>string:需要显示的文字<br>x,y:位置<br>maxlen:文字渲染的最大宽度</p>
+<h3 id="3-7-5-strokeText"><a href="#3-7-5-strokeText" class="headerlink" title="3.7.5 strokeText()"></a>3.7.5 strokeText()</h3><p>ctx.strokeText( string , x , y  , [maxlen] );<br>同上</p>
+<h3 id="3-7-6-measureText-width"><a href="#3-7-6-measureText-width" class="headerlink" title="3.7.6 measureText().width"></a>3.7.6 measureText().width</h3><p>文本的度量<br>ctx.measureText( string ).width</p>
+<h3 id="3-7-7-demo"><a href="#3-7-7-demo" class="headerlink" title="3.7.7 demo"></a>3.7.7 demo</h3><p><canvas id="canvas7" style="border: 1px solid #bbb;">当前浏览器不支持canvas！</canvas></p>
+<script type="text/javascript">
+    var canvas7 = document.getElementById("canvas7");
+    canvas7.width = 640;
+    canvas7.height = 360;
+    var ctx = canvas7.getContext('2d');
+    ctx.fillStyle = "#f00";
+    ctx.font = "30px bold Arial";
+    ctx.fillText("CANVAS!",30,30);
+    var w = ctx.measureText("CANVAS!").width;
+    ctx.fillText("以上字符宽度为" + w + "px",30,60);
+    ctx.strokeText("CANVAS!",30,90,100);
+    ctx.textAlign = "left";
+    ctx.fillText("textAlign:left",320,120);
+    ctx.textAlign = "center";
+    ctx.fillText("textAlign:center",320,150);
+    ctx.textAlign = "right";
+    ctx.fillText("textAlign:right",320,180);
+    ctx.strokeStyle = "#bbb";
+    ctx.moveTo(320,90);
+    ctx.lineTo(320,180);
+    ctx.stroke();
+    ctx.textAlign = "center";
+    ctx.textBaseline = "top";
+    ctx.fillText("你好！textBaseline:top",320,210);
+    ctx.moveTo(0,210);
+    ctx.lineTo(640,210);
+    ctx.stroke();
+    ctx.textBaseline = "middle";
+    ctx.fillText("你好！textBaseline:middle",320,270);
+    ctx.moveTo(0,270);
+    ctx.lineTo(640,270);
+    ctx.stroke();
+    ctx.textBaseline = "bottom";
+    ctx.fillText("你好！textBaseline:bottom",320,330);
+    ctx.moveTo(0,330);
+    ctx.lineTo(640,330);
+    ctx.stroke();
+</script>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">ctx.fillStyle = <span class="string">"#f00"</span>;</div><div class="line">ctx.font = <span class="string">"30px bold Arial"</span>;</div><div class="line"></div><div class="line">ctx.fillText(<span class="string">"CANVAS!"</span>,<span class="number">30</span>,<span class="number">30</span>);</div><div class="line"><span class="keyword">var</span> w = ctx.measureText(<span class="string">"CANVAS!"</span>).width;</div><div class="line">ctx.fillText(<span class="string">"以上字符宽度为"</span> + w + <span class="string">"px"</span>,<span class="number">30</span>,<span class="number">60</span>);</div><div class="line">ctx.strokeText(<span class="string">"CANVAS!"</span>,<span class="number">30</span>,<span class="number">90</span>,<span class="number">100</span>);</div><div class="line"></div><div class="line">ctx.textAlign = <span class="string">"left"</span>;</div><div class="line">ctx.fillText(<span class="string">"textAlign:left"</span>,<span class="number">320</span>,<span class="number">120</span>);</div><div class="line"></div><div class="line">ctx.textAlign = <span class="string">"center"</span>;</div><div class="line">ctx.fillText(<span class="string">"textAlign:center"</span>,<span class="number">320</span>,<span class="number">150</span>);</div><div class="line"></div><div class="line">ctx.textAlign = <span class="string">"right"</span>;</div><div class="line">ctx.fillText(<span class="string">"textAlign:right"</span>,<span class="number">320</span>,<span class="number">180</span>);</div><div class="line"></div><div class="line"><span class="comment">// 辅助线</span></div><div class="line">ctx.strokeStyle = <span class="string">"#bbb"</span>;</div><div class="line">ctx.moveTo(<span class="number">320</span>,<span class="number">90</span>);</div><div class="line">ctx.lineTo(<span class="number">320</span>,<span class="number">180</span>);</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line"></div><div class="line">ctx.textAlign = <span class="string">"center"</span>;</div><div class="line">ctx.textBaseline = <span class="string">"top"</span>;</div><div class="line">ctx.fillText(<span class="string">"你好！textBaseline:top"</span>,<span class="number">320</span>,<span class="number">210</span>);</div><div class="line">ctx.moveTo(<span class="number">0</span>,<span class="number">210</span>);</div><div class="line">ctx.lineTo(<span class="number">640</span>,<span class="number">210</span>);</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.textBaseline = <span class="string">"middle"</span>;</div><div class="line">ctx.fillText(<span class="string">"你好！textBaseline:middle"</span>,<span class="number">320</span>,<span class="number">270</span>);</div><div class="line">ctx.moveTo(<span class="number">0</span>,<span class="number">270</span>);</div><div class="line">ctx.lineTo(<span class="number">640</span>,<span class="number">270</span>);</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.textBaseline = <span class="string">"bottom"</span>;</div><div class="line">ctx.fillText(<span class="string">"你好！textBaseline:bottom"</span>,<span class="number">320</span>,<span class="number">330</span>);</div><div class="line">ctx.moveTo(<span class="number">0</span>,<span class="number">330</span>);</div><div class="line">ctx.lineTo(<span class="number">640</span>,<span class="number">330</span>);</div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="4-样式"><a href="#4-样式" class="headerlink" title="4.样式"></a>4.样式</h1><h2 id="4-1-lineCap"><a href="#4-1-lineCap" class="headerlink" title="4.1 lineCap"></a>4.1 lineCap</h2><p>lineCap = “butt”(defalut)|”round”|”square” 标准型，圆形，方形<br>lineCap只在线段的两端处有作用，在线段的连接处没用</p>
+<p><canvas id="canvas8" style="border: 1px solid #bbb;">当前浏览器不支持canvas！</canvas></p>
+<script type="text/javascript">
+    var canvas8 = document.getElementById("canvas8");
+    canvas8.width = 320;
+    canvas8.height = 180;
+    var ctx = canvas8.getContext('2d');
+    ctx.lineWidth = 25;
+    ctx.strokeStyle = "rgba(255,0,0,.5)";
+    ctx.beginPath();
+    ctx.moveTo(20,30);
+    ctx.lineTo(300,30);
+    ctx.lineCap = "butt";
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(20,90);
+    ctx.lineTo(300,90);
+    ctx.lineCap = "round";
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(20,150);
+    ctx.lineTo(300,150);
+    ctx.lineCap = "square";
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.lineWidth = 1;
+    ctx.moveTo(20,10);
+    ctx.lineTo(20,170);
+    ctx.moveTo(300,10);
+    ctx.lineTo(300,170);
+    ctx.stroke();
+</script>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">ctx.lineWidth = <span class="number">25</span>;</div><div class="line">ctx.strokeStyle = <span class="string">"rgba(255,0,0,.5)"</span>;</div><div class="line"></div><div class="line"><span class="comment">// butt(defalut)</span></div><div class="line">ctx.beginPath();</div><div class="line">ctx.moveTo(<span class="number">20</span>,<span class="number">30</span>);</div><div class="line">ctx.lineTo(<span class="number">300</span>,<span class="number">30</span>);</div><div class="line">ctx.lineCap = <span class="string">"butt"</span>;</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line"><span class="comment">// round</span></div><div class="line">ctx.beginPath();</div><div class="line">ctx.moveTo(<span class="number">20</span>,<span class="number">90</span>);</div><div class="line">ctx.lineTo(<span class="number">300</span>,<span class="number">90</span>);</div><div class="line">ctx.lineCap = <span class="string">"round"</span>;</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line"><span class="comment">// square</span></div><div class="line">ctx.beginPath();</div><div class="line">ctx.moveTo(<span class="number">20</span>,<span class="number">150</span>);</div><div class="line">ctx.lineTo(<span class="number">300</span>,<span class="number">150</span>);</div><div class="line">ctx.lineCap = <span class="string">"square"</span>;</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line"><span class="comment">// 基线</span></div><div class="line">ctx.beginPath();</div><div class="line">ctx.lineWidth = <span class="number">1</span>;</div><div class="line">ctx.moveTo(<span class="number">20</span>,<span class="number">10</span>);</div><div class="line">ctx.lineTo(<span class="number">20</span>,<span class="number">170</span>);</div><div class="line">ctx.moveTo(<span class="number">300</span>,<span class="number">10</span>);</div><div class="line">ctx.lineTo(<span class="number">300</span>,<span class="number">170</span>);</div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+<h2 id="4-2-lineJoin"><a href="#4-2-lineJoin" class="headerlink" title="4.2 lineJoin"></a>4.2 lineJoin</h2><p>lineJoin是线条相交时呈现出来的效果<br>lineJoin = “miter”(defalut)|”bevel”|”round”</p>
+<p><canvas id="canvas9" style="border: 1px solid #bbb;">当前浏览器不支持canvas！</canvas></p>
+<script type="text/javascript">
+    var canvas9 = document.getElementById("canvas9");
+    canvas9.width = 320;
+    canvas9.height = 180;
+    var ctx = canvas9.getContext('2d');
+    ctx.lineWidth = 10;
+    ctx.beginPath();
+    ctx.moveTo(10,20);
+    ctx.lineTo(50,160);
+    ctx.lineTo(90,20);
+    ctx.lineJoin = "miter";
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(110,20);
+    ctx.lineTo(150,160);
+    ctx.lineTo(190,20);
+    ctx.lineJoin = "bevel";
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(210,20);
+    ctx.lineTo(250,160);
+    ctx.lineTo(290,20);
+    ctx.lineJoin = "round";
+    ctx.stroke();
+</script>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">ctx.lineWidth = <span class="number">10</span>;</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.moveTo(<span class="number">10</span>,<span class="number">20</span>);</div><div class="line">ctx.lineTo(<span class="number">50</span>,<span class="number">160</span>);</div><div class="line">ctx.lineTo(<span class="number">90</span>,<span class="number">20</span>);</div><div class="line">ctx.lineJoin = <span class="string">"miter"</span>;</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.moveTo(<span class="number">110</span>,<span class="number">20</span>);</div><div class="line">ctx.lineTo(<span class="number">150</span>,<span class="number">160</span>);</div><div class="line">ctx.lineTo(<span class="number">190</span>,<span class="number">20</span>);</div><div class="line">ctx.lineJoin = <span class="string">"bevel"</span>;</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.moveTo(<span class="number">210</span>,<span class="number">20</span>);</div><div class="line">ctx.lineTo(<span class="number">250</span>,<span class="number">160</span>);</div><div class="line">ctx.lineTo(<span class="number">290</span>,<span class="number">20</span>);</div><div class="line">ctx.lineJoin = <span class="string">"round"</span>;</div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+<p>miterLimit<br>miterLimit = 10(默认值);//只有当linejoin的值为miter时才有效，值越大，允许角度越尖锐<br><img src="/images/17424(1).png" style="width: 500px;"></p>
+<p><canvas id="canvas10" style="border: 1px solid #bbb;">当前浏览器不支持canvas！</canvas></p>
+<script type="text/javascript">
+    var canvas10 = document.getElementById("canvas10");
+    canvas10.width = 320;
+    canvas10.height = 180;
+    var ctx = canvas10.getContext('2d');
+    ctx.lineWidth = 10;
+    ctx.beginPath();
+    ctx.moveTo(10,30);
+    ctx.lineTo(250,50);
+    ctx.lineTo(10,70);
+    ctx.lineJoin = "miter";
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(10,120);
+    ctx.lineTo(250,140);
+    ctx.lineTo(10,160);
+    ctx.lineJoin = "miter";
+    ctx.miterLimit = 30;
+    ctx.stroke();
+</script>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">ctx.lineWidth = <span class="number">10</span>;</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.moveTo(<span class="number">10</span>,<span class="number">30</span>);</div><div class="line">ctx.lineTo(<span class="number">250</span>,<span class="number">50</span>);</div><div class="line">ctx.lineTo(<span class="number">10</span>,<span class="number">70</span>);</div><div class="line">ctx.lineJoin = <span class="string">"miter"</span>;</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.moveTo(<span class="number">10</span>,<span class="number">120</span>);</div><div class="line">ctx.lineTo(<span class="number">250</span>,<span class="number">140</span>);</div><div class="line">ctx.lineTo(<span class="number">10</span>,<span class="number">160</span>);</div><div class="line">ctx.lineJoin = <span class="string">"miter"</span>;</div><div class="line">ctx.miterLimit = <span class="number">30</span>;</div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+<h2 id="4-3-图形变换"><a href="#4-3-图形变换" class="headerlink" title="4.3 图形变换"></a>4.3 图形变换</h2><p>位移 translate( x , y )<br>x 是左右偏移量，y 是上下偏移量</p>
+<p>旋转 rotate( rot )<br>rot = deg/180*Math.PI<br>它是顺时针方向的，以弧度为单位的值</p>
+<p>缩放 scale( sx , sy )<br>sx,sy 分别是横轴和纵轴的缩放因子，它们都必须是正值<br>注：变换是叠加的</p>
+<p>变形 setTransform(m11, m12, m21, m22, dx, dy)<br>类似css matirx<br>setTransform可忽略之前的变换（translate、rotate、scale）<br>m11：水平方向的缩放(1)<br>m12：水平方向的倾斜(0)<br>m21：竖直方向的倾斜(0)<br>m22：竖直方向的缩放(1)<br>dx：水平方向的移动(0)<br>dy：竖直方向的移动(0)</p>
+<p>可以用save()和restore()储存、还原canvas环境<br>类似css transform 属性应用先后不同，效果不同</p>
+<p><canvas id="canvas11" style="border: 1px solid #bbb;">当前浏览器不支持canvas！</canvas></p>
+<script type="text/javascript">
+    var canvas11 = document.getElementById("canvas11");
+    canvas11.width = 320;
+    canvas11.height = 180;
+    var ctx = canvas11.getContext('2d');
+    ctx.save();
+    ctx.fillStyle = "red";
+    ctx.translate(20,20);
+    ctx.fillRect(0,0,100,100);
+    ctx.fillStyle = "green";
+    ctx.translate(40,40);
+    ctx.fillRect(0,0,100,100);
+    ctx.restore();
+    ctx.save();
+    ctx.fillStyle = "red";
+    ctx.translate(180,20);
+    ctx.fillRect(0,0,100,100);
+    ctx.restore();
+    ctx.save();
+    ctx.fillStyle = "green";
+    ctx.translate(200,40);
+    ctx.fillRect(0,0,100,100);
+    ctx.restore();
+</script>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 第一个环境</span></div><div class="line">ctx.save();</div><div class="line">ctx.fillStyle = <span class="string">"red"</span>;</div><div class="line">ctx.translate(<span class="number">20</span>,<span class="number">20</span>);</div><div class="line">ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">ctx.fillStyle = <span class="string">"green"</span>;</div><div class="line">ctx.translate(<span class="number">40</span>,<span class="number">40</span>);</div><div class="line">ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">ctx.restore();</div><div class="line"></div><div class="line"><span class="comment">// 第二个环境</span></div><div class="line">ctx.save();</div><div class="line">ctx.fillStyle = <span class="string">"red"</span>;</div><div class="line">ctx.translate(<span class="number">180</span>,<span class="number">20</span>);</div><div class="line">ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">ctx.restore();</div><div class="line"></div><div class="line"><span class="comment">// 第三个环境</span></div><div class="line">ctx.save();</div><div class="line">ctx.fillStyle = <span class="string">"green"</span>;</div><div class="line">ctx.translate(<span class="number">200</span>,<span class="number">40</span>);</div><div class="line">ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">ctx.restore();</div></pre></td></tr></table></figure>
+<h2 id="4-4-渐变"><a href="#4-4-渐变" class="headerlink" title="4.4 渐变"></a>4.4 渐变</h2><h3 id="4-4-1-线性渐变-createLinearGradient"><a href="#4-4-1-线性渐变-createLinearGradient" class="headerlink" title="4.4.1 线性渐变 createLinearGradient()"></a>4.4.1 线性渐变 createLinearGradient()</h3><p>createLinearGradient( x1 , y1, x2 , y2 );<br>渐变的起点 (x1,y1) 与终点 (x2,y2)</p>
+<p><canvas id="canvas12" style="border: 1px solid #bbb;">当前浏览器不支持canvas！</canvas></p>
+<script type="text/javascript">
+    var canvas12 = document.getElementById("canvas12");
+    canvas12.width = 320;
+    canvas12.height = 180;
+    var ctx = canvas12.getContext('2d');
+    var grd = ctx.createLinearGradient(0,0,320,180);
+    grd.addColorStop(0.0,"red");
+    grd.addColorStop(0.25,"green");
+    grd.addColorStop(0.5,"blue");
+    grd.addColorStop(0.75,"white");
+    grd.addColorStop(1.0,"black");
+    ctx.fillStyle = grd;
+    ctx.fillRect(0,0,320,180);
+</script>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> grd = ctx.createLinearGradient(<span class="number">0</span>,<span class="number">0</span>,<span class="number">320</span>,<span class="number">180</span>);</div><div class="line">grd.addColorStop(<span class="number">0.0</span>,<span class="string">"red"</span>);</div><div class="line">grd.addColorStop(<span class="number">0.25</span>,<span class="string">"green"</span>);</div><div class="line">grd.addColorStop(<span class="number">0.5</span>,<span class="string">"blue"</span>);</div><div class="line">grd.addColorStop(<span class="number">0.75</span>,<span class="string">"white"</span>);</div><div class="line">grd.addColorStop(<span class="number">1.0</span>,<span class="string">"black"</span>);</div><div class="line">ctx.fillStyle = grd;</div><div class="line">ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">320</span>,<span class="number">180</span>);</div></pre></td></tr></table></figure>
+<h3 id="4-4-2-径向渐变-createRadialGradient"><a href="#4-4-2-径向渐变-createRadialGradient" class="headerlink" title="4.4.2 径向渐变 createRadialGradient()"></a>4.4.2 径向渐变 createRadialGradient()</h3><p>createRadialGradient(x1, y1, r1, x2, y2, r2)<br>前三个定义一个以 (x1,y1) 为原点，半径为 r1 的圆，后三个参数则定义另一个以 (x2,y2) 为原点，半径为 r2 的圆</p>
+<p><canvas id="canvas13" style="border: 1px solid #bbb;">当前浏览器不支持canvas！</canvas></p>
+<script type="text/javascript">
+    var canvas13 = document.getElementById("canvas13");
+    canvas13.width = 320;
+    canvas13.height = 180;
+    var ctx = canvas13.getContext('2d');
+    var grd = ctx.createRadialGradient(160,90,0,160,90,160);
+    grd.addColorStop(0.0,"black");
+    grd.addColorStop(0.25,"red");
+    grd.addColorStop(0.5,"yellow");
+    grd.addColorStop(0.75,"blue");
+    grd.addColorStop(1.0,"white");
+    ctx.fillStyle = grd;
+    ctx.fillRect(0,0,320,180);
+</script>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> grd = ctx.createRadialGradient(<span class="number">160</span>,<span class="number">90</span>,<span class="number">0</span>,<span class="number">160</span>,<span class="number">90</span>,<span class="number">160</span>);</div><div class="line">grd.addColorStop(<span class="number">0.0</span>,<span class="string">"black"</span>);</div><div class="line">grd.addColorStop(<span class="number">0.25</span>,<span class="string">"red"</span>);</div><div class="line">grd.addColorStop(<span class="number">0.5</span>,<span class="string">"yellow"</span>);</div><div class="line">grd.addColorStop(<span class="number">0.75</span>,<span class="string">"blue"</span>);</div><div class="line">grd.addColorStop(<span class="number">1.0</span>,<span class="string">"white"</span>);</div><div class="line">ctx.fillStyle = grd;</div><div class="line">ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">320</span>,<span class="number">180</span>);</div></pre></td></tr></table></figure>
+<h2 id="4-5-图案样式"><a href="#4-5-图案样式" class="headerlink" title="4.5 图案样式"></a>4.5 图案样式</h2><p>createPattern(img/canvas/video, repeat-style)<br>repeat-style:<br>no-repeat 不重复<br>repeat-x：X轴方向重复<br>repeat-y：Y轴方向重复<br>repeat：X，Y轴方向都重复</p>
+<p><canvas id="canvas14" style="border: 1px solid #bbb;">当前浏览器不支持canvas！</canvas></p>
+<script type="text/javascript">
+    var canvas14 = document.getElementById("canvas14");
+    canvas14.width = 320;
+    canvas14.height = 180;
+    var ctx = canvas14.getContext('2d');
+    var img = new Image();
+    img.src = "/images/avatar.png";
+    img.onload = function(){
+        var ptrn = ctx.createPattern(img,'no-repeat');
+        ctx.fillStyle = ptrn;
+        ctx.fillRect(0,0,320,180);
+    };
+</script>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> img = <span class="keyword">new</span> Image();</div><div class="line">    img.src = <span class="string">"/images/avatar.png"</span>;</div><div class="line">    img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> ptrn = ctx.createPattern(img,<span class="string">'no-repeat'</span>);</div><div class="line">        ctx.fillStyle = ptrn;</div><div class="line">        ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">320</span>,<span class="number">180</span>);</div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
+<h2 id="4-6-阴影"><a href="#4-6-阴影" class="headerlink" title="4.6 阴影"></a>4.6 阴影</h2><p>ctx.shadowColor  // 阴影颜色<br>ctx.shadowOffsetX  // X偏移值<br>ctx.shadowOffsetY  // Y偏移值<br>ctx.shadowBlur  // 模糊度</p>
+<p><canvas id="canvas15" style="border: 1px solid #bbb;">当前浏览器不支持canvas！</canvas></p>
+<script type="text/javascript">
+    var canvas15 = document.getElementById("canvas15");
+    canvas15.width = 320;
+    canvas15.height = 180;
+    var ctx = canvas15.getContext('2d');
+    ctx.shadowColor = "#bbb";
+    ctx.shadowOffsetX = 10;
+    ctx.shadowOffsetY = 10;
+    ctx.shadowBlur = 5;
+    ctx.fillRect(30,30,100,120);
+    ctx.shadowOffsetX = -5;
+    ctx.shadowOffsetY = -5;
+    ctx.shadowBlur = 10;
+    ctx.fillRect(190,30,100,120);
+</script>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">ctx.shadowColor = <span class="string">"#bbb"</span>;</div><div class="line">ctx.shadowOffsetX = <span class="number">10</span>;</div><div class="line">ctx.shadowOffsetY = <span class="number">10</span>;</div><div class="line">ctx.shadowBlur = <span class="number">5</span>;</div><div class="line">ctx.fillRect(<span class="number">30</span>,<span class="number">30</span>,<span class="number">100</span>,<span class="number">120</span>);</div><div class="line"></div><div class="line">ctx.shadowOffsetX = <span class="number">-5</span>;</div><div class="line">ctx.shadowOffsetY = <span class="number">-5</span>;</div><div class="line">ctx.shadowBlur = <span class="number">10</span>;</div><div class="line">ctx.fillRect(<span class="number">190</span>,<span class="number">30</span>,<span class="number">100</span>,<span class="number">120</span>);</div></pre></td></tr></table></figure>
+<h2 id="4-7-globalAlpha（透明度）"><a href="#4-7-globalAlpha（透明度）" class="headerlink" title="4.7 globalAlpha（透明度）"></a>4.7 globalAlpha（透明度）</h2><p>ctx.globalAlpha = 1; (Default)</p>
+<h2 id="4-8-globalCompositeOperation（图形重叠效果）"><a href="#4-8-globalCompositeOperation（图形重叠效果）" class="headerlink" title="4.8 globalCompositeOperation（图形重叠效果）"></a>4.8 globalCompositeOperation（图形重叠效果）</h2><p><img src="/images/17424(3).png" style="width: 690px;"><br>图片来自MDN</p>
+<p><canvas id="canvas16" style="border: 1px solid #bbb;">当前浏览器不支持canvas！</canvas></p>
+<p></p><p id="canvas16-composition"><br>    <a href="javascript:void(0)" target="_blank" rel="external">source-over</a><br>    <a href="javascript:void(0)" target="_blank" rel="external">source-in</a><br>    <a href="javascript:void(0)" target="_blank" rel="external">source-out</a><br>    <a href="javascript:void(0)" target="_blank" rel="external">source-atop</a><br>    <a href="javascript:void(0)" target="_blank" rel="external">destination-over</a><br>    <a href="javascript:void(0)" target="_blank" rel="external">destination-in</a><br>    <a href="javascript:void(0)" target="_blank" rel="external">destination-out</a><br>    <a href="javascript:void(0)" target="_blank" rel="external">destination-atop</a><br>    <a href="javascript:void(0)" target="_blank" rel="external">lighter</a><br>    <a href="javascript:void(0)" target="_blank" rel="external">copy</a><br>    <a href="javascript:void(0)" target="_blank" rel="external">xor</a><br></p><p></p>
+<script>
+    window.onload = function () {
+        var a = document.getElementById('canvas16-composition').getElementsByTagName('a');
+        for (let i = 0; i < a.length; i++) {
+            a[i].addEventListener("click",function () {
+                drawComposition(this.text);
+                return false;
+            });
+        }
+        drawComposition("source-over");
+    }
+
+    function drawComposition(composition) {
+        var canvas16 = document.getElementById('canvas16');
+        canvas16.width = 1024;
+        canvas16.height = 400;
+        var ctx = canvas16.getContext('2d');
+        ctx.clearRect(0, 0, canvas16.width, canvas16.height);
+        ctx.save();
+        ctx.font = "30px bold Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = "#058";
+        ctx.fillText("globalCompositionOperation:" + composition, canvas16.width/2, 20);
+        ctx.restore();
+        ctx.beginPath();
+        ctx.moveTo(0, 50);
+        ctx.lineTo(canvas16.width, 50);
+        ctx.lineTo(canvas16.width, canvas16.height);
+        ctx.lineTo(0, canvas16.height);
+        ctx.closePath();
+        ctx.clip();
+        ctx.fillStyle = "blue";
+        ctx.fillRect(500, 175, 200, 200);
+        ctx.globalCompositeOperation = composition;
+        ctx.beginPath();
+        ctx.moveTo(500, 100);
+        ctx.lineTo(350, 250);
+        ctx.lineTo(650, 250);
+        ctx.closePath();
+        ctx.fillStyle = "red";
+        ctx.fill();
+    }
+</script>
+
+<h2 id="4-9-clip-剪切区域"><a href="#4-9-clip-剪切区域" class="headerlink" title="4.9 clip() 剪切区域"></a>4.9 clip() 剪切区域</h2><p>使用 clip() 方法来创建一个新的裁切路径。默认情况下，canvas 有一个与它自身一样大的裁切路径（也就是没有裁切效果）<br>它的作用是遮罩，用来隐藏不需要的部分然后将上面路径剪切作为当前绘制环境</p>
+<p><canvas id="canvas17" style="border: 1px solid #bbb;">当前浏览器不支持canvas！</canvas></p>
+<script type="text/javascript">
+    var canvas17 = document.getElementById("canvas17");
+    canvas17.width = 320;
+    canvas17.height = 320;
+    var ctx = canvas17.getContext('2d');
+    ctx.beginPath();
+    ctx.fillStyle = "#000";
+    ctx.fillRect(0,0,canvas17.width,canvas17.height);
+    ctx.beginPath();
+    ctx.arc(canvas17.width/2,canvas17.height/2,canvas17.height/2,0,2*Math.PI);
+    var grd = ctx.createLinearGradient(canvas17.width/2,0,canvas17.width/2,canvas17.height*2);
+    grd.addColorStop(0.0,"#058");
+    grd.addColorStop(1.0,"#fff");
+    ctx.fillStyle = grd;
+    ctx.fill();
+    ctx.clip();
+    for (let i=0;i<50;i++){
+        ctx.save();
+        ctx.fillStyle = "#fff";
+        ctx.translate(Math.floor(Math.random()*canvas17.width),Math.floor(Math.random()*canvas17.height));
+        drawStar(ctx,Math.floor(Math.random()*6)+2);
+        ctx.restore();
+    }
+    function drawStar(ctx,r){
+        ctx.save();
+        ctx.beginPath()
+        ctx.moveTo(r,0);
+        for (var i=0;i<9;i++){
+            ctx.rotate(Math.PI/5);
+            if(i%2 == 0) {
+              ctx.lineTo((r/0.525731)*0.200811,0);
+            } else {
+              ctx.lineTo(r,0);
+            }
+        }
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+    }
+</script>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 遮罩</span></div><div class="line">ctx.beginPath();</div><div class="line">ctx.fillStyle = <span class="string">"#000"</span>;</div><div class="line">ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,canvas17.width,canvas17.height);</div><div class="line"></div><div class="line"><span class="comment">// 背景</span></div><div class="line">ctx.beginPath();</div><div class="line">ctx.arc(canvas17.width/<span class="number">2</span>,canvas17.height/<span class="number">2</span>,canvas17.height/<span class="number">2</span>,<span class="number">0</span>,<span class="number">2</span>*<span class="built_in">Math</span>.PI);</div><div class="line"><span class="keyword">var</span> grd = ctx.createLinearGradient(canvas17.width/<span class="number">2</span>,<span class="number">0</span>,canvas17.width/<span class="number">2</span>,canvas17.height*<span class="number">2</span>);</div><div class="line">grd.addColorStop(<span class="number">0.0</span>,<span class="string">"#058"</span>);</div><div class="line">grd.addColorStop(<span class="number">1.0</span>,<span class="string">"#fff"</span>);</div><div class="line">ctx.fillStyle = grd;</div><div class="line">ctx.fill();</div><div class="line">ctx.clip();</div><div class="line"></div><div class="line"><span class="comment">// 星星</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">50</span>;i++)&#123;</div><div class="line">    ctx.save();</div><div class="line">    ctx.fillStyle = <span class="string">"#fff"</span>;</div><div class="line">    ctx.translate(<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*canvas17.width),<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*canvas17.height));</div><div class="line">    drawStar(ctx,<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">6</span>)+<span class="number">2</span>);</div><div class="line">    ctx.restore();</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawStar</span>(<span class="params">ctx,r</span>)</span>&#123;</div><div class="line">    ctx.save();</div><div class="line">    ctx.beginPath()</div><div class="line">    ctx.moveTo(r,<span class="number">0</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">9</span>;i++)&#123;</div><div class="line">        ctx.rotate(<span class="built_in">Math</span>.PI/<span class="number">5</span>);</div><div class="line">        <span class="keyword">if</span>(i%<span class="number">2</span> == <span class="number">0</span>) &#123;</div><div class="line">          ctx.lineTo((r/<span class="number">0.525731</span>)*<span class="number">0.200811</span>,<span class="number">0</span>);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">          ctx.lineTo(r,<span class="number">0</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    ctx.closePath();</div><div class="line">    ctx.fill();</div><div class="line">    ctx.restore();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="4-10-剪纸效果（非零环绕原则）"><a href="#4-10-剪纸效果（非零环绕原则）" class="headerlink" title="4.10 剪纸效果（非零环绕原则）"></a>4.10 剪纸效果（非零环绕原则）</h2><p>对于一个复杂的路径调用fill()，浏览器怎么分辨哪些区域填充颜色，哪些区域不填充颜色<br>这时候就要靠canvas采用的非零环绕原则<br>非零环绕原则：从平面中任意区域内引出一条射线（不穿过交点），使射线穿过区域范围外，然后将多边形的边矢量化，规定多边形的边如果从射线的左边穿过则加1，如果从射线的右边穿过则减1，最终结果累加，如果为0，则点P在多边的外面；如果非0则点P在多边形的内部<br><img src="/images/17424(4).png" style="width: 600px;"><br>对于上边那条射线，路径从射线右边穿过，记-1，计数和为非零，所以该区域在多边形内部<br>对于左下边那条射线，路径先是从射线右边穿过，记-1，然后路径从射线左边穿过，记+1，-1+1=0，计数和为零，所以该区域在多边形外部<br>对于右下边那条射线，路径先是从射线右边穿过，记-1，然后路径从射线右边穿过，记-1，-1-1=-2，计数和为非零，所以该区域在多边形内部</p>
+<p>所以我们可以用这个特性画出剪纸效果</p>
+<p><canvas id="canvas18" style="border: 1px solid #bbb;">当前浏览器不支持canvas！</canvas></p>
+<script type="text/javascript">
+    var canvas18 = document.getElementById("canvas18");
+    canvas18.width = 320;
+    canvas18.height = 320;
+    var ctx = canvas18.getContext('2d');
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(160,160,120,0,Math.PI*2,false);
+    ctx.arc(160,160,60,0,Math.PI*2,true);
+    ctx.fillStyle = "#058";
+    ctx.shadowColor = "#bbb";
+    ctx.shadowOffsetX = 10;
+    ctx.shadowOffsetY = 10;
+    ctx.shadowBlur = 5;
+    ctx.fill();
+    ctx.restore();
+    ctx.beginPath();
+    ctx.moveTo(30,190);
+    ctx.lineTo(30,130);
+    ctx.lineTo(25,135);
+    ctx.lineTo(35,135);
+    ctx.lineTo(30,130);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(120,130);
+    ctx.lineTo(120,190);
+    ctx.lineTo(115,185);
+    ctx.lineTo(125,185);
+    ctx.lineTo(120,190);
+    ctx.stroke();
+</script>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">ctx.save();</div><div class="line">ctx.beginPath();</div><div class="line">ctx.arc(<span class="number">160</span>,<span class="number">160</span>,<span class="number">120</span>,<span class="number">0</span>,<span class="built_in">Math</span>.PI*<span class="number">2</span>,<span class="literal">false</span>);</div><div class="line">ctx.arc(<span class="number">160</span>,<span class="number">160</span>,<span class="number">60</span>,<span class="number">0</span>,<span class="built_in">Math</span>.PI*<span class="number">2</span>,<span class="literal">true</span>);</div><div class="line">ctx.fillStyle = <span class="string">"#058"</span>;</div><div class="line">ctx.shadowColor = <span class="string">"#bbb"</span>;</div><div class="line">ctx.shadowOffsetX = <span class="number">10</span>;</div><div class="line">ctx.shadowOffsetY = <span class="number">10</span>;</div><div class="line">ctx.shadowBlur = <span class="number">5</span>;</div><div class="line">ctx.fill();</div><div class="line">ctx.restore();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.moveTo(<span class="number">30</span>,<span class="number">190</span>);</div><div class="line">ctx.lineTo(<span class="number">30</span>,<span class="number">130</span>);</div><div class="line">ctx.lineTo(<span class="number">25</span>,<span class="number">135</span>);</div><div class="line">ctx.lineTo(<span class="number">35</span>,<span class="number">135</span>);</div><div class="line">ctx.lineTo(<span class="number">30</span>,<span class="number">130</span>);</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.moveTo(<span class="number">120</span>,<span class="number">130</span>);</div><div class="line">ctx.lineTo(<span class="number">120</span>,<span class="number">190</span>);</div><div class="line">ctx.lineTo(<span class="number">115</span>,<span class="number">185</span>);</div><div class="line">ctx.lineTo(<span class="number">125</span>,<span class="number">185</span>);</div><div class="line">ctx.lineTo(<span class="number">120</span>,<span class="number">190</span>);</div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+<h2 id="4-11-clearRect-清空画布"><a href="#4-11-clearRect-清空画布" class="headerlink" title="4.11 clearRect() 清空画布"></a>4.11 clearRect() 清空画布</h2><p>ctx.clearRect( x , y , width , height )<br>一般用于动画、游戏制作</p>
+<hr>
+<p>以上就是Canvas中一些基础的api（当然还有很多），canvas也一直在更新，更多更新的api请参考Canvas标准</p>
+<h1 id="Canvas-标准"><a href="#Canvas-标准" class="headerlink" title="Canvas 标准"></a>Canvas 标准</h1><p><a href="http://www.w3c.org/TR/2dcontext/" target="_blank" rel="external">w3c canvas标准</a><br><a href="https://html.spec.whatwg.org/" target="_blank" rel="external">WHATWG</a></p>
+<h1 id="Canvas-图形库"><a href="#Canvas-图形库" class="headerlink" title="Canvas 图形库"></a>Canvas 图形库</h1><p><a href="https://code.google.com/p/canvasplus/" target="_blank" rel="external">canvasplus</a><br><a href="http://artisanjs.com/" target="_blank" rel="external">Artisan JS</a><br><a href="https://roopons.com.au/wp-content/plugins/viral-optins/js/rgraph/" target="_blank" rel="external">Rgraph</a></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://www.imooc.com/learn/185" target="_blank" rel="external">Canvas绘图详解</a><br><a href="http://baike.baidu.com/link?url=OwId2oNkz7LSxwJhL4lq39HAH7BquExCye9d4FSBKSoxlsQaJh56Poz8aYHwUA9M1p333dwgafk0AhmqQAFJUK" target="_blank" rel="external">canvas百度百科</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial" target="_blank" rel="external">MDN Canvas</a><br><a href="https://www.rgraph.net/blog/an-example-of-the-html5-canvas-quadraticcurveto-function.html" target="_blank" rel="external">quadraticCurveTo demo</a><br><a href="http://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html" target="_blank" rel="external">bezierCurveTo demo</a><br><a href="http://www.j--d.com/bezier" target="_blank" rel="external">quadraticCurveTo or bezierCurveTo</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+            <a href="/tags/canvas/" rel="tag">#canvas</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/22/ife2017/CSS3实现3D轮播图/" rel="next" title="CSS3实现3D轮播图">
+                <i class="fa fa-chevron-left"></i> CSS3实现3D轮播图
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Lexokid" />
+          <p class="site-author-name" itemprop="name">Lexokid</p>
+          <p class="site-description motion-element" itemprop="description">爱游戏、爱二次元、爱gakki，想成为技术大牛</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Lexokid" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="tencent://message/?uin=641766992&Site=&Menu=yes" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  QQ
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.w3school.com.cn/" title="w3school" target="_blank">w3school</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://developer.mozilla.org/zh-CN/" title="MDN" target="_blank">MDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://segmentfault.com/" title="segmentfault" target="_blank">segmentfault</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/" title="GitHub" target="_blank">GitHub</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.alloyteam.com/" title="AlloyTeam" target="_blank">AlloyTeam</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.w3cplus.com/" title="w3cplus" target="_blank">w3cplus</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://efe.baidu.com/" title="百度EFE" target="_blank">百度EFE</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.csdn.net/" title="CSDN" target="_blank">CSDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.imooc.com/" title="慕课网" target="_blank">慕课网</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.w3cfuns.com/" title="前端网" target="_blank">前端网</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.freebuf.com/" title="freebuf" target="_blank">freebuf</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.zybuluo.com/mdeditor" title="MD编辑器" target="_blank">MD编辑器</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-canvas"><span class="nav-number">1.</span> <span class="nav-text">1.canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1SVG-以及VML之间的差异编辑"><span class="nav-number">1.1.</span> <span class="nav-text">1.1SVG 以及VML之间的差异编辑:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.2.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-创建-Canvas-元素"><span class="nav-number">2.</span> <span class="nav-text">2.创建 Canvas 元素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-基本绘制"><span class="nav-number">3.</span> <span class="nav-text">3.基本绘制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-beginPath"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 beginPath</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-closePath"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 closePath</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-绘制直线"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 绘制直线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-绘制图形"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 绘制图形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-绘制弧"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 绘制弧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-1-arc"><span class="nav-number">3.5.1.</span> <span class="nav-text">3.5.1 arc()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-2-arcTo"><span class="nav-number">3.5.2.</span> <span class="nav-text">3.5.2 arcTo()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-3-二次贝塞尔曲线quadraticCurveTo"><span class="nav-number">3.5.3.</span> <span class="nav-text">3.5.3 二次贝塞尔曲线quadraticCurveTo()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-4-三次贝塞尔曲线bezierCurveTo"><span class="nav-number">3.5.4.</span> <span class="nav-text">3.5.4 三次贝塞尔曲线bezierCurveTo()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-绘制矩形"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 绘制矩形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-7-绘制文字"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 绘制文字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-1-font"><span class="nav-number">3.7.1.</span> <span class="nav-text">3.7.1 font</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-2-textAlign"><span class="nav-number">3.7.2.</span> <span class="nav-text">3.7.2 textAlign</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-3-textBaseline"><span class="nav-number">3.7.3.</span> <span class="nav-text">3.7.3 textBaseline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-4-fillText"><span class="nav-number">3.7.4.</span> <span class="nav-text">3.7.4 fillText()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-5-strokeText"><span class="nav-number">3.7.5.</span> <span class="nav-text">3.7.5 strokeText()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-6-measureText-width"><span class="nav-number">3.7.6.</span> <span class="nav-text">3.7.6 measureText().width</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-7-demo"><span class="nav-number">3.7.7.</span> <span class="nav-text">3.7.7 demo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-样式"><span class="nav-number">4.</span> <span class="nav-text">4.样式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-lineCap"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 lineCap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-lineJoin"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 lineJoin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-图形变换"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 图形变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-渐变"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 渐变</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-1-线性渐变-createLinearGradient"><span class="nav-number">4.4.1.</span> <span class="nav-text">4.4.1 线性渐变 createLinearGradient()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-2-径向渐变-createRadialGradient"><span class="nav-number">4.4.2.</span> <span class="nav-text">4.4.2 径向渐变 createRadialGradient()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-图案样式"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 图案样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-阴影"><span class="nav-number">4.6.</span> <span class="nav-text">4.6 阴影</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-7-globalAlpha（透明度）"><span class="nav-number">4.7.</span> <span class="nav-text">4.7 globalAlpha（透明度）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-8-globalCompositeOperation（图形重叠效果）"><span class="nav-number">4.8.</span> <span class="nav-text">4.8 globalCompositeOperation（图形重叠效果）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-9-clip-剪切区域"><span class="nav-number">4.9.</span> <span class="nav-text">4.9 clip() 剪切区域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-10-剪纸效果（非零环绕原则）"><span class="nav-number">4.10.</span> <span class="nav-text">4.10 剪纸效果（非零环绕原则）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-11-clearRect-清空画布"><span class="nav-number">4.11.</span> <span class="nav-text">4.11 clearRect() 清空画布</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Canvas-标准"><span class="nav-number">5.</span> <span class="nav-text">Canvas 标准</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Canvas-图形库"><span class="nav-number">6.</span> <span class="nav-text">Canvas 图形库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lexokid</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
