@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-29T08:38:42.596Z</updated>
+  <updated>2017-05-13T07:59:31.027Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,71 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>色彩选择器</title>
+    <link href="http://yoursite.com/2017/05/13/ife2017/%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8/"/>
+    <id>http://yoursite.com/2017/05/13/ife2017/色彩选择器/</id>
+    <published>2017-05-13T05:54:00.000Z</published>
+    <updated>2017-05-13T07:59:31.027Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="色彩选择器"><a href="#色彩选择器" class="headerlink" title="色彩选择器"></a>色彩选择器</h1><p><a href="http://ife.baidu.com/course/detail/id/16" target="_blank" rel="external">题目地址</a></p>
+<blockquote>
+<p>任务描述</p>
+</blockquote>
+<ul>
+<li>参考并实现一个色彩选择器：</li>
+<li>组件默认一直呈显示状态</li>
+<li>可以通过点击左侧色彩区域选择色彩，在右侧的输入框中会显示对应的色值，包括RGB和HSL值</li>
+<li>可以通过调节右侧输入框的各数值，来查看对应的颜色</li>
+<li>可以通过在中间的色带上点击来确定大致的颜色区域</li>
+<li>提供设定颜色值的接口，指定具体颜色，左侧色区和右侧输入框显示对应数值</li>
+<li>提供获取颜色值的接口，可获取色彩选择器选中的颜色值，可返回CSS color、RGB、HSL三种格式的色值</li>
+</ul>
+<p><a href="https://github.com/Lexokid/ife/tree/master/ColorSelect" target="_blank" rel="external">source</a></p>
+<p><a href="https://lexokid.github.io/ife/ColorSelect/index.html" target="_blank" rel="external">demo</a></p>
+<a id="more"></a>
+<p>这个看似有点简单，做起来还是有点难度的<br>首先是rgb与hsl与hsv互算的算法<br>还有调色板的取色逻辑（我是根据点击时的坐标求得大约的hsv值然后换算为rgb或hsl。PS：这样的取色不是很精确，可以用canvas的getImageData的方法获得rgb值）<br>以及其他各种的事件逻辑<br>不过最耗时的是思考怎样做到面向对象的编程、模块化编程<br>不幸的是最终我写的代码看起来依旧不怎么优雅，我想只有我能看懂吧（苦笑）</p>
+<p>接下来讲讲rgb与hsl与hsv互算的算法</p>
+<h1 id="1-从RGB到HSL或HSV的转换"><a href="#1-从RGB到HSL或HSV的转换" class="headerlink" title="1.从RGB到HSL或HSV的转换"></a>1.从RGB到HSL或HSV的转换</h1><p>设 (r, g, b)分别是一个颜色的红、绿和蓝坐标，它们的值是在0到1之间的实数。设max等价于r, g和b中的最大者。设min等于这些值中的最小者。要找到在HSL空间中的 (h, s, l)值，这里的h ∈ [0, 360）度是角度的色相角，而s, l ∈ [0,1]是饱和度和亮度，计算为：<br><img src="/images/17513(1).png" style="margin: 0;width: 550px;"><br>h的值通常规范化到位于0到360°之间。而h = 0用于max = min的（就是灰色）时候而不是留下h未定义。<br>HSL和HSV有同样的色相定义，但是其他分量不同。HSV颜色的s和v的值定义如下：<br><img src="/images/17513(2).png" style="margin: 0;width: 450px;"></p>
+<h1 id="2-从HSL到RGB的转换"><a href="#2-从HSL到RGB的转换" class="headerlink" title="2.从HSL到RGB的转换"></a>2.从HSL到RGB的转换</h1><p>给定HSL空间中的 (h, s, l)值定义的一个颜色，带有h在指示色相角度的值域[0, 360）中，分别表示饱和度和亮度的s和l在值域[0, 1]中，相应在RGB空间中的 (r, g, b)三原色，带有分别对应于红色、绿色和蓝色的r, g和b也在值域[0, 1]中，它们可计算为：<br>首先，如果s = 0，则结果的颜色是非彩色的、或灰色的。在这个特殊情况，r, g和b都等于l。注意h的值在这种情况下是未定义的。<br>当s ≠ 0的时候，可以使用下列过程：<br><img src="/images/17513(3).png" style="margin: 0;width: 550px;"><br>对于每个颜色向量Color = (ColorR, ColorG, ColorB) = (r, g, b),<br><img src="/images/17513(4).png" style="margin: 0;width: 550px;"></p>
+<h1 id="3-从HSV到RGB的转换"><a href="#3-从HSV到RGB的转换" class="headerlink" title="3.从HSV到RGB的转换"></a>3.从HSV到RGB的转换</h1><p>类似的，给定在HSV中 (h, s, v)值定义的一个颜色，带有如上的h，和分别表示饱和度和明度的s和v变化于0到1之间，在RGB空间中对应的 (r, g, b)三原色可以计算为（R,G,B变化于0到1之间）：<br><img src="/images/17513(5).png" style="margin: 0;width: 350px;"><br>对于每个颜色向量 (r, g, b),<br><img src="/images/17513(6).png" style="margin: 0;width: 450px;"></p>
+<h1 id="4-js代码"><a href="#4-js代码" class="headerlink" title="4.js代码"></a>4.js代码</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">rgb2hsl</span>(<span class="params">[r, g, b]</span>) </span>&#123;</div><div class="line">    [r, g, b] = [].map.call([r, g, b], <span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> item / <span class="number">255</span>;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">let</span> max = <span class="built_in">Math</span>.max.apply(<span class="built_in">Array</span>, [r, g, b]);</div><div class="line">    <span class="keyword">let</span> min = <span class="built_in">Math</span>.min.apply(<span class="built_in">Array</span>, [r, g, b]);</div><div class="line">    <span class="keyword">let</span> h, s, l = (max + min) / <span class="number">2</span>;</div><div class="line">    <span class="keyword">if</span> (max == min) &#123;</div><div class="line">        h = <span class="number">0</span>;</div><div class="line">        s = <span class="number">0</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">let</span> m = max - min;</div><div class="line">        s = l &gt; <span class="number">0.5</span> ? m / (<span class="number">2</span> - <span class="number">2</span> * l) : m / (<span class="number">2</span> * l);</div><div class="line">        <span class="keyword">switch</span> (max) &#123;</div><div class="line">            <span class="keyword">case</span> r:</div><div class="line">                h = <span class="number">60</span> * (g - b) / m + (g &lt; b ? <span class="number">360</span> : <span class="number">0</span>);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> g:</div><div class="line">                h = <span class="number">60</span> * (b - r) / m + <span class="number">120</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> b:</div><div class="line">                h = <span class="number">60</span> * (r - g) / m + <span class="number">240</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> [<span class="built_in">Math</span>.round(h), <span class="built_in">Math</span>.round(s * <span class="number">100</span>) / <span class="number">100</span>, <span class="built_in">Math</span>.round(l * <span class="number">100</span>) / <span class="number">100</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">rgb2hsv</span>(<span class="params">[r, g, b]</span>) </span>&#123;</div><div class="line">    [r, g, b] = [].map.call([r, g, b], <span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> item / <span class="number">255</span>;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">let</span> max = <span class="built_in">Math</span>.max.apply(<span class="built_in">Array</span>, [r, g, b]);</div><div class="line">    <span class="keyword">let</span> min = <span class="built_in">Math</span>.min.apply(<span class="built_in">Array</span>, [r, g, b]);</div><div class="line">    <span class="keyword">let</span> h, s, v = max;</div><div class="line">    <span class="keyword">let</span> m = max - min;</div><div class="line">    s = max == <span class="number">0</span> ? <span class="number">0</span> : m / max;</div><div class="line">    <span class="keyword">switch</span> (max) &#123;</div><div class="line">        <span class="keyword">case</span> min:</div><div class="line">            h = <span class="number">0</span>;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> r:</div><div class="line">            h = <span class="number">60</span> * (g - b) / m + (g &lt; b ? <span class="number">360</span> : <span class="number">0</span>);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> g:</div><div class="line">            h = <span class="number">60</span> * (b - r) / m + <span class="number">120</span>;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> b:</div><div class="line">            h = <span class="number">60</span> * (r - g) / m + <span class="number">240</span>;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> [<span class="built_in">Math</span>.round(h), <span class="built_in">Math</span>.round(s * <span class="number">100</span>) / <span class="number">100</span>, <span class="built_in">Math</span>.round(v * <span class="number">100</span>) / <span class="number">100</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hsl2rgb</span>(<span class="params">[h, s, l]</span>) </span>&#123;</div><div class="line">    [h, s, l] = [h, s, l].map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">parseFloat</span>(item);</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">let</span> r, g, b;</div><div class="line">    <span class="keyword">if</span> (s == <span class="number">0</span>) &#123;</div><div class="line">        r = g = b = l;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">let</span> q = l &lt; <span class="number">0.5</span> ? l * (<span class="number">1</span> + s) : l + s - (l * s);</div><div class="line">        <span class="keyword">let</span> p = <span class="number">2</span> * l - q;</div><div class="line">        h /= <span class="number">360</span>;</div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">eachColor</span>(<span class="params">q, p, t</span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (t &lt; <span class="number">0</span>) &#123;</div><div class="line">                t += <span class="number">1</span>;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (t &gt; <span class="number">1</span>) &#123;</div><div class="line">                t -= <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">switch</span> (<span class="literal">true</span>) &#123;</div><div class="line">                <span class="keyword">case</span> t &lt; (<span class="number">1</span> / <span class="number">6</span>):</div><div class="line">                    <span class="keyword">return</span> p + ((q - p) * <span class="number">6</span> * t);</div><div class="line">                <span class="keyword">case</span> (t &gt;= (<span class="number">1</span> / <span class="number">6</span>)) &amp;&amp; (t &lt; (<span class="number">1</span> / <span class="number">2</span>)):</div><div class="line">                    <span class="keyword">return</span> q;</div><div class="line">                <span class="keyword">case</span> (t &gt;= (<span class="number">1</span> / <span class="number">2</span>)) &amp;&amp; (t &lt; (<span class="number">2</span> / <span class="number">3</span>)):</div><div class="line">                    <span class="keyword">return</span> p + ((q - p) * <span class="number">6</span> * (<span class="number">2</span> / <span class="number">3</span> - t));</div><div class="line">                <span class="keyword">default</span>:</div><div class="line">                    <span class="keyword">return</span> p;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        r = eachColor(q, p, h + <span class="number">1</span> / <span class="number">3</span>);</div><div class="line">        g = eachColor(q, p, h);</div><div class="line">        b = eachColor(q, p, h - <span class="number">1</span> / <span class="number">3</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> [<span class="built_in">Math</span>.round(r * <span class="number">255</span>), <span class="built_in">Math</span>.round(g * <span class="number">255</span>), <span class="built_in">Math</span>.round(b * <span class="number">255</span>)];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hsv2rgb</span>(<span class="params">[h, s, v]</span>) </span>&#123;</div><div class="line">    [h, s, v] = [h, s, v].map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">parseFloat</span>(item);</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">let</span> r, g, b;</div><div class="line">    h %= <span class="number">360</span>;</div><div class="line">    <span class="keyword">let</span> i = <span class="built_in">Math</span>.floor(h / <span class="number">60</span>);</div><div class="line">    <span class="keyword">let</span> f = h / <span class="number">60</span> - i;</div><div class="line">    <span class="keyword">let</span> p = v * (<span class="number">1</span> - s);</div><div class="line">    <span class="keyword">let</span> q = v * (<span class="number">1</span> - f * s);</div><div class="line">    <span class="keyword">let</span> t = v * (<span class="number">1</span> - (<span class="number">1</span> - f) * s);</div><div class="line">    <span class="keyword">switch</span> (i) &#123;</div><div class="line">        <span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">            r = v, g = t, b = p;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">            r = q, g = v, b = p;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">            r = p, g = v, b = t;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="number">3</span>:</div><div class="line">            r = p, g = q, b = v;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="number">4</span>:</div><div class="line">            r = t, g = p, b = v;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="number">5</span>:</div><div class="line">            r = v, g = p, b = q;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> [<span class="built_in">Math</span>.round(r * <span class="number">255</span>), <span class="built_in">Math</span>.round(g * <span class="number">255</span>), <span class="built_in">Math</span>.round(b * <span class="number">255</span>)];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://zh.wikipedia.org/wiki/HSL%E5%92%8CHSV%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4" target="_blank" rel="external">wiki HSL和HSV色彩空间</a><br><a href="http://blog.csdn.net/jiangxinyu/article/details/8000999" target="_blank" rel="external">颜色空间RGB与HSV(HSL)的转换</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;色彩选择器&quot;&gt;&lt;a href=&quot;#色彩选择器&quot; class=&quot;headerlink&quot; title=&quot;色彩选择器&quot;&gt;&lt;/a&gt;色彩选择器&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://ife.baidu.com/course/detail/id/16&quot;&gt;题目地址&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;任务描述&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;参考并实现一个色彩选择器：&lt;/li&gt;
+&lt;li&gt;组件默认一直呈显示状态&lt;/li&gt;
+&lt;li&gt;可以通过点击左侧色彩区域选择色彩，在右侧的输入框中会显示对应的色值，包括RGB和HSL值&lt;/li&gt;
+&lt;li&gt;可以通过调节右侧输入框的各数值，来查看对应的颜色&lt;/li&gt;
+&lt;li&gt;可以通过在中间的色带上点击来确定大致的颜色区域&lt;/li&gt;
+&lt;li&gt;提供设定颜色值的接口，指定具体颜色，左侧色区和右侧输入框显示对应数值&lt;/li&gt;
+&lt;li&gt;提供获取颜色值的接口，可获取色彩选择器选中的颜色值，可返回CSS color、RGB、HSL三种格式的色值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Lexokid/ife/tree/master/ColorSelect&quot;&gt;source&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://lexokid.github.io/ife/ColorSelect/index.html&quot;&gt;demo&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
+    
+      <category term="RGB" scheme="http://yoursite.com/tags/RGB/"/>
+    
+      <category term="Graphics" scheme="http://yoursite.com/tags/Graphics/"/>
+    
+  </entry>
   
   <entry>
     <title>canvas基础</title>
@@ -1379,9 +1444,9 @@
     
       <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
     
-      <category term="树" scheme="http://yoursite.com/tags/%E6%A0%91/"/>
-    
       <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="树" scheme="http://yoursite.com/tags/%E6%A0%91/"/>
     
   </entry>
   
@@ -1709,68 +1774,6 @@
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
       <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>学习CSS3的新特性(animation)</title>
-    <link href="http://yoursite.com/2017/03/14/ife2017/%E5%AD%A6%E4%B9%A0CSS3%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7/"/>
-    <id>http://yoursite.com/2017/03/14/ife2017/学习CSS3的新特性/</id>
-    <published>2017-03-14T04:04:00.000Z</published>
-    <updated>2017-03-28T02:43:31.575Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://ife.baidu.com/course/detail/id/117" target="_blank" rel="external">题目地址</a></p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/Lexokid/ife/blob/master/1-12" target="_blank" rel="external">https://github.com/Lexokid/ife/blob/master/1-12</a></p>
-<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><a href="https://lexokid.github.io/ife/1-12/index.html" target="_blank" rel="external">https://lexokid.github.io/ife/1-12/index.html</a></p>
-<a id="more"></a>
-<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><h3 id="animation-fill-mode"><a href="#animation-fill-mode" class="headerlink" title="animation-fill-mode"></a>animation-fill-mode</h3><p>假设有一个盒子<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></div><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#f00</span>;</div><div class="line">    <span class="attribute">transform</span>: <span class="built_in">translateY</span>(0);</div><div class="line">    <span class="attribute">animation</span>: move <span class="number">1s</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">keyframes</span> move&#123;</div><div class="line">    <span class="selector-tag">from</span>&#123;<span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50px)&#125;</div><div class="line">    <span class="selector-tag">to</span>  &#123;<span class="attribute">transform</span>: <span class="built_in">translateY</span>( 50px)&#125;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p><strong>使用图片来表示 translateY 的值与 时间 的关系:</strong></p>
-<ul>
-<li>横轴为表示 时间，为 0 时表示动画开始的时间，也就是向 box 加上 on 类名的时间，横轴一格表示 0.5s</li>
-<li>纵轴表示translateY的值，为 0 时表示 translateY 的值为 0，纵轴一格表示 50px</li>
-</ul>
-<ol>
-<li>animation-fill-mode: none</li>
-</ol>
-<p><img src="/images/17314(1).png"></p>
-<ol>
-<li>animation-fill-mode: backwards</li>
-</ol>
-<p><img src="/images/17314(2).png"></p>
-<ol>
-<li>animation-fill-mode: forwards</li>
-</ol>
-<p><img src="/images/17314(3).png"></p>
-<ol>
-<li>animation-fill-mode: both</li>
-</ol>
-<p><img src="/images/17314(4).png"></p>
-<hr>
-<h3 id="transition-timing-function-steps"><a href="#transition-timing-function-steps" class="headerlink" title="transition-timing-function: steps()"></a>transition-timing-function: steps()</h3><p>steps 函数指定了一个阶跃函数<br>第一个参数指定了时间函数中的间隔数量（必须是正整数）<br>第二个参数可选，接受 start 和 end 两个值，指定在每个间隔的起点或是终点发生阶跃变化，默认为 end。<br>step-start等同于steps(1,start)，动画分成1步，动画执行时为开始左侧端点的部分为开始；<br>step-end等同于steps(1,end)：动画分成一步，动画执行时以结尾端点为开始，默认值为end。<br><a href="http://www.w3.org/TR/2012/WD-css3-transitions-20120403/#transition-timing-function-property" target="_blank" rel="external">transition-timing-function</a></p>
-<p>针对第一个参数<br><strong>timing-function 作用于每两个关键帧之间，而不是整个动画</strong><br>steps的设置都是针对两个关键帧之间的，而非是整个keyframes，所以第一个参数对 - 次数对应了每次steps的变化</p>
-<p>第二个参数可选，接受 start 和 end 两个值，指定在每个间隔的起点或是终点发生阶跃变化，默认为 end<br>2个参数都会选择性的跳过前后部分，start跳过0%，end跳过100%<br>step-start在变化过程中，都是以下一帧的显示效果来填充间隔动画<br>step-end与上面相反，都是以上一帧的显示效果来填充间隔动画</p>
-<p>step的工作机制图<br><img src="/images/17314(5).png"></p>
-<p>总结：<br>steps函数，它可以传入两个参数，第一个是一个大于0的整数，他是将间隔动画等分成指定数目的小间隔动画，然后根据第二个参数来决定显示效果。<br>第二个参数设置后其实和step-start，step-end同义，在分成的小间隔动画中判断显示效果。可以看出：steps(1, start) 等于step-start，steps(1,end)等于step-end</p>
-<hr>
-<h2 id="参考资料及来源"><a href="#参考资料及来源" class="headerlink" title="参考资料及来源"></a>参考资料及来源</h2><p><a href="https://segmentfault.com/q/1010000003867335" target="_blank" rel="external">如何理解animation-fill-mode及其使用？</a><br><a href="http://www.cnblogs.com/aaronjs/p/4642015.html" target="_blank" rel="external">http://www.cnblogs.com/aaronjs/p/4642015.html</a><br><a href="http://www.tuicool.com/articles/neqMVr" target="_blank" rel="external">http://www.tuicool.com/articles/neqMVr</a><br><a href="http://designmodo.com/steps-css-animations/" target="_blank" rel="external">http://designmodo.com/steps-css-animations/</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://ife.baidu.com/course/detail/id/117&quot;&gt;题目地址&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;源码&quot;&gt;&lt;a href=&quot;#源码&quot; class=&quot;headerlink&quot; title=&quot;源码&quot;&gt;&lt;/a&gt;源码&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Lexokid/ife/blob/master/1-12&quot;&gt;https://github.com/Lexokid/ife/blob/master/1-12&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;demo&quot;&gt;&lt;a href=&quot;#demo&quot; class=&quot;headerlink&quot; title=&quot;demo&quot;&gt;&lt;/a&gt;demo&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://lexokid.github.io/ife/1-12/index.html&quot;&gt;https://lexokid.github.io/ife/1-12/index.html&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="ife" scheme="http://yoursite.com/categories/ife/"/>
-    
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-      <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
-    
-      <category term="html" scheme="http://yoursite.com/tags/html/"/>
     
   </entry>
   
