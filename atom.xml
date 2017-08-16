@@ -85,7 +85,7 @@
     <link href="http://yoursite.com/2017/04/24/canvas/canvas%E5%9F%BA%E7%A1%80/"/>
     <id>http://yoursite.com/2017/04/24/canvas/canvas基础/</id>
     <published>2017-04-24T09:53:00.000Z</published>
-    <updated>2017-04-29T08:38:42.596Z</updated>
+    <updated>2017-04-29T08:38:42.597Z</updated>
     
     <content type="html"><![CDATA[<h1 id="1-canvas"><a href="#1-canvas" class="headerlink" title="1.canvas"></a>1.canvas</h1><p>Canvas API（画布）是在HTML5中新增的标签用于在网页实时生成图像，并且可以操作图像内容，基本上它是一个可以用JavaScript操作的位图（bitmap）。</p>
 <h2 id="1-1SVG-以及VML之间的差异编辑"><a href="#1-1SVG-以及VML之间的差异编辑" class="headerlink" title="1.1SVG 以及VML之间的差异编辑:"></a>1.1SVG 以及VML之间的差异编辑:</h2><p><code>&lt;canvas&gt;</code> 标记和 SVG以及 VML 之间的一个重要的不同是，<code>&lt;canvas&gt;</code> 有一个基于 JavaScript 的绘图 API，而 SVG 和 VML 使用一个 XML 文档来描述绘图。<br>这两种方式在功能上是等同的，任何一种都可以用另一种来模拟。从表面上看，它们很不相同，可是，每一种都有强项和弱点。例如，SVG 绘图很容易编辑，只要从其描述中移除元素就行。<br>要从同一图形的一个 <code>&lt;canvas&gt;</code> 标记中移除元素，往往需要擦掉绘图重新绘制它。</p>
@@ -652,7 +652,7 @@
     <link href="http://yoursite.com/2017/04/22/ife2017/CSS3%E5%AE%9E%E7%8E%B03D%E8%BD%AE%E6%92%AD%E5%9B%BE/"/>
     <id>http://yoursite.com/2017/04/22/ife2017/CSS3实现3D轮播图/</id>
     <published>2017-04-22T15:19:00.000Z</published>
-    <updated>2017-04-23T07:09:25.609Z</updated>
+    <updated>2017-04-23T07:09:25.610Z</updated>
     
     <content type="html"><![CDATA[<h1 id="CSS3实现3D轮播图"><a href="#CSS3实现3D轮播图" class="headerlink" title="CSS3实现3D轮播图"></a>CSS3实现3D轮播图</h1><p><a href="http://ife.baidu.com/course/detail/id/51" target="_blank" rel="external">题目地址</a></p>
 <blockquote>
@@ -925,7 +925,7 @@
     <link href="http://yoursite.com/2017/04/17/ife2017/%E8%87%AA%E5%AE%9A%E4%B9%89checkbox%E3%80%81radio%E6%A0%B7%E5%BC%8F/"/>
     <id>http://yoursite.com/2017/04/17/ife2017/自定义checkbox、radio样式/</id>
     <published>2017-04-17T12:39:00.000Z</published>
-    <updated>2017-04-17T14:35:39.018Z</updated>
+    <updated>2017-04-17T14:35:39.019Z</updated>
     
     <content type="html"><![CDATA[<h1 id="自定义checkbox、radio样式"><a href="#自定义checkbox、radio样式" class="headerlink" title="自定义checkbox、radio样式"></a>自定义checkbox、radio样式</h1><p><a href="http://ife.baidu.com/course/detail/id/23" target="_blank" rel="external">题目地址</a></p>
 <blockquote>
@@ -975,7 +975,7 @@
     <link href="http://yoursite.com/2017/04/16/ife2017/%E6%8E%92%E5%BA%8F%E8%A1%A8%E6%A0%BC/"/>
     <id>http://yoursite.com/2017/04/16/ife2017/排序表格/</id>
     <published>2017-04-16T13:52:00.000Z</published>
-    <updated>2017-04-17T09:33:32.110Z</updated>
+    <updated>2017-04-17T09:33:32.111Z</updated>
     
     <content type="html"><![CDATA[<h1 id="排序表格"><a href="#排序表格" class="headerlink" title="排序表格"></a>排序表格</h1><p><a href="http://ife.baidu.com/course/detail/id/118" target="_blank" rel="external">题目地址</a></p>
 <blockquote>
@@ -1032,7 +1032,7 @@
     <link href="http://yoursite.com/2017/04/13/ife2017/%E6%B5%AE%E5%87%BA%E5%B1%82/"/>
     <id>http://yoursite.com/2017/04/13/ife2017/浮出层/</id>
     <published>2017-04-13T14:35:00.000Z</published>
-    <updated>2017-04-14T12:37:12.983Z</updated>
+    <updated>2017-04-14T12:37:12.984Z</updated>
     
     <content type="html"><![CDATA[<h1 id="浮出层"><a href="#浮出层" class="headerlink" title="浮出层"></a>浮出层</h1><p><a href="http://ife.baidu.com/course/detail/id/115" target="_blank" rel="external">题目地址</a></p>
 <blockquote>
@@ -1091,7 +1091,7 @@
     <link href="http://yoursite.com/2017/04/10/JavaScript/js%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/"/>
     <id>http://yoursite.com/2017/04/10/JavaScript/js对象方法/</id>
     <published>2017-04-10T11:50:00.000Z</published>
-    <updated>2017-04-13T14:39:20.628Z</updated>
+    <updated>2017-04-13T14:39:20.629Z</updated>
     
     <content type="html"><![CDATA[<p>以下内容参考自《深入理解JavaScript》<br><a id="more"></a></p>
 <h1 id="公有方法"><a href="#公有方法" class="headerlink" title="公有方法"></a>公有方法</h1><p>公有方法可以被此构造函数生成的所有实例化对象访问<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Constr</span>(<span class="params">...</span>)</span>&#123;</div><div class="line">    <span class="comment">// 公有属性</span></div><div class="line">    <span class="keyword">this</span>.publicData = ...;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 公有方法</span></div><div class="line">Constr.prototype.publicMethod = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;...&#125;;</div><div class="line"><span class="comment">// or</span></div><div class="line">Constr.prototype = &#123;</div><div class="line">    <span class="attr">constructor</span>: Constr,</div><div class="line">    <span class="attr">publicMethod</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;...&#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -1127,7 +1127,7 @@
     <link href="http://yoursite.com/2017/04/10/ife2017/%E5%90%AC%E6%8C%87%E4%BB%A4%E7%9A%84%E5%B0%8F%E6%96%B9%E5%9D%97/"/>
     <id>http://yoursite.com/2017/04/10/ife2017/听指令的小方块/</id>
     <published>2017-04-10T05:29:00.000Z</published>
-    <updated>2017-04-10T11:19:52.154Z</updated>
+    <updated>2017-04-10T11:19:52.155Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><p><a href="http://ife.baidu.com/course/detail/id/109" target="_blank" rel="external">题目地址</a></p>
 <blockquote>
@@ -1224,7 +1224,7 @@
     <link href="http://yoursite.com/2017/03/29/ife2017/%E8%A1%A8%E5%8D%95/"/>
     <id>http://yoursite.com/2017/03/29/ife2017/表单/</id>
     <published>2017-03-29T14:51:00.000Z</published>
-    <updated>2017-04-05T12:36:33.911Z</updated>
+    <updated>2017-04-05T12:36:33.912Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><p><a href="http://ife.baidu.com/course/detail/id/97" target="_blank" rel="external">题目地址</a></p>
 <blockquote>
@@ -1313,7 +1313,7 @@
     <link href="http://yoursite.com/2017/03/27/ife2017/%E6%82%AC%E6%B5%AE%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C/"/>
     <id>http://yoursite.com/2017/03/27/ife2017/悬浮模糊效果/</id>
     <published>2017-03-27T13:39:00.000Z</published>
-    <updated>2017-03-28T15:25:03.112Z</updated>
+    <updated>2017-08-16T09:33:24.402Z</updated>
     
     <content type="html"><![CDATA[<h1 id="悬浮模糊效果"><a href="#悬浮模糊效果" class="headerlink" title="悬浮模糊效果"></a>悬浮模糊效果</h1><p><a href="http://ife.baidu.com/course/detail/id/14" target="_blank" rel="external">题目地址</a></p>
 <blockquote>
@@ -1327,7 +1327,7 @@
 <p><a href="https://github.com/Lexokid/ife/blob/master/6-1/index.html" target="_blank" rel="external">source</a></p>
 <p><a href="https://lexokid.github.io/ife/6-1/index.html" target="_blank" rel="external">demo</a></p>
 <a id="more"></a>
-<p>这题主要的难点就是文字的流光渐变效果<br>主要跟这五个属性有关<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.demo</span>&#123;</div><div class="line">    <span class="comment">/*前50%颜色组要与后50%颜色组一样且最后100%的颜色要和开头0%的颜色相等*/</span></div><div class="line">    <span class="attribute">background-image</span>: <span class="built_in">-webkit-linear-gradient</span>(left, blue, red 25%, blue 50%, red 75%, blue 100%);</div><div class="line"></div><div class="line">    <span class="comment">/*背景裁剪至文字形状*/</span></div><div class="line">    <span class="attribute">-webkit-background-clip</span>: text;</div><div class="line"></div><div class="line">    <span class="comment">/*文字透明，使背景颜色显示出来*/</span></div><div class="line">    <span class="attribute">color</span>: transparent;</div><div class="line"></div><div class="line">    <span class="comment">/*将背景图宽度拉长至两倍，之前设置background-image的两份相同的颜色组，就是为了能在此拉长后只显示一份颜色组，另外超出的半截颜色组用来实现流光效果*/</span></div><div class="line">    <span class="attribute">background-size</span>: <span class="number">200%</span> <span class="number">100%</span>;</div><div class="line"></div><div class="line">    <span class="comment">/*将背景从0移动到-100%的位置，无限重复即可得到流光渐变效果*/</span></div><div class="line">    <span class="attribute">animation</span>: streamer <span class="number">3s</span> infinite linear;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> streamer&#123;</div><div class="line">    <span class="selector-tag">from</span>&#123;</div><div class="line">        <span class="attribute">background-size</span>: <span class="number">0</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-tag">to</span>&#123;</div><div class="line">        <span class="attribute">background-size</span>: -<span class="number">100%</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这题主要的难点就是文字的流光渐变效果<br>主要跟这五个属性有关<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.demo</span>&#123;</div><div class="line">    <span class="comment">/*前50%颜色组要与后50%颜色组一样且最后100%的颜色要和开头0%的颜色相等*/</span></div><div class="line">    <span class="attribute">background-image</span>: <span class="built_in">-webkit-linear-gradient</span>(left, blue, red 25%, blue 50%, red 75%, blue 100%);</div><div class="line"></div><div class="line">    <span class="comment">/*背景裁剪至文字形状*/</span></div><div class="line">    <span class="attribute">-webkit-background-clip</span>: text;</div><div class="line"></div><div class="line">    <span class="comment">/*文字透明，使背景颜色显示出来*/</span></div><div class="line">    <span class="attribute">color</span>: transparent;</div><div class="line"></div><div class="line">    <span class="comment">/*将背景图宽度拉长至两倍，之前设置background-image的两份相同的颜色组，就是为了能在此拉长后只显示一份颜色组，另外超出的半截颜色组用来实现流光效果*/</span></div><div class="line">    <span class="attribute">background-size</span>: <span class="number">200%</span> <span class="number">100%</span>;</div><div class="line"></div><div class="line">    <span class="comment">/*将背景从0移动到-100%的位置，无限重复即可得到流光渐变效果*/</span></div><div class="line">    <span class="attribute">animation</span>: streamer <span class="number">3s</span> infinite linear;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> streamer&#123;</div><div class="line">    <span class="selector-tag">from</span>&#123;</div><div class="line">        <span class="attribute">background-position</span>: <span class="number">0</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-tag">to</span>&#123;</div><div class="line">        <span class="attribute">background-position</span>: -<span class="number">100%</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>关于background-clip的text选项估计很多人都不知道，我也是遇到这题才知道有这个值<br>而且w3school上也没有这个值（估计是没更新吧，毕竟前端发展蛮快的）<br>关于这题，你仔细观察题目demo会发现有2个细节</p>
 <ol>
 <li>鼠标放上图片时文字有几十像素的向上移动</li>
@@ -1370,7 +1370,7 @@
     <link href="http://yoursite.com/2017/03/23/ife2017/JavaScript%E5%92%8C%E6%A0%91/"/>
     <id>http://yoursite.com/2017/03/23/ife2017/JavaScript和树/</id>
     <published>2017-03-23T15:16:00.000Z</published>
-    <updated>2017-03-26T14:43:30.475Z</updated>
+    <updated>2017-03-26T14:43:30.476Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><p><a href="http://ife.baidu.com/course/detail/id/108" target="_blank" rel="external">题目地址</a></p>
 <blockquote>
@@ -1444,9 +1444,9 @@
     
       <category term="ife" scheme="http://yoursite.com/tags/ife/"/>
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="树" scheme="http://yoursite.com/tags/%E6%A0%91/"/>
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -1455,7 +1455,7 @@
     <link href="http://yoursite.com/2017/03/17/JavaScript/js%E6%8E%92%E5%BA%8F/"/>
     <id>http://yoursite.com/2017/03/17/JavaScript/js排序/</id>
     <published>2017-03-17T12:30:00.000Z</published>
-    <updated>2017-03-25T05:59:40.671Z</updated>
+    <updated>2017-03-25T05:59:40.672Z</updated>
     
     <content type="html"><![CDATA[<p>js的几种排序(从小到大)</p>
 <h1 id="sort排序（推荐）"><a href="#sort排序（推荐）" class="headerlink" title="sort排序（推荐）"></a>sort排序（推荐）</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">systemSort</span>(<span class="params">array</span>)</span>&#123;</div><div class="line">    array.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> a - b;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> array;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -1645,7 +1645,7 @@
     <link href="http://yoursite.com/2017/03/16/css/Gradient/"/>
     <id>http://yoursite.com/2017/03/16/css/Gradient/</id>
     <published>2017-03-16T12:54:00.000Z</published>
-    <updated>2017-03-25T05:59:15.815Z</updated>
+    <updated>2017-03-25T05:59:15.816Z</updated>
     
     <content type="html"><![CDATA[<h1 id="CSS3-Gradient"><a href="#CSS3-Gradient" class="headerlink" title="CSS3 Gradient"></a>CSS3 Gradient</h1><p>Gradient 分为线性渐变 <code>linear-gradient</code> 和径向渐变 <code>radial-gradient</code>。因为很多浏览器需要加前缀，这里为了简单起见，所有的代码都只用最新的webkit标准写法</p>
 <h2 id="线性渐变"><a href="#线性渐变" class="headerlink" title="线性渐变"></a>线性渐变</h2><p>语法<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background</span>: <span class="selector-tag">linear-gradient</span>(<span class="selector-attr">[&lt;point&gt;||&lt;angle&gt;,]</span>? &lt;<span class="selector-tag">stop</span>&gt;, &lt;<span class="selector-tag">stop</span>&gt;<span class="selector-attr">[,&lt;stop&gt;]</span>*)</div></pre></td></tr></table></figure></p>
