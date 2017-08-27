@@ -1,0 +1,960 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,ife,PhantomJS,MongoDB,Nodejs," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lexokid的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="网页抓取分析服务系列之一（基础分析）题目地址
+
+任务描述
+
+
+编写一个task.js脚本，参考官网的includeJs方法，实现根据传入的参数（关键字），抓取百度第一页对应该关键字的搜索结果。
+将结果输出为json string回显。
+回显的格式为
+
+1234567891011121314&amp;#123;    code: 1, //返回状态码，1为成功，0为失败    msg: &amp;apos;抓取成功">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网页抓取分析服务系列">
+<meta property="og:url" content="http://yoursite.com/2017/08/16/ife2017/网页抓取分析服务系列/index.html">
+<meta property="og:site_name" content="Lexokid的博客">
+<meta property="og:description" content="网页抓取分析服务系列之一（基础分析）题目地址
+
+任务描述
+
+
+编写一个task.js脚本，参考官网的includeJs方法，实现根据传入的参数（关键字），抓取百度第一页对应该关键字的搜索结果。
+将结果输出为json string回显。
+回显的格式为
+
+1234567891011121314&amp;#123;    code: 1, //返回状态码，1为成功，0为失败    msg: &amp;apos;抓取成功">
+<meta property="og:image" content="https://github.com/Lexokid/ife/blob/master/crawler/preview%20(1).png?raw=true">
+<meta property="og:image" content="https://github.com/Lexokid/ife/blob/master/crawler/preview%20(2).png?raw=true">
+<meta property="og:image" content="https://github.com/Lexokid/ife/blob/master/crawler/preview%20(3).png?raw=true">
+<meta property="og:updated_time" content="2017-08-27T12:20:17.672Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网页抓取分析服务系列">
+<meta name="twitter:description" content="网页抓取分析服务系列之一（基础分析）题目地址
+
+任务描述
+
+
+编写一个task.js脚本，参考官网的includeJs方法，实现根据传入的参数（关键字），抓取百度第一页对应该关键字的搜索结果。
+将结果输出为json string回显。
+回显的格式为
+
+1234567891011121314&amp;#123;    code: 1, //返回状态码，1为成功，0为失败    msg: &amp;apos;抓取成功">
+<meta name="twitter:image" content="https://github.com/Lexokid/ife/blob/master/crawler/preview%20(1).png?raw=true">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/16/ife2017/网页抓取分析服务系列/"/>
+
+
+  <title> 网页抓取分析服务系列 | Lexokid的博客 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lexokid的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                网页抓取分析服务系列
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-16T15:53:00+08:00" content="2017-08-16">
+              2017-08-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ife/" itemprop="url" rel="index">
+                    <span itemprop="name">ife</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="网页抓取分析服务系列之一（基础分析）"><a href="#网页抓取分析服务系列之一（基础分析）" class="headerlink" title="网页抓取分析服务系列之一（基础分析）"></a>网页抓取分析服务系列之一（基础分析）</h1><p><a href="http://ife.baidu.com/course/detail/id/8" target="_blank" rel="external">题目地址</a></p>
+<blockquote>
+<p>任务描述</p>
+</blockquote>
+<ul>
+<li>编写一个task.js脚本，参考官网的includeJs方法，实现根据传入的参数（关键字），抓取百度第一页对应该关键字的搜索结果。</li>
+<li>将结果输出为json string回显。</li>
+<li>回显的格式为</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    code: 1, //返回状态码，1为成功，0为失败</div><div class="line">    msg: &apos;抓取成功&apos;, //返回的信息</div><div class="line">    word: &apos;示例关键字&apos;, //抓取的关键字</div><div class="line">    time: 2000, //任务的时间</div><div class="line">    dataList:[   //抓取结果列表</div><div class="line">        &#123;</div><div class="line">            title: &apos;&apos;,  //结果条目的标题</div><div class="line">            info: &apos;&apos;, //摘要</div><div class="line">            link: &apos;&apos;, //链接            </div><div class="line">            pic: &apos;&apos; //缩略图地址</div><div class="line">            &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="https://github.com/Lexokid/ife/blob/master/phantom/task.js" target="_blank" rel="external">source</a></p>
+<a id="more"></a>
+<p>距离上一次的发文已经距离三个月了，学校的事情比较多就一直没时间继续刷ife的题（感觉是因为懒），现在放假在家有时间学习想学的了<br>好了不废话了，这一次的学习内容貌似是学习用phantomjs来进行网页抓取分析服务<br>phantomjs是一个基于QTwebkit的没有UI界面的无头浏览器（无头是什么意思），具体是什么百度一下就有很多内容了，我就不说了<br>关于使用方法和api我也不说了看官方文档就行底下有<br>我要说的是遇到的坑：</p>
+<p>1.不能用es6的语法。<br>一开始我用es6的语法去写结果运行就会假死，也没有任何提示，一下子就不知道是什么原因造成的，最后对比别人写的去找原因才发现是不能用es6的语法，个人认为是QTwebkit2.2不支持es6的语法</p>
+<p>2.在page.includeJs()方法时phantom.exit()要放在page.includeJs()的回调函数之中。<br>这问题我也找了很久，直到看到了阮一峰的的博客才发现，啊。。page.includeJs()的回调函数是异步的啊，如果写在page.open()中就会导致外部脚本还未加载就提前退出程序了</p>
+<p>3.在page.evaluate()无法访问phantom的对象（也就是回调函数无法访问外层的变量）<br>也许是因为page.evaluate()是在在沙箱中执行,所有无法访问phantom的对象，但可以通过传递多个参数进行访问</p>
+<h1 id="网页抓取分析服务系列之二（设备模拟）"><a href="#网页抓取分析服务系列之二（设备模拟）" class="headerlink" title="网页抓取分析服务系列之二（设备模拟）"></a>网页抓取分析服务系列之二（设备模拟）</h1><p><a href="http://ife.baidu.com/course/detail/id/86" target="_blank" rel="external">题目地址</a></p>
+<blockquote>
+<p>任务描述</p>
+</blockquote>
+<ul>
+<li>观察chrome开发者工具中device toolbar，切换到不同的device，查看浏览器BOM数据有何变化</li>
+<li>把device toolbar中不同的device名对应的ua和尺寸信息记录下来，保存为配置文件</li>
+<li>在任务1的基础上，增加一个参数，表示device信息，taskjs中，解析该参数并从配置文件找到对应的ua和尺寸，完成设置后再抓取</li>
+<li>在结果中也增加一个device字段保存传入的设备名</li>
+</ul>
+<p><a href="https://github.com/Lexokid/ife/blob/master/phantom/task2.js" target="_blank" rel="external">source</a></p>
+<p>这题在上一题的基础上增加了设备模拟功能，唯一的麻烦在于不同分辨率的设备要获取的内容的类名不一样，这时只需要给每个设备增加一个字段进行区别，然后根据不同的类名获取内容即可</p>
+<h1 id="网页抓取分析服务系列之三（服务封装）"><a href="#网页抓取分析服务系列之三（服务封装）" class="headerlink" title="网页抓取分析服务系列之三（服务封装）"></a>网页抓取分析服务系列之三（服务封装）</h1><p><a href="http://ife.baidu.com/course/detail/id/87" target="_blank" rel="external">题目地址</a></p>
+<blockquote>
+<p>任务描述</p>
+</blockquote>
+<ul>
+<li>安装nodejs和mongodb</li>
+<li>利用nodejs的HTTP模块封装一个node服务，监听8000端口，接受一个参数（关键字），http模块示例参考如下：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);  </div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">request, response</span>) </span>&#123;  </div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'request received'</span>);  </div><div class="line">        response.writeHead(<span class="number">200</span>, &#123;<span class="string">"Content-Type"</span>: <span class="string">"text/plain"</span>&#125;);  </div><div class="line">        response.write(<span class="string">"Hello World"</span>);  </div><div class="line">        response.end();  </div><div class="line">&#125;).listen(<span class="number">8000</span>);  </div><div class="line"><span class="built_in">console</span>.log(<span class="string">'server started'</span>);</div></pre></td></tr></table></figure>
+<ul>
+<li>收到请求后，启动phantomjs进程执行taskjs，并将接受到的参数传递给phantomjs</li>
+<li>phantomjs执行完后告诉node服务，并传回抓取的json结果</li>
+<li>node服务将结果存到mongodb中（使用mogoose）</li>
+</ul>
+<p><a href="https://github.com/Lexokid/ife/blob/master/phantom/task3.js" target="_blank" rel="external">source</a></p>
+<p>在这题中又多用到了两个软件，一个是nodejs，另一个是mongoDB</p>
+<p><a href="https://nodejs.org/en/download/" target="_blank" rel="external">nodejs 下载</a><br><a href="https://www.mongodb.com/download-center?jmp=nav#community" target="_blank" rel="external">mongoDB 下载</a></p>
+<p>这两个软件安装都不难，nodejs装完就可以用了，mongoDB装完后还需要配置数据库路径，记得将这两个软件添加到环境变量中</p>
+<h2 id="mongoDB安装"><a href="#mongoDB安装" class="headerlink" title="mongoDB安装"></a>mongoDB安装</h2><p>MongoDB服务器命令提示符下运行：<br>1.前期的安装不会生成数据目录，需要自己创建，选区一个磁盘创建路径X:\data\db（X代表盘符）<br>2.运行cmd执行 <code>mongod --dbpath x:\data\db</code>（前提你已经将mongoDB的bin目录添加至环境变量中）执行成功会输出一大堆日志信息<br>3.保持之前的cmd窗口，再打开一个cmd窗口来运行mongo，这样就可以进行数据库的操作了</p>
+<p>由于每次运行都要重复2、3步，并且运行mongod的cmd不能退出，不然mongo就无法连接到数据库<br>因此将mongodb服务器安装为windows服务可以解决此问题</p>
+<p>4.新建一个日志目录X:\data\log<br>5.<strong>必须是以管理员身份运行cmd</strong><br>6.<code>mongod --logpath &quot;X:\data\log\mongodb.log&quot; --logappend --dbpath &quot;X:\data\db&quot; --serviceName &quot;MongoDB&quot; --install</code><br>7.<code>net start mongodb</code>即可运行服务，可以访问localhost:27017来查看是否开启服务<br>8.<code>net stop mongodb</code>可停止服务<br>以后重复5、7、8步即可</p>
+<p>注：如果操作过程中，出现服务器无法正常启动的问题，尝试删除X:\data\db里面的mongod.lock这个文件，因为在上次服务器退出异常时，这个文件会将服务器锁住</p>
+<p>这题最大的坑是cmd中文的编码问题，当然不解决也没什么大问题，本着尽量完美的原则，我想了几个办法：</p>
+<p>1.响应头增加<code>charset=gbk</code>使浏览器用gbk的编码打开网页，执行exec()的第二个参数为{encoding:’buffer’}，这样可以拿到为buffer类型的结果，然后response.write(stdout)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">response.writeHead(<span class="number">200</span>, &#123;</div><div class="line">    <span class="string">'Content-Type'</span>: <span class="string">'application/json;charset=gbk'</span>,</div><div class="line">&#125;);</div><div class="line">...</div><div class="line">exec(cmdstr,&#123;<span class="attr">encoding</span>:<span class="string">'buffer'</span>&#125;,(err, stdout, stderr) =&gt;&#123;</div><div class="line">    ...</div><div class="line">    res.write(stdout);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>但是这种方法并不理想，因为数据库存储的的还是gbk编码的中文还是会乱码，而且浏览器用gbk的编码打开网页就会造成其他utf8编码的中文会乱码</p>
+<p>2.使用iconv-lite模块可以将gbk编码真正转化为utf8编码，iconv-lite还支持其他的编码<a href="https://github.com/ashtuchkin/iconv-lite/wiki/Supported-Encodings" target="_blank" rel="external">Supported Encodings</a><br>在这题中我用的就是这个方法<br>首先安装该模块<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install iconv-lite --save</div></pre></td></tr></table></figure></p>
+<p>然后exec依旧采用buffer编码方便iconv-lite转码，官方文档说decode最好为buffer类型<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> iconv = <span class="built_in">require</span>(<span class="string">'iconv-lite'</span>);</div><div class="line">exec(cmdstr,&#123;<span class="attr">encoding</span>:<span class="string">'buffer'</span>&#125;,(err, stdout, stderr) =&gt;&#123;</div><div class="line">    ...</div><div class="line">    let utf8str = iconv.decode(stdout, <span class="string">'gbk'</span>);</div><div class="line">    ...</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>接下来就可以存进数据库里了</p>
+<ol>
+<li>引入phantom模块，用phantom爬取数据</li>
+</ol>
+<h1 id="网页抓取分析服务系列之四（数据交互）"><a href="#网页抓取分析服务系列之四（数据交互）" class="headerlink" title="网页抓取分析服务系列之四（数据交互）"></a>网页抓取分析服务系列之四（数据交互）</h1><p><a href="http://ife.baidu.com/course/detail/id/88" target="_blank" rel="external">题目地址</a></p>
+<blockquote>
+<p>任务描述</p>
+</blockquote>
+<ul>
+<li>开发对应的前端界面，使用技术栈不限，越简单越好。输入包含一个输入框（输入关键字），一个下拉列表（选择对应的UL），一个提交按钮。</li>
+<li>关键字输入做不能为空的校验，输入后发起异步请求，请求上阶段的服务。</li>
+<li>在上阶段的服务中增加一个数据二次处理功能，对于返回的结果中有缩略图片的，下载图片到本地，并确保下载后的图片能被访问。</li>
+<li>入库后，返回信息给前端，前端展示对应的抓取结果，以表格展示，图片加载本地已下载的图片</li>
+</ul>
+<p><a href="https://github.com/Lexokid/ife/blob/master/crawler" target="_blank" rel="external">source</a></p>
+<p>预览：</p>
+<p><img src="https://github.com/Lexokid/ife/blob/master/crawler/preview%20(1).png?raw=true"><br><img src="https://github.com/Lexokid/ife/blob/master/crawler/preview%20(2).png?raw=true"><br><img src="https://github.com/Lexokid/ife/blob/master/crawler/preview%20(3).png?raw=true"></p>
+<p>这题相对于上题改动看起来貌似不多，但实现起来却有些麻烦<br>首先我采用了MVC的设计模式，对上一个任务进行了简单的重构<br>其次我将phantomjs改用了node的phantom模块，这样可以不用对中文转码<br>上面都不是我想说的，我想说的是我这次最大的收获就是稍微理解了点异步编程的思想，了解了async函数和Promise的用法<br>至于这次我遇到的坑和注意点我都在代码的注释里写有，程序猿还是靠代码说话比较靠谱</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://phantomjs.org/api/" target="_blank" rel="external">phantomjs api</a><br><a href="http://javascript.ruanyifeng.com/tool/phantomjs.html" target="_blank" rel="external">来自《JavaScript 标准参考教程（alpha）》，by 阮一峰</a><br><a href="https://nodejs.org/dist/latest-v8.x/docs/api/" target="_blank" rel="external">nodejs v8.x api</a><br><a href="http://nodejs.cn/api/" target="_blank" rel="external">nodejs 中文文档</a><br><a href="http://blog.csdn.net/zpalyq110/article/details/73740260" target="_blank" rel="external">mongodb 安装</a><br><a href="http://www.runoob.com/mongodb/mongodb-tutorial.html" target="_blank" rel="external">mongodb 教程</a><br><a href="http://www.nodeclass.com/api/mongoose.html" target="_blank" rel="external">mongoose 文档</a><br><a href="https://github.com/StevenSLXie/Tutorials-for-Web-Developers/blob/master/MongoDB%20%E6%9E%81%E7%AE%80%E5%AE%9E%E8%B7%B5%E5%85%A5%E9%97%A8.md" target="_blank" rel="external">MongoDB 极简实践入门</a><br><a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434501628911140e1cb6ce7d42e5af81480f7ecd5802000" target="_blank" rel="external">使用MVC</a><br><a href="http://es6.ruanyifeng.com/#docs/async" target="_blank" rel="external">async 函数</a><br><a href="http://mozilla.github.io/nunjucks/templating.html" target="_blank" rel="external">nunjucks document</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+            <a href="/tags/ife/" rel="tag">#ife</a>
+          
+            <a href="/tags/PhantomJS/" rel="tag">#PhantomJS</a>
+          
+            <a href="/tags/MongoDB/" rel="tag">#MongoDB</a>
+          
+            <a href="/tags/Nodejs/" rel="tag">#Nodejs</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/13/ife2017/色彩选择器/" rel="next" title="色彩选择器">
+                <i class="fa fa-chevron-left"></i> 色彩选择器
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Lexokid" />
+          <p class="site-author-name" itemprop="name">Lexokid</p>
+          <p class="site-description motion-element" itemprop="description">爱游戏、爱二次元、爱gakki，想成为技术大牛</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">45</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Lexokid" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="tencent://message/?uin=641766992&Site=&Menu=yes" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  QQ
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.w3school.com.cn/" title="w3school" target="_blank">w3school</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://developer.mozilla.org/zh-CN/" title="MDN" target="_blank">MDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://segmentfault.com/" title="segmentfault" target="_blank">segmentfault</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/" title="GitHub" target="_blank">GitHub</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.alloyteam.com/" title="AlloyTeam" target="_blank">AlloyTeam</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.w3cplus.com/" title="w3cplus" target="_blank">w3cplus</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://efe.baidu.com/" title="百度EFE" target="_blank">百度EFE</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.csdn.net/" title="CSDN" target="_blank">CSDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.imooc.com/" title="慕课网" target="_blank">慕课网</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.w3cfuns.com/" title="前端网" target="_blank">前端网</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.freebuf.com/" title="freebuf" target="_blank">freebuf</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.zybuluo.com/mdeditor" title="MD编辑器" target="_blank">MD编辑器</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网页抓取分析服务系列之一（基础分析）"><span class="nav-number">1.</span> <span class="nav-text">网页抓取分析服务系列之一（基础分析）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网页抓取分析服务系列之二（设备模拟）"><span class="nav-number">2.</span> <span class="nav-text">网页抓取分析服务系列之二（设备模拟）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网页抓取分析服务系列之三（服务封装）"><span class="nav-number">3.</span> <span class="nav-text">网页抓取分析服务系列之三（服务封装）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mongoDB安装"><span class="nav-number">3.1.</span> <span class="nav-text">mongoDB安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网页抓取分析服务系列之四（数据交互）"><span class="nav-number">4.</span> <span class="nav-text">网页抓取分析服务系列之四（数据交互）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lexokid</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
