@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[vue仿网易云音乐]]></title>
     <url>%2F2017%2F10%2F14%2Fvue%2Fvue%E4%BB%BF%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%2F</url>
-    <content type="text"><![CDATA[简介本项目是一个从零开始学习vue的练手项目，用了vue全家桶（vue+vue-router+vuex） 想在学习vue时配合实践，做的是一个仿照网易云音乐（andriod）app的spa，用了网易云音乐的api，可以进行登录（只能用手机号进行登录），可以播放歌单里的歌等，只完成了播放器最基本的功能 虽然做的不多但我从之中学到了许多的知识，除了对vue的基本用法和概念，还有html5的audio标签的使用和localStorage的使用和跨域的知识，对spa也有了基本的认识 由于本人也是一个前端小白，对vue也是第一次接触，所以本项目也有许多不足之处，还需要进行多多进行学习和改进，希望看到不足之处的各位能提出宝贵的意见，让我们共同学习和进步 在线预览建议用手机的chrome浏览器进行预览（未做浏览器之间的兼容）由于云主机的带宽小，所有加载会比较慢 http://123.207.98.119 界面预览登录 歌单 播放 改变进度 切换歌曲 中、英歌词 参考资料vue教程vue-router教程vuex教程网易云音乐的apilocalStorage APIaudio标签audio事件audio APIaxios 中文说明History 模式下的静态服务器HTTP访问控制（CORS）IFmiss/vue-music]]></content>
+    <content type="text"><![CDATA[简介本项目是一个从零开始学习vue的练手项目，用了vue全家桶（vue+vue-router+vuex） 想在学习vue时配合实践，做的是一个仿照网易云音乐（andriod）app的spa，用了网易云音乐的api，可以进行登录（只能用手机号进行登录），可以播放歌单里的歌等，只完成了播放器最基本的功能 感受对于这个项目前前后后用了20天左右才完成，比想象的时间要多，因为从零接触要学习的也比较多，先是看了一遍vue的教程，接着是学习webpack和插件的用法，接下来才是正式开始写，在这之中真是遇到了许多大大小小的问题，由于身边没有可以请教的人，解决问题起来可是麻烦了，只能靠自己上网寻求解决方案和一些自己想当然得做法，对于有些逻辑没有用到最优的解决方案，会产生这些问题都是因为自己的经验不足造成的 虽然做的内容并不多但我从之中学到了许多的知识，除了对vue的基本用法和概念，还有html5的audio标签的使用和localStorage的使用和跨域的知识，对spa也有了基本的认识，以后有时间将会对以上知识进行整理写成文章 在线预览建议用手机的chrome浏览器进行预览（未做浏览器之间的兼容）由于云主机的带宽小，所有加载会比较慢 http://123.207.98.119 界面预览登录 歌单 播放 改变进度 切换歌曲 中、英歌词 参考资料vue教程vue-router教程vuex教程网易云音乐的apilocalStorage APIaudio标签audio事件audio APIaxios 中文说明History 模式下的静态服务器HTTP访问控制（CORS）IFmiss/vue-music]]></content>
       <categories>
         <category>vue</category>
       </categories>
