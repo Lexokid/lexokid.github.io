@@ -285,6 +285,123 @@
             
               
                 
+                <a class="post-title-link" href="/2018/03/21/JavaScript/牛客网—剑指offer（2）/" itemprop="url">
+                  牛客网—剑指offer（2）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-03-21T15:57:48+08:00" content="2018-03-21">
+              2018-03-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="1-斐波那契数列"><a href="#1-斐波那契数列" class="headerlink" title="1.斐波那契数列"></a>1.斐波那契数列</h2><p><strong>题目描述</strong><br>大家都知道<a href="https://baike.baidu.com/item/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/99145" target="_blank" rel="external">斐波那契数列</a>，现在要求输入一个整数n，请你输出斐波那契数列的第n项。<br>n&lt;=39</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// stackoverflow</span></div><div class="line"><span class="comment">// function Fibonacci(n)&#123;</span></div><div class="line"><span class="comment">//   if(n === 0)&#123;</span></div><div class="line"><span class="comment">//     return 0;</span></div><div class="line"><span class="comment">//   &#125;else if(n === 1)&#123;</span></div><div class="line"><span class="comment">//     return 1;</span></div><div class="line"><span class="comment">//   &#125;else&#123;</span></div><div class="line"><span class="comment">//     return Fibonacci(n-1)+Fibonacci(n-2);</span></div><div class="line"><span class="comment">//   &#125;</span></div><div class="line"><span class="comment">// &#125;</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fibonacci</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> f = <span class="number">0</span>;</div><div class="line">  <span class="keyword">var</span> g = <span class="number">1</span>;</div><div class="line">  <span class="keyword">while</span>(n--)&#123;</div><div class="line">    g += f;</div><div class="line">    f = g - f;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> f;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>思路</strong><br>斐波那契数列<br>F(0)=0，F(1)=1, F(n)=F(n-1)+F(n-2)（n&gt;=2，n∈N*）<br>在这里用递归是行不通的，测试用例会有个非常大的值会导致stackoverflow<br>首先什么是动态规划，了解一下<br><a href="https://www.zhihu.com/question/23995189" target="_blank" rel="external">什么是动态规划？动态规划的意义是什么？ - 知乎</a><br>看完了貌似懂了一点点，又貌似什么都不懂<br>反正对于这题来讲就是以一定的空间代价换取重复的大量计算<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">n&gt;=1</div><div class="line">根据前两个状态计算下一个状态</div><div class="line">f        g      g</div><div class="line">f(n-1) + f(n) = f(n+1)</div><div class="line">更新f变量</div><div class="line">g        f        f</div><div class="line">f(n+1) - f(n-1) = f(n)</div></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/03/21/JavaScript/牛客网—剑指offer（2）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/03/20/JavaScript/牛客网—剑指offer（1）/" itemprop="url">
                   牛客网—剑指offer（1）
                 </a>
@@ -1105,135 +1222,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/22/ife2017/CSS3实现3D轮播图/" itemprop="url">
-                  CSS3实现3D轮播图
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-22T23:19:00+08:00" content="2017-04-22">
-              2017-04-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/ife/" itemprop="url" rel="index">
-                    <span itemprop="name">ife</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="CSS3实现3D轮播图"><a href="#CSS3实现3D轮播图" class="headerlink" title="CSS3实现3D轮播图"></a>CSS3实现3D轮播图</h1><p><a href="http://ife.baidu.com/course/detail/id/51" target="_blank" rel="external">题目地址</a></p>
-<blockquote>
-<p>任务描述</p>
-</blockquote>
-<ul>
-<li>实现图示效果<a href="https://ww1.sinaimg.cn/large/006tNbRwly1fcr5jr0994g30w30gx4qz.gif" target="_blank" rel="external">点击查看</a></li>
-<li>只需要完成HTML，CSS代码编写，需要写一点JavaScript</li>
-<li>需要有一定的数学计算</li>
-<li>可以尝试不同的逻辑处理：如点击切换，滑动切换等等</li>
-<li>示例图仅为参考，不需要完全实现一致，其中的图片、文案均可自行设定</li>
-<li>尽可能多地尝试不同的、更多的样式设定来实践各种CSS属性</li>
-<li>HTML 及 CSS 代码结构清晰、规范</li>
-</ul>
-<p><a href="https://github.com/Lexokid/ife/blob/master/6-13/index.html" target="_blank" rel="external">source</a></p>
-<p><a href="https://lexokid.github.io/ife/6-13/index.html" target="_blank" rel="external">demo</a></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/22/ife2017/CSS3实现3D轮播图/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1279,7 +1267,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">49</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

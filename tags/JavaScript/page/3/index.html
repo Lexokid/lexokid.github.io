@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="MySql,语法," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -86,18 +86,16 @@
 
 
 
-<meta name="description" content="字符函数CONCAT(char1,char2…) 将括号内的字符进行连接CONCAT_WS(sep,char1,char2…) 将字符进行连接，字符间用sep分开FORMAT(char_num,num) 将char_num进行格式化，保留num位小数，返回字符型结果LOWER(char) 转化成小写字母UPPER(char) 转化成大写字母LEFT(char,num) 获取char中左侧num个字">
-<meta name="keywords" content="MySql,语法">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MySql零接触(7)">
-<meta property="og:url" content="http://yoursite.com/2017/02/10/MySql/MySql零接触(7)/index.html">
+<meta name="description" content="爱游戏、爱二次元、爱gakki，想成为技术大牛">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lexokid的博客">
+<meta property="og:url" content="http://yoursite.com/tags/JavaScript/page/3/index.html">
 <meta property="og:site_name" content="Lexokid的博客">
-<meta property="og:description" content="字符函数CONCAT(char1,char2…) 将括号内的字符进行连接CONCAT_WS(sep,char1,char2…) 将字符进行连接，字符间用sep分开FORMAT(char_num,num) 将char_num进行格式化，保留num位小数，返回字符型结果LOWER(char) 转化成小写字母UPPER(char) 转化成大写字母LEFT(char,num) 获取char中左侧num个字">
+<meta property="og:description" content="爱游戏、爱二次元、爱gakki，想成为技术大牛">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-03-25T06:00:32.147Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySql零接触(7)">
-<meta name="twitter:description" content="字符函数CONCAT(char1,char2…) 将括号内的字符进行连接CONCAT_WS(sep,char1,char2…) 将字符进行连接，字符间用sep分开FORMAT(char_num,num) 将char_num进行格式化，保留num位小数，返回字符型结果LOWER(char) 转化成小写字母UPPER(char) 转化成大写字母LEFT(char,num) 获取char中左侧num个字">
+<meta name="twitter:title" content="Lexokid的博客">
+<meta name="twitter:description" content="爱游戏、爱二次元、爱gakki，想成为技术大牛">
 
 
 
@@ -118,10 +116,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/10/MySql/MySql零接触(7)/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/JavaScript/page/3/"/>
 
 
-  <title> MySql零接触(7) | Lexokid的博客 </title>
+  <title> 标签: JavaScript | Lexokid的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -142,7 +140,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -263,161 +261,50 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                MySql零接触(7)
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-10T15:24:54+08:00" content="2017-02-10">
-              2017-02-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/MySql/" itemprop="url" rel="index">
-                    <span itemprop="name">MySql</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h2 id="字符函数"><a href="#字符函数" class="headerlink" title="字符函数"></a>字符函数</h2><p>CONCAT(char1,char2…) 将括号内的字符进行连接<br>CONCAT_WS(sep,char1,char2…) 将字符进行连接，字符间用sep分开<br>FORMAT(char_num,num) 将char_num进行格式化，保留num位小数，返回字符型结果<br>LOWER(char) 转化成小写字母<br>UPPER(char) 转化成大写字母<br>LEFT(char,num) 获取char中左侧num个字符<br>RIGHT(char,num) 获取char中右侧num个字符<br>LENGTH(char) 返回字符串长度（空格也算在长度内）<br>LTRIM(char) 删除前导空格<br>RTRIM(char) 删除后续空格<br>TRIM(char) 删除前导和后续空格<br>TRIM(LEADING char1 FROM char2) 删除char2中的前导char1<br>TRIM(TRAILING char2 FROM char2) 删除char2中的后续char1<br>TRIM(BOTH char1 FROM char2) 删除char2中的前导和后续char1<br>REPLACE(char1,char2,char3) 将char1中的char2替换成char3。可用空格替换。<br>SUBSTRING(char,num1,num2) 在char中，从num1开始，截取num2个字符串（字符串从1开始）。如果缺省num2，则自num1开始截取到末尾。如果num1&lt;0，则倒取。<br>[NOT] LIKE 模式匹配。%代表任意个字符，_代表任意一个字符。若要查找%或_，可写成LIKE ‘%1%%’ EXCAPE ‘1’; //1后面的不用进行解析</p>
-<a id="more"></a>
-<hr>
-<h2 id="数值运算符与函数"><a href="#数值运算符与函数" class="headerlink" title="数值运算符与函数"></a>数值运算符与函数</h2><p>CEIL(num) num向上取整<br>FLOOR(num) num向下取整<br>DIV 整数除法，小于1取0<br>MOD 取余数，等价于%<br>POWER(num1,num2) 取num1的num2次方<br>ROUND(num1,num2) 对num1后的num2位小数进行四舍五入<br>TRUNCATE(num1,num2) 对num1后的num2位小数进行截断(不进行四舍五入)</p>
-<hr>
-<h2 id="比较运算符与函数"><a href="#比较运算符与函数" class="headerlink" title="比较运算符与函数"></a>比较运算符与函数</h2><p>1.[NOT] BETWEEN…AND…   [不]在范围之内<br>2.[NOT] IN()               [不]在列出值范围内<br>3.IS [NOT] NULL            [不]为空</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="number">15</span> BETWEEND <span class="number">1</span> <span class="keyword">AND</span> <span class="number">20</span>;   <span class="comment">--返回1，15在1到20范围内</span></div><div class="line"><span class="keyword">SELECT</span> <span class="number">15</span> <span class="keyword">NOT</span> BETWEEND <span class="number">1</span> <span class="keyword">AND</span> <span class="number">20</span>;    <span class="comment">--返回0，15不在1到20之间,条件不成立 返回值是0</span></div><div class="line"><span class="keyword">SELECT</span> <span class="number">10</span> <span class="keyword">IN</span>(<span class="number">5</span>,<span class="number">10</span>,<span class="number">15</span>);    <span class="comment">--返回1，值是否在给定的数值中,条件成立为1不成立为0</span></div><div class="line"><span class="keyword">SELECT</span> <span class="number">10</span> <span class="keyword">NOT</span> <span class="keyword">IN</span>(<span class="number">5</span>,<span class="number">10</span>,<span class="number">15</span>);    <span class="comment">--返回0，数值是否不在给定的数值中,条件成立为1不成立为0</span></div><div class="line"><span class="keyword">SELECT</span> <span class="literal">NULL</span> <span class="keyword">IS</span> <span class="literal">NULL</span>;    <span class="comment">--返回1，空是空 条件成立返回1,不成立返回0</span></div><div class="line"><span class="keyword">SELECT</span> <span class="string">''</span> <span class="keyword">IS</span> <span class="literal">NULL</span>;    <span class="comment">--返回0，除了NULL空其它都是非空 返回都是0</span></div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> abc <span class="keyword">WHERE</span> <span class="keyword">id</span> <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>;    <span class="comment">--查找abc表中id不为NULL的列</span></div></pre></td></tr></table></figure>
-<hr>
-<h2 id="日期时间函数"><a href="#日期时间函数" class="headerlink" title="日期时间函数"></a>日期时间函数</h2><p>NOW() 当前时间 含日期时间<br>CURDATE() 当前日期 只有日期<br>CURTIME() 当前时间 只有时间<br>DATE_ADD() 日期变化（时间增减或减少）<br>DATEDIFF() 日期差值<br>DATE_FORMAT() 日期格式化<br>例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">DATE_ADD</span>(<span class="string">'2014-3-12'</span>,<span class="built_in">INTERVAL</span> <span class="number">365</span> <span class="keyword">DAY</span>); <span class="comment">-- 2015-3-12 --在原有给定的时间上增加365天</span></div><div class="line"><span class="comment">--INTERVAL增加可以增加负值 单位 year,month,week,day</span></div><div class="line"></div><div class="line"><span class="keyword">SELECT</span> <span class="keyword">DATEDIFF</span>(<span class="string">'2014-1-1'</span>,<span class="string">'2015-1-1'</span>) <span class="comment">-- -365</span></div><div class="line"><span class="comment">--时间差值计算 单位为日 前面时间减去后面时间</span></div><div class="line"></div><div class="line"><span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>(<span class="string">'2014-3-2'</span>,<span class="string">'%m/%d/%y'</span>); <span class="comment">-- 03/02/2014</span></div><div class="line"><span class="comment">--日期格式转换</span></div></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="信息函数"><a href="#信息函数" class="headerlink" title="信息函数"></a>信息函数</h2><p>CONNECTION_ID(); 连接ID<br>SELECT DATABASE(); 当前数据库<br>LAST_INSERT_ID(); 最后插入记录的 ID 号（所查询的数据表必须有一个自动编号的列才能使用这个语句进行查询），如果是一次insert中插入的是多条记录，得到的是多条中的第一条（而不是最后一条！）<br>VERSION(); 版本的信息<br>USER(); 当前用户</p>
-<hr>
-<h2 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h2><p>聚合函数的共同特点：只有一个返回值<br>AVG() 平均值<br>COUNT() 计数<br>MAX() 最大值<br>MIN() 最小值<br>SUM() 求和</p>
-<hr>
-<h2 id="加密函数"><a href="#加密函数" class="headerlink" title="加密函数"></a>加密函数</h2><p>MD5(char) 信息摘要算法，针对web页面的数据库。<br>PASSWORD(char) 密码算法，针对修改当前用户和其他用户的密码。修改客户端密码SET PASSWORD=PASSWORD(‘密码’)。</p>
-
-      
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        JavaScript
+        <small>标签</small>
+      </h2>
     </div>
 
-    <div>
+    
       
+
+  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-
-      
-    </div>
-
-    <div>
-      
+            <a class="post-title-link" href="/2017/01/13/JavaScript/原始值和对象/" itemprop="url">
+              
+                <span itemprop="name">原始值和对象</span>
+              
+            </a>
         
+      </h1>
 
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-01-13T15:52:00+08:00"
+              content="2017-01-13" >
+          01-13
+        </time>
+      </div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/MySql/" rel="tag">#MySql</a>
-          
-            <a href="/tags/语法/" rel="tag">#语法</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/02/08/MySql/MySql零接触(6)/" rel="next" title="MySql零接触(6)">
-                <i class="fa fa-chevron-left"></i> MySql零接触(6)
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/11/MySql/MySql零接触(8)/" rel="prev" title="MySql零接触(8)">
-                MySql零接触(8) <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
-      
-    </div>
+    
   </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/tags/JavaScript/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/tags/JavaScript/">1</a><a class="page-number" href="/tags/JavaScript/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
 
 
           </div>
@@ -425,10 +312,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -448,17 +331,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -594,17 +468,6 @@
       </section>
 
       
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符函数"><span class="nav-number">1.</span> <span class="nav-text">字符函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数值运算符与函数"><span class="nav-number">2.</span> <span class="nav-text">数值运算符与函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较运算符与函数"><span class="nav-number">3.</span> <span class="nav-text">比较运算符与函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期时间函数"><span class="nav-number">4.</span> <span class="nav-text">日期时间函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息函数"><span class="nav-number">5.</span> <span class="nav-text">信息函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#聚合函数"><span class="nav-number">6.</span> <span class="nav-text">聚合函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加密函数"><span class="nav-number">7.</span> <span class="nav-text">加密函数</span></a></li></ol></div>
-            
-          </div>
-        </section>
-      
 
     </div>
   </aside>
@@ -707,10 +570,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
-
-
 
   
 
