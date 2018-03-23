@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Lexokid的博客">
 <meta property="og:description" content="1.斐波那契数列题目描述大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。n&amp;lt;=39 1234567891011121314151617181920// stackoverflow// function Fibonacci(n)&amp;#123;//   if(n === 0)&amp;#123;//     return 0;//   &amp;#125;else if(n ===">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-22T15:23:40.912Z">
+<meta property="og:updated_time" content="2018-03-23T06:54:59.368Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="牛客网—剑指offer（2）">
 <meta name="twitter:description" content="1.斐波那契数列题目描述大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。n&amp;lt;=39 1234567891011121314151617181920// stackoverflow// function Fibonacci(n)&amp;#123;//   if(n === 0)&amp;#123;//     return 0;//   &amp;#125;else if(n ===">
@@ -363,8 +363,8 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">NumberOf1</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> count = <span class="number">0</span>;</div><div class="line">  <span class="keyword">while</span>(n) &#123;</div><div class="line">      ++count;</div><div class="line">      n = (n - <span class="number">1</span>) &amp; n;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><strong>思路</strong><br>如果一个整数不为0，那么这个整数至少有一位是1。如果我们把这个整数减1，那么原来处在整数最右边的1就会变为0，原来在1后面的所有的0都会变成1(如果最右边的1后面还有0的话)。其余所有位将不会受到影响。<br>举个例子：一个二进制数1100，从右边数起第三位是处于最右边的一个1。减去1后，第三位变成0，它后面的两位0变成了1，而前面的1保持不变，因此得到的结果是1011.我们发现减1的结果是把最右边的一个1开始的所有位都取反了。这个时候如果我们再把原来的整数和减去1之后的结果做与运算，从原来整数最右边一个1那一位开始所有位都会变成0。如1100&amp;1011=1000.也就是说，把一个整数减去1，再和原整数做与运算，会把该整数最右边一个1变成0.那么一个整数的二进制有多少个1，就可以进行多少次这样的操作。<br><a href="https://www.nowcoder.com/profile/567422/codeBookDetail?submissionId=12691968" target="_blank" rel="external">@菩提旭光</a></p>
 <h2 id="6-数值的整数次方"><a href="#6-数值的整数次方" class="headerlink" title="6.数值的整数次方"></a>6.数值的整数次方</h2><p><strong>题目描述</strong><br>给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 这可不是很好呢</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Power</span>(<span class="params">base, exponent</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.pow(base,exponent);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>思路</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 这可不是很好呢</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Power</span>(<span class="params">base, exponent</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.pow(base,exponent);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 快速幂</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Power</span>(<span class="params">base, exponent</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> r = <span class="number">1</span>;</div><div class="line">  <span class="keyword">var</span> b = <span class="built_in">Math</span>.abs(exponent);</div><div class="line">  <span class="keyword">while</span>(b)&#123;</div><div class="line">    <span class="keyword">if</span>(b &amp; <span class="number">1</span>) r *= base;</div><div class="line">    base *= base;</div><div class="line">    b &gt;&gt;= <span class="number">1</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> exponent &lt; <span class="number">0</span> ? <span class="number">1</span>/r : r;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>思路</strong><br><a href="https://baike.baidu.com/item/%E5%BF%AB%E9%80%9F%E5%B9%82/5500243?share_fr=pc_qzone" target="_blank" rel="external">快速幂_百度百科</a></p>
 
       
     </div>
@@ -405,6 +405,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/23/JavaScript/牛客网—剑指offer（3）/" rel="prev" title="牛客网—剑指offer（3）">
+                牛客网—剑指offer（3） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -472,7 +476,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">51</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
